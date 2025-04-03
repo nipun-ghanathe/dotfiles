@@ -1,0 +1,49 @@
+-- Line number
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- Show which line your cursor is on
+vim.opt.cursorline = true
+
+-- Configuring tabs and indentation
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+-- Keeping the cursor in place
+vim.opt.scrolloff = 8
+
+-- Configuring search
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = false
+
+-- Uncomment this for auto save
+-- vim.opt.autowrite = true
+-- vim.opt.autowriteall = true
+
+-- Enabling color column
+vim.opt.colorcolumn = "80"
+
+-- Enabling mouse
+vim.opt.mouse = 'a'
+
+-- Decreasing update time and mapped sequence wait time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300 -- consider reducing this to 50 or something when you get comfortable
+
+-- Enabling sign column
+vim.opt.signcolumn = 'yes'
+
+-- Making splits more natural
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- Use these to make the background opaque
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
