@@ -1,0 +1,30 @@
+[general]
+import = [
+    # uncomment the flavour you wnat below:
+    # "~/.config/alacritty/catppuccin-latte.toml"
+    # "~/.config/alacritty/catppuccin-frappe.toml"
+    # "~/.config/alacritty/catppuccin-macchiato.toml"
+    "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+opacity = 0.9
+dynamic_title = false
+
+[font]
+normal = { family = "JetBrainsMonoNLNerdFont", style = "Regular" }
+size = 11.25
+
+[terminal]
+# shell = "$SHELL -c tmux" # This is not working correctly
+
+[mouse]
+hide_when_typing = true
+bindings = [
+{ mouse = "Right", mods = "Control", action = "Paste" },
+{ mouse = "Right", mods = "Shift", action = "Copy" },
+{ mouse = "Left", action = "ExpandSelection" },
+]
