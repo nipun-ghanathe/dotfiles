@@ -1,7 +1,7 @@
 # See https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set the mod key; Mod1 is Alt; Mod4 is Win;
-set $mod Mod1
+set $mod Mod4
 
 # Font and font size for window titles, status bar, etc
 font pango:FiraCode-Regular 14
