@@ -30,6 +30,9 @@ vim.opt.hlsearch = false
 -- Enabling color column
 vim.opt.colorcolumn = "80"
 
+-- Disabling word wrap
+vim.opt.wrap = false
+
 -- Enabling mouse
 vim.opt.mouse = 'a'
 

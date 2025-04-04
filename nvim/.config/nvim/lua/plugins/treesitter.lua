@@ -10,6 +10,6 @@ return {
                 },
                 auto_install = true
             }
-        end
-    }
+        end,
+    },
 }
