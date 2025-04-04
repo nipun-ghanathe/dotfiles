@@ -35,7 +35,7 @@ vim.opt.mouse = 'a'
 
 -- Decreasing update time and mapped sequence wait time
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300 -- consider reducing this to 50 or something when you get comfortable
+vim.opt.timeoutlen = 500 -- consider reducing this to 50 or something when you get comfortable
 
 -- Enabling sign column
 vim.opt.signcolumn = 'yes'
