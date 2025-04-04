@@ -122,9 +122,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Manually added
 
-# Using zoxide - a better cd
-eval "$(zoxide init --cmd cd bash)"
-
 # Using eza - a better ls
 alias ls=eza
 
@@ -133,3 +130,7 @@ alias ls=eza
 
 # Using Starship for a better prompt
 eval "$(starship init bash)"
+
+# Using zoxide - a better cd
+eval "$(zoxide init --cmd cd bash)"
+

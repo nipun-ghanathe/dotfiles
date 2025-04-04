@@ -148,6 +148,7 @@ workspace_auto_back_and_forth yes
 # Configuring apps to launch at startup
 exec --no-startup-id i3-msg "workspace $ws1; exec alacritty"
 exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
+exec_always --no-startup-id kanata -c ~/.config/kanata/kanata.cfg
 
 # Configuring application workspaces
 # You can find the class of an application using `xprop | grep WM_CLASS`
