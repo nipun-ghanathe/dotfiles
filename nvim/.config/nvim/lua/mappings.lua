@@ -5,8 +5,8 @@ vim.g.maplocalleader = ' '
 local remap = { remap = true }
 
 -- Escaping insert mode
--- vim.keymap.set('i', 'jk', '<esc>')
--- Instead remap the CapsLock key to Esc 
+-- You can also use CapsLock key as Esc 
+vim.keymap.set('i', 'jk', '<esc>')
 
 -- Managing clipboard
 vim.keymap.set({'n', 'v'}, 'gy', '"+y')
