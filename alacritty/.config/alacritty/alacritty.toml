@@ -4,22 +4,19 @@ import = [
     # "~/.config/alacritty/catppuccin-latte.toml"
     # "~/.config/alacritty/catppuccin-frappe.toml"
     # "~/.config/alacritty/catppuccin-macchiato.toml"
-    "~/.config/alacritty/catppuccin-mocha.toml"
+    "~/.config/alacritty/catppuccin-macchiato.toml"
 ]
 
 [env]
 TERM = "xterm-256color"
 
 [window]
-opacity = 0.9
+# opacity = 0.9
 dynamic_title = false
 
 [font]
 normal = { family = "JetBrainsMonoNLNerdFont", style = "Regular" }
 size = 11.25
-
-[terminal]
-# shell = "$SHELL -c tmux" # This is not working correctly
 
 [mouse]
 hide_when_typing = true

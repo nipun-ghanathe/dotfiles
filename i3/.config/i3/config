@@ -10,7 +10,7 @@ font pango:FiraCode-Regular 14
 exec --no-startup-id picom
 
 # Set wallpaper using feh
-exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/shaded_landscape_catppuccin_wallpaper.png
+exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/mantle_base.png
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -146,8 +146,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 workspace_auto_back_and_forth yes
 
 # Configuring apps to launch at startup
-exec --no-startup-id i3-msg "workspace $ws1; exec alacritty"
 exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
+exec --no-startup-id i3-msg "workspace $ws1; exec alacritty"
+for_window [class="Alacritty"] fullscreen enable
 exec_always --no-startup-id kanata -c ~/.config/kanata/kanata.cfg
 
 # Configuring application workspaces

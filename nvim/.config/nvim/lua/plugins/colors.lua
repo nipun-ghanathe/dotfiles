@@ -12,10 +12,11 @@ return {
         priority = 1000,
         config = function()
             require("catppuccin").setup({
-                flavour = "mocha", -- options are: frappe, latte, macchiato, mocha
+                flavour = "macchiato", -- options are: frappe, latte, macchiato, mocha
             })
             -- Uncomment this to set as default colorscheme
             -- vim.cmd.colorscheme("catppuccin")
+            -- Uncomment this to make background transparent
             -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
             -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end,
@@ -27,9 +28,10 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme("tokyonight-moon") -- options are: day, moon, night, storm
-            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+            vim.cmd.colorscheme("tokyonight-storm") -- options are: day, moon, night, storm
+            -- Uncomment this to make background transparent
+            -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end,
     },
 }
