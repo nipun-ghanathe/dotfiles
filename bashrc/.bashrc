@@ -9,7 +9,7 @@ export BROWSER=xdg-open
 eval "$(starship init bash)"
 
 # fzf integration
-# eval "$(fzf --bash)"
+eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS="--preview='batcat --color=always {}'"
 
 # zoxide
