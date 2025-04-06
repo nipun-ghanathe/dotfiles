@@ -1,6 +1,8 @@
--- Notes for the future
--- Modularize this
--- And also add linters and formatters into your setup
+-- Notes for the future:
+-- Modularize this;
+-- And also add linters and formatters into your setup;
+-- You might want to refer to this: https://lsp-zero.netlify.app/docs/guide/lazy-loading-with-lazy-nvim.html
+-- Also refer to coc and ale
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
@@ -13,9 +15,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-    vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set({'n', 'x'}, '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end,
 })
 
@@ -29,8 +31,8 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-    'lua_ls', 'pyright', 'eslint',
-    'clangd', 'html', 'cssls',
+    'lua_ls', 'basedpyright', 'pyright',
+    'eslint', 'clangd', 'html', 'cssls',
   },
   handlers = {
     function(server_name)
@@ -38,6 +40,7 @@ require('mason-lspconfig').setup({
     end,
   },
 })
+
 
 local cmp = require('cmp')
 
@@ -59,6 +62,10 @@ cmp.setup({
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
+  },
+  preselect = 'item',
+  completion = {
+      completeopt = 'menu,menuone,noinsert'
   },
   mapping = cmp.mapping.preset.insert({
     ['<c-y>'] = cmp.mapping.confirm({select = true}), -- confirm completion item
