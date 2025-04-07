@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # Font and font size for window titles, status bar, etc
-font pango:FiraCode-Regular 14
+font pango:FiraCode-Regular 12
 
 # Launch a compositor - like Picom; for better transitions, transparency, shadows, appearance, etc
 exec --no-startup-id picom
@@ -149,7 +149,7 @@ workspace_auto_back_and_forth yes
 exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
 exec --no-startup-id i3-msg "workspace $ws1; exec alacritty"
 for_window [class="Alacritty"] fullscreen enable
-exec_always --no-startup-id kanata -c ~/.config/kanata/kanata.cfg
+exec_always --no-startup-id ~/.cargo/bin/kanata -c ~/.config/kanata/kanata.cfg
 
 # Configuring application workspaces
 # You can find the class of an application using `xprop | grep WM_CLASS`

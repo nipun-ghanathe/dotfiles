@@ -16,7 +16,7 @@ dynamic_title = false
 
 [font]
 normal = { family = "JetBrainsMonoNLNerdFont", style = "Regular" }
-size = 11.25
+size = 11
 
 [mouse]
 hide_when_typing = true
