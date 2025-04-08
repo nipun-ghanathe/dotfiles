@@ -31,7 +31,7 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'lua_ls', 'basedpyright', 'pyright',
+        'lua_ls', 'basedpyright', -- 'pyright',
         'eslint', 'clangd', 'html', 'cssls',
     },
     handlers = {
