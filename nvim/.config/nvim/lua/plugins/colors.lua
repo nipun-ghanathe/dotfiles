@@ -28,10 +28,24 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme("tokyonight-storm") -- options are: day, moon, night, storm
+            -- vim.cmd.colorscheme("tokyonight-storm") -- options are: day, moon, night, storm
             -- Uncomment this to make background transparent
             -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
             -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        end,
+    },
+
+    {
+        "Mofiqul/dracula.nvim",
+        config = function()
+            vim.cmd.colorscheme("dracula")
+            -- Uncomment this to make background transparent
+            -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+            require('dracula').setup({
+                transparent_bg = true,
+                italic_comment = true,
+            })
         end,
     },
 }

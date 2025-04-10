@@ -1,17 +1,19 @@
 [general]
 import = [
-    # uncomment the flavour you wnat below:
-    # "~/.config/alacritty/catppuccin-latte.toml"
-    # "~/.config/alacritty/catppuccin-frappe.toml"
-    # "~/.config/alacritty/catppuccin-macchiato.toml"
-    "~/.config/alacritty/catppuccin-macchiato.toml"
+    # Catppuccin color scheme
+    # uncomment the flavour you want below:
+    # "catppuccin-latte.toml"
+    # "catppuccin-frappe.toml"
+    # "catppuccin-macchiato.toml"
+    # "catppuccin-mocha.toml"
+    "dracula.toml"
 ]
 
 [env]
 TERM = "xterm-256color"
 
 [window]
-# opacity = 0.9
+# opacity = 0.95
 dynamic_title = false
 
 [font]
