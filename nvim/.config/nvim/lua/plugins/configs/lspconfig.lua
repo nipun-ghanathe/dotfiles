@@ -28,6 +28,14 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
     require('cmp_nvim_lsp').default_capabilities()
 )
 
+local handlers = vim.lsp.handlers
+handlers["textDocument/hover"] = vim.lsp.with(handlers.hover, {
+    border = "rounded",
+})
+handlers["textDocument/signatureHelp"] = vim.lsp.with(handlers.signature_help, {
+    border = "rounded",
+})
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {

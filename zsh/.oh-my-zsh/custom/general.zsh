@@ -22,3 +22,11 @@ alias cat="batcat"
 
 # Adding paths
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# Making tmux launch at shell startup
+if [-z "$TMUX"]; then
+  tmux attach-session -t main || tmux new-session -s main
+fi

@@ -26,6 +26,8 @@ vim.opt.hlsearch = false
 -- Uncomment this for auto save
 -- vim.opt.autowrite = true
 -- vim.opt.autowriteall = true
+-- Enabling autoread changes
+vim.opt.autoread = true
 
 -- Enabling color column
 vim.opt.colorcolumn = "80"
