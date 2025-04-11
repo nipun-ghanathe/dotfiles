@@ -25,9 +25,10 @@ alias grep="grep --color=auto"
 alias cat="batcat"
 
 # Making tmux launch at startup
-if [-z "$TMUX"]; then
-    tmux attach-session -t main || tmux new-session -s main
-fi
+[ -z "$TMUX" ] && exec tmux new-session -A -s main
+
+# Fastfetch at startup
+fastfetch
 
 # Configuring History
 export HISTCONTROL=ignoredups:erasedups

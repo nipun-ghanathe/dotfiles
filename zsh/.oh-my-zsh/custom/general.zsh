@@ -27,6 +27,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 eval "$(starship init zsh)"
 
 # Making tmux launch at shell startup
-if [-z "$TMUX"]; then
-  tmux attach-session -t main || tmux new-session -s main
-fi
+[ -z "$TMUX" ] && exec tmux new-session -A -s main
+
+# Fastfetch at startup
+fastfetch
