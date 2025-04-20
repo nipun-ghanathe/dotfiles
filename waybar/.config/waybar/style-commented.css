@@ -1,0 +1,130 @@
+/* Universal styles applied to all elements */
+* {
+  font-family: "FiraCode Nerd Font", monospace; /* Set the font to FiraCode Nerd Font for a clean, monospaced look */
+  font-size: 14px; /* Set font size to 14px */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+  min-height: 0; /* Remove minimum height */
+  border: none; /* Remove any borders */
+  background: transparent; /* Set background to transparent */
+  color: #f8f8f2; /* Set text color to Dracula theme's foreground color (light gray) */
+}
+
+/* Styling the Waybar window */
+window#waybar {
+  background-color: #282a36; /* Dark background color for the Waybar */
+  border-bottom: 2px solid #44475a; /* Add a bottom border to Waybar */
+}
+
+/* Workspaces section styling */
+#workspaces {
+  margin: 0 4px; /* Add horizontal margin to workspaces container */
+}
+
+/* Workspace buttons styling */
+#workspaces button {
+  padding: 2px 8px; /* Add padding to buttons */
+  margin: 0 2px; /* Add horizontal margin between buttons */
+  color: #f8f8f2; /* Text color for buttons */
+  background: transparent; /* Transparent background for buttons */
+  border: none; /* Remove borders from buttons */
+  border-bottom: 2px solid transparent; /* Add a transparent bottom border for hover effect */
+  transition: border-color 0.2s, color 0.2s; /* Smooth transition for border color and text color on hover/focus */
+}
+
+/* Focused workspace button styling */
+#workspaces button.focused {
+  border-bottom: 2px solid #bd93f9; /* Purple underline for focused workspace */
+  color: #bd93f9; /* Purple text for focused workspace */
+  font-weight: bold; /* Make focused workspace text bold */
+}
+
+/* Hover effect for workspace buttons */
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Slightly darken background on hover */
+}
+
+/* Module containers with underlines (different colors for each module) */
+#mode {
+  color: #ffb86c; /* Yellow color for mode (e.g., current mode like "Normal") */
+  border-bottom: 2px solid #ffb86c; /* Underline in yellow for mode */
+}
+
+#cpu {
+  color: #ff5555; /* Red color for CPU usage */
+  border-bottom: 2px solid #ff5555; /* Red underline for CPU */
+}
+
+#memory {
+  color: #bd93f9; /* Purple color for memory usage */
+  border-bottom: 2px solid #bd93f9; /* Purple underline for memory */
+}
+
+#disk {
+  color: #50fa7b; /* Green color for disk usage */
+  border-bottom: 2px solid #50fa7b; /* Green underline for disk */
+}
+
+/* Specific disk path (home directory) styling */
+#disk#pathhome {
+  color: #50fa7b; /* Green color for home directory disk usage */
+  border-bottom: 2px solid #50fa7b; /* Green underline for home directory disk */
+}
+
+#network {
+  color: #8be9fd; /* Cyan color for network usage */
+  border-bottom: 2px solid #8be9fd; /* Cyan underline for network */
+}
+
+#backlight {
+  color: #f1fa8c; /* Light yellow color for backlight */
+  border-bottom: 2px solid #f1fa8c; /* Light yellow underline for backlight */
+}
+
+#battery {
+  color: #ff79c6; /* Pink color for battery status */
+  border-bottom: 2px solid #ff79c6; /* Pink underline for battery */
+}
+
+#clock {
+  color: #f8f8f2; /* White color for clock */
+  border-bottom: 2px solid #f8f8f2; /* White underline for clock */
+  font-weight: bold; /* Make clock text bold */
+}
+
+#wireplumber {
+  color: #ff79c6; /* Pink color for WirePlumber (audio management) */
+  border-bottom: 2px solid #ff79c6; /* Pink underline for WirePlumber */
+}
+
+/* Optional: highlight low battery levels */
+#battery.warning {
+  color: #f1fa8c; /* Change color to light yellow when battery is in warning state */
+}
+
+#battery.critical {
+  color: #ff5555; /* Change color to red when battery is in critical state */
+}
+
+/* Hover effects for all modules */
+#mode:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#disk#pathhome:hover,
+#network:hover,
+#backlight:hover,
+#battery:hover,
+#clock:hover,
+#wireplumber:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Darken the background on hover */
+  border-radius: 4px; /* Add rounded corners on hover */
+}
+
+/* Spacing between modules */
+.modules-left > widget,
+.modules-center > widget,
+.modules-right > widget {
+  margin: 0 6px; /* Add horizontal margin between widgets in left, center, and right modules */
+}
+

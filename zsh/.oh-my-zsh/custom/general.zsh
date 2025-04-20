@@ -29,5 +29,5 @@ eval "$(starship init zsh)"
 # Making tmux launch at shell startup
 [ -z "$TMUX" ] && exec tmux new-session -A -s main
 
-# Fastfetch at startup
-fastfetch
+# # Fastfetch at startup
+# fastfetch

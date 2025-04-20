@@ -1,0 +1,50 @@
+# general appearance
+daemonize
+ignore-empty-password
+show-failed-attempts
+indicator-caps-lock
+indicator-radius=70
+
+
+# colors
+
+## general colors 
+color=282a36
+ring-color=44475a
+inside-color=282a40
+# line-color=282a40
+line-color=44475a
+text-color=f8f8f2
+text-caps-lock-color=""
+
+## some other general colors
+key-hl-color=bd93f9
+bs-hl-color=8be9fd
+separator-color=00000000
+
+## verifying colors
+line-ver-color=bd93f9
+ring-ver-color=bd93f9
+inside-ver-color=282a40
+text-ver-color=8be9fd
+
+## wrong colors
+line-wrong-color=ff5555
+ring-wrong-color=ff5555
+inside-wrong-color=282a40
+text-wrong-color=ff79c6
+
+## clear colors
+line-clear-color=8be9fd
+ring-clear-color=8be9fd
+inside-clear-color=282a40
+text-clear-color=8be9fd
+
+## caps-lock colors
+line-caps-lock-color=ffb86c
+ring-caps-lock-color=ffb86c
+inside-caps-lock-color=282a40
+text-caps-lock-color=ffb86c
+
+# font
+font="FiraCode-Regular"

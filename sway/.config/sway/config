@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu wmenu-run -i -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " "
 
 include /etc/sway/config-vars.d/*
 
@@ -154,8 +154,6 @@ exec swayidle -w \
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    # Enabling automatic switching to the previously focused workspace
-    workspace_auto_back_and_forth yes
 #
 # Layout stuff:
 #
@@ -224,10 +222,10 @@ bindsym $mod+r mode "resize"
 #
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3lock, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id i3lock && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
+    bindsym l exec --no-startup-id swaylock, mode "default"
+    bindsym e exec --no-startup-id swaymsg exit, mode "default"
+    bindsym s exec --no-startup-id swaylock && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id swaylock && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -259,23 +257,23 @@ bindsym $mod+BackSpace mode "$mode_system"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    mode invisible
-    # position top
-    #
-    # # When the status_command prints a new line to stdout, swaybar updates.
-    # # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-    #
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
-}
+### Uncomment the below for swaybar
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
 # Launch waybar
-exec_always pkill waybar; waybar
+exec waybar
 
 include /etc/sway/config.d/*
 
@@ -286,20 +284,37 @@ include /etc/sway/config.d/*
     default_border pixel 2
     default_floating_border normal 2
 #
+# Colors
+# 
+                               #border  #background  #text    #indicator  #child-border
+    client.focused             #44475a  #44475a      #f8f8f2  #bd93f9     #44475a
+    client.unfocused           #282a36  #282a36      #6272a4  #44475a     #282a36
+    client.urgent              #ff5555  #ff5555      #f8f8f2  #ffb86c     #ff5555
+    client.focused_inactive    #282a36  #282a36      #6272a4  #44475a     #282a36
+    client.placeholder         #282a36  #282a36      #6272a4  #44475a     #282a36
+#
 # Configuring gaps between windows
 #
     gaps inner 5
     gaps outer 5
 #
+# Wallpaper
+#
+    exec_always swaybg --color "#6272a4"
+    # exec_always swaybg --color "#000000"
+    # exec_always swaybg --image ~/.config/wallpapers/os/debian.png --mode fill
+#
 # Apps : Startup and Launch behaviour
 #
     # Startup
     exec swaymsg "workspace 2; exec firefox"
-    exec swaymsg "workspace 1; exec $term --title StartupTerm"
-    for_window [title="StartupTerm"] fullscreen enable
+    exec swaymsg "workspace 1; exec $term"
+    # exec swaymsg "workspace 1; exec $term --title StartupTerm"
+    # for_window [title="StartupTerm"] fullscreen enable
     exec_always ~/.cargo/bin/kanata -c ~/.config/kanata/kanata.cfg
     # Launch behaviour
     # Find app_id of an app using `swaymsg -t get_tree`
     # assign [app_id="Alacritty"] 1
     assign [app_id="firefox-esr"] 2
-    assign [app_id="org.gnome.Nautilus"] 3
+    assign [app_id="org.gnome.Nautilus"] 10
+    assign [app_id="Thunar"] 10

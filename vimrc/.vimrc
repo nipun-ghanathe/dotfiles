@@ -65,7 +65,7 @@ set number
 set relativenumber
 "
 " Show which line your cursor is on
-set cursorline
+" set cursorline
 "
 " Configuring tabs and indentation
 set expandtab
@@ -105,13 +105,7 @@ set signcolumn=yes
 " Making splits more natural
 set splitbelow
 set splitright
-"
-" Use these to make the background transparent
-" highlight Normal guibg=none
-" highlight Normal ctermbg=none
-" highlight NonText guibg=none
-" highlight NonText ctermbg=none
-
+" 
 " Precautionary settings
 "
 set termguicolors

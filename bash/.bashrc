@@ -27,8 +27,8 @@ alias cat="batcat"
 # Making tmux launch at startup
 [ -z "$TMUX" ] && exec tmux new-session -A -s main
 
-# Fastfetch at startup
-fastfetch
+# # Fastfetch at startup
+# fastfetch
 
 # Configuring History
 export HISTCONTROL=ignoredups:erasedups
