@@ -1,3 +1,6 @@
+# vim
+alias nv="nvim"
+
 # python
 alias python="python3"
 alias ipython="ipython3"
