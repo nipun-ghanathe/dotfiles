@@ -233,7 +233,11 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+BackSpace mode "$mode_system"
+bindsym $mod+Alt+BackSpace mode "$mode_system"
+#
+# Alternate Shutdown / restart / suspend ...
+# 
+bindsym $mod+BackSpace exec ~/.config/sway/system_wmenu.sh
 #
 # Utilities:
 #
@@ -318,3 +322,7 @@ include /etc/sway/config.d/*
     assign [app_id="firefox-esr"] 2
     assign [app_id="org.gnome.Nautilus"] 10
     assign [app_id="Thunar"] 10
+#
+# Custom wmenu
+#
+    bindsym $mod+p exec ~/.config/sway/custom_wmenu.sh
