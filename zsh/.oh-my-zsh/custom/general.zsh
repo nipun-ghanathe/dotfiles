@@ -1,8 +1,8 @@
 # Setting default editors, pages, etc
 # Vim is already set as the default editor in .zshrc
 export PAGER=batcat
-export BAT_PAGER="less -FR"
-export MANPAGER="less -FR"
+export BAT_PAGER="less -FRX"
+export MANPAGER="less -FRX"
 export BROWSER=xdg-open
 
 # fzf integration

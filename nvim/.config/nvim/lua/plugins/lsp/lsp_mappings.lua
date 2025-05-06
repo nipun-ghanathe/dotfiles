@@ -9,4 +9,4 @@ vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help) -- [g]et [s]ignature help
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename) -- [r]e[n]ame
 vim.keymap.set({ 'n', 'x' }, '<leader>lf', function() vim.lsp.buf.format({ async = true }) end) -- [l]sp [f]ormat (format file using lsp)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action) -- open [c]ode [a]ctions menu
-vim.keymap.set('n', '<leader>ld', function() require('telescope.builtin').diagnostics({ bufnr = 0, previewer = false, initial_mode = "normal" }) end) -- [l]ist [d]iagnostics
+-- vim.keymap.set('n', '<leader>sd', function() require('telescope.builtin').diagnostics({ bufnr = 0, previewer = false, initial_mode = "normal" }) end) -- [s]earch [d]iagnostics -- (this shortcut is set in telescope.lua)

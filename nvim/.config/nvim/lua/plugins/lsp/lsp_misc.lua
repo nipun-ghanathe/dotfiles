@@ -1,3 +1,4 @@
+-- Better hover and signature help windows
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })

@@ -12,6 +12,7 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
     },
+
     config = function()
         require("plugins.lsp.lsp_mappings")
         require("plugins.lsp.lsp_servers")
