@@ -8,14 +8,14 @@ return {
   config = function()
     -- set linters by file type
     require('lint').linters_by_ft = {
-      python = { 'ruff' },
+      -- python = { 'ruff' }, -- I think that the lsp's linting is better compatible with neovim
       javascript = { 'eslint_d' },
     }
 
-    vim.api.nvim_create_autocmd({ "InsertLeave", "BufReadPost" }, {
+    vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePost" }, {
       callback = function()
-        vim.diagnostic.enable(true, { bufnr = 0 })
         require("lint").try_lint()
+        vim.diagnostic.enable(true, { bufnr = 0 })
       end,
     })
 

@@ -9,6 +9,9 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
   },
+
+  event = "InsertEnter",
+
   config = function()
     local cmp = require('cmp')
 
@@ -21,7 +24,7 @@ return {
           require('luasnip').lsp_expand(args.body)
         end,
       },
-      sources    = cmp.config.sources({           -- check whether you need to use `sources = cmp.config.sources({ {name = ...})`
+      sources    = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },

@@ -20,7 +20,7 @@ return {
       notify_no_formatters = true,
     })
 
-    vim.keymap.set('n', '<leader>f', function() require('conform').format() end)
+    vim.keymap.set('n', '<leader>f', function() require('conform').format({ lsp_fallback = true }) end)
 
     require("mason-conform").setup({
       ensure_installed = {
