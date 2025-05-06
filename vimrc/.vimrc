@@ -105,6 +105,9 @@ set signcolumn=yes
 " Making splits more natural
 set splitbelow
 set splitright
+"
+" Setting colorscheme
+colorscheme habamax
 " 
 " Precautionary settings
 "

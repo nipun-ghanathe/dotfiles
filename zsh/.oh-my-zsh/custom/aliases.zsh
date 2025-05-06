@@ -3,5 +3,6 @@ alias python="python3"
 alias ipython="ipython3"
 
 # shell
-alias cp="cp -i"
-alias mv="mv -i"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -v"

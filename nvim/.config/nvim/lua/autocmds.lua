@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd({"ModeChanged"}, {
         vim.opt.listchars:append("space:·")
     end
 })
-
 vim.api.nvim_create_autocmd({"ModeChanged"}, {
     pattern = {"[vV\x16]:*"},  -- Exiting visual mode (Visual to Normal)
     callback = function()
