@@ -51,3 +51,6 @@ vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
 
 -- Opening terminal in Neovim
 vim.keymap.set('n', '<leader>t', '<cmd>term<cr>')
+
+-- Launching netrw
+vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')

@@ -66,3 +66,14 @@ vim.opt.termguicolors = true
 -- Use these to make the background transparent
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+-- Configuring netrw
+vim.g.netrw_banner = 0
+-- Disable gitsigns in netrw buffer
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "netrw" },
+    callback = function()
+      -- require('gitsigns').detach()
+      -- vim.opt_local.signcolumn = "no"
+    end,
+})
