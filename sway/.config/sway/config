@@ -326,3 +326,7 @@ include /etc/sway/config.d/*
 # Custom wmenu
 #
     bindsym $mod+p exec ~/.config/sway/custom_wmenu.sh
+#
+# Notification Daemon
+#
+    exec_always mako
