@@ -15,9 +15,6 @@ eval "$(zoxide init --cmd cd zsh)"
 # eza
 alias ls="eza --group-directories-first --icons"
 
-# grep
-alias grep="grep --color=auto"
-
 # batcat
 alias cat="batcat"
 

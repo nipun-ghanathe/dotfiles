@@ -313,6 +313,7 @@ include /etc/sway/config.d/*
     # Startup
     exec swaymsg "workspace 2; exec firefox"
     exec swaymsg "workspace 1; exec $term"
+    exec swaymsg "workspace 8; exec ~/.local/bin/logseq"
     # exec swaymsg "workspace 1; exec $term --title StartupTerm"
     # for_window [title="StartupTerm"] fullscreen enable
     exec_always ~/.cargo/bin/kanata -c ~/.config/kanata/kanata.cfg
