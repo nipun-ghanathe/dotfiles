@@ -80,9 +80,3 @@ This will install required packages, symlink configuration files using `stow`, a
 * The setup scripts are tailored to specific distributions (e.g. Debian). Make sure you use the correct one.
 * Some actions (e.g. adding kernel modules, configuring `uinput`) may require a reboot to take full effect.
 * Your original configs (e.g. `.bashrc`) may be replaced by symlinks to the repo versions — back up if needed.
-
----
-
-## 📜 License
-
-This repository is for personal use. Feel free to fork or adapt it to your own workflow.
