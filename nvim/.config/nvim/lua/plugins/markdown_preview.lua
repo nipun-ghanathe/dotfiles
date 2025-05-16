@@ -9,6 +9,13 @@ return {
     ft = { "markdown" },
     config = function()
       vim.keymap.set('n', '<leader>pt', '<cmd>MarkdownPreviewToggle<cr>') -- markdown [p]review [t]oggle
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = "markdown",
+        callback = function()
+          vim.cmd("MarkdownPreview")
+        end,
+      })
     end,
   },
 }
