@@ -8,17 +8,17 @@ vim.opt.cursorline = true
 -- Configuring tabs and indentation
 vim.opt.expandtab = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Changing tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "lua", "html", "css", "javascript" },
+    pattern = { "python", "java", "rust", "c", "cpp", "json" },
     callback = function()
-        vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
-        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 4
+        vim.opt_local.softtabstop = 4
+        vim.opt_local.shiftwidth = 4
     end,
 })
 
