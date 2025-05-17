@@ -111,6 +111,13 @@ EOF
 sudo udevadm control --reload-rules && sudo udevadm trigger
 sudo modprobe uinput
 
+# Installing fonts-indic to render Indian languages
+echo
+echo "--- Installing fonts-indic to render Indian languages ---"
+echo
+
+sudo apt install fonts-indic
+
 echo
 echo "Setup complete!"
 echo "You might want to reboot the system"

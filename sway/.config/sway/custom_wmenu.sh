@@ -5,7 +5,6 @@ term=alacritty
 
 # List of options
 options=$(cat <<EOF
-logseq
 ranger
 clock-rs
 stopwatch
@@ -22,7 +21,6 @@ choice=$(echo "$options" | wmenu -i -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#
 
 # Act based on the selected command
 case "$choice" in
-    logseq) exec ~/.local/bin/logseq;;
     ranger) exec ~/.local/bin/ranger-launch;;
     clock-rs) exec $term -e ~/.cargo/bin/clock-rs;;
     stopwatch) exec $term -e ~/.cargo/bin/clock-rs stopwatch;;
