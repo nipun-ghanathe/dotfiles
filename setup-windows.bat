@@ -47,6 +47,10 @@ New-Item -Path C:\Users\nipun\.vim -ItemType SymbolicLink -Target C:\Users\nipun
 echo "Configuring Alacritty..."
 New-Item -Path ~/AppData/Roaming/alacritty -ItemType SymbolicLink -Target D:\dotfiles\alacritty\.config\alacritty
 
+echo "Configuring Git"
+New-Item -Path ~/.gitconfig -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.gitconfig
+New-Item -Path ~/.git-credentials -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.git-credentials
+
 echo "Configuring Keyboard using AHK..."
 New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\keyboard-config.ahk" -ItemType SymbolicLink -Target D:\dotfiles\windows-dotfiles\keyboard-config.ahk
 
