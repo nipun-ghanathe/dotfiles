@@ -27,7 +27,7 @@ echo
 
 sudo apt update && sudo apt install -y \
   git cargo curl stow \
-  kitty zsh neovim vim \
+  kitty zsh neovim vim tmux \
   eza zoxide fzf bat wl-clipboard \
   starship fastfetch \
   sway waybar \

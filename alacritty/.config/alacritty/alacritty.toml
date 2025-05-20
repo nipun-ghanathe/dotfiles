@@ -6,11 +6,13 @@ TERM = "xterm-256color"
 
 [window]
 # opacity = 0.95
-dynamic_title = false
+startup_mode = "Maximized"
+# dimensions = { columns = 120, lines = 40 }
+# position = { x = 250, y = 45 }
 
 [font]
-normal = { family = "JetBrainsMonoNLNerdFont", style = "Regular" }
-size = 13
+normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
+size = 11
 
 [mouse]
 hide_when_typing = true
@@ -19,3 +21,6 @@ bindings = [
 { mouse = "Right", mods = "Shift", action = "Copy" },
 { mouse = "Left", action = "ExpandSelection" },
 ]
+
+[terminal]
+shell = "bash"

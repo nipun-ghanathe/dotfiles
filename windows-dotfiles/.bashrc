@@ -1,10 +1,10 @@
-alias nv="nvim"
+alias vi="~/scoop/shims/vim.exe"
+alias vim="~/scoop/shims/vim.exe"
 
-alias py="python3"
-alias python="python3"
-alias ipy="ipython3"
-alias ipython="ipython3"
+alias py="python"
+alias ipy="ipython"
 
+alias ls="ls --color=auto"
 alias l="ls -lah"
 alias la="ls -a"
 alias ll="ls -lh"

@@ -1,0 +1,72 @@
+echo 'For this script to work, you need to have git installed and should have cloned dotfiles repository into D:\'
+echo 'Also you need to run shell as administrator'
+
+# Install Scoop
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+# Install Chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+# Install Applications using Scoop
+scoop bucket add main
+scoop bucket add extras
+scoop install git
+scoop install python
+scoop install nodejs
+scoop install gcc
+scoop install vim
+scoop install rust
+scoop install autohotkey
+
+# Install Applications using Chocolatey
+choco install alacritty
+choco install firefox
+choco install vscode
+choco install obsidian
+choco install vlc
+choco install sumatrapdf
+choco install listary
+
+choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --passive --norestart"
+
+# Install Applications using Cargo
+echo "Nothing to install using cargo right now."
+
+# Install Applications using Pip
+pip install ipython
+
+# Configuring applications
+echo "Configuring Vim..."
+New-Item -Path C:\Users\nipun\_vimrc -ItemType SymbolicLink -Target D:\dotfiles\vimrc\.vimrc
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni $HOME/vimfiles/autoload/plug.vim -Force
+echo "Configuring Vim for Git Bash..."
+New-Item -Path C:\Users\nipun\.vim -ItemType SymbolicLink -Target C:\Users\nipun\vimfiles
+
+echo "Configuring Alacritty..."
+New-Item -Path ~/AppData/Roaming/alacritty -ItemType SymbolicLink -Target D:\dotfiles\alacritty\.config\alacritty
+
+echo "Configuring Keyboard using AHK..."
+New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\keyboard-config.ahk" -ItemType SymbolicLink -Target D:\dotfiles\windows-dotfiles\keyboard-config.ahk
+
+echo "Configuring Git Bash..."
+New-Item -Path C:\Users\nipun\.bashrc -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.bashrc
+New-Item -Path C:\Users\nipun\.bash_profile -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.bash_profile
+
+echo "Configuring Nerd Fonts..."
+# Install Fonts from my dotfiles repo
+
+# Other apps you might want to install
+Write-Output @"
+Here are some things that you need to do manually:
+Install few fonts from the fonts directory of our dotfiles repo
+
+Here are some other apps you might want to install:
+Adobe Photoshop
+Adobe Illustrator
+Adobe Premiere Pro
+Adobe After Effects
+Adobe InDesign
+Microsoft Office
+"@
