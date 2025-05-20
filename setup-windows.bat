@@ -64,13 +64,14 @@ echo "Configuring Nerd Fonts..."
 # Other apps you might want to install
 Write-Output @"
 Here are some things that you need to do manually:
-Install few fonts from the fonts directory of our dotfiles repo
+- Install few fonts from the fonts directory of our dotfiles repo
+- Go to `shell:startup` using 'Run' and then remove the AHK Script symlink, create a shortcut instead, and go to properties and make it to run as admin.
 
 Here are some other apps you might want to install:
-Adobe Photoshop
-Adobe Illustrator
-Adobe Premiere Pro
-Adobe After Effects
-Adobe InDesign
-Microsoft Office
+- Adobe Photoshop
+- Adobe Illustrator
+- Adobe Premiere Pro
+- Adobe After Effects
+- Adobe InDesign
+- Microsoft Office
 "@
