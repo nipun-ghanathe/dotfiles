@@ -20,13 +20,13 @@ scoop install rust
 scoop install autohotkey
 
 # Install Applications using Chocolatey
-choco install alacritty
 choco install firefox
 choco install vscode
 choco install obsidian
 choco install vlc
 choco install sumatrapdf
 choco install listary
+choco install 7zip
 
 choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --passive --norestart"
 
@@ -44,9 +44,6 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 echo "Configuring Vim for Git Bash..."
 New-Item -Path C:\Users\nipun\.vim -ItemType SymbolicLink -Target C:\Users\nipun\vimfiles
 
-echo "Configuring Alacritty..."
-New-Item -Path ~/AppData/Roaming/alacritty -ItemType SymbolicLink -Target D:\dotfiles\alacritty\.config\alacritty
-
 echo "Configuring Git"
 New-Item -Path ~/.gitconfig -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.gitconfig
 New-Item -Path ~/.git-credentials -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.git-credentials
@@ -54,18 +51,10 @@ New-Item -Path ~/.git-credentials -Type SymbolicLink -Target D:\dotfiles\windows
 echo "Configuring Keyboard using AHK..."
 New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\keyboard-config.ahk" -ItemType SymbolicLink -Target D:\dotfiles\windows-dotfiles\keyboard-config.ahk
 
-echo "Configuring Git Bash..."
-New-Item -Path C:\Users\nipun\.bashrc -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.bashrc
-New-Item -Path C:\Users\nipun\.bash_profile -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.bash_profile
-
-echo "Configuring Nerd Fonts..."
-# Install Fonts from my dotfiles repo
-
 # Other apps you might want to install
 Write-Output @"
 Here are some things that you need to do manually:
 - Install few fonts from the fonts directory of our dotfiles repo
-- Go to `shell:startup` using 'Run' and then remove the AHK Script symlink, create a shortcut instead, and go to properties and make it to run as admin.
 
 Here are some other apps you might want to install:
 - Adobe Photoshop

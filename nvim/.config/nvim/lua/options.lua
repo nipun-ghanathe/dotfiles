@@ -5,6 +5,9 @@ vim.opt.relativenumber = true
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
+-- Changing the cursor to block type even in insert mode
+vim.opt.guicursor = ""
+
 -- Configuring tabs and indentation
 vim.opt.expandtab = true
 

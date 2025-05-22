@@ -6,6 +6,9 @@ return {
       { "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>",        "n" },
       { "<c-e>",     "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "n" },
 
+      { "<c-h>",     "<cmd>lua require('harpoon.ui').nav_next()<cr>", "n" },
+      { "<c-l>",     "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "n" },
+
       { "<c-1>",     "<cmd>lua require('harpoon.ui').nav_file(1)<cr>",         "n" },
       { "<c-2>",     "<cmd>lua require('harpoon.ui').nav_file(2)<cr>",         "n" },
       { "<c-3>",     "<cmd>lua require('harpoon.ui').nav_file(3)<cr>",         "n" },

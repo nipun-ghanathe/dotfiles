@@ -4,7 +4,7 @@ alias vim="~/scoop/shims/vim.exe"
 alias py="python"
 alias ipy="ipython"
 
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --group-directories-first"
 alias l="ls -lah"
 alias la="ls -a"
 alias ll="ls -lh"

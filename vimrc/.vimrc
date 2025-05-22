@@ -118,12 +118,3 @@ filetype plugin on
 syntax on
 set backspace=indent,eol,start
 set laststatus=2
-
-" Managing plugins using vim-plug
-call plug#begin()
-" List your plugins here
-Plug 'dracula/vim'
-call plug#end()
-"
-" Setting colorscheme
-colorscheme dracula
