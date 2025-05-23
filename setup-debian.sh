@@ -33,6 +33,7 @@ sudo apt update && sudo apt install -y \
   sway waybar \
   libnotify-bin mako-notifier brightnessctl \
   thunar ranger \
+  gcc \
   python3 python3-pip python3-venv ipython3
 
 # Installing apps via cargo
@@ -45,12 +46,14 @@ cargo install clock-rs
 
 # Installing node.js
 echo
-echo "--- Installing Node.js via NVM ---"
+echo "--- Installing Node.js via nvm with npm and yarn ---"
 echo
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
 nvm install 22
+corepack enable yarn
+yarn -v -y
 
 # Cloning our dotfiles repo and stowing our dotfiles
 echo
