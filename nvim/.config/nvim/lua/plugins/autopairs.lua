@@ -1,23 +1,8 @@
 return {
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = true,
-    opts = {
-      map_c_h = true,
-      map_c_w = true,
-    },
-  },
-
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-ts-autotag").setup({
-        opts = {
-          enable_close_on_slash = true,
-        },
-      })
-    end,
-  },
+  "windwp/nvim-autopairs",
+  dependencies = "windwp/nvim-ts-autotag",
+  config = function()
+    require("nvim-autopairs").setup()
+    require("nvim-ts-autotag").setup()
+  end,
 }

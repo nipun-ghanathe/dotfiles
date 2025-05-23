@@ -5,8 +5,8 @@ vim.opt.relativenumber = true
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
--- Changing the cursor to block type even in insert mode
-vim.opt.guicursor = ""
+-- Block-cursor even in insert mode
+-- vim.opt.guicursor = ""
 
 -- Configuring tabs and indentation
 vim.opt.expandtab = true
@@ -54,7 +54,7 @@ vim.opt.mouse = 'a'
 
 -- Decreasing update time and mapped sequence wait time
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 500 -- consider reducing this to 50 or something when you get comfortable
+vim.opt.timeoutlen = 500
 
 -- Enabling sign column
 vim.opt.signcolumn = 'yes'
@@ -72,11 +72,32 @@ vim.opt.termguicolors = true
 
 -- Configuring netrw
 vim.g.netrw_banner = 0
--- Disable gitsigns in netrw buffer
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "netrw" },
-    callback = function()
-      -- require('gitsigns').detach()
-      -- vim.opt_local.signcolumn = "no"
-    end,
+
+-- Configuring folds
+vim.opt.fillchars = {
+  foldopen = "▾",
+  foldclose = "▸",
+  fold = " ",
+  foldsep = " ",
+}
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "indent"
+-- run `:set foldcolumn=1` to see the fold column
+-- use `za` to toggle fold under cursor
+-- use `zM` to open all folds
+-- use `zR` to close all folds
+
+-- Better diagnostic symbols
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '󰌵',
+    },
+  }
 })
+
+-- Rounded border for floating windows (especially for lsp ones)
+-- vim.opt.winborder = 'rounded' -- done for only lsp ones in `lsp.lua`
