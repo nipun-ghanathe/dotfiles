@@ -18,15 +18,12 @@ alias ls="eza --group-directories-first --icons"
 # batcat
 alias cat="batcat"
 
-# Adding paths
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # Starship prompt
 eval "$(starship init zsh)"
 
 # Making tmux launch at shell startup
 # if [ -z "$TMUX" ]; then
-#   tmux attach
+#   tmux -A -s main
 # fi
 
 # # Fastfetch at startup

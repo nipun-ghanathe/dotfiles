@@ -11,6 +11,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # Install Applications using Scoop
 scoop bucket add main
 scoop bucket add extras
+scoop install 7zip
 scoop install git
 scoop install python
 scoop install nodejs
@@ -39,10 +40,6 @@ pip install ipython
 # Configuring applications
 echo "Configuring Vim..."
 New-Item -Path C:\Users\nipun\_vimrc -ItemType SymbolicLink -Target D:\dotfiles\vimrc\.vimrc
-iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    ni $HOME/vimfiles/autoload/plug.vim -Force
-echo "Configuring Vim for Git Bash..."
-New-Item -Path C:\Users\nipun\.vim -ItemType SymbolicLink -Target C:\Users\nipun\vimfiles
 
 echo "Configuring Git"
 New-Item -Path ~/.gitconfig -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.gitconfig

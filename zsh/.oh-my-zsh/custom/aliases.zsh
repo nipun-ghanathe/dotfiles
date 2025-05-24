@@ -2,6 +2,7 @@
 # use command `alias` in command line
 
 # vim
+alias vi="nvim"
 alias nv="nvim"
 
 # python
@@ -17,6 +18,7 @@ alias ga="git add"
 alias gaa="git add -A"
 alias gc="git commit"
 alias gcm="git commit -m"
+alias gcam="git commit -am"
 
 # move, copy, remove
 alias cp="cp -iv"

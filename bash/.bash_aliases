@@ -1,3 +1,4 @@
+alias vi="nvim"
 alias nv="nvim"
 
 alias py="python3"

@@ -29,6 +29,7 @@ sudo apt update && sudo apt install -y \
   git cargo curl stow \
   kitty zsh neovim vim tmux \
   eza zoxide fzf bat wl-clipboard \
+  ripgrep fd-find \
   starship fastfetch \
   sway waybar \
   libnotify-bin mako-notifier brightnessctl \
