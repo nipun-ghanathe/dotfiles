@@ -18,6 +18,11 @@ if ! groups $USER | grep -q '\bsudo\b'; then
   exit 1
 fi
 
+if [ ! -d "$HOME/dotfiles" ]; then
+  echo "Dotfiles directory not found at ~/dotfiles. Exiting."
+  exit 1
+fi
+
 # Installing basic apps via apt
 echo
 echo "=================================================="
@@ -34,7 +39,7 @@ sudo apt update && sudo apt install -y \
   sway waybar \
   libnotify-bin mako-notifier brightnessctl \
   thunar ranger \
-  gcc \
+  gcc cmake \
   python3 python3-pip python3-venv ipython3
 
 # Installing apps via cargo
@@ -54,7 +59,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
 nvm install 22
 corepack enable yarn
-yarn -v -y
+yarn -v
 
 # Cloning our dotfiles repo and stowing our dotfiles
 echo

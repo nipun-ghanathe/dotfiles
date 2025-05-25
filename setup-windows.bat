@@ -9,6 +9,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # Install Applications using Scoop
+echo "Installing apps using Scoop..."
 scoop bucket add main
 scoop bucket add extras
 scoop install 7zip
@@ -21,6 +22,7 @@ scoop install rust
 scoop install autohotkey
 
 # Install Applications using Chocolatey
+echo "Installing apps using Chocolatey..."
 choco install firefox
 choco install vscode
 choco install obsidian
@@ -32,7 +34,8 @@ choco install 7zip
 choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --passive --norestart"
 
 # Install Applications using Cargo
-echo "Nothing to install using cargo right now."
+echo "Installing apps using Cargo..."
+cargo install kanata
 
 # Install Applications using Pip
 pip install ipython
@@ -45,8 +48,11 @@ echo "Configuring Git"
 New-Item -Path ~/.gitconfig -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.gitconfig
 New-Item -Path ~/.git-credentials -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.git-credentials
 
-echo "Configuring Keyboard using AHK..."
-New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\keyboard-config.ahk" -ItemType SymbolicLink -Target D:\dotfiles\windows-dotfiles\keyboard-config.ahk
+# echo "Configuring Keyboard using AHK..."
+# New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\keyboard-config.ahk" -ItemType SymbolicLink -Target D:\dotfiles\windows-dotfiles\keyboard-config.ahk
+
+echo "Configuring Keyboard using Kanata..."
+New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\kanata-keyboard-config.bat" -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\kanata-keyboard-config.bat
 
 # Other apps you might want to install
 Write-Output @"
