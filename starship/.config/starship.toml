@@ -1,0 +1,11 @@
+command_timeout = 2_000
+
+[conda]
+ignore_base = false
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
+
+[cmd_duration]
+min_time = 5_000

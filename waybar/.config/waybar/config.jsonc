@@ -50,14 +50,14 @@
   "disk": {
     "path": "/",
     "format": " {free}",
-    "on-click": "alacritty -e ranger /",
+    "on-click": "kitty -e ranger /",
     "interval": 60
   },
 
   "disk#pathhome": {
     "path": "/home",
     "format": " {free}",
-    "on-click": "alacritty -e ranger ~",
+    "on-click": "kitty -e ranger ~",
     "interval": 60
   },
 
@@ -65,6 +65,7 @@
     "format-wifi": " {essid}",
     "format-ethernet": " {ipaddr}",
     "format-disconnected": "",
+    "on-click": "kitty -e nmtui",
     "interval": 10
   },
 

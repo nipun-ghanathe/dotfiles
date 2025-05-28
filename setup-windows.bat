@@ -25,6 +25,7 @@ scoop install autohotkey
 echo "Installing apps using Chocolatey..."
 choco install firefox
 choco install vscode
+choco install alacritty
 choco install obsidian
 choco install vlc
 choco install sumatrapdf
@@ -42,17 +43,16 @@ pip install ipython
 
 # Configuring applications
 echo "Configuring Vim..."
-New-Item -Path C:\Users\nipun\_vimrc -ItemType SymbolicLink -Target D:\dotfiles\vimrc\.vimrc
+New-Item -Path $HOME\_vimrc -ItemType SymbolicLink -Target $HOME\dotfiles\windows-dotfiles\_vimrc
 
 echo "Configuring Git"
-New-Item -Path ~/.gitconfig -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.gitconfig
-New-Item -Path ~/.git-credentials -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\.git-credentials
+New-Item -Path $HOME/.gitconfig -Type SymbolicLink -Target $HOME\dotfiles\windows-dotfiles\.gitconfig
 
 # echo "Configuring Keyboard using AHK..."
-# New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\keyboard-config.ahk" -ItemType SymbolicLink -Target D:\dotfiles\windows-dotfiles\keyboard-config.ahk
+# New-Item -Path "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\keyboard-config.ahk" -ItemType SymbolicLink -Target $HOME\dotfiles\windows-dotfiles\keyboard-config.ahk
 
-echo "Configuring Keyboard using Kanata..."
-New-Item -Path "C:\Users\nipun\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\kanata-keyboard-config.bat" -Type SymbolicLink -Target D:\dotfiles\windows-dotfiles\kanata-keyboard-config.bat
+# echo "Configuring Keyboard using Kanata..."
+# New-Item -Path "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\kanata-keyboard-config.bat" -Type SymbolicLink -Target $HOME\dotfiles\windows-dotfiles\kanata-keyboard-config.bat
 
 # Other apps you might want to install
 Write-Output @"

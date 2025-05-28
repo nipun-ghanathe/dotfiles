@@ -21,10 +21,11 @@ alias cat="batcat"
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Making tmux launch at shell startup
+# # Making tmux launch at shell startup
 # if [ -z "$TMUX" ]; then
 #   tmux -A -s main
 # fi
 
 # # Fastfetch at startup
 # fastfetch
+

@@ -41,7 +41,7 @@ vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
 vim.keymap.set('n', '<leader>t', '<cmd>term<cr>')
 
 -- Launching netrw
-vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')
+-- vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')
 
 -- Make the file executable
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>')
@@ -80,6 +80,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- neo-tree
 -- vim.keymap.set('n', '<leader>.', '<cmd>Neotree toggle<cr>')
+-- vim.keymap.set('n', '<leader>e', '<cmd>Neotree current toggle<cr>')
 -- vim.keymap.set('n', '<leader>gs', '<cmd>Neotree source=git_status reveal position=float toggle<cr>')
 -- vim.keymap.set('n', '<leader>bl', '<cmd>Neotree source=buffers reveal position=float toggle<cr>')
 

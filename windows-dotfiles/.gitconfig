@@ -3,7 +3,3 @@
 	email = nipuncod@gmail.com
 [init]
 	defaultBranch = main
-[credential]
-	helper = store
-[credential "helperselector"]
-	selected = manager

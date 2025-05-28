@@ -33,14 +33,15 @@ echo
 sudo apt update && sudo apt install -y \
   git cargo curl stow \
   kitty zsh neovim vim tmux \
+  gcc cmake \
+  python3 python3-pip python3-venv ipython3 \
   eza zoxide fzf bat wl-clipboard \
   ripgrep fd-find \
   starship fastfetch \
   sway waybar \
-  libnotify-bin mako-notifier brightnessctl \
   thunar ranger \
-  gcc cmake \
-  python3 python3-pip python3-venv ipython3
+  libnotify-bin mako-notifier brightnessctl \
+  pavucontrol
 
 # Installing apps via cargo
 echo
@@ -68,14 +69,13 @@ echo
 
 # git clone https://github.com/nipun-ghanathe/dotfiles.git $HOME/dotfiles
 cd $HOME/dotfiles
-rm ~/.bashrc
+rm ~/.bashrc ~/.profile
 stow --verbose \
   kitty \
   bash \
   clock-rs \
   fonts \
   git \
-  gnome \
   kanata \
   mako \
   nvim \
@@ -86,7 +86,22 @@ stow --verbose \
   themes \
   tmux \
   vimrc \
-  waybar
+  waybar \
+  misc
+
+# Making some files executable
+echo
+echo "--- Making a few scripts executable ---"
+echo
+chmod +x ~/.local/bin/ranger-launch
+chmod +x ~/.config/sway/custom_wmenu.sh
+chmod +x ~/.config/sway/system_wmenu.sh
+
+# Configuring tmux
+echo
+echo "--- Configuring tmux ---"
+echo
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Installing oh-my-zsh and configuring it
 echo
@@ -125,8 +140,13 @@ echo
 echo "--- Installing fonts-indic to render Indian languages ---"
 echo
 
-sudo apt install fonts-indic
+sudo apt install fonts-indic -y
 
 echo
 echo "Setup complete!"
-echo "You might want to reboot the system"
+echo
+cat <<EOF
+You might want to do the following things:
+    - Setup some settings for kanata (check kanata/README.md)
+    - Reboot the system and log into sway
+EOF

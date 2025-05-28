@@ -3,7 +3,6 @@
 
 # vim
 alias vi="nvim"
-alias nv="nvim"
 
 # python
 alias python="python3"
