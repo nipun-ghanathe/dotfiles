@@ -38,28 +38,28 @@ window#waybar {
 
 #wireplumber {
   background: #44475a;
-  /*color: #8be9fd;*/
+  color: #8be9fd;
   padding: 0 10px;
   margin: 0 4px;
 }
 
 #network {
   background: #44475a;
-  /*color: #50fa7b;*/
+  color: #50fa7b;
   padding: 0 10px;
   margin: 0 4px;
 }
 
 #backlight {
   background: #44475a;
-  /*color: #ffb86c;*/
+  color: #ffb86c;
   padding: 0 10px;
   margin: 0 4px;
 }
 
 #battery {
   background: #44475a;
-  /*color: #bd93f9;*/
+  color: #bd93f9;
   padding: 0 10px;
   margin: 0 4px;
 }
@@ -74,7 +74,7 @@ window#waybar {
 
 #clock {
   background: #44475a;
-  /*color: #ff79c6;*/
+  color: #ff79c6;
   padding: 0 10px;
   margin: 0 4px;
 }

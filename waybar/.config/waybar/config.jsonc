@@ -1,23 +1,19 @@
 {
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
-  "spacing": 16,
+  "spacing": 2,
   "height": 28,
 
   "modules-left": [
     "sway/workspaces",
-    "sway/mode",
-    "sway/window"
+    "sway/mode"
+    //"sway/window"
   ],
 
   "modules-center": [],
 
   "modules-right": [
     "wireplumber",
-    "cpu",
-    "memory",
-    "disk",
-    "disk#pathhome",
     "network",
     //"bluetooth",
     //"sway/language",
@@ -34,7 +30,7 @@
 
   "sway/window": {
     "format": "{}",
-    "max-length": 120
+    "max-length": 100
   },
 
   "wireplumber": {
@@ -44,41 +40,20 @@
     "on-click": "pavucontrol"
   },
 
-  "cpu": {
-    "format": " {usage}%",
-    "interval": 10
-  },
-
-  "memory": {
-    "format": " {used:0.1f}GB",
-    "interval": 10
-  },
-
-  "disk": {
-    "path": "/",
-    "format": " {free}",
-    "on-click": "kitty -e ranger /",
-    "interval": 60
-  },
-
-  "disk#pathhome": {
-    "path": "/home",
-    "format": " {free}",
-    "on-click": "kitty -e ranger ~",
-    "interval": 60
-  },
-
   "network": {
     "format-wifi": " {essid}",
     "format-ethernet": " {ipaddr}",
-    "format-disconnected": "",
+    "format-disconnected": " ",
     "on-click": "kitty -e nmtui",
     "interval": 10
   },
 
   "backlight": {
-    "format": "☀️ {percent}%"
-    //"format": " {percent}%"
+    //"format": "☀️ {percent}%",
+    "format": " {percent}%",
+    //"format": " {percent}%",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "on-scroll-up": "brightnessctl set 5%+"
   },
 
   "battery": {
@@ -88,26 +63,28 @@
     "format-icons": ["", "", "", "", ""],
     "interval": 60,
     "states": {
-        //"warning": 30,
-        //"critical": 15
-        "warning": {
-            "capacity": 30,
-            "icon": ""
-        },
-        "critical": {
-            "capacity": 15,
-            "icon": "⚠"
-        }
+      "warning": 30,
+      "critical": 15
     }
   },
 
-  "tray": {
-    "icon-size": 16,
-    "spacing": 10
-  },
-
   "clock": {
-    "format": " {:%H:%M}",
-    "tooltip-format": " {:%A, %d %B %Y}"
+    "format": "󰅐 {:%H:%M}",
+    "format-alt": "󰅐 {:%OI:%M %p}",
+    "tooltip-format": " {:%A %m/%d}\n\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "on-scroll": 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      },
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
   }
 }

@@ -1,0 +1,92 @@
+* {
+  border: none;
+  border-radius: 6px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(20, 20, 20, 0.95);
+  color: #e0e0e0;
+  padding: 4px 8px;
+}
+
+#workspaces {
+  margin-left: 6px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background: transparent;
+  color: #a0a0a0;
+  border-radius: 4px;
+  margin: 0 2px;
+}
+
+#workspaces button.focused {
+  background: #5e81ac;
+  color: #ffffff;
+}
+
+#workspaces button.urgent {
+  background: #bf616a;
+  color: #ffffff;
+}
+
+#sway-mode {
+  background: #ebcb8b;
+  color: #000;
+  padding: 0 10px;
+  margin-left: 8px;
+}
+
+#wireplumber,
+#network,
+#backlight,
+#battery,
+#clock {
+  padding: 0 10px;
+  margin: 0 4px;
+  background: #2e3440;
+}
+
+#wireplumber {
+  color: #88c0d0;
+}
+
+#network {
+  color: #a3be8c;
+}
+
+#backlight {
+  color: #d08770;
+}
+
+#battery {
+  color: #b48ead;
+}
+
+#battery.warning {
+  color: #ebcb8b;
+}
+
+#battery.critical {
+  color: #bf616a;
+}
+
+#clock {
+  color: #81a1c1;
+}
+
+/* Optional hover effect */
+#workspaces button:hover,
+#wireplumber:hover,
+#network:hover,
+#backlight:hover,
+#battery:hover,
+#clock:hover {
+  background: #4c566a;
+  color: #ffffff;
+}
+
