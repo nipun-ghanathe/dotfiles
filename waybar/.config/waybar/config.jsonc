@@ -1,12 +1,13 @@
 {
   "layer": "top",
   "position": "top",
-  "spacing": 8,
-  "height": 26,
+  "spacing": 16,
+  "height": 28,
 
   "modules-left": [
     "sway/workspaces",
-    "sway/mode"
+    "sway/mode",
+    "sway/window"
   ],
 
   "modules-center": [],
@@ -27,7 +28,13 @@
 
   "sway/workspaces": {
     "disable-scroll": true,
+    "all-outputs": true,
     "format": "{name}"
+  },
+
+  "sway/window": {
+    "format": "{}",
+    "max-length": 120
   },
 
   "wireplumber": {
@@ -92,6 +99,11 @@
             "icon": "⚠"
         }
     }
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
   },
 
   "clock": {

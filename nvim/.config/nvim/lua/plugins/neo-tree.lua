@@ -15,8 +15,16 @@ return {
             vim.wo[args.winid].colorcolumn = ""
             vim.wo[args.winid].signcolumn = "no"
           end,
-        }
+        },
+        {
+          event = "file_opened",
+          handler = function(file_path)
+            -- autoclose neo-tree
+            require("neo-tree.command").execute({ action = "close" })
+          end,
+        },
       },
+
       close_if_last_window = true,
       window = { width = 30 },
       filesystem = {

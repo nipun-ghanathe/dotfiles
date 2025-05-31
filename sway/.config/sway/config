@@ -15,6 +15,8 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
+# Your preferred browser
+set $browser firefox
 # Your preferred application launcher
 set $menu wmenu-run -i -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " "
 
@@ -80,6 +82,9 @@ exec swayidle -w \
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start your browser
+    bindsym $mod+o $browser
 
     # Kill focused window
     bindsym $mod+q kill
@@ -237,7 +242,7 @@ bindsym $mod+Alt+BackSpace mode "$mode_system"
 #
 # Alternate Shutdown / restart / suspend ...
 # 
-bindsym $mod+BackSpace exec ~/.config/sway/system_wmenu.sh
+bindsym $mod+BackSpace exec ~/.config/sway/scripts/system_wmenu.sh
 #
 # Utilities:
 #
@@ -275,9 +280,9 @@ bindsym $mod+BackSpace exec ~/.config/sway/system_wmenu.sh
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
-
-# Launch waybar
-exec waybar
+bar {
+  swaybar_command waybar
+}
 
 include /etc/sway/config.d/*
 
@@ -285,26 +290,37 @@ include /etc/sway/config.d/*
 #
 # Making borders thinner and removing the title bar
 #
-    default_border pixel 2
+    default_border pixel 1
     default_floating_border normal 2
+#
+# No borders for single window
+#
+    smart_borders on
+#
+# Title format for windows
+#
+    for_window [shell="xdg_shell"] title_format "%title (%app_id)"
+    for_window [shell="x_wayland"] title_format "%class - %title"
 #
 # Colors
 # 
-                               #border  #background  #text    #indicator  #child-border
-    client.focused             #44475a  #44475a      #f8f8f2  #bd93f9     #44475a
-    client.unfocused           #282a36  #282a36      #6272a4  #44475a     #282a36
-    client.urgent              #ff5555  #ff5555      #f8f8f2  #ffb86c     #ff5555
-    client.focused_inactive    #282a36  #282a36      #6272a4  #44475a     #282a36
-    client.placeholder         #282a36  #282a36      #6272a4  #44475a     #282a36
+    # class                 border  bground text    indicator child_border
+    client.focused          #6272a4 #6272a4 #f8f8f2 #6272a4   #6272a4
+    client.focused_inactive #44475a #44475a #f8f8f2 #44475a   #44475a
+    client.unfocused        #282a36 #282a36 #bfbfbf #282a36   #282a36
+    client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555   #ff5555
+    client.placeholder      #282a36 #282a36 #f8f8f2 #282a36   #282a36
+    client.background       #f8f8f2
 #
 # Configuring gaps between windows
 #
     gaps inner 2
-    gaps outer 2
+    gaps outer 0
 #
 # Wallpaper
 #
-    exec_always swaybg --color "#6272a4"
+    exec_always ~/.config/sway/scripts/random_wallpaper.sh
+    # exec_always swaybg --color "#6272a4"
     # exec_always swaybg --color "#000000"
     # exec_always swaybg --image ~/.config/wallpapers/os/debian.png --mode fill
 #
@@ -326,12 +342,41 @@ include /etc/sway/config.d/*
 #
 # Configuring Floating apps
 #
-    for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+    for_window [app_id="pavucontrol"] floating enable
+    for_window [window_role="pop-up"] floating enable
+    for_window [window_role="bubble"] floating enable
+    for_window [window_role="task_dialog"] floating enable
+    for_window [window_role="Preferences"] floating enable
+    for_window [window_role="About"] floating enable
+    for_window [window_type="dialog"] floating enable
+    for_window [window_type="menu"] floating enable
+    for_window [title="Save File"] floating enable
 #
 # Custom wmenu
 #
-    bindsym $mod+p exec ~/.config/sway/custom_wmenu.sh
+    bindsym $mod+p exec ~/.config/sway/scripts/custom_wmenu.sh
 #
 # Notification Daemon
 #
     exec_always mako
+#
+# Screenshots
+#
+    # Snip a selection and pipe to swappy
+    bindsym $mod+print exec grim -g "$(slurp)" - | swappy -f -
+    # Screenshot a window and pipe to swappy
+    bindsym Ctrl+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)" - | swappy -f -
+    # Screenshot the current display and pipe to swappy
+    bindsym Shift+Print exec grim -o "$(swaymsg -t get_outputs | jq -r '.[] - | select(.focused).name')" | swappy -f -
+#
+# Cliphist
+#
+    # Start tracking
+    exec wl-paste --type text --watch cliphist store
+    exec wl-paste --type image --watch cliphist store
+
+    # Launch the clipboard manager
+    bindsym $mod+Ctrl+v exec cliphist list | wmenu -i -l 5 -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " Select to copy: " | cliphist decode | wl-copy
+    # Delete an entry from the clipboard manager
+    bindsym $mod+Ctrl+x exec cliphist list | wmenu -i -l 5 -N "#282a36" -n "#f8f8f2" -S "#ff5555" -s "#f8f8f2" -M "#ff5555" -m "#f8f8f2" -p " Delete entry: " | cliphist delete
+    # Note: you can clear all cliphist entries by running `cliphist wipe`

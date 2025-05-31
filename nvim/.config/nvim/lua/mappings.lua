@@ -11,6 +11,7 @@ vim.keymap.set({'n', 'v'}, 'gy', '"+y')
 vim.keymap.set({'n', 'v'}, 'gp', '"+p')
 vim.keymap.set({'n', 'v'}, 'gP', '"+P')
 vim.keymap.set({'n', 'v'}, 'gd', '"_d')
+vim.keymap.set({'n', 'v'}, 'c', '"_c')
 vim.keymap.set({'n', 'v'}, 'x', '"_x')
 vim.keymap.set({'n', 'v'}, 'X', '"_d')
 

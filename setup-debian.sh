@@ -35,10 +35,12 @@ sudo apt update && sudo apt install -y \
   kitty zsh neovim vim tmux \
   gcc cmake \
   python3 python3-pip python3-venv ipython3 \
-  eza zoxide fzf bat wl-clipboard \
-  ripgrep fd-find \
+  eza zoxide fzf bat \
+  wl-clipboard cliphist \
+  ripgrep fd-find htop \
+  grim slurp \
   starship fastfetch \
-  sway waybar \
+  sway waybar swaylock \
   thunar ranger \
   libnotify-bin mako-notifier brightnessctl \
   pavucontrol
@@ -89,14 +91,6 @@ stow --verbose \
   waybar \
   misc
 
-# Making some files executable
-echo
-echo "--- Making a few scripts executable ---"
-echo
-chmod +x ~/.local/bin/ranger-launch
-chmod +x ~/.config/sway/custom_wmenu.sh
-chmod +x ~/.config/sway/system_wmenu.sh
-
 # Configuring tmux
 echo
 echo "--- Configuring tmux ---"
@@ -141,6 +135,15 @@ echo "--- Installing fonts-indic to render Indian languages ---"
 echo
 
 sudo apt install fonts-indic -y
+
+# Making some files executable
+echo
+echo "--- Making a few scripts executable ---"
+echo
+chmod +x ~/.local/bin/ranger-launch
+chmod +x ~/.config/sway/scripts/custom_wmenu.sh
+chmod +x ~/.config/sway/scripts/system_wmenu.sh
+chmod +x ~/.config/sway/scripts/random_wallpaper.sh
 
 echo
 echo "Setup complete!"
