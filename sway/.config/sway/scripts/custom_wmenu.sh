@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setting some variables
-term=alacritty
+term=kitty
 
 # List of options
 options=$(cat <<EOF
