@@ -331,7 +331,7 @@ include /etc/sway/config.d/*
     exec swaymsg "workspace 1; exec $term"
     # exec swaymsg "workspace 1; exec $term --title StartupTerm"
     # for_window [title="StartupTerm"] fullscreen enable
-    exec_always ~/.cargo/bin/kanata --cfg ~/.config/kanata/kanata.cfg
+    exec_always --no-startup-id ~/.cargo/bin/kanata --cfg ~/.config/kanata/kanata.cfg
     exec /usr/bin/emacs --daemon
     # Launch behaviour
     # Find app_id of an app using `swaymsg -t get_tree`

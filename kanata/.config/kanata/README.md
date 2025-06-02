@@ -24,7 +24,7 @@ Make sure that it's effective by running `groups`. You might have to logout and 
 
 #### Insert the following in the code
 ```bash
-KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+KERNEL=="uinput", GROUP="uinput", MODE="0660"
 ```
 
 #### Machine reboot or run this to reload
