@@ -352,10 +352,6 @@ include /etc/sway/config.d/*
     for_window [window_type="menu"] floating enable
     for_window [title="Save File"] floating enable
 #
-# Custom wmenu
-#
-    bindsym $mod+p exec ~/.config/sway/scripts/custom_wmenu.sh
-#
 # Notification Daemon
 #
     exec_always mako

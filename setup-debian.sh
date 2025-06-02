@@ -91,6 +91,9 @@ stow --verbose \
   waybar \
   misc
 
+# Adding custom things into dmenu by adding them to path
+sudo ln -s $HOME/.local/bin/ranger-launch /usr/local/bin/ranger-launch
+
 # Configuring tmux
 echo
 echo "--- Configuring tmux ---"
@@ -153,3 +156,7 @@ You might want to do the following things:
     - Setup some settings for kanata (check kanata/README.md)
     - Reboot the system and log into sway
 EOF
+
+### To-do
+# - [ ] automate setup of obsidian
+# - [ ] automate setup of bitwarden
