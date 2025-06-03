@@ -11,13 +11,12 @@ alias ipython="ipython3"
 alias ipy="ipython3"
 
 # git
-alias g="git"
 alias gs="git status"
 alias ga="git add"
-alias gaa="git add -A"
+alias gb="git branch"
 alias gc="git commit"
-alias gcm="git commit -m"
-alias gcam="git commit -am"
+alias gd="git diff"
+alias gco="git checkout"
 
 # move, copy, remove
 alias cp="cp -iv"
