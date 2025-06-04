@@ -14,9 +14,3 @@ fi
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
-
-# set PATH so it includes doom emacs's bin if it exists
-if [ -d "$HOME/.config/emacs/bin" ] ; then
-    PATH="$HOME/.config/emacs/bin:$PATH"
-fi
-
