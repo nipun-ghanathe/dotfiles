@@ -13,7 +13,7 @@ export FZF_DEFAULT_OPTS="--preview='batcat --color=always {}'"
 eval "$(zoxide init --cmd cd zsh)"
 
 # eza
-alias ls="eza --group-directories-first --icons"
+alias ls="eza --icons --group-directories-first"
 
 # batcat
 alias cat="batcat"
