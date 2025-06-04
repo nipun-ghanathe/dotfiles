@@ -31,7 +31,7 @@ return {
         width = 30,
       },
       filesystem = {
-        hijack_netrw_behavior = "open_current",
+        hijack_netrw_behavior = "open_default",
         follow_current_file = { enabled = true },
       },
     })
