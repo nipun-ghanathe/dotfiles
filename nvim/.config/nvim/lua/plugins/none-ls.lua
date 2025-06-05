@@ -8,7 +8,16 @@ return {
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
         null_ls.builtins.diagnostics.pylint.with({
-          extra_args = { "--disable=missing-docstring,missing-module-docstring,invalid-name,too-few-public-methods" }
+          extra_args = (function()
+            local disabled = {
+              "missing-docstring",
+              "missing-module-docstring",
+              "invalid-name",
+              "too-few-public-methods",
+              "import-error",
+            }
+            return { "--disable=" .. table.concat(disabled, ",")}
+          end)(),
         }),
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.clang_format,
@@ -17,6 +26,6 @@ return {
       },
     })
 
-    -- vim.keymap.set('n', '<leader>lf', "<cmd>lua vim.lsp.buf.format()<cr>") -- already added in lsp mappings
+    -- vim.keymap.set('n', '<leader>f', "<cmd>lua vim.lsp.buf.format()<cr>") -- already added in lsp mappings
   end,
 }
