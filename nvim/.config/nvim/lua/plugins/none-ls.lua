@@ -15,6 +15,7 @@ return {
               "invalid-name",
               "too-few-public-methods",
               "import-error",
+              "unspecified-encoding",
             }
             return { "--disable=" .. table.concat(disabled, ",")}
           end)(),
