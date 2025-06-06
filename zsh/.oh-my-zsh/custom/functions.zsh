@@ -2,7 +2,7 @@
 nv() {
   local dir="${1:-.}"
   cd $dir || return
-  nvim "$(fzf)"
+  nvim -c "Telescope find_files"
 }
 
 # activating conda
