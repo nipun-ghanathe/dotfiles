@@ -39,7 +39,6 @@ sudo apt update && sudo apt install -y \
   wl-clipboard cliphist \
   ripgrep fd-find htop \
   grim slurp \
-  starship fastfetch \
   sway waybar swaylock \
   thunar ranger \
   libnotify-bin mako-notifier brightnessctl \
