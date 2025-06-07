@@ -1,18 +1,18 @@
 [user]
-	name = nipun
-	email = nipuncod@gmail.com
+  name = nipun
+  email = nipuncod@gmail.com
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [credential]
-	helper = store
+  helper = store
 [core]
-	autocrlf = input
-	safecrlf = true
+  autocrlf = input
+  safecrlf = true
 [alias]
   co = checkout
   ci = commit
   st = status
   br = branch
-  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  hist = log --oneline --graph
   type = cat-file -t
-  dump = cat-file -p
+  pprint = cat-file -p
