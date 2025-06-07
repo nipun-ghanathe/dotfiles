@@ -74,6 +74,7 @@ rm ~/.bashrc ~/.profile
 stow --verbose \
   kitty \
   bash \
+  zsh \
   clock-rs \
   fonts \
   git \
@@ -88,7 +89,8 @@ stow --verbose \
   tmux \
   vimrc \
   waybar \
-  misc
+  misc \
+  conda
 
 # Adding custom things into dmenu by adding them to path
 sudo ln -s $HOME/.local/bin/ranger-launch /usr/local/bin/ranger-launch
@@ -99,15 +101,10 @@ echo "--- Configuring tmux ---"
 echo
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Installing oh-my-zsh and configuring it
+# Configuring zsh
 echo
-echo "--- Installing Oh My Zsh and configuring zsh ---"
+echo "--- Making zsh the default shell ---"
 echo
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-rm ~/.zshrc
-cd $HOME/dotfiles
-stow zsh
 chsh -s $(which zsh)
 
 # Configuring gnome

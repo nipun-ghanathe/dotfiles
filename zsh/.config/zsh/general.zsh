@@ -11,6 +11,8 @@ setopt extended_glob      # advanced globbing
 setopt hist_ignore_dups   # ignore duplicate history entries
 setopt share_history      # share command history across terminals
 
+set -o emacs
+
 # completions
 autoload -Uz compinit
 if [[ ! -f ~/.zcompdump ]] || [[ ~/.zcompdump -ot ~/.zshrc ]]; then
