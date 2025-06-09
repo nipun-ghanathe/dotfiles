@@ -59,9 +59,12 @@ echo
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
-nvm install 22
+nvm install
 corepack enable yarn
 yarn -v
+
+# Installing apps via npm
+npm install -g tldr
 
 # Cloning our dotfiles repo and stowing our dotfiles
 echo
