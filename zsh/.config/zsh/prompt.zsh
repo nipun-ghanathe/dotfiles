@@ -35,3 +35,5 @@ PROMPT+='%B%F{cyan}%1~%f%b'
 PROMPT+='$(git_branch)'
 PROMPT+='$(get_env_name)'
 PROMPT+=$'\n${prompt_symbol} ' 
+
+PS2='%F{green}›%f ' 
