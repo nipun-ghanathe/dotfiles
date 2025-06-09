@@ -63,6 +63,10 @@ vim.opt.signcolumn = 'yes'
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- Setting undodir for persistent undo
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath('cache') .. "undodir"
+
 -- Enabling termguicolors
 vim.opt.termguicolors = true
 

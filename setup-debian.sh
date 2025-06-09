@@ -98,6 +98,12 @@ stow --verbose \
 # Adding custom things into dmenu by adding them to path
 sudo ln -s $HOME/.local/bin/ranger-launch /usr/local/bin/ranger-launch
 
+# Configuring nvim
+echo
+echo "--- Configuring Neovim ---"
+echo
+mkdir $HOME/.cache/nvim/undodir
+
 # Configuring tmux
 echo
 echo "--- Configuring tmux ---"
