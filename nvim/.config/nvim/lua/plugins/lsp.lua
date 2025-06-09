@@ -40,24 +40,6 @@ return {
     lspconfig.cssls.setup({ capabilities = capabilities })
     lspconfig.eslint.setup({ capabilities = capabilities })
 
-    -- local hover = vim.lsp.buf.hover
-    -- ---@diagnostic disable-next-line: duplicate-set-field
-    -- vim.lsp.buf.hover = function()
-      --     return hover({
-        --         max_width = 100,
-        --         max_height = 14,
-        --         border = "rounded",
-        --     })
-        -- end
-        --
-        -- local open_float = vim.diagnostic.open_float
-        -- ---@diagnostic disable-next-line: duplicate-set-field
-        -- vim.diagnostic.open_float = function(opts)
-          --     opts = opts or {}
-          --     opts.border = opts.border or "rounded"
-          --     return open_float(opts)
-          -- end
-
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
       vim.lsp.handlers.hover,
       { border = "rounded", max_width = 100, max_height = 14 }
