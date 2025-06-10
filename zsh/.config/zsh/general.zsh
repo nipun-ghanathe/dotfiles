@@ -38,9 +38,7 @@ export FZF_DEFAULT_OPTS="--preview='batcat --color=always {}'"
 eval "$(zoxide init --cmd cd zsh)"
 
 # # Making tmux launch at shell startup
-# if [ -z "$TMUX" ]; then
-#   tmux -A -s main
-# fi
+# [ -z "$TMUX" ] && tmux new-session -A -s main
 
 # node.js
 export NVM_DIR="$HOME/.nvm"
