@@ -17,6 +17,16 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'nnoremap <buffer> q <cmd>quit<cr>'
 })
 
+-- Automatic line wrapping (breaking) in markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  pattern = { "markdown" },
+  callback = function()
+    vim.opt_local.textwidth = 72
+    vim.opt_local.formatoptions:append("t")
+  end,
+})
+
 -- Viewing spaces as dots in visual mode
 vim.opt.list = true
 vim.opt.listchars = {}
