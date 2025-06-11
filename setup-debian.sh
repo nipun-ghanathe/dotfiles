@@ -116,12 +116,15 @@ echo "--- Making zsh the default shell ---"
 echo
 chsh -s $(which zsh)
 
-# Configuring gnome
-echo
-echo "--- Applying GNOME settings ---"
-echo
+# # Configuring gnome
+# echo
+# echo "--- Applying GNOME settings ---"
+# echo
+# bash $HOME/dotfiles/gnome/load-gnome-settings.sh
 
-bash $HOME/dotfiles/gnome/load-gnome-settings.sh
+# Configuring gtk color scheme
+gsettings set org.gnome.desktop.interface gtk-theme "Dracula-gtk"
+gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
 
 # Some configuration for kanata to run properly
 echo
