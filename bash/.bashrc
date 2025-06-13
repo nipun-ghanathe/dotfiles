@@ -25,7 +25,7 @@ alias grep="grep --color=auto"
 alias cat="batcat"
 
 # Making tmux launch at startup
-[ -z "$TMUX" ] && exec tmux new-session -A -s main
+# [ -z "$TMUX" ] && exec tmux new-session -A -s main
 
 # # Fastfetch at startup
 # fastfetch
