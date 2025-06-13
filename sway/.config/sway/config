@@ -84,7 +84,7 @@ exec swayidle -w \
     bindsym $mod+Return exec $term
 
     # Start your browser
-    bindsym $mod+o $browser
+    bindsym $mod+o exec $browser
 
     # Kill focused window
     bindsym $mod+q kill
