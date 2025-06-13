@@ -39,7 +39,8 @@ sudo apt update && sudo apt install -y \
   wl-clipboard cliphist \
   ripgrep fd-find htop \
   grim slurp \
-  sway waybar swaylock \
+  sway waybar \
+  swaylock swayidle \
   thunar ranger \
   libnotify-bin mako-notifier brightnessctl \
   pavucontrol
