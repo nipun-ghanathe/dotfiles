@@ -53,6 +53,13 @@ echo
 cargo install kanata
 cargo install clock-rs
 
+# Installing apps via curl
+echo
+echo "--- Installing apps through curl: uv ---"
+echo
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # Installing node.js
 echo
 echo "--- Installing Node.js via nvm with npm and yarn ---"

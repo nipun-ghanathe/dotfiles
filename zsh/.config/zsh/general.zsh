@@ -40,6 +40,9 @@ eval "$(zoxide init --cmd cd zsh)"
 # # Making tmux launch at shell startup
 # [ -z "$TMUX" ] && tmux new-session -A -s main
 
+# uv
+eval "$(uv generate-shell-completion zsh)"
+
 # node.js
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
