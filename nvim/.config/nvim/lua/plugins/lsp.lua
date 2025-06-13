@@ -22,7 +22,7 @@ return {
     -- Setting up the LSP servers
     local lspconfig = require('lspconfig')
     lspconfig.lua_ls.setup({ capabilities = capabilities })
-    lspconfig.pyright.setup({
+    lspconfig.pyright.setup({  -- if you remove pyright then make sure to change venv-selector.nvim's config
       capabilities = capabilities,
       settings = {
         python = {
@@ -30,8 +30,8 @@ return {
             typeCheckingMode = "standard",
             -- typeCheckingMode = "strict",
             diagnosticSeverityOverrides = {
-              reportAttributeAccessIssue = "none",
-              reportMissingImports = "none",
+              -- reportAttributeAccessIssue = "none",
+              -- reportMissingImports = "none",
             },
           },
         },
