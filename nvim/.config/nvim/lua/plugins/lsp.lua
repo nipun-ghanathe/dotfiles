@@ -27,6 +27,8 @@ return {
       settings = {
         python = {
           analysis = {
+            typeCheckingMode = "off",
+            -- typeCheckingMode = "strict",
             diagnosticSeverityOverrides = {
               reportAttributeAccessIssue = "none",
               reportMissingImports = "none",

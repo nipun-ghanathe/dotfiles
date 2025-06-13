@@ -10,12 +10,14 @@ return {
         null_ls.builtins.diagnostics.pylint.with({
           extra_args = (function()
             local disabled = {
+              "import-error",
               "missing-docstring",
               "missing-module-docstring",
               "invalid-name",
               "too-few-public-methods",
-              "import-error",
               "unspecified-encoding",
+              "redefined-outer-name",
+              "unused-argument",
             }
             return { "--disable=" .. table.concat(disabled, ",")}
           end)(),
