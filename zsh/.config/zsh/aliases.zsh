@@ -5,7 +5,7 @@ alias vi="nvim"
 
 # python
 alias python="python3"
-alias py="python3"
+alias py="python3 -X pycache_prefix=/tmp/pycache"
 alias ipython="ipython3"
 alias ipy="ipython3"
 
