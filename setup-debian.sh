@@ -82,6 +82,7 @@ echo
 # git clone https://github.com/nipun-ghanathe/dotfiles.git $HOME/dotfiles
 cd $HOME/dotfiles
 rm ~/.bashrc ~/.profile
+mkdir ~/.local/bin
 stow --verbose \
   kitty \
   bash \
@@ -105,6 +106,9 @@ stow --verbose \
 
 # Adding custom things into dmenu by adding them to path
 sudo ln -s $HOME/.local/bin/ranger-launch /usr/local/bin/ranger-launch
+
+# Configuring fd-find
+ln -s "$(which fdfind)" /home/nipun/.local/bin/fd
 
 # Configuring nvim
 echo

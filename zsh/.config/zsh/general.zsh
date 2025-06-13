@@ -12,7 +12,7 @@ setopt extended_glob      # advanced globbing
 setopt hist_ignore_dups   # ignore duplicate history entries
 setopt share_history      # share command history across terminals
 
-set -o emacs
+set -o emacs              # emacs like motions on the command line
 
 # completions
 autoload -Uz compinit
