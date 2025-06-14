@@ -44,3 +44,12 @@ vim.api.nvim_create_autocmd({"ModeChanged"}, {
     vim.opt.listchars = {}
   end
 })
+
+-- When entering a terminal enter in insert mode
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup,
+  pattern = "*",
+  callback = function()
+    vim.cmd("startinsert")
+  end,
+})

@@ -33,17 +33,36 @@ vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '*', '*zz')
 vim.keymap.set('n', '#', '#zz')
 
--- Escaping Terminal Mode
+-- Configuring neovim's terminal
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
-
--- Opening terminal in Neovim
-vim.keymap.set('n', '<leader>t', '<cmd>term<cr>')
+vim.keymap.set('n', '<leader>t', '<cmd>vertical terminal<cr>')
+vim.keymap.set('n', '<leader>ht', '<cmd>horizontal terminal<cr>')
 
 -- Launching netrw
 -- vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')
 
 -- Make the file executable
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>')
+
+-- Running code of interpreted languages
+-- To run compiled languages keymaps have been overwritten in autocmds.lua
+local runners = {
+  python = "uv run",
+  sh = "bash",
+}
+
+-- Run code in a vertical terminal
+vim.keymap.set("n", "<leader>r", function()
+  vim.cmd("write")
+  local cmd = runners[vim.bo.filetype] or vim.bo.filetype
+  vim.cmd("vertical terminal " .. cmd .. " " .. vim.fn.expand("%"))
+end)
+-- Run code in a horizontal terminal
+vim.keymap.set("n", "<leader>hr", function()
+  vim.cmd("write")
+  local cmd = runners[vim.bo.filetype] or vim.bo.filetype
+  vim.cmd("horizontal terminal " .. cmd .. " " .. vim.fn.expand("%"))
+end)
 
 -- If you're checking the list of kemappings
 -- do also check the plugin files
