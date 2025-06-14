@@ -1,182 +1,165 @@
 #!/bin/bash
 
+# Enables strict mode: exits on errors, unset vars, and pipeline failures.
+set -euo pipefail
+
+echo "=================================================="
+echo " Debian Setup Script                              "
+echo "=================================================="
+
 cat <<EOF
-It is assumed that the following is true:
-    - The user is in sudo group
-    - You have internet access
-    - Git is installed and the dotfiles repo has been cloned to ~/dotfiles
+Assumptions:
+    - User is in the sudo group
+    - Internet is accessible
+    - Git is installed and dotfiles are at ~/dotfiles
 
 Press ENTER to continue...
 EOF
 read -r
 
-if ! groups $USER | grep -q '\bsudo\b'; then
-  echo "Error: user '$USER' is not in the sudo group."
-  echo "Run: su -"
-  echo "Then add user to sudo group: usermod -aG sudo $USER"
-  echo "Then reboot and rerun the script."
-  exit 1
-fi
+check_prereqs() {
+  if ! groups "$USER" | grep -qw sudo; then
+    echo "Error: User '$USER' is not in the sudo group."
+    echo "Run: su -"
+    echo "Then: usermod -aG sudo $USER && reboot"
+    exit 1
+  fi
 
-if [ ! -d "$HOME/dotfiles" ]; then
-  echo "Dotfiles directory not found at ~/dotfiles. Exiting."
-  exit 1
-fi
+  if [ ! -d "$HOME/dotfiles" ]; then
+    echo "Dotfiles directory not found at ~/dotfiles. Exiting."
+    exit 1
+  fi
+}
 
-# Installing basic apps via apt
-echo
-echo "=================================================="
-echo " Updating package lists and installing basic apps "
-echo "=================================================="
-echo
+install_apt_packages() {
+  echo "--- Installing packages via apt ---"
+  sudo apt update && sudo apt install -y \
+    git cargo curl stow \
+    kitty zsh neovim vim tmux \
+    gcc cmake \
+    python3 python3-pip python3-venv ipython3 \
+    eza zoxide fzf bat \
+    wl-clipboard cliphist \
+    ripgrep fd-find htop \
+    grim slurp sway waybar \
+    swaylock swayidle \
+    thunar ranger \
+    libnotify-bin mako-notifier brightnessctl \
+    pavucontrol fonts-indic
+}
 
-sudo apt update && sudo apt install -y \
-  git cargo curl stow \
-  kitty zsh neovim vim tmux \
-  gcc cmake \
-  python3 python3-pip python3-venv ipython3 \
-  eza zoxide fzf bat \
-  wl-clipboard cliphist \
-  ripgrep fd-find htop \
-  grim slurp \
-  sway waybar \
-  swaylock swayidle \
-  thunar ranger \
-  libnotify-bin mako-notifier brightnessctl \
-  pavucontrol
+install_cargo_packages() {
+  echo "--- Installing cargo packages ---"
+  cargo install kanata
+  cargo install clock-rs
+}
 
-# Installing apps via cargo
-echo
-echo "--- Installing cargo packages: kanata, clock-rs, ---"
-echo
+install_uv() {
+  echo "--- Installing uv ---"
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+}
 
-cargo install kanata
-cargo install clock-rs
+install_node_tools() {
+  echo "--- Installing Node.js and npm tools ---"
+  export NVM_DIR="$HOME/.nvm"
+  if [ ! -d "$NVM_DIR" ]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+  fi
+  # shellcheck disable=SC1090
+  \. "$NVM_DIR/nvm.sh"
+  nvm install node
+  corepack enable yarn
 
-# Installing apps via curl
-echo
-echo "--- Installing apps through curl: uv ---"
-echo
+  npm install -g tldr
+}
 
-curl -LsSf https://astral.sh/uv/install.sh | sh
+setup_dotfiles() {
+  echo "--- Setting up dotfiles ---"
+  cd "$HOME/dotfiles"
 
-# Installing node.js
-echo
-echo "--- Installing Node.js via nvm with npm and yarn ---"
-echo
+  rm -f ~/.bashrc ~/.profile
+  mkdir -p ~/.local/bin
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-\. "$HOME/.nvm/nvm.sh"
-nvm install
-corepack enable yarn
-yarn -v
+  stow --verbose \
+    kitty bash zsh clock-rs fonts git kanata mako \
+    nvim profile qt5 sway swaylock themes tmux \
+    vimrc waybar misc conda
+}
 
-# Installing apps via npm
-npm install -g tldr
+setup_symlinks() {
+  echo "--- Creating symlinks ---"
+  sudo ln -sf "$HOME/.local/bin/ranger-launch" /usr/local/bin/ranger-launch
+  ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
+}
 
-# Cloning our dotfiles repo and stowing our dotfiles
-echo
-echo "--- Setting up dotfiles ---"
-echo
+configure_neovim() {
+  echo "--- Configuring Neovim ---"
+  mkdir -p "$HOME/.cache/nvim/undodir"
+}
 
-# git clone https://github.com/nipun-ghanathe/dotfiles.git $HOME/dotfiles
-cd $HOME/dotfiles
-rm ~/.bashrc ~/.profile
-mkdir ~/.local/bin
-stow --verbose \
-  kitty \
-  bash \
-  zsh \
-  clock-rs \
-  fonts \
-  git \
-  kanata \
-  mako \
-  nvim \
-  profile \
-  qt5 \
-  sway \
-  swaylock \
-  themes \
-  tmux \
-  vimrc \
-  waybar \
-  misc \
-  conda
+configure_tmux() {
+  echo "--- Configuring tmux ---"
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
+}
 
-# Adding custom things into dmenu by adding them to path
-sudo ln -s $HOME/.local/bin/ranger-launch /usr/local/bin/ranger-launch
+configure_zsh() {
+  echo "--- Making zsh the default shell ---"
+  chsh -s "$(which zsh)"
+}
 
-# Configuring fd-find
-ln -s "$(which fdfind)" /home/nipun/.local/bin/fd
+configure_gtk_theme() {
+  echo "--- Configuring GTK theme ---"
+  gsettings set org.gnome.desktop.interface gtk-theme "Dracula-gtk"
+  gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+}
 
-# Configuring nvim
-echo
-echo "--- Configuring Neovim ---"
-echo
-mkdir $HOME/.cache/nvim/undodir
+setup_kanata_uinput() {
+  echo "--- Configuring uinput for kanata ---"
+  sudo groupadd -f uinput
+  sudo usermod -aG input,uinput "$USER"
 
-# Configuring tmux
-echo
-echo "--- Configuring tmux ---"
-echo
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# Configuring zsh
-echo
-echo "--- Making zsh the default shell ---"
-echo
-chsh -s $(which zsh)
-
-# # Configuring gnome
-# echo
-# echo "--- Applying GNOME settings ---"
-# echo
-# bash $HOME/dotfiles/gnome/load-gnome-settings.sh
-
-# Configuring gtk color scheme
-gsettings set org.gnome.desktop.interface gtk-theme "Dracula-gtk"
-gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
-
-# Some configuration for kanata to run properly
-echo
-echo "--- Configuring uinput permissions for kanata ---"
-echo
-
-sudo groupadd uinput
-sudo usermod -aG input $USER
-sudo usermod -aG uinput $USER
-sudo tee /etc/udev/rules.d/99-input.rules > /dev/null <<EOF
+  sudo tee /etc/udev/rules.d/99-input.rules > /dev/null <<EOF
 KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static-node=uinput"
 EOF
-sudo udevadm control --reload-rules && sudo udevadm trigger
-sudo modprobe uinput
 
-# Installing fonts-indic to render Indian languages
-echo
-echo "--- Installing fonts-indic to render Indian languages ---"
-echo
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger
+  sudo modprobe uinput
+}
 
-sudo apt install fonts-indic -y
+make_scripts_executable() {
+  echo "--- Making scripts executable ---"
+  chmod +x ~/.local/bin/ranger-launch
+  find ~/.config/sway/scripts -type f -name "*.sh" -exec chmod +x {} \;
+}
 
-# Making some files executable
-echo
-echo "--- Making a few scripts executable ---"
-echo
-chmod +x ~/.local/bin/ranger-launch
-chmod +x ~/.config/sway/scripts/custom_wmenu.sh
-chmod +x ~/.config/sway/scripts/system_wmenu.sh
-chmod +x ~/.config/sway/scripts/random_wallpaper.sh
+final_instructions() {
+  echo
+  echo "✅ Setup complete!"
+  cat <<EOF
 
-echo
-echo "Setup complete!"
-echo
-cat <<EOF
-You might want to do the following things:
-    - Setup some settings for kanata (check kanata/README.md)
-    - Reboot the system and log into sway
+Next steps:
+  - Setup some settings for Kanata (see dotfiles/kanata/README.md)
+  - Reboot the system
+
 EOF
+}
 
-### To-do
-# - [ ] automate setup of obsidian
-# - [ ] automate setup of bitwarden
+main() {
+  check_prereqs
+  install_apt_packages
+  install_cargo_packages
+  install_uv
+  install_node_tools
+  setup_dotfiles
+  setup_symlinks
+  configure_neovim
+  configure_tmux
+  configure_zsh
+  configure_gtk_theme
+  setup_kanata_uinput
+  make_scripts_executable
+  final_instructions
+}
+
+main
