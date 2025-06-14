@@ -1,7 +1,7 @@
 setopt prompt_subst
 
 git_branch() {
-  local branch dirty remote ahead behind remote_status
+  local branch dirty # remote ahead behind remote_status
   # Branch check
   if branch=$(git symbolic-ref --short HEAD 2>/dev/null); then
     # Dirty check
@@ -28,10 +28,13 @@ precmd() {
   else
     prompt_symbol="%B%F{red}✗%f%b"
   fi
+
+  if [[ ! "$PROMPT" == $'\n'* ]]; then
+    PROMPT=$'\n'"$PROMPT"
+  fi
 }
 
-PROMPT=$'\n'
-PROMPT+='%B%F{cyan}%1~%f%b'
+PROMPT='%B%F{cyan}%1~%f%b'
 PROMPT+='$(git_branch)'
 PROMPT+='$(get_env_name)'
 PROMPT+=$'\n${prompt_symbol} ' 
