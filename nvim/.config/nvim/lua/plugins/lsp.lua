@@ -22,20 +22,34 @@ return {
     -- Setting up the LSP servers
     local lspconfig = require('lspconfig')
     lspconfig.lua_ls.setup({ capabilities = capabilities })
-    lspconfig.pyright.setup({  -- if you remove pyright then make sure to change venv-selector.nvim's config
+    lspconfig.pyright.setup({
       capabilities = capabilities,
       settings = {
+        pyright = {
+          -- Using Ruff's import organize
+          disableOrganizeImports = true,
+        },
         python = {
           analysis = {
-            typeCheckingMode = "standard",
-            -- typeCheckingMode = "strict",
-            diagnosticSeverityOverrides = {
-              -- reportAttributeAccessIssue = "none",
-              -- reportMissingImports = "none",
-            },
+            -- Ignore all files for analysis to exclusively use Ruff for linting
+            ignore = { "*" },
+            -- typeCheckingMode = "standard",
+            -- -- typeCheckingMode = "strict",
+            -- diagnosticSeverityOverrides = {
+            --   -- reportAttributeAccessIssue = "none",
+            --   -- reportMissingImports = "none",
+            -- },
           },
         },
       },
+    })
+    lspconfig.ruff.setup({
+      -- init_options = {
+      --   settings = {
+      --     -- Ruff language server settings go here
+      --     -- logLevel = "debug",
+      --   }
+      -- }
     })
     lspconfig.clangd.setup({ capabilities = capabilities })
     lspconfig.html.setup({ capabilities = capabilities })
@@ -53,6 +67,10 @@ return {
     )
 
     vim.diagnostic.config({ float = { border = "rounded" }})
+    vim.diagnostic.config({
+      float = { border = "rounded" },
+      virtual_text = false,
+    })
 
     ------------------------
     ----- LSP mappings -----
@@ -65,7 +83,7 @@ return {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
         vim.keymap.set("n", "<leader>ld", function() vim.diagnostic.open_float() end, opts) -- [L]ist [D]iagnostics under cursor
-        vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts) -- [F]ormat
+        vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts) -- [L]SP [F]ormat
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<c-h>", function() vim.lsp.buf.signature_help() end, opts)
