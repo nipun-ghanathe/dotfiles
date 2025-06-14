@@ -80,3 +80,33 @@ This will install required packages, symlink configuration files using `stow`, a
 * The setup scripts are tailored to specific distributions (e.g. Debian). Make sure you use the correct one.
 * Some actions (e.g. adding kernel modules, configuring `uinput`) may require a reboot to take full effect.
 * Your original configs (e.g. `.bashrc`) may be replaced by symlinks to the repo versions — back up if needed.
+
+
+# 📝 To-dos
+***These changes will be done in June of 2026***
+
+- [ ] Changes in Neovim
+    - [ ] Debloat the config
+    - [ ] Replace `nvim-lspconfig` by `vim.lsp`  
+      Example:
+      ```lua
+      vim.lsp.config('ruff', {
+        init_options = {
+          settings = {
+            -- Ruff language server settings go here
+          }
+        }
+      })
+      
+      vim.lsp.enable('ruff')
+      ```
+    - [ ] Remove `mason` and install LSPs, Formatters and Linters
+      globally
+    - [ ] See if you can remove `none-ls`, `conform` and `nvim-lint`
+    - [ ] See if you can remove `venv-selector`
+    - [ ] Rewrite the whole config
+- [ ] Make setup-debian.sh better
+  - [x] Lay a blueprint for modularizing
+  - [ ] Add improvements
+  - [ ] Modularize it
+- [ ] Improve `bashrc` by referring to the `zshrc`
