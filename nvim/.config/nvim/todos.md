@@ -23,3 +23,5 @@
   might not be using them
 
 - [ ] see if you can remove `venv-selector`
+
+- [ ] rewrite the whole config
