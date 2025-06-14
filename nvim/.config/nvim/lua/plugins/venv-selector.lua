@@ -5,7 +5,6 @@ return {
     -- "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
   },
   lazy = "VeryLazy",
-  ft = { "python" },
   branch = "regexp", -- This is the regexp branch, use this for the new version
   keys = {
     { "<leader>v", "<cmd>VenvSelect<cr>" },
