@@ -28,13 +28,10 @@ precmd() {
   else
     prompt_symbol="%B%F{red}✗%f%b"
   fi
-
-  if [[ ! "$PROMPT" == $'\n'* ]]; then
-    PROMPT=$'\n'"$PROMPT"
-  fi
 }
 
-PROMPT='%B%F{cyan}%1~%f%b'
+PROMPT=$'\n'
+PROMPT+='%B%F{cyan}%1~%f%b'
 PROMPT+='$(git_branch)'
 PROMPT+='$(get_env_name)'
 PROMPT+=$'\n${prompt_symbol} ' 
