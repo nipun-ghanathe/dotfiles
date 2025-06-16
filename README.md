@@ -85,6 +85,7 @@ This will install required packages, symlink configuration files using `stow`, a
 # 📝 To-dos
 ***These changes will be done in June of 2026***
 
+- [ ] Check whether or not `ruff` config is even working inside `neovim`
 - [ ] Changes in Neovim
     - [ ] Debloat the config
     - [ ] Replace `nvim-lspconfig` by `vim.lsp`  
