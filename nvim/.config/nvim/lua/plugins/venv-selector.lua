@@ -5,6 +5,7 @@ return {
     -- "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
   },
   lazy = "VeryLazy",
+  ft = "python",
   branch = "regexp", -- This is the regexp branch, use this for the new version
   keys = {
     { "<leader>v", "<cmd>VenvSelect<cr>" },
@@ -15,19 +16,15 @@ return {
     -- Your settings go here
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
-        -- make sure that the lsp client is not null-ls
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        ---@diagnostic disable-next-line: need-check-nil
-        if client.name == "null-ls" then return end
-
         -- Select venv using venv-selector.nvim
         local venv_selector = require("venv-selector")
 
-        -- Check if venv-selector has checked a venv from cache
+        -- Check if venv-selector has selected a venv from cache
         if venv_selector.venv() == nil then
           local venv_path = vim.fn.getcwd() .. "/.venv/bin/python"
           if vim.fn.executable(venv_path) == 1 then
             venv_selector.activate_from_path(venv_path)
+            print("venv activation function run")
           end
         end
       end,

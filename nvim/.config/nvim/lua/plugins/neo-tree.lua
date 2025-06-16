@@ -33,6 +33,7 @@ return {
       filesystem = {
         hide_by_name = {
           "__pycache__",
+          ".venv",
         },
         follow_current_file = { enabled = true },
         hijack_netrw_behavior = "open_default",
