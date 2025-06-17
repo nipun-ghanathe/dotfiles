@@ -165,8 +165,8 @@ exec swayidle -w \
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+shift+s splitv
-    bindsym $mod+shift+v splith
+    bindsym $mod+slash splith
+    bindsym $mod+equal splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
