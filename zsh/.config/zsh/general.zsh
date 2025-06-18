@@ -1,4 +1,4 @@
-# exports
+# Setting default editors, pages, etc
 export EDITOR=nvim
 export PAGER=batcat
 export BAT_PAGER="less -FRX"
@@ -6,46 +6,43 @@ export MANPAGER="less -FRX"
 export BROWSER=xdg-open
 export LANG=en_US.UTF-8
 
-# history
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_find_no_dups
-
 # options
-setopt autocd
-setopt extended_glob
+setopt autocd             # cd by typing dir name
+setopt extended_glob      # advanced globbing
+setopt hist_ignore_dups   # ignore duplicate history entries
+setopt share_history      # share command history across terminals
 
-# keybindings
-bindkey -e  # emacs mode and now you can use ^F to accept autosuggestions
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+set -o emacs              # emacs like motions on the command line
 
 # completions
-autoload -U compinit && compinit
+autoload -Uz compinit
+if [[ ! -f ~/.zcompdump ]] || [[ ~/.zcompdump -ot ~/.zshrc ]]; then
+  compinit
+  compdump
+else
+  compinit -C
+fi
+zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case-insensitive
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu select # to remove or not???
 
-### shell integrations
-#
-# fzf
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# fzf integration
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS="--preview='batcat --color=always {}'"
-#
+
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
-#
+
+# # Making tmux launch at shell startup
+# [ -z "$TMUX" ] && tmux new-session -A -s main
+
 # uv
 eval "$(uv generate-shell-completion zsh)"
-#
-# tmux
-# [ -z "$TMUX" ] && tmux new-session -A -s main
-#
+
 # node.js
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
