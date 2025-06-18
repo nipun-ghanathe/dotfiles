@@ -86,6 +86,8 @@ This will install required packages, symlink configuration files using `stow`, a
 ***These changes will be done in June of 2026***
 
 - [ ] Check whether or not `ruff` config is even working inside `neovim`
+- [ ] Change color scheme in terminal (becuase powerlevel10k colors
+  don't match dracula)
 - [ ] Changes in Neovim
     - [ ] Debloat the config
     - [ ] Replace `nvim-lspconfig` by `vim.lsp`  
