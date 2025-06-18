@@ -36,4 +36,7 @@ PROMPT+='$(git_branch)'
 PROMPT+='$(get_env_name)'
 PROMPT+=$'\n${prompt_symbol} ' 
 
+# RPROMPT='$(git_branch)'
+# RPROMPT+='$(get_env_name)'
+
 PS2='%F{green}›%f ' 
