@@ -3,4 +3,4 @@ channels:
   - defaults
 
 channel_priority: strict
-changeps1: false
+changeps1: true
