@@ -3,6 +3,7 @@ return {
   config = function()
     require("lint").linters_by_ft = {
       -- python = { "ruff" },  -- use the lsp instead so you can also get code-actions
+      python = { "mypy" }, -- for type checking (note that mypy works only on save)
       javascript = { "eslint_d" },
       c = { "cpplint" },
       cpp = { "cpplint" },

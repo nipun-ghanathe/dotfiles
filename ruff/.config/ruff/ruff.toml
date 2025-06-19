@@ -72,13 +72,14 @@ lint.extend-select = [
 ]
 
 lint.ignore = [
-    "E501",  # Pycodestyle - line too long
-    "D1",    # Pydocstyle - missing docstring in public module, class, or function
-    "FBT003", # Flake8-boolean-trap - boolean position value in function call
-    "D203",  # Pydocstyle - one blank line required before class docstring
-    "D212",  # Pydocstyle - summary line should be immediately after the opening quotes.
-    "D401",  # Pydocstyle - Checks for docstring first lines that are not in an imperative mood.
-    "S311",  # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
-    "RET504", # Flake8-return - Checks for variable assignments that immediately precede a return of the assigned variable.
-    "FA102", # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
+    "E501",     # Pycodestyle - line too long
+    "D1",       # Pydocstyle - missing docstring in public module, class, or function
+    "FBT003",   # Flake8-boolean-trap - boolean position value in function call
+    "D203",     # Pydocstyle - one blank line required before class docstring
+    "D212",     # Pydocstyle - summary line should be immediately after the opening quotes.
+    "D401",     # Pydocstyle - Checks for docstring first lines that are not in an imperative mood.
+    "S311",     # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
+    "RET504",   # Flake8-return - Checks for variable assignments that immediately precede a return of the assigned variable.
+    "FA102",    # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
+    "PERF203",  # Perflint - Checks for uses of except handling via `try-except` within `for` and `while` loops.
 ]

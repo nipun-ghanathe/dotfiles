@@ -90,8 +90,8 @@ return {
         vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
         vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
         vim.keymap.set("n", "go", function() vim.lsp.buf.type_definition() end, opts)
-        vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts) -- [V]im [W]orkspace [S]ymbol
+        vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts) -- [V]im [W]orkspace [S]ymbol  -- grep but only for symbols meaning functions, classes, etc
       end
     })
   end,
