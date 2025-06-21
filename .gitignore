@@ -1,4 +1,4 @@
-nvim/.config/nvim/lazy-lock.json
+lazy-lock.json
 misc/.local/bin/uv*
 zsh/.config/zsh/temporary.zsh
 zsh/.config/zsh/plugins
