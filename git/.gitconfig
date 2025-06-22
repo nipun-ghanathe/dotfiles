@@ -13,7 +13,7 @@
   ci = commit
   st = status
   br = branch
-  hist = log --oneline --graph
-  lg = log --oneline --graph --max-count=20
+  hist = log --oneline --graph --all
+  lg = log --oneline -n 10
   type = cat-file -t
   pprint = cat-file -p
