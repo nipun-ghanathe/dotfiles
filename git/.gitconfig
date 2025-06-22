@@ -1,20 +1,20 @@
 [user]
-  name = nipun
-  email = nipuncod@gmail.com
+	name = nipun
+	email = nipuncod@gmail.com
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [core]
-  autocrlf = input
-  safecrlf = true
+	autocrlf = input
+	safecrlf = warn
 [alias]
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  hist = log --oneline --graph --all
-  lg = log --oneline -n 10
-  type = cat-file -t
-  pprint = cat-file -p
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --oneline --graph --all
+	lg = log --oneline -n 10
+	type = cat-file -t
+	pprint = cat-file -p
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
