@@ -3,8 +3,6 @@
   email = nipuncod@gmail.com
 [init]
   defaultBranch = main
-[credential]
-  helper = store
 [core]
   autocrlf = input
   safecrlf = true
@@ -17,3 +15,9 @@
   lg = log --oneline -n 10
   type = cat-file -t
   pprint = cat-file -p
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
