@@ -77,13 +77,18 @@ This will install required packages, symlink configuration files using `stow`, a
 
 ### 6. Manual setup that needs to be done
 
-- Setup rclone
-  - rclone has been installed
-  - but the config file is not ready
-  - the boilerplate config is copied to `~/.config/rclone` but keys are not
-    filled
-  - you need to add keys which you can get from your BitWarden's
-    rclone-gdrive-api note
+**🔐 Configure rclone (Google Drive)**
+- Rclone is installed and a boilerplate config file is placed at:
+  `~/.config/rclone/rclone.conf`
+- Secrets are not included. Retrieve them from Bitwarden:
+  - Open the rclone-gdrive-api note in your Bitwarden vault.
+  - Copy the values for CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, REFRESH_TOKEN, and TOKEN_EXPIRY.
+  - Replace the corresponding placeholders in the config file.
+- To verify it works:
+  ```bash
+  rclone ls gdrive:
+  ```
+- For more information check `~/dotfiles/rclone/README.md`
 
 ---
 

@@ -59,6 +59,12 @@ install_uv() {
   curl -LsSf https://astral.sh/uv/install.sh | sh
 }
 
+install_rclone() {
+  echo "--- Installing rclone ---"
+  sudo -v ; curl https://rclone.org/install.sh | sudo bash
+  cp "$HOME/dotfiles/rclone/rclone.conf" "$HOME/.config/rclone/rclone.conf"
+}
+
 install_node_tools() {
   echo "--- Installing Node.js and npm tools ---"
   export NVM_DIR="$HOME/.nvm"
@@ -140,7 +146,7 @@ final_instructions() {
 
 Next steps:
   - Setup some settings for Kanata (see dotfiles/kanata/README.md)
-  - Setup rclone (see ~/dotfiles/rclone/README.md or )
+  - Setup rclone (see ~/dotfiles/rclone/README.md or https://github.com/nipun-ghanathe/dotfiles?tab=readme-ov-file#6-manual-setup-that-needs-to-be-done)
   - Reboot the system
 
 EOF
@@ -151,6 +157,7 @@ main() {
   install_apt_packages
   install_cargo_packages
   install_uv
+  install_rclone
   install_node_tools
   setup_dotfiles
   setup_symlinks
