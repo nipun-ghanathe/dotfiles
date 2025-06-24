@@ -147,6 +147,9 @@ final_instructions() {
 Next steps:
   - Setup some settings for Kanata (see dotfiles/kanata/README.md)
   - Setup rclone (see ~/dotfiles/rclone/README.md or https://github.com/nipun-ghanathe/dotfiles?tab=readme-ov-file#6-manual-setup-that-needs-to-be-done)
+  - Download GUI Apps
+    - Todoist
+    - Obsidian
   - Reboot the system
 
 EOF

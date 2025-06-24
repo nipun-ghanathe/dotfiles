@@ -90,6 +90,10 @@ This will install required packages, symlink configuration files using `stow`, a
   ```
 - For more information check `~/dotfiles/rclone/README.md`
 
+**🖥️ Install GUI Apps**
+- Todoist
+- Obsidian
+
 ---
 
 ## 🧰 Notes
