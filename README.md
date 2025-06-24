@@ -75,6 +75,18 @@ This will install required packages, symlink configuration files using `stow`, a
 
 ---
 
+### 6. Manual setup that needs to be done
+
+- Setup rclone
+  - rclone has been installed
+  - but the config file is not ready
+  - the boilerplate config is copied to `~/.config/rclone` but keys are not
+    filled
+  - you need to add keys which you can get from your BitWarden's
+    rclone-gdrive-api note
+
+---
+
 ## 🧰 Notes
 
 * The setup scripts are tailored to specific distributions (e.g. Debian). Make sure you use the correct one.

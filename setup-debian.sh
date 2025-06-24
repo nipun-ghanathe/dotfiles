@@ -140,6 +140,7 @@ final_instructions() {
 
 Next steps:
   - Setup some settings for Kanata (see dotfiles/kanata/README.md)
+  - Setup rclone (see ~/dotfiles/rclone/README.md or )
   - Reboot the system
 
 EOF
