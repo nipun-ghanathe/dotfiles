@@ -63,7 +63,8 @@
     "states": {
       "warning": 30,
       "critical": 15
-    }
+    },
+    "on-click": "$HOME/.config/sway/scripts/system_dmenu.sh"
   },
 
   "clock": {
