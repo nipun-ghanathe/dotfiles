@@ -75,7 +75,7 @@ This will install required packages, symlink configuration files using `stow`, a
 
 ---
 
-### 6. Manual setup that needs to be done
+### 6. Manual setup that needs to be done post-setup
 
 **🔐 Configure rclone (Google Drive)**
 - Rclone is installed and a boilerplate config file is placed at:
@@ -90,9 +90,23 @@ This will install required packages, symlink configuration files using `stow`, a
   ```
 - For more information check `~/dotfiles/rclone/README.md`
 
+***
+
 **🖥️ Install GUI Apps**
 - Todoist
 - Obsidian
+
+Integrate AppImages using AppImageLauncher:
+```
+ail-cli integrate <app-image>
+```
+
+***
+
+**⌨️ Make sure Kanata is configured**  
+
+See [Kanata readme](https://github.com/nipun-ghanathe/dotfiles/blob/main/kanata/.config/kanata/README.md)
+for more details.
 
 ---
 
