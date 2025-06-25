@@ -98,6 +98,11 @@ setup_symlinks() {
   ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
 }
 
+configure_default_term() {
+  echo "--- Changing default terminal to Kitty ---"
+  sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
+}
+
 configure_neovim() {
   echo "--- Configuring Neovim ---"
   mkdir -p "$HOME/.cache/nvim/undodir"
