@@ -1,16 +1,14 @@
 {
   "layer": "bottom",
   "position": "top",
-  "spacing": 2,
   "height": 28,
 
   "modules-left": [
     "sway/workspaces",
     "sway/mode"
-    //"sway/window"
   ],
 
-  "modules-center": [],
+  "modules-center": ["sway/window"],
 
   "modules-right": [
     "wireplumber",
@@ -41,8 +39,8 @@
   },
 
   "network": {
-    "format-wifi": " {essid}",
-    "format-ethernet": " {ipaddr}",
+    "format-wifi": "  {essid}",
+    "format-ethernet": "  {ipaddr}",
     "format-disconnected": " ",
     "on-click": "kitty -e nmtui",
     "interval": 10
