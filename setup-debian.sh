@@ -39,9 +39,9 @@ install_apt_packages() {
     gcc cmake \
     python3 python3-pip python3-venv ipython3 \
     eza zoxide fzf bat \
-    wl-clipboard cliphist \
     ripgrep fd-find htop \
-    grim slurp sway waybar \
+    grim slurp wl-clipboard cliphist \
+    sway waybar wofi \
     swaylock swayidle \
     thunar ranger \
     libnotify-bin mako-notifier brightnessctl \
@@ -89,7 +89,7 @@ setup_dotfiles() {
   stow --verbose \
     kitty bash zsh clock-rs fonts git kanata mako \
     nvim profile qt5 sway swaylock themes tmux \
-    vimrc waybar misc conda
+    fuzzel vimrc waybar misc conda
 }
 
 setup_symlinks() {
