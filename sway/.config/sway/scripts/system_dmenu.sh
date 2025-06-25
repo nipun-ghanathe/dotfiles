@@ -12,7 +12,7 @@ EOF
 )
 
 # Use wmenu to display the menu
-choice=$(echo "$options" | wmenu -i -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " ")
+choice=$(echo "$options" | fuzzel --dmenu --lines 6)
 
 # Act based on the selected command
 case "$choice" in

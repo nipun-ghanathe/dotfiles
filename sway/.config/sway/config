@@ -20,7 +20,8 @@ set $browser firefox
 # Your preferred file manager
 set $fileManager kitty -e ranger
 # Your preferred application launcher
-set $menu wmenu-run -i -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " "
+# set $menu wmenu-run -i -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " "
+set $menu fuzzel
 
 include /etc/sway/config-vars.d/*
 
@@ -94,7 +95,7 @@ exec swayidle -w \
     # Kill focused window
     bindsym $mod+q kill
 
-    # Start your launcher
+    # Start app launcher
     bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -244,7 +245,7 @@ bindsym $mod+Alt+BackSpace mode "$mode_system"
 #
 # Alternate Shutdown / restart / suspend ...
 # 
-bindsym $mod+BackSpace exec ~/.config/sway/scripts/system_wmenu.sh
+bindsym $mod+BackSpace exec ~/.config/sway/scripts/system_dmenu.sh
 #
 # Utilities:
 #
@@ -371,7 +372,7 @@ include /etc/sway/config.d/*
     exec wl-paste --type image --watch cliphist store
 
     # Launch the clipboard manager
-    bindsym $mod+Ctrl+v exec cliphist list | wmenu -i -l 5 -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " Select to copy: " | cliphist decode | wl-copy
+    bindsym $mod+Ctrl+v exec cliphist list | fuzzel --dmenu --placeholder " Select to copy" | cliphist decode | wl-copy
     # Delete an entry from the clipboard manager
-    bindsym $mod+Ctrl+x exec cliphist list | wmenu -i -l 5 -N "#282a36" -n "#f8f8f2" -S "#ff5555" -s "#f8f8f2" -M "#ff5555" -m "#f8f8f2" -p " Delete entry: " | cliphist delete
+    bindsym $mod+Ctrl+x exec cliphist list | fuzzel --dmenu --placeholder " Delete entry" | cliphist delete
     # Note: you can clear all cliphist entries by running `cliphist wipe`
