@@ -144,6 +144,11 @@ make_scripts_executable() {
   find ~/.config/sway/scripts -type f -name "*.sh" -exec chmod +x {} \;
 }
 
+setup_cronjobs() {
+  echo "--- Setting up cron jobs ---"
+  crontab $HOME/dotfiles/cron/my_crontab
+}
+
 final_instructions() {
   echo
   echo "✅ Setup complete!"
