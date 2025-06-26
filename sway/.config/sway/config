@@ -376,3 +376,8 @@ include /etc/sway/config.d/*
     # Delete an entry from the clipboard manager
     bindsym $mod+Ctrl+x exec cliphist list | fuzzel --dmenu --placeholder " Delete entry" | cliphist delete
     # Note: you can clear all cliphist entries by running `cliphist wipe`
+#
+# Dynamic Tiling Scripts
+#
+    bindsym $mod+grave exec ~/.config/sway/scripts/stack-split-layout.sh
+    bindsym $mod+Shift+grave exec ~/.config/sway/scripts/revert-stack-split-layout.sh
