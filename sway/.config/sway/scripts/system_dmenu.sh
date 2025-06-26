@@ -12,7 +12,7 @@ EOF
 )
 
 # Use wmenu to display the menu
-choice=$(echo "$options" | fuzzel --dmenu --lines 6 --width 10 --no-exit-on-keyboard-focus-loss --horizontal-pad 15 --anchor top-right)
+choice=$(echo "$options" | fuzzel --dmenu --lines 6 --width 10 --no-exit-on-keyboard-focus-loss --horizontal-pad 15 --anchor top-right --border-color 44475add)
 
 # Act based on the selected command
 case "$choice" in
