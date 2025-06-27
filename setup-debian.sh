@@ -89,7 +89,7 @@ setup_dotfiles() {
   stow --verbose \
     kitty bash zsh clock-rs fonts git kanata mako \
     nvim profile qt5 sway swaylock themes tmux \
-    fuzzel vimrc waybar misc conda
+    fuzzel vimrc waybar misc conda ruff mypy
 }
 
 setup_symlinks() {
