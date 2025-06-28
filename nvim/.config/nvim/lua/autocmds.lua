@@ -18,12 +18,12 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Automatic line wrapping (breaking) in markdown files
--- Note: you can use `gq` command to wrap text that was not wrapped
+-- Note: you can use `gq` command to wrap text that was not wrapped (even in non-markdown files)
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
   pattern = { "markdown" },
   callback = function()
-    vim.opt_local.textwidth = 80
+    vim.opt_local.textwidth = 72
     vim.opt_local.formatoptions:append("t")
   end,
 })
