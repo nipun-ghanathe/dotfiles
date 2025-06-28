@@ -1,8 +1,5 @@
 # Setting default editors, pages, etc
 export EDITOR=nvim
-export PAGER=batcat
-export BAT_PAGER="less -FRX"
-export MANPAGER="less -FRX"
 export BROWSER=xdg-open
 export LANG=en_US.UTF-8
 
