@@ -51,7 +51,6 @@ install_apt_packages() {
 install_cargo_packages() {
   echo "--- Installing cargo packages ---"
   cargo install kanata
-  cargo install clock-rs
 }
 
 install_uv() {
@@ -87,7 +86,7 @@ setup_dotfiles() {
   mkdir -p ~/.local/bin
 
   stow --verbose \
-    kitty bash zsh clock-rs fonts git kanata mako \
+    kitty bash zsh fonts git kanata mako \
     nvim profile qt5 sway swaylock themes tmux \
     fuzzel vimrc waybar misc conda ruff mypy
 }
