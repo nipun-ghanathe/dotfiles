@@ -9,42 +9,42 @@ indicator-radius=70
 # colors
 
 ## general colors 
-color=282a36
-ring-color=44475a
+color=2e3440
+ring-color=434c5e
 inside-color=282a40
 # line-color=282a40
-line-color=44475a
-text-color=f8f8f2
+line-color=434c5e
+text-color=eceff4
 text-caps-lock-color=""
 
 ## some other general colors
-key-hl-color=bd93f9
-bs-hl-color=8be9fd
+key-hl-color=5e81ac
+bs-hl-color=88c0d0
 separator-color=00000000
 
 ## verifying colors
-line-ver-color=bd93f9
-ring-ver-color=bd93f9
+line-ver-color=5e81ac
+ring-ver-color=5e81ac
 inside-ver-color=282a40
-text-ver-color=8be9fd
+text-ver-color=88c0d0
 
 ## wrong colors
-line-wrong-color=ff5555
-ring-wrong-color=ff5555
+line-wrong-color=bf616a
+ring-wrong-color=bf616a
 inside-wrong-color=282a40
-text-wrong-color=ff79c6
+text-wrong-color=b48ead
 
 ## clear colors
-line-clear-color=8be9fd
-ring-clear-color=8be9fd
+line-clear-color=88c0d0
+ring-clear-color=88c0d0
 inside-clear-color=282a40
-text-clear-color=8be9fd
+text-clear-color=88c0d0
 
 ## caps-lock colors
-line-caps-lock-color=ffb86c
-ring-caps-lock-color=ffb86c
+line-caps-lock-color=d08770
+ring-caps-lock-color=d08770
 inside-caps-lock-color=282a40
-text-caps-lock-color=ffb86c
+text-caps-lock-color=d08770
 
 # font
 font="FiraCode-Regular"

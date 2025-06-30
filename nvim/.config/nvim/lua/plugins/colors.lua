@@ -1,6 +1,6 @@
 return {
-  "Mofiqul/dracula.nvim",
+  "shaunsingh/nord.nvim",
   config = function()
-    vim.cmd.colorscheme('dracula')
+    vim.cmd.colorscheme("nord")
   end,
 }

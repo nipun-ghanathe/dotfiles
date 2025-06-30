@@ -3,7 +3,10 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
+    {
+      "hrsh7th/cmp-path",
+      commit = "584414b1ad5220a024325bef7c7868f3a9f26fdb"
+    },
 
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
@@ -13,10 +16,10 @@ return {
   event = "InsertEnter",
 
   config = function()
-    local cmp = require("cmp")
-
     -- load the extra snippets from friednly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
+
+    local cmp = require("cmp")
 
     cmp.setup({
       snippet = {

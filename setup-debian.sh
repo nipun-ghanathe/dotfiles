@@ -37,7 +37,7 @@ install_apt_packages() {
     git cargo curl stow \
     kitty zsh neovim vim tmux \
     gcc cmake \
-    python3 python3-pip python3-venv ipython3 \
+    python3 python3-pip python3-venv python3-ipython \
     eza zoxide fzf bat \
     ripgrep fd-find htop \
     grim slurp wl-clipboard cliphist \
@@ -119,8 +119,8 @@ configure_zsh() {
 
 configure_gtk_theme() {
   echo "--- Configuring GTK theme ---"
-  gsettings set org.gnome.desktop.interface gtk-theme "Dracula-gtk"
-  gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+  gsettings gsettings set org.gnome.desktop.interface gtk-theme Nordic
+  gsettings set org.gnome.desktop.wm.preferences theme Nordic
 }
 
 setup_kanata_uinput() {

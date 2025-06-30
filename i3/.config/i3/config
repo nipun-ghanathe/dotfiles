@@ -253,9 +253,9 @@ gaps outer 0
 
 # colors for borders
 # class                 border  bground text    indicator child_border
-client.focused          #6272a4 #6272a4 #f8f8f2 #6272a4   #6272a4
-client.focused_inactive #44475a #44475a #f8f8f2 #44475a   #44475a
-client.unfocused        #282a36 #282a36 #bfbfbf #282a36   #282a36
-client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555   #ff5555
-client.placeholder      #282a36 #282a36 #f8f8f2 #282a36   #282a36
-client.background       #f8f8f2
+client.focused          #5e81ac #5e81ac #eceff4 #5e81ac   #5e81ac
+client.focused_inactive #434c5e #434c5e #eceff4 #434c5e   #434c5e
+client.unfocused        #2e3440 #2e3440 #bfbfbf #2e3440   #2e3440
+client.urgent           #bf616a #bf616a #eceff4 #bf616a   #bf616a
+client.placeholder      #2e3440 #2e3440 #eceff4 #2e3440   #2e3440
+client.background       #eceff4

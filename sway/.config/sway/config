@@ -20,7 +20,7 @@ set $browser firefox
 # Your preferred file manager
 set $fileManager kitty -e ranger
 # Your preferred application launcher
-# set $menu wmenu-run -i -N "#282a36" -n "#f8f8f2" -S "#6272a4" -s "#f8f8f2" -M "#6272a4" -m "#f8f8f2" -p " "
+# set $menu wmenu-run -i -N "#2e3440" -n "#eceff4" -S "#5e81ac" -s "#eceff4" -M "#5e81ac" -m "#eceff4" -p " "
 set $menu fuzzel
 
 include /etc/sway/config-vars.d/*
@@ -306,12 +306,12 @@ include /etc/sway/config.d/*
 # Colors
 # 
     # class                 border  bground text    indicator child_border
-    client.focused          #6272a4 #6272a4 #f8f8f2 #6272a4   #6272a4
-    client.focused_inactive #44475a #44475a #f8f8f2 #44475a   #44475a
-    client.unfocused        #282a36 #282a36 #bfbfbf #282a36   #282a36
-    client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555   #ff5555
-    client.placeholder      #282a36 #282a36 #f8f8f2 #282a36   #282a36
-    client.background       #f8f8f2
+    client.focused          #5e81ac #5e81ac #eceff4 #5e81ac   #5e81ac
+    client.focused_inactive #434c5e #434c5e #eceff4 #434c5e   #434c5e
+    client.unfocused        #2e3440 #2e3440 #bfbfbf #2e3440   #2e3440
+    client.urgent           #bf616a #bf616a #eceff4 #bf616a   #bf616a
+    client.placeholder      #2e3440 #2e3440 #eceff4 #2e3440   #2e3440
+    client.background       #eceff4
 #
 # Configuring gaps between windows
 #
@@ -321,7 +321,7 @@ include /etc/sway/config.d/*
 # Wallpaper
 #
     exec_always ~/.config/sway/scripts/random_wallpaper.sh
-    # exec_always swaybg --color "#6272a4"
+    # exec_always swaybg --color "#5e81ac"
     # exec_always swaybg --color "#000000"
     # exec_always swaybg --image ~/.config/wallpapers/os/debian.png --mode fill
 #

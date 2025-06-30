@@ -1,79 +1,74 @@
 * {
   border: none;
   border-radius: 6px;
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-family: "Hack Nerd Font", monospace;
   font-size: 12px;
   min-height: 0;
 }
 
 window#waybar {
-  background: #282a36;
-  color: #f8f8f2;
+  background: #2e3440;
+  color: #e5e9f0;
 }
 
 #workspaces button {
   padding: 0 8px;
   background: transparent;
-  color: #6272a4;
+  color: #5e81ac;
   margin: 0 2px;
 }
 
 #workspaces button.focused {
-  background: #44475a;
-  color: #f8f8f2;
+  background: #434c5e;
+  color: #e5e9f0;
 }
 
 #workspaces button.urgent {
-  background: #ff5555;
-  color: #f8f8f2;
+  background: #bf616a;
+  color: #e5e9f0;
 }
 
 #mode {
-  background: #bd93f9;
-  color: #282a36;
+  background: #5e81ac;
+  color: #2e3440;
   padding: 0 10px;
   margin-left: 8px;
 }
 
 #wireplumber {
-  background: #44475a;
-  /*color: #8be9fd;*/
+  background: #434c5e;
   padding: 0 10px;
   margin: 0 4px;
 }
 
 #network {
-  background: #44475a;
-  /*color: #50fa7b;*/
+  background: #434c5e;
   padding: 0 10px;
   margin: 0 4px;
 }
 
 #backlight {
-  background: #44475a;
-  /*color: #ffb86c;*/
+  background: #434c5e;
   padding: 0 10px;
   margin: 0 4px;
 }
 
 #battery {
-  background: #44475a;
-  /*color: #bd93f9;*/
+  background: #434c5e;
   padding: 0 10px;
   margin: 0 4px;
 }
 
 #battery.warning {
-  color: #f1fa8c;
+  color: #ebcb8b;
 }
 
 #battery.critical {
-  color: #ff5555;
+  color: #bf616a;
 }
 
 #clock {
-  background: #44475a;
-  /*color: #ff79c6;*/
+  background: #434c5e;
   padding: 0 10px;
   margin: 0 4px;
 }
@@ -84,7 +79,7 @@ window#waybar {
 #backlight:hover,
 #battery:hover,
 #clock:hover {
-  background: #6272a4;
-  color: #f8f8f2;
+  background: #5e81ac;
+  color: #e5e9f0;
 }
 

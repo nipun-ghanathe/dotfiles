@@ -86,7 +86,7 @@ return {
         vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts) -- [L]SP [F]ormat
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<c-h>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set({ "i", "n" }, "<c-h>", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
         vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
         vim.keymap.set("n", "go", function() vim.lsp.buf.type_definition() end, opts)
