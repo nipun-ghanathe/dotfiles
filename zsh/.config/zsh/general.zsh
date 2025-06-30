@@ -2,6 +2,10 @@
 export EDITOR=nvim
 export BROWSER=xdg-open
 export LANG=en_US.UTF-8
+export PAGER="less -R"
+export LESS="R"
+# export PAGER="less -FRX"
+# export LESS="FRX"
 
 # options
 setopt autocd             # cd by typing dir name

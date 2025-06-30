@@ -27,9 +27,11 @@ alias ls="eza --icons --group --group-directories-first"
 alias l="ls -lah"
 alias la="ls -A"
 alias ll="ls -lh"
+alias lt="ls -T"
+alias tree="ls -T"
 
 # batcat
-alias cat="batcat"
+alias cat="batcat --paging=always"
 
 # grep
 alias grep="grep --color=auto"
