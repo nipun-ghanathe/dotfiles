@@ -60,7 +60,7 @@ vim.opt.timeoutlen = 500
 vim.opt.signcolumn = 'yes'
 
 -- Making splits more natural
-vim.opt.splitbelow = true
+-- vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Setting undodir for persistent undo
@@ -70,7 +70,7 @@ vim.opt.undodir = vim.fn.stdpath('cache') .. "undodir"
 -- Enabling termguicolors
 vim.opt.termguicolors = true
 
--- Use these to make the background transparent
+-- Use these to make the background transparent (if it doesn't happen by default)
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
@@ -102,6 +102,3 @@ vim.diagnostic.config({
     },
   }
 })
-
--- Rounded border for floating windows (especially for lsp ones)
--- vim.opt.winborder = 'rounded' -- done for only lsp ones in `lsp.lua`

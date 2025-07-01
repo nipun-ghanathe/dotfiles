@@ -3,11 +3,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
-    {
-      "hrsh7th/cmp-path",
-      commit = "584414b1ad5220a024325bef7c7868f3a9f26fdb"
-    },
-
+    "hrsh7th/cmp-path",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
