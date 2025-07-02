@@ -1,3 +1,6 @@
+-- Global variables
+vim.g.python3_host_prog = "/usr/bin/python3"
+
 -- Line number
 vim.opt.number = true
 vim.opt.relativenumber = true

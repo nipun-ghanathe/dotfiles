@@ -41,9 +41,6 @@ vim.keymap.set('n', '<leader>ht', '<cmd>horizontal terminal<cr>')
 -- Launching netrw
 -- vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')
 
--- Make the file executable
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>')
-
 -- Running code of interpreted languages
 -- To run compiled languages keymaps have been overwritten in autocmds.lua
 local runners = {

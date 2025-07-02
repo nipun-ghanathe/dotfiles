@@ -9,14 +9,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end
 })
 
--- If filetype is `help` or `man` then `q` to close the window
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'help', 'man' },
-  group = augroup,
-  desc = 'Use q to close the window',
-  command = 'nnoremap <buffer> q <cmd>quit<cr>'
-})
-
 -- Automatic line wrapping (breaking) in markdown files
 -- Note: you can use `gq` command to wrap text that was not wrapped (even in non-markdown files)
 vim.api.nvim_create_autocmd("FileType", {
@@ -46,11 +38,12 @@ vim.api.nvim_create_autocmd({"ModeChanged"}, {
   end
 })
 
--- When entering a terminal enter in insert mode
+-- When entering a terminal enter in insert mode and disable cursorline
 vim.api.nvim_create_autocmd("TermOpen", {
   group = augroup,
   pattern = "*",
   callback = function()
     vim.cmd("startinsert")
+    vim.opt_local.cursorline = false
   end,
 })
