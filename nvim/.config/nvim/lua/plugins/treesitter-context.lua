@@ -2,9 +2,9 @@ return {
   "nvim-treesitter/nvim-treesitter-context",
   dependencies = "nvim-treesitter/nvim-treesitter",
   config = function()
-    vim.keymap.set("n", "[c", function()
-      require("treesitter-context").go_to_context(vim.v.count1)
-    end, { silent = true })
+    -- vim.keymap.set("n", "[c", function()
+    --   require("treesitter-context").go_to_context(vim.v.count1)
+    -- end, { silent = true })
 
     require 'treesitter-context'.setup {
       enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
