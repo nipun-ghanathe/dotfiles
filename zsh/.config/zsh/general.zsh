@@ -15,8 +15,6 @@ setopt share_history      # share command history across terminals
 
 # Keybindings
 set -o emacs              # emacs like motions on the command line
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
 
 # Completions
 autoload -Uz compinit
