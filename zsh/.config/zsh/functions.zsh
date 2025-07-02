@@ -19,17 +19,3 @@ short_prompt() {
   export RPROMPT=""
   export PROMPT=$'\n%F{green}$ %f'
 }
-
-# tmuxinator
-tx() {
-  if [[ -z "$1" ]]; then
-    echo 'tmuxinator ls'
-    tmuxinator ls
-    return
-  fi
-
-  local command="$1"
-  local selected="$(tmuxinator ls | fzf)"
-  echo "tmuxinator $command $selected"
-  tmuxinator "$command" "$selected"
-}

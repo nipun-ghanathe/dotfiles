@@ -17,12 +17,7 @@ set -o emacs              # emacs like motions on the command line
 
 # completions
 autoload -Uz compinit
-if [[ ! -f ~/.zcompdump ]] || [[ ~/.zcompdump -ot ~/.zshrc ]]; then
-  compinit
-  compdump
-else
-  compinit -C
-fi
+compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case-insensitive
 

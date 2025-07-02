@@ -33,11 +33,10 @@ check_prereqs() {
 
 install_apt_packages() {
   echo "--- Installing packages via apt ---"
-  sudo apt update && sudo apt install -y \
+  sudo apt update
+  sudo apt install -y \
     git cargo curl stow \
     kitty zsh neovim vim tmux \
-    gcc cmake \
-    python3 python3-pip python3-venv python3-ipython \
     eza zoxide fzf bat \
     ripgrep fd-find htop \
     grim slurp wl-clipboard cliphist \
@@ -45,7 +44,11 @@ install_apt_packages() {
     swaylock swayidle \
     thunar ranger \
     libnotify-bin mako-notifier brightnessctl \
-    pavucontrol fonts-indic
+    pavucontrol fonts-indic \
+    gcc cmake \
+    python3-full python3-pip \
+    python3-ipython jupyter jupyter-qtconsole python3-jupytext \
+    ruby-full
 }
 
 install_cargo_packages() {
@@ -62,6 +65,11 @@ install_rclone() {
   echo "--- Installing rclone ---"
   sudo -v ; curl https://rclone.org/install.sh | sudo bash
   cp "$HOME/dotfiles/rclone/rclone.conf" "$HOME/.config/rclone/rclone.conf"
+}
+
+install_tmuxinator() {
+  echo "--- Installing tmuxinator ---"
+  gem install tmuxinator
 }
 
 install_node_tools() {
@@ -107,14 +115,17 @@ configure_neovim() {
   mkdir -p "$HOME/.cache/nvim/undodir"
 }
 
-configure_tmux() {
+configure_tmux_and_tmuxinator() {
   echo "--- Configuring tmux ---"
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
+
+  echo "--- Configuring tmuxinator ---"
+  sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 }
 
 configure_zsh() {
   echo "--- Making zsh the default shell ---"
-  chsh -s "$(which zsh)"
+  sudo chsh -s "$(which zsh)"
 }
 
 configure_gtk_theme() {
@@ -139,7 +150,6 @@ EOF
 
 make_scripts_executable() {
   echo "--- Making scripts executable ---"
-  chmod +x ~/.local/bin/ranger-launch
   find ~/.config/sway/scripts -type f -name "*.sh" -exec chmod +x {} \;
 }
 
@@ -161,11 +171,12 @@ main() {
   install_cargo_packages
   install_uv
   install_rclone
+  install_tmuxinator
   install_node_tools
   setup_dotfiles
   setup_symlinks
   configure_neovim
-  configure_tmux
+  configure_tmux_and_tmuxinator
   configure_zsh
   configure_gtk_theme
   setup_kanata_uinput

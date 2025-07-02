@@ -3,11 +3,8 @@
 # vim
 alias vi="nvim"
 
-# python
-alias python="python3"
-alias py="python3 -X pycache_prefix=/tmp/pycache"
-alias ipython="ipython3"
-alias ipy="ipython3"
+# tmux
+alias mux="tmuxinator"
 
 # git
 alias gs="git status"
@@ -16,6 +13,12 @@ alias gb="git branch"
 alias gc="git commit"
 alias gd="git diff"
 alias gco="git checkout"
+
+# python
+alias python="python3"
+alias py="python3 -X pycache_prefix=/tmp/pycache"
+alias ipython="ipython3"
+alias ipy="ipython3"
 
 # move, copy, remove
 alias cp="cp -iv"
