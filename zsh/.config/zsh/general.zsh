@@ -1,4 +1,4 @@
-# Setting default editors, pages, etc
+# Exports
 export EDITOR=nvim
 export BROWSER=xdg-open
 export LANG=en_US.UTF-8
@@ -7,26 +7,32 @@ export LESS="R"
 # export PAGER="less -FRX"
 # export LESS="FRX"
 
-# options
+# Options
 setopt autocd             # cd by typing dir name
 setopt extended_glob      # advanced globbing
 setopt hist_ignore_dups   # ignore duplicate history entries
 setopt share_history      # share command history across terminals
 
+# Keybindings
 set -o emacs              # emacs like motions on the command line
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
-# completions
+# Completions
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # case-insensitive
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case-insensitive
 
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# fzf integration
+# Shell integrations
+
+# fzf
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS="--preview='batcat --color=always {}'"
 
