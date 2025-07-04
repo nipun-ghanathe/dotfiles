@@ -67,11 +67,6 @@ install_rclone() {
   cp "$HOME/dotfiles/rclone/rclone.conf" "$HOME/.config/rclone/rclone.conf"
 }
 
-install_tmuxinator() {
-  echo "--- Installing tmuxinator ---"
-  gem install tmuxinator
-}
-
 install_node_tools() {
   echo "--- Installing Node.js and npm tools ---"
   export NVM_DIR="$HOME/.nvm"
@@ -115,12 +110,9 @@ configure_neovim() {
   mkdir -p "$HOME/.cache/nvim/undodir"
 }
 
-configure_tmux_and_tmuxinator() {
+configure_tmux() {
   echo "--- Configuring tmux ---"
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
-
-  echo "--- Configuring tmuxinator ---"
-  sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 }
 
 configure_zsh() {
@@ -171,12 +163,11 @@ main() {
   install_cargo_packages
   install_uv
   install_rclone
-  install_tmuxinator
   install_node_tools
   setup_dotfiles
   setup_symlinks
   configure_neovim
-  configure_tmux_and_tmuxinator
+  configure_tmux
   configure_zsh
   configure_gtk_theme
   setup_kanata_uinput
