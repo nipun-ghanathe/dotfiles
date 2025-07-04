@@ -7,6 +7,7 @@
 }
 
 window#waybar {
+  border-radius: 0px;
   background: #2e3440;
   color: #e5e9f0;
 }
