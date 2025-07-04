@@ -15,6 +15,7 @@ setopt share_history      # share command history across terminals
 
 # Keybindings
 set -o emacs              # emacs like motions on the command line
+bindkey -s '^x^f' 'tmux-sessionizer\n'
 
 # Completions
 autoload -Uz compinit

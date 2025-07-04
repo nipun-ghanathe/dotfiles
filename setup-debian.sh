@@ -40,7 +40,7 @@ install_apt_packages() {
     eza zoxide fzf bat \
     ripgrep fd-find htop \
     grim slurp wl-clipboard cliphist \
-    sway waybar wofi \
+    sway waybar fuzzel \
     swaylock swayidle \
     thunar ranger \
     libnotify-bin mako-notifier brightnessctl \
@@ -91,7 +91,7 @@ setup_dotfiles() {
   stow --verbose \
     kitty bash zsh fonts git kanata mako \
     nvim profile qt5 sway swaylock themes tmux \
-    fuzzel vimrc waybar misc conda ruff mypy
+    fuzzel vimrc waybar misc conda jupyter ruff mypy
 }
 
 setup_symlinks() {
