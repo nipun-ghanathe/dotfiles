@@ -38,6 +38,14 @@ vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
 vim.keymap.set('n', '<leader>t', '<cmd>vertical terminal<cr>')
 vim.keymap.set('n', '<leader>ht', '<cmd>horizontal terminal<cr>')
 
+-- Cmdline mappings
+vim.keymap.set('c', '<c-a>', '<home>')
+vim.keymap.set('c', '<c-e>', '<end>')
+vim.keymap.set('c', '<c-f>', '<right>')
+vim.keymap.set('c', '<c-b>', '<left>')
+vim.keymap.set('c', '<m-f>', '<c-right>')
+vim.keymap.set('c', '<m-b>', '<c-left>')
+
 -- Launching netrw
 -- vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')
 
