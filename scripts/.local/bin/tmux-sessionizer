@@ -1,24 +1,12 @@
 #!/bin/bash
 
 if [[ $# -eq 1 ]]; then
-  selected="$1"
+  WORK_DIR="$1"
 else
-  selected=$(find ~/code ~/code/practice -mindepth 1 -maxdepth 2 -type d ! -path '*/.*' ! -path '*/.*/**' | sort -u | fzf)
+  WORK_DIR=$(find ~/code ~/code/practice -mindepth 1 -maxdepth 2 -type d ! -path '*/.*' ! -path '*/.*/**' | sort -u | fzf)
 fi
+[[ -z "$WORK_DIR" ]] && echo "No directory selected" >&2 && exit 1
 
-if [[ -z "$selected" ]]; then
-  exit 1
-fi
-
-selected_name=$(basename "$selected")
-tmux_running=$(pgrep tmux)
-
-if [[ -z "$TMUX" ]] && [[ -z "$tmux_running" ]]; then
-  tmux new -s "$selected_name" -c "$selected"
-  exit 0
-fi
-
-if ! tmux has-session -t "$selected_name" 2> /dev/null; then
-  tmux new -d -s "$selected_name" -c "$selected"
-  tmux switch-client -t "$selected_name"
-fi
+SESSION_NAME=$(basename "$WORK_DIR")
+tmux has-session -t "$SESSION_NAME" 2>/dev/null || tmux new -ds "$SESSION_NAME" -c "$WORK_DIR"
+[[ -z "$TMUX" ]] && tmux attach -t "$SESSION_NAME" || tmux switch -t "$SESSION_NAME"
