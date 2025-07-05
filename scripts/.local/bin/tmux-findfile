@@ -11,9 +11,4 @@ fi
 # Get the file
 filepath=$({ echo "$directory"; fd . "$directory" --type f; } | fzf)
 
-# Create the pane
-if [[ "$filepath" == "$directory" ]]; then
-  tmux split-window -h -t ! -c "$directory"
-else
-  tmux split-window -h -t ! nvim "$filepath"
-fi
+[[ -f "$filepath" ]] && nvim "$filepath" || cd "$directory"
