@@ -1,20 +1,22 @@
 #!/bin/bash
 
+# Get the project directory or session
 if [[ $# -eq 1 ]]; then
   selection="$1"
 else
-  selection=$((cat ~/.tmux_session_cache; fd . ~/code --type d --max-depth 2) | fzf)
+  selection=$({ cat ~/.tmux_session_cache; fd . ~/code --type d --max-depth 2; } | fzf)
 fi
-
 [[ -z "$selection" ]] && echo "No directory or session selected" >&2 && exit 1
 
+# Evaluate session name and session path
 if [[ "$selection" == \[tmux\]* ]]; then
   read _ session_name session_path <<< "$selection"
 else
   session_name=$(basename "$selection")
-  session_path=$((echo "$selection" && fd . "$selection" --type d) | fzf) || session_path="$selection"
+  session_path=$({ echo "$selection"; fd . "$selection" --type d; } | fzf) || session_path="$selection"
 fi
 
+# Store recent sessions in a cache file for easy access
 entry="[tmux] $session_name $session_path" >> ~/.tmux_session_cache
 temp_file=$(mktemp)
 {
@@ -22,9 +24,9 @@ temp_file=$(mktemp)
   grep --fixed-strings --line-regexp --invert-match "$entry" ~/.tmux_session_cache 2>/dev/null
 } | head -n 8 > "$temp_file" && mv "$temp_file" ~/.tmux_session_cache
 
+# Create new session if it doesn't exist and attach to it
 if ! tmux has-session -t "$session_name" 2>/dev/null; then
   tmux new-session -ds "$session_name" -c "$session_path"
   tmux new-window -t "$session_name:2" -c "$session_path" "nvim"
 fi
-
 tmux switch-client -t "$session_name" 2>/dev/null || tmux attach-session -t "$session_name"

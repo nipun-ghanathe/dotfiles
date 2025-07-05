@@ -142,7 +142,8 @@ EOF
 
 make_scripts_executable() {
   echo "--- Making scripts executable ---"
-  find ~/.config/sway/scripts -type f -name "*.sh" -exec chmod +x {} \;
+  find ~/.config/sway/scripts -type f -exec chmod +x {} +
+  find ~/scripts -type f -exec chmod +x {} +
 }
 
 setup_cronjobs() {
