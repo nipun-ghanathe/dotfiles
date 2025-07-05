@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Clear cache if asked
+if [[ "$1" == "--clear-cache" || "$1" == "-c" ]]; then
+  > ~/.tmux_session_cache
+  echo "Session cache cleared."
+  exit 0
+fi
+
 # Get the project directory or session
 if [[ $# -eq 1 ]]; then
   selection="$1"
@@ -9,15 +16,18 @@ fi
 [[ -z "$selection" ]] && echo "No directory or session selected" >&2 && exit 1
 
 # Evaluate session name and session path
+# Load session if a tmux-layout file exists
 if [[ "$selection" == \[tmux\]* ]]; then
   read _ session_name session_path <<< "$selection"
+  [[ -f "$session_path/.tmux-layout" ]] && bash "$session_path/.tmux-layout" && exit 0
 else
+  [[ -f "$selection/.tmux-layout" ]] && bash "$selection/.tmux-layout" && exit 0
   session_name=$(basename "$selection")
   session_path=$({ echo "$selection"; fd . "$selection" --type d; } | fzf) || session_path="$selection"
 fi
 
 # Store recent sessions in a cache file for easy access
-entry="[tmux] $session_name $session_path" >> ~/.tmux_session_cache
+entry="[tmux] $session_name $session_path"
 temp_file=$(mktemp)
 {
   echo "$entry"
