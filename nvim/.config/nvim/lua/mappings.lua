@@ -13,10 +13,8 @@ vim.keymap.set({'n', 'v'}, 'gP', '"+P')
 vim.keymap.set({'n', 'v'}, '<leader>p', '"0p')
 
 -- Managing Buffers
-vim.keymap.set('n', '<leader>ob', '<cmd>:%bd | e#<cr>') -- make this the [o]nly [b]uffer by closing all others and re-opening current one
 vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>')
 vim.keymap.set('n', '<leader>bp', '<cmd>bprev<cr>')
-vim.keymap.set('n', '<leader>bl', '<cmd>buffers<cr>')
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>')
 
 -- Improving scrolling experience

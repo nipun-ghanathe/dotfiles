@@ -5,13 +5,10 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Show which line your cursor is on
-vim.opt.cursorline = true
+-- Configuring indentation and tabs
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
--- Block-cursor even in insert mode
--- vim.opt.guicursor = ""
-
--- Configuring tabs and indentation
 vim.opt.expandtab = true
 
 vim.opt.tabstop = 2
@@ -27,9 +24,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.shiftwidth = 4
     end,
 })
-
-vim.opt.autoindent = true
-vim.opt.smartindent = true
 
 -- Keeping the cursor in place
 vim.opt.scrolloff = 8

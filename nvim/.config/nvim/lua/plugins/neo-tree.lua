@@ -42,6 +42,5 @@ return {
 
     vim.keymap.set('n', '<leader>.', '<cmd>Neotree toggle<cr>')
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree current toggle<cr>')
-    vim.keymap.set('n', '<leader>bl', '<cmd>Neotree source=buffers reveal position=float toggle<cr>')
   end,
 }
