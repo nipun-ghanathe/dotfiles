@@ -15,7 +15,6 @@ setopt share_history      # share command history across terminals
 
 # Keybindings
 set -o emacs              # emacs like motions on the command line
-bindkey -s '^x^f' 'tmux-sessionizer\n'
 
 # Completions
 autoload -Uz compinit
@@ -33,13 +32,13 @@ SAVEHIST=10000
 
 # fzf
 eval "$(fzf --zsh)"
-export FZF_DEFAULT_OPTS="--preview='batcat --color=always {}'"
+export FZF_DEFAULT_OPTS=$'--preview=\'bash -c "[[ -d {} ]] && eza --icons --color=always --group-directories-first --oneline {} || batcat --color=always {}"\''
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# # Making tmux launch at shell startup
-# [ -z "$TMUX" ] && tmux new-session -A -s main
+# Making tmux launch at shell startup
+[[ -z "$TMUX" ]] && tmux new-session -A -s main
 
 # uv
 eval "$(uv generate-shell-completion zsh)"

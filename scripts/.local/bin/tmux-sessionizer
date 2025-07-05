@@ -1,12 +1,30 @@
 #!/bin/bash
 
 if [[ $# -eq 1 ]]; then
-  WORK_DIR="$1"
+  selection="$1"
 else
-  WORK_DIR=$(find ~/code ~/code/practice -mindepth 1 -maxdepth 2 -type d ! -path '*/.*' ! -path '*/.*/**' | sort -u | fzf)
+  selection=$((cat ~/.tmux_session_cache; fd . ~/code --type d --max-depth 2) | fzf)
 fi
-[[ -z "$WORK_DIR" ]] && echo "No directory selected" >&2 && exit 1
 
-SESSION_NAME=$(basename "$WORK_DIR")
-tmux has-session -t "$SESSION_NAME" 2>/dev/null || tmux new -ds "$SESSION_NAME" -c "$WORK_DIR"
-[[ -z "$TMUX" ]] && tmux attach -t "$SESSION_NAME" || tmux switch -t "$SESSION_NAME"
+[[ -z "$selection" ]] && echo "No directory or session selected" >&2 && exit 1
+
+if [[ "$selection" == \[tmux\]* ]]; then
+  read _ session_name session_path <<< "$selection"
+else
+  session_name=$(basename "$selection")
+  session_path=$((echo "$selection" && fd . "$selection" --type d) | fzf) || session_path="$selection"
+fi
+
+entry="[tmux] $session_name $session_path" >> ~/.tmux_session_cache
+temp_file=$(mktemp)
+{
+  echo "$entry"
+  grep --fixed-strings --line-regexp --invert-match "$entry" ~/.tmux_session_cache 2>/dev/null
+} | head -n 8 > "$temp_file" && mv "$temp_file" ~/.tmux_session_cache
+
+if ! tmux has-session -t "$session_name" 2>/dev/null; then
+  tmux new-session -ds "$session_name" -c "$session_path"
+  tmux new-window -t "$session_name:2" -c "$session_path" "nvim"
+fi
+
+tmux switch-client -t "$session_name" 2>/dev/null || tmux attach-session -t "$session_name"

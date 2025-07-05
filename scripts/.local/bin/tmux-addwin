@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+  selection="$1"
+else
+  selection=$(fd . ~/code --type d --max-depth 2 | fzf)
+fi
+
+[[ -z "$selection" ]] && echo "No directory or session selected" >&2 && exit 1
+
+window_name=$(basename "$selection")
+
+if ! tmux has-session -t :$window_name; then
+  tmux new-window -n "$window_name" -c "$selection"
+else
+  tmux select-window -t :$window_name
+fi

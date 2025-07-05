@@ -3,9 +3,6 @@
 # vim
 alias vi="nvim"
 
-# tmux
-alias mux="tmuxinator"
-
 # git
 alias gs="git status"
 alias ga="git add"
