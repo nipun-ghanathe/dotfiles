@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Get the directory
+if [[ $# -eq 1 ]]; then
+  directory="$1"
+else
+  directory=$(fd . ~/code --type d --max-depth 2 | fzf)
+fi
+[[ -z "$directory" ]] && echo "No directory or session selected" >&2 && exit 1
+
+# Get the file
+filepath=$({ echo "$directory"; fd . "$directory" --type f; } | fzf)
+
+# Create the pane
+if [[ "$filepath" == "$directory" ]]; then
+  tmux split-window -h -t ! -c "$directory"
+else
+  tmux split-window -h -t ! nvim "$filepath"
+fi

@@ -30,15 +30,15 @@ SAVEHIST=10000
 
 # Shell integrations
 
+# tmux on startup
+[[ -z "$TMUX" ]] && exec tmux new -A -s main
+
 # fzf
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS=$'--preview=\'bash -c "[[ -d {} ]] && eza --icons --color=always --group-directories-first --oneline {} || batcat --color=always {}"\''
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-# Making tmux launch at shell startup
-[[ -z "$TMUX" ]] && tmux new-session -A -s main
 
 # uv
 eval "$(uv generate-shell-completion zsh)"
