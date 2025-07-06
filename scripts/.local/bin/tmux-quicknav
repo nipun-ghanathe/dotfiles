@@ -11,4 +11,4 @@ fi
 # Get the file
 filepath=$({ echo "$directory"; fd . "$directory" --type f; } | fzf)
 
-[[ -f "$filepath" ]] && nvim "$filepath" || cd "$directory"
+[[ -f "$filepath" ]] && nvim "$filepath" || zsh -c "cd '$directory' && zsh"
