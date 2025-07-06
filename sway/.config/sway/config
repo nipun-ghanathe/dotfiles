@@ -11,11 +11,10 @@ set $down j
 set $up k
 set $right l
 
-# Terminal, browser, app launcher, filemanager
+# Terminal, browser, app launcher
 set $term kitty
 set $browser firefox
 set $menu fuzzel
-set $fileManager kitty -e ranger
 
 include /etc/sway/config-vars.d/*
 
@@ -49,11 +48,10 @@ input "1102:4639:DELL081C:00_044E:121F_Touchpad" {
 
 ### Basic Keybindings:
 
-# Launch terminal, broswer, app launcher, filemanager
+# Launch terminal, broswer, app launcher
 bindsym $mod+Return exec $term
 bindsym $mod+o exec $browser
 bindsym $mod+d exec $menu
-bindsym $mod+e exec $fileManager
 
 # Kill focused window
 bindsym $mod+q kill
@@ -249,7 +247,7 @@ exec_always ~/.config/sway/scripts/random_wallpaper.sh
 exec swaymsg "workspace 2; exec firefox"
 exec swaymsg "workspace 1; exec $term"
 # Keyboard Tool
-exec_always --no-startup-id ~/.cargo/bin/kanata --cfg ~/.config/kanata/basic.cfg
+exec_always --no-startup-id ~/.cargo/bin/kanata --cfg ~/.config/kanata/kanata.cfg
 # Notification Daemon
 exec_always mako
 
