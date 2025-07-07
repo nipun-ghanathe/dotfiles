@@ -10,6 +10,7 @@ install_lang_c() {
 install_lang_rust() {
   log "Installing Rust..."
   curl https://sh.rustup.rs -sSf | sh
+  sudo apt install -y pkg-config libssl-dev && cargo install cargo-update
 }
 
 install_lang_python() {
