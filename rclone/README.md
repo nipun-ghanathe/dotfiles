@@ -1,6 +1,7 @@
 ### Introduction
 
-Rclone can be automatically installed through the `setup-debian.sh`.
+Rclone can be automatically installed through `setup/main.sh` or
+`setup/other-tools.sh`.  
 Additionally a boilerplate config file will be copied to
 `~/.config/rclone/rclone.conf` where secrets will be replaced by some
 placeholders.
