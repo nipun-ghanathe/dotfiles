@@ -18,15 +18,10 @@ return {
         c = { "clang-format" },
         cpp = { "clang-format" },
       },
-
-      -- format_on_save = {
-      --   timeout_ms = 500,
-      --   lsp_format = "fallback",
-      -- },
     })
 
     vim.keymap.set("n", "<leader>f", function()
       require("conform").format()
-    end)
+    end, { desc = "Format file using Conform" })
   end,
 }

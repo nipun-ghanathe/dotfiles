@@ -38,12 +38,11 @@ vim.api.nvim_create_autocmd({"ModeChanged"}, {
   end
 })
 
--- When entering a terminal enter in insert mode and disable cursorline
+-- When entering a terminal enter in insert mode
 vim.api.nvim_create_autocmd("TermOpen", {
   group = augroup,
   pattern = "*",
   callback = function()
     vim.cmd("startinsert")
-    vim.opt_local.cursorline = false
   end,
 })

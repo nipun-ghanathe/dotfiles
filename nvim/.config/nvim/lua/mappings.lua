@@ -1,21 +1,16 @@
 -- Mapping Leader key
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Escaping insert mode
--- You can also use CapsLock key as Esc 
-vim.keymap.set('i', 'jk', '<esc>')
+vim.g.maplocalleader = '\\'
 
 -- Managing clipboard
-vim.keymap.set({'n', 'v'}, 'gy', '"+y')
-vim.keymap.set({'n', 'v'}, 'gp', '"+p')
-vim.keymap.set({'n', 'v'}, 'gP', '"+P')
-vim.keymap.set({'n', 'v'}, '<leader>p', '"0p')
+vim.keymap.set({'n', 'v'}, 'gy', '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set({'n', 'v'}, 'gp', '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({'n', 'v'}, 'gP', '"+P', { desc = "Paste before cursor from system clipboard" })
 
 -- Managing Buffers
-vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>')
-vim.keymap.set('n', '<leader>bp', '<cmd>bprev<cr>')
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>')
+vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = "Next Buffer" })
+vim.keymap.set('n', '[b', '<cmd>bprev<cr>', { desc = "Previous Buffer" })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = "Delete current buffer" })
 
 -- Improving scrolling experience
 -- vim.keymap.set('n', '<c-e>', '<c-e>zz')
@@ -33,8 +28,6 @@ vim.keymap.set('n', '#', '#zz')
 
 -- Configuring neovim's terminal
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
-vim.keymap.set('n', '<leader>t', '<cmd>vertical terminal<cr>')
-vim.keymap.set('n', '<leader>ht', '<cmd>horizontal terminal<cr>')
 
 -- Cmdline mappings
 vim.keymap.set('c', '<c-a>', '<home>')
@@ -44,29 +37,20 @@ vim.keymap.set('c', '<c-b>', '<left>')
 vim.keymap.set('c', '<m-f>', '<c-right>')
 vim.keymap.set('c', '<m-b>', '<c-left>')
 
--- Launching netrw
--- vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')
-
--- Running code of interpreted languages
--- To run compiled languages keymaps have been overwritten in autocmds.lua
+-- Running code
 local runners = {
   python = "uv run",
   sh = "bash",
 }
-
 -- Run code in a vertical terminal
-vim.keymap.set("n", "<leader>r", function()
+vim.keymap.set("n", "<localleader>r", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
   vim.cmd("vertical terminal " .. cmd .. " " .. vim.fn.expand("%"))
-end)
+end, { desc = "Run code file in a vertical terminal" })
 -- Run code in a horizontal terminal
-vim.keymap.set("n", "<leader>hr", function()
+vim.keymap.set("n", "<localleader>hr", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
   vim.cmd("horizontal terminal " .. cmd .. " " .. vim.fn.expand("%"))
-end)
-
--- If you're checking the list of kemappings
--- do also check the plugin files
--- or use `:Telescope keymaps`
+end, { desc = "Run code file in a horizontal terminal" })

@@ -40,7 +40,7 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>.', '<cmd>Neotree toggle<cr>')
-    vim.keymap.set('n', '<leader>e', '<cmd>Neotree current toggle<cr>')
+    vim.keymap.set('n', '<leader>.', '<cmd>Neotree toggle<cr>', { desc = "Toggle Neotree" })
+    vim.keymap.set('n', '<leader>e', '<cmd>Neotree current toggle<cr>', { desc = "Toggle Neotree Current" })
   end,
 }

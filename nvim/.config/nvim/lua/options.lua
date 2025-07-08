@@ -1,6 +1,3 @@
--- Global variables
-vim.g.python3_host_prog = "/usr/bin/python3"
-
 -- Line number
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -81,6 +78,7 @@ vim.opt.fillchars = {
   fold = " ",
   foldsep = " ",
 }
+vim.opt.foldcolumn = '0'
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 -- run `:set foldcolumn=1` to see the fold column
