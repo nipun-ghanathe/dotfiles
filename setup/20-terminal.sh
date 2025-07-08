@@ -28,8 +28,6 @@ install_neovim() {
 
 setup_editor() {
   log "Installing and setting up things for the editor..."
-  # LSPs, Linters, Formatters and other things
-  # currently:
   stow --verbose ruff mypy
 }
 
@@ -37,7 +35,6 @@ install_tmux() {
   log "Installing and setting up Tmux..."
   sudo apt install -y tmux
   stow --verbose tmux
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 setup_shell() {

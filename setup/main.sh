@@ -63,6 +63,6 @@ setup_misc
 
 log "✅ Setup complete!"
 log "You can find the log of the setup at $LOGFILE"
-log "❗Make sure you do other steps mentioned at:"
-log "    https://github.com/nipun-ghanathe/dotfiles?tab=readme-ov-file#6-manual-setup-that-needs-to-be-done-post-setup"
+log "❗Make sure you do the manual steps mentioned in the README's post-install section."
+log "THe README can be found at ~/dotfiles/README.md"
 

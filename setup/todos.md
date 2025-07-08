@@ -1,3 +1,0 @@
-- [ ] Editor tools setup
-- [ ] gh auth login
-- [ ] update things from cargo and npm and uv (make a separate script for this and run that every week using cron)
