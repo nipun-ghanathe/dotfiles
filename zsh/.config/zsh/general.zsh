@@ -30,9 +30,6 @@ SAVEHIST=10000
 
 # Shell integrations
 
-# tmux on startup
-[[ -z "$TMUX" ]] && exec tmux new -A -s main
-
 # fzf
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS=$'--preview=\'bash -c "[[ -d {} ]] && eza --icons --color=always --group-directories-first --oneline {} || batcat --color=always {}"\''
@@ -60,3 +57,6 @@ else
     fi
 fi
 unset __conda_setup
+
+# Tmux on startup
+[[ -z "$TMUX" ]] && exec tmux new -A -s main
