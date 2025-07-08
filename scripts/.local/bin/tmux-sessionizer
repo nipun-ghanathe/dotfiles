@@ -1,9 +1,22 @@
 #!/bin/bash
 
 # Clear cache if asked
-if [[ "$1" == "--clear-cache" || "$1" == "-c" ]]; then
+if [[ "$1" == "--edit-cache" || "$1" == "-e" ]]; then
+  $EDITOR ~/.tmux_session_cache && exit 0
+elif [[ "$1" == "--clear-cache" || "$1" == "-c" ]]; then
   > ~/.tmux_session_cache
   echo "Session cache cleared."
+  exit 0
+elif [[ "$1" == "--remove-session" || "$1" == "-r" ]]; then
+  [[ $# -lt 1 ]] && echo "Session to remove not mentioned" >&2 && exit 1
+  shift
+  while [[ -n "$1" ]]; do
+    session_to_remove="$1"
+    temp_file=$(mktemp)
+    grep -Fwv "$session_to_remove" ~/.tmux_session_cache 2>/dev/null > "$temp_file" && mv "$temp_file" ~/.tmux_session_cache
+    echo "Removed session: $session_to_remove"
+    shift
+  done
   exit 0
 fi
 
@@ -31,7 +44,7 @@ entry="[tmux] $session_name $session_path"
 temp_file=$(mktemp)
 {
   echo "$entry"
-  grep --fixed-strings --line-regexp --invert-match "$entry" ~/.tmux_session_cache 2>/dev/null
+  grep -Fxv "$entry" ~/.tmux_session_cache 2>/dev/null
 } | head -n 8 > "$temp_file" && mv "$temp_file" ~/.tmux_session_cache
 
 # Create new session if it doesn't exist and attach to it
