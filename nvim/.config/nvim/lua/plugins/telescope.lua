@@ -6,6 +6,11 @@ return {
   },
   config = function()
     require("telescope").setup({
+      defaults = {
+        file_ignore_patterns = {
+          "__pycache__",
+        },
+      },
       pickers = {
         buffers = {
           sort_mru = true,
