@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# Clear cache if asked
 if [[ "$1" == "--edit-cache" || "$1" == "-e" ]]; then
+  # Open the session cache file in the default editor
   $EDITOR ~/.tmux_session_cache && exit 0
 elif [[ "$1" == "--clear-cache" || "$1" == "-c" ]]; then
+  # Clear all entries from the session cache
   > ~/.tmux_session_cache
   echo "Session cache cleared."
   exit 0
 elif [[ "$1" == "--remove-session" || "$1" == "-r" ]]; then
+  # Remove given session(s) from session cache
   [[ $# -lt 1 ]] && echo "Session to remove not mentioned" >&2 && exit 1
   shift
   while [[ -n "$1" ]]; do
@@ -17,6 +19,22 @@ elif [[ "$1" == "--remove-session" || "$1" == "-r" ]]; then
     echo "Removed session: $session_to_remove"
     shift
   done
+  exit 0
+elif [[ "$1" == "--help" || "$1" == "-h" ]]; then
+  echo "Usage: $(basename "$0") [OPTION] [SESSION...]"
+  echo
+  echo "A utility script to manage and launch tmux sessions based on project directories."
+  echo
+  echo "Options:"
+  echo "  -e, --edit-cache        Open the session cache file in the default editor."
+  echo "  -c, --clear-cache       Clear all entries from the session cache."
+  echo "  -r, --remove-session    Remove one or more sessions from the session cache."
+  echo "                          Usage: $(basename "$0") -r session_name [session_name ...]"
+  echo "  -h, --help              Show this help message and exit."
+  echo
+  echo "Without any options, this script opens an fzf interface to select a project directory"
+  echo "or cached tmux session. If a .tmux-layout file is present in the selected directory,"
+  echo "it is executed to set up the tmux environment. Otherwise, a new tmux session is created."
   exit 0
 fi
 
