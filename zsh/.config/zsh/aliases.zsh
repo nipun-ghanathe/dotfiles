@@ -23,7 +23,7 @@ alias mv="mv -iv"
 alias rm="rm -v"
 
 # ls
-alias ls="eza --icons --group --group-directories-first"
+alias ls="eza --icons --ignore-glob='__pycache__' --group --group-directories-first"
 alias l="ls -lah"
 alias la="ls -A"
 alias ll="ls -lh"
