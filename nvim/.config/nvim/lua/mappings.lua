@@ -10,7 +10,6 @@ vim.keymap.set({'n', 'v'}, 'gP', '"+P', { desc = "Paste before cursor from syste
 -- Managing Buffers
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = "Next Buffer" })
 vim.keymap.set('n', '[b', '<cmd>bprev<cr>', { desc = "Previous Buffer" })
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = "Delete current buffer" })
 
 -- Improving scrolling experience
 -- vim.keymap.set('n', '<c-e>', '<c-e>zz')

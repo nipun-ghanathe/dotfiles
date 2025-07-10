@@ -2,6 +2,10 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Cursor Line (only for number)
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+
 -- Configuring indentation and tabs
 vim.opt.autoindent = true
 vim.opt.smartindent = true
