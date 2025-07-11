@@ -23,16 +23,16 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Viewing spaces as dots in visual mode
 vim.opt.list = true
 vim.opt.listchars = {}
-vim.api.nvim_create_autocmd({"ModeChanged"}, {
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
   group = augroup,
-  pattern = {"*:[vV\x16]"},  -- Entering visual mode (Normal to Visual)
+  pattern = { "*:[vV\x16]" }, -- Entering visual mode (Normal to Visual)
   callback = function()
     vim.opt.listchars:append("space:·")
   end
 })
-vim.api.nvim_create_autocmd({"ModeChanged"}, {
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
   group = augroup,
-  pattern = {"[vV\x16]:*"},  -- Exiting visual mode (Visual to Normal)
+  pattern = { "[vV\x16]:*" }, -- Exiting visual mode (Visual to Normal)
   callback = function()
     vim.opt.listchars = {}
   end

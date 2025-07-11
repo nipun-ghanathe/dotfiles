@@ -8,7 +8,7 @@ return {
   ft = "python",
   branch = "regexp", -- This is the regexp branch, use this for the new version
   keys = {
-    { "<localleader>v", "<cmd>VenvSelect<cr>", desc = "Python Venv Selector"},
+    { "<localleader>v", "<cmd>VenvSelect<cr>", desc = "Python Venv Selector" },
   },
   ---@diagnostic disable-next-line: undefined-doc-name
   ---@type venv-selector.Config

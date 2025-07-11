@@ -38,13 +38,13 @@ return {
         completeopt = "menu,menuone,noinsert",
       },
       mapping = cmp.mapping.preset.insert({
-        ["<c-y>"] = cmp.mapping.confirm({ select = true }), -- confirm completion item
+        ["<c-y>"] = cmp.mapping.confirm({ select = true }),      -- confirm completion item
         ["<c-space>"] = cmp.mapping.complete({ select = true }), -- trigget completion menu
-        ["<c-u>"] = cmp.mapping.scroll_docs(-4), -- scroll up
-        ["<c-d>"] = cmp.mapping.scroll_docs(4), -- scroll down
+        ["<c-u>"] = cmp.mapping.scroll_docs(-4),                 -- scroll up
+        ["<c-d>"] = cmp.mapping.scroll_docs(4),                  -- scroll down
 
         -- jump to next snippet placeholder
-        ["<c-f>"] = cmp.mapping(function(fallback)
+        ["<c-n>"] = cmp.mapping(function(fallback)
           local luasnip = require("luasnip")
           if luasnip.locally_jumpable(1) then
             luasnip.jump(1)
@@ -54,7 +54,7 @@ return {
         end, { 'i', 's' }),
 
         -- jump to previous snippet placeholder
-        ["<c-b>"] = cmp.mapping(function(fallback)
+        ["<c-p>"] = cmp.mapping(function(fallback)
           local luasnip = require("luasnip")
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)

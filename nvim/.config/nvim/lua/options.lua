@@ -18,12 +18,12 @@ vim.opt.shiftwidth = 2
 
 -- Changing tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "python", "java", "rust", "c", "cpp", "json" },
-    callback = function()
-        vim.opt_local.tabstop = 4
-        vim.opt_local.softtabstop = 4
-        vim.opt_local.shiftwidth = 4
-    end,
+  pattern = { "python", "java", "rust", "c", "cpp", "json" },
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.shiftwidth = 4
+  end,
 })
 
 -- Keeping the cursor in place

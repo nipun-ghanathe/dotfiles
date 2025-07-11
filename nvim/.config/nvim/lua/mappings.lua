@@ -3,9 +3,9 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
 -- Managing clipboard
-vim.keymap.set({'n', 'v'}, 'gy', '"+y', { desc = "Yank to system clipboard" })
-vim.keymap.set({'n', 'v'}, 'gp', '"+p', { desc = "Paste from system clipboard" })
-vim.keymap.set({'n', 'v'}, 'gP', '"+P', { desc = "Paste before cursor from system clipboard" })
+vim.keymap.set({ 'n', 'v' }, 'gy', '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set({ 'n', 'v' }, 'gp', '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ 'n', 'v' }, 'gP', '"+P', { desc = "Paste before cursor from system clipboard" })
 
 -- Managing Buffers
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = "Next Buffer" })
