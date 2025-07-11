@@ -20,7 +20,7 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>f", function()
+    vim.keymap.set("n", "<leader>fc", function()
       require("conform").format()
     end, { desc = "Format file using Conform" })
   end,

@@ -30,7 +30,7 @@ return {
         change_dir = {
           enable = true,
           global = true,
-          restrict_above_cwd = true,
+          restrict_above_cwd = false,
         },
         use_system_clipboard = true,
       },

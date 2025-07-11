@@ -72,7 +72,7 @@ return {
         vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = buf, desc = "LSP: Signature Help" })
         vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = buf, desc = "LSP: Rename Symbol" })
         vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { buffer = buf, desc = "LSP: Code Actions" })
-        vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = buf, desc = "LSP: Format Buffer" })
+        vim.keymap.set("n", "<leader>fl", vim.lsp.buf.format, { buffer = buf, desc = "LSP: Format Buffer" })
 
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = buf, desc = "Diagnostics: Next" })
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = buf, desc = "Diagnostics: Previous" })
