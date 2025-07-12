@@ -41,11 +41,20 @@ vim.opt.hlsearch = false
 -- Enabling autoread changes
 vim.opt.autoread = true
 
+-- Enabling termguicolors
+vim.opt.termguicolors = true
+
 -- Enabling color column
 vim.opt.colorcolumn = "80"
 
+-- Enabling sign column
+vim.opt.signcolumn = 'yes'
+
 -- Disabling word wrap
 vim.opt.wrap = false
+
+-- Configuring messages
+vim.opt.messagesopt = "wait:1000,history:500"
 
 -- Enabling mouse
 vim.opt.mouse = 'a'
@@ -54,9 +63,6 @@ vim.opt.mouse = 'a'
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 500
 
--- Enabling sign column
-vim.opt.signcolumn = 'yes'
-
 -- Making splits more natural
 -- vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -64,13 +70,6 @@ vim.opt.splitright = true
 -- Setting undodir for persistent undo
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath('cache') .. "undodir"
-
--- Enabling termguicolors
-vim.opt.termguicolors = true
-
--- Use these to make the background transparent (if it doesn't happen by default)
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 -- Configuring netrw
 vim.g.netrw_banner = 0

@@ -44,7 +44,7 @@ return {
         ["<c-d>"] = cmp.mapping.scroll_docs(4),                  -- scroll down
 
         -- jump to next snippet placeholder
-        ["<c-n>"] = cmp.mapping(function(fallback)
+        ["<c-f>"] = cmp.mapping(function(fallback)
           local luasnip = require("luasnip")
           if luasnip.locally_jumpable(1) then
             luasnip.jump(1)
@@ -54,7 +54,7 @@ return {
         end, { 'i', 's' }),
 
         -- jump to previous snippet placeholder
-        ["<c-p>"] = cmp.mapping(function(fallback)
+        ["<c-b>"] = cmp.mapping(function(fallback)
           local luasnip = require("luasnip")
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
