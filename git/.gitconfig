@@ -11,8 +11,8 @@
 	ci = commit
 	st = status
 	br = branch
-	hist = log --oneline --graph --all
-	lg = log --oneline -n 10
+	hist = log --oneline --graph --all --decorate=short
+	lg = log --oneline -n 30 --decorate=short
 	type = cat-file -t
 	pprint = cat-file -p
 [credential "https://github.com"]
