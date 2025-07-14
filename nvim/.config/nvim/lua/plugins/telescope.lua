@@ -9,12 +9,12 @@ return {
       defaults = {
         file_ignore_patterns = {
           "__pycache__",
+          ".git",
+          ".venv",
         },
       },
       pickers = {
         buffers = {
-          sort_mru = true,
-          ignore_current_buffer = true,
           mappings = {
             i = {
               ["<c-d>"] = "delete_buffer"
@@ -24,6 +24,9 @@ return {
             },
           },
         },
+        find_files = {
+          hidden = true,
+        }
       },
       extensions = {
         ["ui-select"] = {
