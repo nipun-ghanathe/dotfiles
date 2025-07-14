@@ -28,6 +28,10 @@ Then reboot or log out/in.
 "
 fi
 
+log "Adding unstable sources..."
+sudo mkdir -p /etc/apt/sources.list.d
+echo "deb http://deb.debian.org/debian sid main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/sid.list
+
 log "Updating apt-cache and upgrading apps..."
 sudo apt update && sudo apt upgrade -y
 
