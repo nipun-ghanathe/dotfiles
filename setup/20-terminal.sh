@@ -28,7 +28,24 @@ install_neovim() {
 
 setup_editor() {
   log "Installing and setting up things for the editor..."
-  stow --verbose ruff mypy
+
+  log "Installing pyright, ruff, mypy, djlint, ..."
+  uv tool install pyright
+  uv tool install ruff
+  stow --verbose ruff
+  uv tool install mypy
+  stow --verbose mypy
+  uv tool install djlint
+
+  log "Installing lua-language-server..."
+  mkdir -p "$HOME/builds"
+  rm -rfv "$HOME/builds/lua-language-server"
+  git clone "https://github.com/LuaLS/lua-language-server" "$HOME/builds/lua-language-server"
+  cd "$HOME/builds/lua-language-server" && ./make.sh
+  cd "$HOME/dotfiles"
+
+  log "Installing language servers for HTML, CSS, JS..."
+  npm install -g vscode-langservers-extracted
 }
 
 install_tmux() {

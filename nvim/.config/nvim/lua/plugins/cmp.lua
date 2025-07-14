@@ -14,6 +14,8 @@ return {
   config = function()
     -- load the extra snippets from friednly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
+    -- make certain filetypes include snippets from others too
+    require("luasnip").filetype_extend("htmldjango", { "html" })
 
     local cmp = require("cmp")
 
