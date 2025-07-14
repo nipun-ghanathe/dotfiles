@@ -18,7 +18,7 @@ vim.opt.shiftwidth = 2
 
 -- Changing tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "python", "java", "rust", "c", "cpp", "json" },
+  pattern = { "python", "java", "rust", "c", "cpp" },
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
@@ -52,9 +52,6 @@ vim.opt.signcolumn = 'yes'
 
 -- Disabling word wrap
 vim.opt.wrap = false
-
--- Configuring messages
-vim.opt.messagesopt = "wait:1000,history:500"
 
 -- Enabling mouse
 vim.opt.mouse = 'a'

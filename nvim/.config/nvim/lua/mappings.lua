@@ -10,6 +10,11 @@ vim.keymap.set({ 'n', 'v' }, 'gP', '"+P', { desc = "Paste before cursor from sys
 -- Managing Buffers
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = "Next Buffer" })
 vim.keymap.set('n', '[b', '<cmd>bprev<cr>', { desc = "Previous Buffer" })
+vim.keymap.set('n', '<leader>bo', '<cmd>%bd | e # | bd #<cr>', { desc = "Only Buffer (Delete all buffers)" })
+
+-- Quick-fix list
+vim.keymap.set('n', ']q', '<cmd>qnext<cr>', { desc = "Quick-fix: Next" })
+vim.keymap.set('n', '[q', '<cmd>qprev<cr>', { desc = "Quick-fix: Previous" })
 
 -- Improving scrolling experience
 -- vim.keymap.set('n', '<c-e>', '<c-e>zz')

@@ -4,7 +4,7 @@
 
 install_lang_c() {
   log "Installing C/C++ build tools..."
-  sudo apt install -y build-essential cmake
+  sudo apt install -y build-essential cmake ninja-build gettext
 }
 
 install_lang_rust() {

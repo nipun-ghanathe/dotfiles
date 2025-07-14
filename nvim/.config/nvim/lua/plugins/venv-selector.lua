@@ -1,9 +1,5 @@
 return {
   "linux-cultist/venv-selector.nvim",
-  dependencies = {
-    "neovim/nvim-lspconfig",
-    -- "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
-  },
   lazy = false,
   ft = "python",
   branch = "regexp", -- This is the regexp branch, use this for the new version
@@ -24,6 +20,7 @@ return {
             local venv_path = vim.fn.getcwd() .. "/.venv/bin/python"
             if vim.fn.executable(venv_path) == 1 then
               venv_selector.activate_from_path(venv_path)
+              print("Tried manually attaching to workspace venv at: " .. venv_path)
             end
           end
         end

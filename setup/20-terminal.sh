@@ -21,8 +21,21 @@ install_git() {
 
 install_neovim() {
   log "Installing and setting up Neovim"
-  sudo apt install -y neovim
-  stow --verbose nvim
+  if [[ ! -d "$HOME/builds/neovim/" ]]; then
+    mkdir -p "$HOME/builds"
+    git clone "https://github.com/neovim/neovim" "$HOME/builds/neovim"
+  fi
+  cd "$HOME/builds/neovim"
+  git switch master
+  git pull
+  git fetch --tags
+  git checkout stable
+  make clean
+  rm -rfv build .deps
+  make CMAKE_BUILD_TYPE=RelWithDebInfo
+  sudo make install
+  git switch -
+  cd "$HOME/dotfiles" && stow --verbose nvim
   mkdir -p "$HOME/.cache/nvim/undodir"
 }
 
