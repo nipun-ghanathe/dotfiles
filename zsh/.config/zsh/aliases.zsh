@@ -1,7 +1,8 @@
-# To see the list of all aliases use command `alias` in command line
-
 # vim
 alias vi="nvim"
+
+# tmux
+alias tsm="tmux-session-manager"
 
 # git
 alias gs="git status"
@@ -13,9 +14,7 @@ alias gco="git checkout"
 
 # python
 alias python="python3"
-alias py="python3 -X pycache_prefix=/tmp/pycache"
 alias ipython="ipython3"
-alias ipy="ipython3"
 
 # move, copy, remove
 alias cp="cp -iv"
@@ -44,9 +43,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
-
-# mkdir
-alias md="mkdir -p"
 
 # history
 alias history="fc -il 1"

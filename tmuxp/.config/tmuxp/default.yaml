@@ -1,0 +1,7 @@
+session_name: ${SESSION_NAME}
+start_directory: ${WORK_DIR}
+windows:
+  - panes:
+      - null
+  - window_shell: nvim
+    focus: true

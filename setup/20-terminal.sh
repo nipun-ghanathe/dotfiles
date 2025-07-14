@@ -62,9 +62,11 @@ setup_editor() {
 }
 
 install_tmux() {
-  log "Installing and setting up Tmux..."
+  log "Installing and setting up Tmux and tmuxp..."
   sudo apt install -y tmux
   stow --verbose tmux
+  uv tool install tmuxp
+  stow --verbose tmuxp
 }
 
 setup_shell() {

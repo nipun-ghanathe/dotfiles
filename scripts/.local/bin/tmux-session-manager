@@ -1,0 +1,147 @@
+#!/bin/bash
+
+set -euo pipefail
+
+CACHE_FILE="$HOME/.tmux_session_cache"
+MAX_CACHE_ENTRIES=20
+SEARCH_DIRS="$HOME/code"  # space-separated list of directories
+
+ensure_cache_file() {
+  [[ -f "$CACHE_FILE" ]] || touch "$CACHE_FILE"
+}
+
+show_help() {
+  cat <<EOF
+Usage: $(basename "$0") [OPTION]
+
+A utility script to manage and launch tmux sessions using tmuxp and a cached list of project directories.
+
+Options:
+  -e, --edit-cache        Open the session cache file in your default editor.
+  -c, --clear-cache       Clear all entries from the session cache.
+  -r, --remove-session    Select and remove a session entry from the cache.
+  -l, --list-cache        List cached entries.
+  -h, --help              Show this help message and exit.
+
+Without any options, this script opens an fzf interface to select either:
+  - A previously cached tmux session entry, or
+  - A project directory from the search path ($SEARCH_DIRS)
+
+If a .tmuxp.yaml file is present in the selected directory, it is used to launch
+the tmux session. Otherwise, a default tmuxp configuration is applied.
+EOF
+}
+
+edit_cache() {
+  "${EDITOR:-vi}" "$CACHE_FILE"
+}
+
+clear_cache() {
+  : > "$CACHE_FILE"
+  echo "Session cache cleared!"
+}
+
+remove_session() {
+  ensure_cache_file
+
+  local session_to_remove
+  session_to_remove=$(fzf < "$CACHE_FILE")
+  [[ -z "$session_to_remove" ]] && echo "No session selected to remove." && return 1
+
+  grep -Fxv "$session_to_remove" "$CACHE_FILE" > "${CACHE_FILE}.tmp"
+  mv "${CACHE_FILE}.tmp" "$CACHE_FILE"
+  echo "Removed: $(cut -d' ' -f2 <<< "$session_to_remove")."
+}
+
+list_cached_entries() {
+  ensure_cache_file
+  {
+    printf "\e[1m%s\t%s\e[0m\n" "SESSION NAME" "PATH"
+    while IFS= read -r line; do
+      if [[ "$line" =~ ^\[tmux\]\ (.+)\ (/.+) ]]; then
+        printf "%s\t%s\n" "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}"
+      fi
+    done < "$CACHE_FILE"
+  } | column -t -s $'\t'
+}
+
+generate_config() {
+  local edit=false
+  [[ "${1:-}" == "-e" || "${1:-}" == "--edit" ]] && edit=true
+
+  local template=$(tmuxp ls | fzf)
+  [[ -z "$template" ]] && echo "No template selected." && return 1
+
+  sed -e "s|\${SESSION_NAME}|$(basename "$PWD")|g" \
+      -e "s|\${WORK_DIR}|./|g" \
+      "$HOME/.config/tmuxp/${template}.yaml" > './.tmuxp.yaml'
+
+  $edit && "${EDITOR:-vi}" './.tmuxp.yaml'
+}
+
+select_target() {
+  if [[ $# -eq 1 ]]; then
+    echo "$1"
+  else
+    {
+      cat "$CACHE_FILE"
+      fd . $SEARCH_DIRS --type d --max-depth 2
+    } | fzf
+  fi
+}
+
+resolve_session_data() {
+  local selected_entry="$1"
+
+  if [[ "$selected_entry" =~ ^\[tmux\]\ (.+)\ (/.+) ]]; then
+    session_name="${BASH_REMATCH[1]}"
+    session_path="${BASH_REMATCH[2]}"
+  else
+    selected_entry=$(realpath "$selected_entry")
+    session_name=$(basename "$selected_entry")
+    session_path=$({ echo "$selected_entry"; fd . "$selected_entry" --type d; } | fzf)
+  fi
+}
+
+update_cache() {
+  local entry="[tmux] $session_name $session_path"
+  {
+    echo "$entry"
+    grep -Fxv "$entry" "$CACHE_FILE" || true
+  } | head -n $MAX_CACHE_ENTRIES > "${CACHE_FILE}.tmp"
+  mv "${CACHE_FILE}.tmp" "$CACHE_FILE"
+}
+
+launch_tmux_session() {
+  if [[ -f "$session_path/.tmuxp.yaml" ]]; then
+    tmuxp load -y "$session_path"
+  else
+    SESSION_NAME="$session_name" WORK_DIR="$session_path" tmuxp load -y default
+  fi
+}
+
+main() {
+  ensure_cache_file
+
+  case "${1:-}" in
+    -e|--edit-cache) edit_cache ;;
+    -c|--clear-cache) clear_cache ;;
+    -r|--remove-session) remove_session ;;
+    -l|--list-cache) list_cached_entries ;;
+    -h|--help) show_help ;;
+    -g|--generate-config) generate_config "${2:-}" ;;
+    *) 
+      local selection
+      selection=$(select_target "$@")
+      [[ -z "$selection" ]] && echo "No selection made!" && exit 1
+      
+      local session_name session_path
+      resolve_session_data "$selection"
+
+      update_cache
+      launch_tmux_session
+      ;;
+  esac
+}
+
+main "$@"
