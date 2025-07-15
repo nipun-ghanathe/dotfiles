@@ -18,7 +18,7 @@ vim.opt.shiftwidth = 2
 
 -- Changing tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "python", "java", "rust", "c", "cpp" },
+  pattern = { "python", "htmldjango", "toml", "java", "rust", "c", "cpp" },
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
