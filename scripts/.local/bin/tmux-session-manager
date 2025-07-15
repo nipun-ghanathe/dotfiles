@@ -14,21 +14,36 @@ show_help() {
   cat <<EOF
 Usage: $(basename "$0") [OPTION]
 
-A utility script to manage and launch tmux sessions using tmuxp and a cached list of project directories.
+A utility to manage and launch tmux sessions using tmuxp, with a cache of recent or preferred project directories.
 
 Options:
-  -e, --edit-cache        Open the session cache file in your default editor.
-  -c, --clear-cache       Clear all entries from the session cache.
-  -r, --remove-session    Select and remove a session entry from the cache.
-  -l, --list-cache        List cached entries.
-  -h, --help              Show this help message and exit.
+  -e, --edit-cache            Open the session cache file in your default editor.
+  -c, --clear-cache           Clear all entries from the session cache.
+  -r, --remove-session        Interactively remove a session from the cache.
+  -l, --list-cache            Display all cached sessions in a table format.
+  -g, --generate-config [-e]  Generate a .tmuxp.yaml config in the current directory,
+                              using a selected template from your tmuxp config directory.
+                              Optionally pass -e or --edit to open it immediately in your editor.
+  -n, --new-template NAME     Create a new tmuxp config template (named NAME) based on the default.
+  -h, --help                  Show this help message and exit.
 
-Without any options, this script opens an fzf interface to select either:
-  - A previously cached tmux session entry, or
-  - A project directory from the search path ($SEARCH_DIRS)
+Usage without options:
+  If no arguments are passed, this script launches an interactive fuzzy finder (fzf) to select either:
+    • A cached tmux session entry, or
+    • A project directory from: $SEARCH_DIRS
 
-If a .tmuxp.yaml file is present in the selected directory, it is used to launch
-the tmux session. Otherwise, a default tmuxp configuration is applied.
+  If a .tmuxp.yaml file is found in the selected directory, it is used to launch the tmux session.
+  Otherwise, a default tmuxp configuration is applied.
+
+Examples:
+  $ (basename "$0") -l
+      List all cached sessions.
+
+  $ (basename "$0") -g -e
+      Generate a new .tmuxp.yaml in the current directory and open it for editing.
+
+  $ (basename "$0")
+      Launch an fzf selector to pick or create a session.
 EOF
 }
 
@@ -77,6 +92,17 @@ generate_config() {
       "$HOME/.config/tmuxp/${template}.yaml" > './.tmuxp.yaml'
 
   $edit && "${EDITOR:-vi}" './.tmuxp.yaml'
+}
+
+new_template() {
+  if [[ -z "$1" ]]; then
+    echo "Error: No name given for template."
+    echo "Usage: $(basename "$0") -n NAME"
+    return 1
+  fi
+  local template_name="$1"
+  cp "$HOME/.config/tmuxp/default.yaml" "$HOME/.config/tmuxp/${template_name}.yaml"
+  ${EDITOR:-vi} "$HOME/.config/tmuxp/${template_name}.yaml"
 }
 
 select_target() {
@@ -130,6 +156,7 @@ main() {
     -l|--list-cache) list_cached_entries ;;
     -h|--help) show_help ;;
     -g|--generate-config) generate_config "${2:-}" ;;
+    -n|--new-template) new_template "${2:-}" ;;
     *) 
       local selection
       selection=$(select_target "$@")
