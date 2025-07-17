@@ -57,6 +57,10 @@ setup_editor() {
   cd "$HOME/builds/lua-language-server" && ./make.sh
   cd "$HOME/dotfiles"
 
+  log "Installing stylua..."
+  cargo install stylua
+  stow --verbose stylua
+
   log "Installing language servers for HTML, CSS, JS..."
   npm install -g vscode-langservers-extracted
 }
