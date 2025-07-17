@@ -14,6 +14,9 @@ return {
         },
       },
       pickers = {
+        find_files = {
+          hidden = true,
+        },
         buffers = {
           mappings = {
             i = {
@@ -23,9 +26,6 @@ return {
               ["d"] = "delete_buffer",
             },
           },
-        },
-        find_files = {
-          hidden = true,
         },
       },
       extensions = {
