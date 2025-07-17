@@ -26,6 +26,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Visibility of invisible characters
+vim.opt.list = true
+vim.opt.listchars = {}
+
 -- Keeping the cursor in place
 vim.opt.scrolloff = 8
 
@@ -48,13 +52,13 @@ vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
 
 -- Enabling sign column
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Disabling word wrap
 vim.opt.wrap = false
 
 -- Enabling mouse
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Decreasing update time and mapped sequence wait time
 vim.opt.updatetime = 250
@@ -66,7 +70,7 @@ vim.opt.splitright = true
 
 -- Setting undodir for persistent undo
 vim.opt.undofile = true
-vim.opt.undodir = vim.fn.stdpath('cache') .. "undodir"
+vim.opt.undodir = vim.fn.stdpath("cache") .. "undodir"
 
 -- Configuring netrw
 vim.g.netrw_banner = 0
@@ -78,7 +82,7 @@ vim.opt.fillchars = {
   fold = " ",
   foldsep = " ",
 }
-vim.opt.foldcolumn = '0'
+vim.opt.foldcolumn = "0"
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 -- run `:set foldcolumn=1` to see the fold column
@@ -90,10 +94,10 @@ vim.opt.foldmethod = "indent"
 vim.diagnostic.config({
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.INFO] = '',
-      [vim.diagnostic.severity.HINT] = '󰌵',
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "󰌵",
     },
-  }
+  },
 })

@@ -9,10 +9,7 @@ return {
           "ruff_organize_imports",
         },
         htmldjango = { "djlint" },
-        -- rust = { "rustfmt" },
-        -- javascript = { "prettier" },
-        -- c = { "clang-format" },
-        -- cpp = { "clang-format" },
+        html = { "djlint" },
       },
     })
 

@@ -9,7 +9,7 @@ return {
 
     vim.keymap.set("n", "<leader>.", "<cmd>NvimTreeFindFileToggle<cr>", { desc = "Toggle Nvim Tree" })
 
-    require("nvim-tree").setup {
+    require("nvim-tree").setup({
       view = {
         float = {
           enable = true,
@@ -36,6 +36,7 @@ return {
       },
       renderer = {
         indent_markers = { enable = true },
+        special_files = {},
       },
       git = {
         enable = true,
@@ -80,6 +81,6 @@ return {
         },
         exclude = {},
       },
-    }
+    })
   end,
 }

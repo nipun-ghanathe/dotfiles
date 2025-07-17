@@ -67,6 +67,7 @@ ignore = [
     "S311",     # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
     "FA102",    # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
     "E501",     # Pycodestyle - Line too long ({width} > {limit})
+    "COM812",   # Flake8-commas - Checks for the absence of trailing commas (Let the formatter handle this)
 ]
 
 [lint.per-file-ignores]
