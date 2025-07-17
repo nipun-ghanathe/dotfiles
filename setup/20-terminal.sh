@@ -61,6 +61,9 @@ setup_editor() {
   cargo install stylua
   stow --verbose stylua
 
+  log "Installing formatter for Markdown..."
+  uv tool install --with mdformat-gfm mdformat 
+
   log "Installing language servers for HTML, CSS, JS..."
   npm install -g vscode-langservers-extracted
 }
