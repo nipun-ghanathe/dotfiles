@@ -1,4 +1,4 @@
 return {
-  'goerz/jupytext.nvim',
+  "goerz/jupytext.nvim",
   opts = { format = "py:percent" },
 }

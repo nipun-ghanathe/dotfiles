@@ -8,7 +8,4 @@
     "workspace.library": [
         "$VIMRUNTIME"
     ],
-    "diagnostics.disable": [
-        "unused-local"
-    ]
 }

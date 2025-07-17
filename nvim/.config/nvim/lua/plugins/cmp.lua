@@ -40,10 +40,10 @@ return {
         completeopt = "menu,menuone,noinsert",
       },
       mapping = cmp.mapping.preset.insert({
-        ["<c-y>"] = cmp.mapping.confirm({ select = true }),      -- confirm completion item
+        ["<c-y>"] = cmp.mapping.confirm({ select = true }), -- confirm completion item
         ["<c-space>"] = cmp.mapping.complete({ select = true }), -- trigget completion menu
-        ["<c-u>"] = cmp.mapping.scroll_docs(-4),                 -- scroll up
-        ["<c-d>"] = cmp.mapping.scroll_docs(4),                  -- scroll down
+        ["<c-u>"] = cmp.mapping.scroll_docs(-4), -- scroll up
+        ["<c-d>"] = cmp.mapping.scroll_docs(4), -- scroll down
 
         -- jump to next snippet placeholder
         ["<c-f>"] = cmp.mapping(function(fallback)
@@ -53,7 +53,7 @@ return {
           else
             fallback()
           end
-        end, { 'i', 's' }),
+        end, { "i", "s" }),
 
         -- jump to previous snippet placeholder
         ["<c-b>"] = cmp.mapping(function(fallback)
@@ -63,7 +63,7 @@ return {
           else
             fallback()
           end
-        end, { 'i', 's' }),
+        end, { "i", "s" }),
       }),
     })
   end,

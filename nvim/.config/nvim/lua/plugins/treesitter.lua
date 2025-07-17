@@ -8,9 +8,15 @@ return {
       },
       auto_install = true,
       ensure_installed = {
-        "python", "c", "cpp",
-        "lua", "html", "css",
-        "javascript", "vim", "vimdoc",
+        "python",
+        "c",
+        "cpp",
+        "lua",
+        "html",
+        "css",
+        "javascript",
+        "vim",
+        "vimdoc",
       },
     })
   end,

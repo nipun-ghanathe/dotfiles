@@ -17,30 +17,30 @@ return {
         buffers = {
           mappings = {
             i = {
-              ["<c-d>"] = "delete_buffer"
+              ["<c-d>"] = "delete_buffer",
             },
             n = {
-              ["d"] = "delete_buffer"
+              ["d"] = "delete_buffer",
             },
           },
         },
         find_files = {
           hidden = true,
-        }
+        },
       },
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown()
+          require("telescope.themes").get_dropdown(),
         },
       },
     })
     require("telescope").load_extension("ui-select")
 
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<c-p>', builtin.find_files, { desc = 'Telescope: Project files' })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope: Find Grep' })
-    vim.keymap.set('n', '<leader>bl', builtin.buffers, { desc = 'Telescope: Buffers List' })
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope: Find Help' })
-    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope: Find Keymaps' })
+    local builtin = require("telescope.builtin")
+    vim.keymap.set("n", "<c-p>", builtin.find_files, { desc = "Telescope: Project files" })
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope: Find Grep" })
+    vim.keymap.set("n", "<leader>bl", builtin.buffers, { desc = "Telescope: Buffers List" })
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope: Find Help" })
+    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope: Find Keymaps" })
   end,
 }

@@ -1,11 +1,11 @@
 return {
-  'Vigemus/iron.nvim',
+  "Vigemus/iron.nvim",
   config = function()
     local iron = require("iron.core")
     local view = require("iron.view")
     local common = require("iron.fts.common")
 
-    iron.setup {
+    iron.setup({
       config = {
         -- Whether a repl should be discarded or not
         scratch_repl = true,
@@ -14,7 +14,7 @@ return {
           sh = {
             -- Can be a table or a function that
             -- returns a table (see below)
-            command = { "bash" }
+            command = { "bash" },
           },
           python = {
             command = { "ipython3", "--no-autoindent", "--no-banner" }, -- or { "python3" }
@@ -22,7 +22,7 @@ return {
             -- for sending code line by line
             -- format = common.bracketed_paste_python,
             block_dividers = { "# %%", "#%%" },
-          }
+          },
         },
         -- set the file type of the newly created repl to ft
         -- bufnr is the buffer id of the REPL and ft is the filetype of the
@@ -49,7 +49,6 @@ return {
         --   view.split.vertical.rightbelow("%40"), -- cmd_1: open a repl to the right
         --   view.split.rightbelow("%25")  -- cmd_2: open a repl below
         -- }
-
       },
       -- Iron doesn't set keymaps by default anymore.
       -- You can set them here or manually add keymaps to the functions in iron.core
@@ -80,13 +79,13 @@ return {
       -- If the highlight is on, you can change how it looks
       -- For the available options, check nvim_set_hl
       highlight = {
-        italic = true
+        italic = true,
       },
       ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
-    }
+    })
 
     -- iron also has a list of commands, see :h iron-commands for all available commands
-    vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
-    vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
+    vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
+    vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
   end,
 }

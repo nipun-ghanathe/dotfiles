@@ -25,6 +25,6 @@ return {
           end
         end
       end,
-    })
+    }),
   },
 }

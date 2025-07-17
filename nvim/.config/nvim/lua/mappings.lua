@@ -1,45 +1,45 @@
 -- Mapping Leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Managing clipboard
-vim.keymap.set({ 'n', 'v' }, 'gy', '"+y', { desc = "Yank to system clipboard" })
-vim.keymap.set({ 'n', 'v' }, 'gp', '"+p', { desc = "Paste from system clipboard" })
-vim.keymap.set({ 'n', 'v' }, 'gP', '"+P', { desc = "Paste before cursor from system clipboard" })
+vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "v" }, "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
 
 -- Managing Buffers
-vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = "Next Buffer" })
-vim.keymap.set('n', '[b', '<cmd>bprev<cr>', { desc = "Previous Buffer" })
-vim.keymap.set('n', '<leader>bo', '<cmd>%bd | e # | bd #<cr>', { desc = "Only Buffer (Delete all buffers)" })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "[b", "<cmd>bprev<cr>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader>bo", "<cmd>%bd | e # | bd #<cr>", { desc = "Only Buffer (Delete all buffers)" })
 
 -- Quick-fix list
-vim.keymap.set('n', ']q', '<cmd>cnext<cr>', { desc = "Quick-fix: Next" })
-vim.keymap.set('n', '[q', '<cmd>cprev<cr>', { desc = "Quick-fix: Previous" })
+vim.keymap.set("n", "]q", "<cmd>cnext<cr>", { desc = "Quick-fix: Next" })
+vim.keymap.set("n", "[q", "<cmd>cprev<cr>", { desc = "Quick-fix: Previous" })
 
 -- Improving scrolling experience
 -- vim.keymap.set('n', '<c-e>', '<c-e>zz')
 -- vim.keymap.set('n', '<c-y>', '<c-y>zz')
-vim.keymap.set('n', '<c-d>', '<c-d>zz')
-vim.keymap.set('n', '<c-u>', '<c-u>zz')
-vim.keymap.set('n', '<c-f>', '<c-f>zz')
-vim.keymap.set('n', '<c-b>', '<c-b>zz')
+vim.keymap.set("n", "<c-d>", "<c-d>zz")
+vim.keymap.set("n", "<c-u>", "<c-u>zz")
+vim.keymap.set("n", "<c-f>", "<c-f>zz")
+vim.keymap.set("n", "<c-b>", "<c-b>zz")
 
 -- Improving search scrolling experience
-vim.keymap.set('n', 'n', 'nzz')
-vim.keymap.set('n', 'N', 'Nzz')
-vim.keymap.set('n', '*', '*zz')
-vim.keymap.set('n', '#', '#zz')
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "*", "*zz")
+vim.keymap.set("n", "#", "#zz")
 
 -- Configuring neovim's terminal
-vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
 -- Cmdline mappings
-vim.keymap.set('c', '<c-a>', '<home>')
-vim.keymap.set('c', '<c-e>', '<end>')
-vim.keymap.set('c', '<c-f>', '<right>')
-vim.keymap.set('c', '<c-b>', '<left>')
-vim.keymap.set('c', '<m-f>', '<c-right>')
-vim.keymap.set('c', '<m-b>', '<c-left>')
+vim.keymap.set("c", "<c-a>", "<home>")
+vim.keymap.set("c", "<c-e>", "<end>")
+vim.keymap.set("c", "<c-f>", "<right>")
+vim.keymap.set("c", "<c-b>", "<left>")
+vim.keymap.set("c", "<m-f>", "<c-right>")
+vim.keymap.set("c", "<m-b>", "<c-left>")
 
 -- Running code
 local runners = {

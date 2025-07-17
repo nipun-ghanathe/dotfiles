@@ -5,6 +5,6 @@ return {
   ---@diagnostic disable-next-line: undefined-doc-name
   ---@type ibl.config
   opts = {
-    scope = { enabled = false }
+    scope = { enabled = false },
   },
 }
