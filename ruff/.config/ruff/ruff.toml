@@ -45,8 +45,8 @@ select = [
     "INT",      # Flake8-gettext – checks for proper internationalization usage
     "ARG",      # Flake8-unused-arguments – flags unused function arguments
     "PTH",      # Flake8-use-pathlib – encourages pathlib over os.path
-    "FIX",      # Flake8-fixme – flags FIXME comments
-    # "TD",       # Flake8-todos – flags TODO comments
+    "FIX",      # Flake8-fixme – flags FIXME and TODO comments
+    # "TD",       # Flake8-todos – conventions for TODO comments
     "PD",       # Pandas-vet – checks pandas-specific code practices
     "NPY",      # NumPy-specific rules – ensures NumPy coding standards
     "PGH",      # Pygrep-hooks – custom grep hooks for linting
@@ -68,6 +68,8 @@ ignore = [
     "FA102",    # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
     "E501",     # Pycodestyle - Line too long ({width} > {limit})
     "COM812",   # Flake8-commas - Checks for the absence of trailing commas (Let the formatter handle this)
+    "ANN002",   # Flake8-annotations - Checks that function `*args` arguments have type annotations.
+    "ANN003",   # Flake8-annotations - Checks that function `**kwargs` arguments have type annotations.
 ]
 
 [lint.per-file-ignores]
