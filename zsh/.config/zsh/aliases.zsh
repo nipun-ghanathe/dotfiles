@@ -30,7 +30,7 @@ alias lt="ls -T"
 alias tree="ls -T"
 
 # batcat
-alias cat="batcat --paging=always"
+alias cat="batcat --style plain --paging always"
 
 # grep
 alias grep="grep --color=auto"
