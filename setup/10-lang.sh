@@ -21,11 +21,13 @@ install_lang_python() {
   curl -LsSf https://astral.sh/uv/install.sh | sh
 
   uv tool install ipython
+  mkdir -p $HOME/.ipython/profile_default/
+  stow --verbose ipython
 
-  mkdir -p ~/miniconda3
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-  bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-  rm ~/miniconda3/miniconda.sh
+  mkdir -p $HOME/miniconda3
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/miniconda3/miniconda.sh
+  bash $HOME/miniconda3/miniconda.sh -b -u -p $HOME/miniconda3
+  rm $HOME/miniconda3/miniconda.sh
   stow --verbose conda
 }
 

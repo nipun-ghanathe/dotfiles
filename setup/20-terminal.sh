@@ -78,7 +78,7 @@ install_tmux() {
 
 setup_shell() {
   log "Setting up bash and profile..."
-  rm ~/.bashrc ~/.profile
+  rm $HOME/.bashrc $HOME/.profile
   stow --verbose bash profile
 
   log "Installing and setting up zsh..."
