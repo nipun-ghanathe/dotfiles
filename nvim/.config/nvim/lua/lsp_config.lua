@@ -34,15 +34,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = true, desc = "LSP: Go to declaration" })
     vim.keymap.set("n", "gri", vim.lsp.buf.implementation, { buffer = true, desc = "LSP: Go to implementation" })
     vim.keymap.set("n", "grr", vim.lsp.buf.references, { buffer = true, desc = "LSP: List references" })
-    vim.keymap.set(
-      "n",
-      "K",
-      -- function() vim.lsp.buf.hover({ border = "rounded", max_width = 100, max_height = 14 }) end,
-      function()
-        vim.lsp.buf.hover({ border = "rounded" })
-      end,
-      { buffer = true, desc = "LSP: Hover Documentation" }
-    )
+    vim.keymap.set("n", "K", function()
+      vim.lsp.buf.hover({ border = "rounded" })
+    end, { buffer = true, desc = "LSP: Hover Documentation" })
     vim.keymap.set("i", "<c-k>", function()
       vim.lsp.buf.signature_help({ border = "rounded" })
     end, { buffer = true, desc = "LSP: Signature Help (insert mode)" })

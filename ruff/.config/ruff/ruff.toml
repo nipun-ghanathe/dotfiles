@@ -70,7 +70,9 @@ ignore = [
     "COM812",   # Flake8-commas - Checks for the absence of trailing commas (Let the formatter handle this)
     "ANN002",   # Flake8-annotations - Checks that function `*args` arguments have type annotations.
     "ANN003",   # Flake8-annotations - Checks that function `**kwargs` arguments have type annotations.
+    "RET504",   # Flake8-return - Checks for variable assignments that immediately precede a `return` of the assigned variable.
 ]
 
 [lint.per-file-ignores]
 "__init__.py" = ["E402", "F401"]
+"test*.py" = ["S101"]
