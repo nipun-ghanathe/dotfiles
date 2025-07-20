@@ -105,7 +105,7 @@ return {
         -- toggle_repl = "<leader>ir", -- toggles the repl open and closed.
         -- If repl_open_command is a table as above, then the following keymaps are
         -- available
-        toggle_repl_with_cmd_1 = "<leader>ir",
+        toggle_repl_with_cmd_1 = "<leader>irr",
         toggle_repl_with_cmd_2 = "<leader>irh",
         restart_repl = "<leader>iR", -- calls `IronRestart` to restart the repl
         send_motion = "<leader>ism",
