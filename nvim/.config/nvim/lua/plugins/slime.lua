@@ -9,7 +9,7 @@ return {
 
     -- you can override this for different filetypes by setting
     -- vim.b.slime_cell_delimiter in the respective ftplugin
-    vim.g.slime_cell_delimiter = "# %%"
+    vim.g.slime_cell_delimiter = [[^#\s*%%]]
     vim.g.slime_bracketed_paste = 1
     vim.g.slime_no_mappings = 1
   end,
