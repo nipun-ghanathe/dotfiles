@@ -9,7 +9,7 @@ select = [
     "I",        # isort – import ordering checks
     "N",        # PEP8 Naming – naming conventions
     "D",        # Pydocstyle – docstring formatting
-    # "DOC",    # Pydoclint – docstring linting and consistency
+    "DOC",      # Pydoclint – docstring linting and consistency
     "UP",       # Pyupgrade – upgrades syntax to newer Python versions
     "YTT",      # Flake8-2020 – checks for Python 2020 best practices
     # "ANN",      # Flake8-annotations – enforces type annotation style
@@ -62,11 +62,8 @@ select = [
 
 ignore = [
     "D1",       # Pydocstyle - missing docstring in public module, class, or function
-    "D203",     # Pydocstyle - one blank line required before class docstring
-    "D212",     # Pydocstyle - summary line should be immediately after the opening quotes.
     "S311",     # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
     "FA102",    # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
-    "E501",     # Pycodestyle - Line too long ({width} > {limit})
     "COM812",   # Flake8-commas - Checks for the absence of trailing commas (Let the formatter handle this)
     "ANN002",   # Flake8-annotations - Checks that function `*args` arguments have type annotations.
     "ANN003",   # Flake8-annotations - Checks that function `**kwargs` arguments have type annotations.
@@ -76,3 +73,6 @@ ignore = [
 [lint.per-file-ignores]
 "__init__.py" = ["E402", "F401"]
 "test*.py" = ["S101"]
+
+[lint.pydocstyle]
+convention = "google"
