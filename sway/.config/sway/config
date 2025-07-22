@@ -254,6 +254,7 @@ exec_always mako
 
 ### Floating Apps:
 
+for_window [class="Matplotlib"] floating enable, move position 1050 450
 for_window [app_id="pavucontrol"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
