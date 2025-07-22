@@ -31,6 +31,7 @@ return {
       vim.fn.search(cell_delimiter, "W")
     end
     local function send_file()
+      vim.cmd.write()
       local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
       local text = table.concat(lines, "\n")
       vim.fn["slime#send"](text)
