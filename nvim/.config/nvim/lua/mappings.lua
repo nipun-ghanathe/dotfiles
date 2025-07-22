@@ -7,11 +7,6 @@ vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
 
--- Managing Buffers
-vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-vim.keymap.set("n", "[b", "<cmd>bprev<cr>", { desc = "Previous Buffer" })
-vim.keymap.set("n", "<leader>bo", "<cmd>%bd | e # | bd #<cr>", { desc = "Only Buffer (Delete all buffers)" })
-
 -- Quick-fix list
 vim.keymap.set("n", "]q", "<cmd>cnext<cr>", { desc = "Quick-fix: Next" })
 vim.keymap.set("n", "[q", "<cmd>cprev<cr>", { desc = "Quick-fix: Previous" })
