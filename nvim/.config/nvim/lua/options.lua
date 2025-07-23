@@ -18,6 +18,8 @@ vim.opt.shiftwidth = 2
 
 -- Changing tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("user_cmds", {}),
+  desc = "Code Runner",
   pattern = { "python", "htmldjango", "toml", "java", "rust", "c", "cpp" },
   callback = function()
     vim.opt_local.tabstop = 4
@@ -76,19 +78,29 @@ vim.opt.undodir = vim.fn.stdpath("cache") .. "undodir"
 vim.g.netrw_banner = 0
 
 -- Configuring folds
-vim.opt.fillchars = {
-  foldopen = "▾",
-  foldclose = "▸",
-  fold = " ",
-  foldsep = " ",
-}
 vim.opt.foldcolumn = "0"
 vim.opt.foldlevel = 99
-vim.opt.foldmethod = "indent"
--- run `:set foldcolumn=1` to see the fold column
--- use `za` to toggle fold under cursor
--- use `zM` to open all folds
--- use `zR` to close all folds
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = false
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("user_cmds", {}),
+  desc = "Select foldmethod based on availability of treesitter parser.",
+  callback = function()
+    if require("nvim-treesitter.parsers").has_parser() then
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    else
+      vim.opt.foldmethod = "indent"
+    end
+  end,
+})
+-- vim.opt.foldcolumn = 1
+-- vim.opt.fillchars = {
+--   foldopen = "▾",
+--   foldclose = "▸",
+--   fold = " ",
+--   foldsep = " ",
+-- }
 
 -- Better diagnostic symbols
 vim.diagnostic.config({
