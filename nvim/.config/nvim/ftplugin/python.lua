@@ -1,14 +1,7 @@
-vim.keymap.set("n", "]c", function()
+vim.keymap.set("n", "<C-j>", function()
   vim.fn.search([[^#\s*%%]], "W")
 end, { buffer = 0, desc = "Jump to next Python cell" })
 
-vim.keymap.set("n", "[c", function()
+vim.keymap.set("n", "<C-k>", function()
   vim.fn.search([[^#\s*%%]], "bW")
 end, { buffer = 0, desc = "Jump to previous Python cell" })
-
-vim.keymap.set(
-  "n",
-  "<localleader>ti",
-  "<cmd>silent !tmux split-window -h -d uv run ipython3<cr>",
-  { desc = "Tmux Split - IPython" }
-)

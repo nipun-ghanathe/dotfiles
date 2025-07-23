@@ -40,16 +40,17 @@ vim.keymap.set("c", "<m-b>", "<c-left>")
 local runners = {
   python = "uv run",
   sh = "bash",
+  javascript = "node",
 }
 -- Run code in a vertical terminal
 vim.keymap.set("n", "<localleader>r", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
-  vim.cmd("vertical terminal " .. cmd .. " " .. vim.fn.expand("%"))
+  vim.cmd("vert term " .. cmd .. " " .. vim.fn.expand("%"))
 end, { desc = "Run code file in a vertical terminal" })
 -- Run code in a horizontal terminal
 vim.keymap.set("n", "<localleader>hr", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
-  vim.cmd("horizontal terminal " .. cmd .. " " .. vim.fn.expand("%"))
+  vim.cmd("belowright term " .. cmd .. " " .. vim.fn.expand("%"))
 end, { desc = "Run code file in a horizontal terminal" })

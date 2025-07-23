@@ -18,8 +18,8 @@ vim.opt.shiftwidth = 2
 
 -- Changing tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("user_cmds", {}),
-  desc = "Code Runner",
+  group = vim.api.nvim_create_augroup("user_cmds_tabstop", { clear = true }),
+  desc = "four space indenting",
   pattern = { "python", "htmldjango", "toml", "java", "rust", "c", "cpp" },
   callback = function()
     vim.opt_local.tabstop = 4
@@ -82,19 +82,7 @@ vim.opt.foldcolumn = "0"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = false
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("user_cmds", {}),
-  desc = "Select foldmethod based on availability of treesitter parser.",
-  callback = function()
-    if require("nvim-treesitter.parsers").has_parser() then
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    else
-      vim.opt.foldmethod = "indent"
-    end
-  end,
-})
--- vim.opt.foldcolumn = 1
+vim.opt.foldmethod = "indent"
 -- vim.opt.fillchars = {
 --   foldopen = "▾",
 --   foldclose = "▸",

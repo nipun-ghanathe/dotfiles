@@ -8,9 +8,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
   },
-
   event = "InsertEnter",
-
   config = function()
     -- load the extra snippets from friednly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()

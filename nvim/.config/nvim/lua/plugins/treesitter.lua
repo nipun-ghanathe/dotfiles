@@ -1,8 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+      },
       indent = {
         enable = true,
       },
@@ -12,12 +16,33 @@ return {
         "c",
         "cpp",
         "lua",
+        "rust",
+        "go",
+        "bash",
         "html",
         "css",
         "javascript",
+        "typescript",
         "vim",
         "vimdoc",
+        "gitignore",
+        "markdown",
+        "markdown_inline",
+        "json",
+        "yaml",
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<c-space>",
+          node_incremental = "<c-space>",
+          node_decremental = "<bs>",
+          scope_incremental = false,
+        },
       },
     })
+
+    vim.wo.foldmethod = "expr"
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   end,
 }

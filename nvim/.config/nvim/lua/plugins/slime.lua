@@ -1,6 +1,19 @@
 return {
   "jpalardy/vim-slime",
-  ft = { "python" },
+  keys = {
+    {
+      "<localleader>ti",
+      "<cmd>silent !tmux split-window -h -d uv run ipython3<cr>",
+      ft = "python",
+      desc = "Tmux Split - IPython",
+    },
+    {
+      "<localleader>thi",
+      [[<cmd>silent !tmux split-window -v -l 40\% -d uv run ipython3<cr>]],
+      ft = "python",
+      desc = "Tmux Horizontal Split - IPython",
+    },
+  },
   init = function()
     vim.g.slime_target = "tmux"
     vim.g.slime_default_config = { socket_name = "default", target_pane = ":.2" }
@@ -64,19 +77,19 @@ return {
       clear_then(send_file)
     end, { desc = "Slime: Clear => Send File" })
 
-    -- Send 'clear', 'exit', and 'interrupt'
+    -- Send 'clear', 'exit', and 'interrupt' and '<cr>'
     vim.keymap.set("n", "<leader>scl", function()
       send_ctrl("l")
-      -- slime_send_raw(vim.api.nvim_replace_termcodes("<C-l>", true, false, true))
     end, { desc = "Slime: Send Clear (C-l)" })
     vim.keymap.set("n", "<leader>scd", function()
       send_ctrl("d")
-      -- slime_send_raw(vim.api.nvim_replace_termcodes("<C-d>", true, false, true))
     end, { desc = "Slime: Send Exit (C-d)" })
     vim.keymap.set("n", "<leader>scc", function()
       send_ctrl("c")
-      -- slime_send_raw(vim.api.nvim_replace_termcodes("<C-c>", true, false, true))
     end, { desc = "Slime: Send Interrupt (C-c)" })
+    vim.keymap.set("n", "<leader>scr", function()
+      slime_send_raw(vim.api.nvim_replace_termcodes("<CR>", true, false, true))
+    end, { desc = "Slime: Send Return (<CR>)" })
 
     -- direct-send keymaps (without clearing)
     vim.keymap.set("n", "<leader>ssn", send_cell_and_next, { desc = "Slime: Send Cell and Next" })

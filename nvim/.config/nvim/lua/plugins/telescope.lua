@@ -8,50 +8,47 @@ return {
     },
     "nvim-telescope/telescope-ui-select.nvim",
   },
-  config = function()
-    require("telescope").setup({
-      defaults = {
-        file_ignore_patterns = {
-          "__pycache__",
-          "%.git",
-          "%.venv",
+  keys = {
+    { "<c-p>", require("telescope.builtin").find_files, desc = "Telescope: Project files" },
+    { "<leader>fg", require("telescope.builtin").live_grep, desc = "Telescope: Find Grep" },
+    { "<leader>bl", require("telescope.builtin").buffers, desc = "Telescope: Buffers List" },
+    { "<leader>fh", require("telescope.builtin").help_tags, desc = "Telescope: Find Help" },
+    { "<leader>fk", require("telescope.builtin").keymaps, desc = "Telescope: Find Keymaps" },
+  },
+  opts = {
+    defaults = {
+      file_ignore_patterns = {
+        "__pycache__",
+        "%.git",
+        "%.venv",
+      },
+    },
+    pickers = {
+      find_files = {
+        hidden = true,
+      },
+      buffers = {
+        mappings = {
+          i = { ["<c-d>"] = "delete_buffer" },
+          n = { ["d"] = "delete_buffer" },
         },
       },
-      pickers = {
-        find_files = {
-          hidden = true,
-        },
-        buffers = {
-          mappings = {
-            i = {
-              ["<c-d>"] = "delete_buffer",
-            },
-            n = {
-              ["d"] = "delete_buffer",
-            },
-          },
-        },
+    },
+    extensions = {
+      fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
       },
-      extensions = {
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case",
-        },
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown(),
-        },
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown(),
       },
-    })
+    },
+  },
+  config = function(_, opts)
+    require("telescope").setup(opts)
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("ui-select")
-
-    local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<c-p>", builtin.find_files, { desc = "Telescope: Project files" })
-    vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope: Find Grep" })
-    vim.keymap.set("n", "<leader>bl", builtin.buffers, { desc = "Telescope: Buffers List" })
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope: Find Help" })
-    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope: Find Keymaps" })
   end,
 }

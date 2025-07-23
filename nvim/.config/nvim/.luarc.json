@@ -8,4 +8,7 @@
     "workspace.library": [
         "$VIMRUNTIME"
     ],
+    "diagnostics.disable": [
+        "undefined-doc-name"
+    ],
 }

@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = "nvim-tree/nvim-web-devicons",
+  lazy = false,
   config = function()
     local custom_nord = require("lualine.themes.nord")
     custom_nord.normal.a.bg = "#81a1c1"

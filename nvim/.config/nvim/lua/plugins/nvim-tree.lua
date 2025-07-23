@@ -1,13 +1,13 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  version = "*",
+  dependencies = "nvim-tree/nvim-web-devicons",
+  keys = {
+    { "<leader>.", "<cmd>NvimTreeFindFileToggle<cr>", desc = "Toggle Nvim Tree" },
+  },
   config = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
-
-    vim.opt.termguicolors = true
-
-    vim.keymap.set("n", "<leader>.", "<cmd>NvimTreeFindFileToggle<cr>", { desc = "Toggle Nvim Tree" })
 
     require("nvim-tree").setup({
       view = {
@@ -77,6 +77,7 @@ return {
           "^venv$",
           "^__pycache__$",
           "^.mypy_cache$",
+          "^.pytest_cache$",
           "^.ipynb_checkpoints$",
         },
         exclude = {},
