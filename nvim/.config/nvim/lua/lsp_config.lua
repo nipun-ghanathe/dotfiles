@@ -1,20 +1,15 @@
--- Defining variable capabilities for later use
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 ----------------------------------
 ----- Setting up LSP Servers -----
 ----------------------------------
-vim.lsp.enable("ruff")
-vim.lsp.config("pyright", { capabilities = capabilities })
-vim.lsp.enable("pyright")
-vim.lsp.config("lua_ls", { capabilities = capabilities })
-vim.lsp.enable("lua_ls")
-vim.lsp.config("html_lsp", { capabilities = capabilities })
-vim.lsp.enable("html_lsp")
-vim.lsp.config("css_ls", { capabilities = capabilities })
-vim.lsp.enable("css_ls")
-vim.lsp.config("css_ls", { capabilities = capabilities })
-vim.lsp.enable("css_ls")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lsp_config_files = vim.fn.readdir(vim.fn.stdpath("config") .. "/lsp")
+for _, file in ipairs(lsp_config_files) do
+  local lsp_server = file:match("^(.*)%.lua")
+  if lsp_server ~= "ruff" then
+    vim.lsp.config(lsp_server, { capabilities = capabilities })
+  end
+  vim.lsp.enable(lsp_server)
+end
 
 ---------------------------------
 ----- Configure diagnostics -----

@@ -73,6 +73,10 @@ ignore = [
 [lint.per-file-ignores]
 "__init__.py" = ["E402", "F401"]
 "test*.py" = ["S101"]
+"*_nb.py" = []
 
 [lint.pydocstyle]
 convention = "google"
+
+[format]
+exclude = ["*_nb.py"]

@@ -5,12 +5,16 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      python = {
-        "ruff_format",
-        "ruff_organize_imports",
-      },
+      -- python = { "black" },
       htmldjango = { "djlint" },
-      html = { "djlint" },
+      html = { "prettier" },
+      css = { "prettier" },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      javascriptreact = { "prettier" },
+      typescriptreact = { "prettier" },
+      json = { "prettier" },
+      jsonc = { "prettier" },
       markdown = { "mdformat" },
     },
     default_format_opts = {

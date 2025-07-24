@@ -13,4 +13,19 @@ return {
     ".git",
     ".venv",
   },
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = "*.py",
+      desc = "Code Action on Save: Auto Organize Imports",
+      callback = function()
+        vim.lsp.buf.code_action({
+          ---@diagnostic disable-next-line: missing-fields
+          context = {
+            only = { "source.organizeImports" },
+          },
+          apply = true,
+        })
+      end,
+    })
+  end,
 }

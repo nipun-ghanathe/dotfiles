@@ -61,11 +61,15 @@ setup_editor() {
   cargo install stylua
   stow --verbose stylua
 
-  log "Installing formatter for Markdown..."
-  uv tool install --with mdformat-gfm mdformat 
+  log "Installing typescript-language-server and prettier..."
+  npm install -g typescript typescript-language-server
+  npm install -g prettier
 
   log "Installing language servers for HTML, CSS, JS..."
   npm install -g vscode-langservers-extracted
+
+  log "Installing formatter for Markdown..."
+  uv tool install --with mdformat-gfm mdformat 
 }
 
 install_tmux() {
