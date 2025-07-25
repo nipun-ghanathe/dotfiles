@@ -1,19 +1,7 @@
 return {
   "jpalardy/vim-slime",
-  keys = {
-    {
-      "<localleader>ti",
-      "<cmd>silent !tmux split-window -h -d uv run ipython3<cr>",
-      ft = "python",
-      desc = "Tmux Split - IPython",
-    },
-    {
-      "<localleader>thi",
-      [[<cmd>silent !tmux split-window -v -l 40\% -d uv run ipython3<cr>]],
-      ft = "python",
-      desc = "Tmux Horizontal Split - IPython",
-    },
-  },
+  -- Configure keymaps to launch [T]mux panes with [R]EPLs in ftplugin/*.lua
+  keys = { "<localleader>tr", "<localleader>thr" },
   init = function()
     vim.g.slime_target = "tmux"
     vim.g.slime_default_config = { socket_name = "default", target_pane = ":.2" }
