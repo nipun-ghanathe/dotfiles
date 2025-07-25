@@ -8,46 +8,86 @@ return {
     },
     "nvim-telescope/telescope-ui-select.nvim",
   },
+  cmd = "Telescope",
   keys = {
-    { "<c-p>", require("telescope.builtin").find_files, desc = "Telescope: Project files" },
-    { "<leader>fg", require("telescope.builtin").live_grep, desc = "Telescope: Find Grep" },
-    { "<leader>bl", require("telescope.builtin").buffers, desc = "Telescope: Buffers List" },
-    { "<leader>fh", require("telescope.builtin").help_tags, desc = "Telescope: Find Help" },
-    { "<leader>fk", require("telescope.builtin").keymaps, desc = "Telescope: Find Keymaps" },
-  },
-  opts = {
-    defaults = {
-      file_ignore_patterns = {
-        "__pycache__",
-        "%.git",
-        "%.venv",
-      },
+    {
+      "<c-p>",
+      function()
+        require("telescope.builtin").find_files()
+      end,
+      desc = "Telescope: Project files",
     },
-    pickers = {
-      find_files = {
-        hidden = true,
-      },
-      buffers = {
-        mappings = {
-          i = { ["<c-d>"] = "delete_buffer" },
-          n = { ["d"] = "delete_buffer" },
+    {
+      "<leader>fg",
+      function()
+        require("telescope.builtin").live_grep()
+      end,
+      desc = "Telescope: Find Grep",
+    },
+    {
+      "<leader>bl",
+      function()
+        require("telescope.builtin").buffers()
+      end,
+      desc = "Telescope: Buffers List",
+    },
+    {
+      "<leader>fh",
+      function()
+        require("telescope.builtin").help_tags()
+      end,
+      desc = "Telescope: Find Help",
+    },
+    {
+      "<leader>fk",
+      function()
+        require("telescope.builtin").keymaps()
+      end,
+      desc = "Telescope: Find Keymaps",
+    },
+  },
+  config = function()
+    require("telescope").setup({
+      defaults = {
+        file_ignore_patterns = {
+          "__pycache__",
+          "%.git",
+          "%.venv",
+        },
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
         },
       },
-    },
-    extensions = {
-      fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case",
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
+        buffers = {
+          mappings = {
+            i = { ["<c-d>"] = "delete_buffer" },
+            n = { ["d"] = "delete_buffer" },
+          },
+        },
       },
-      ["ui-select"] = {
-        require("telescope.themes").get_dropdown(),
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown(),
+        },
       },
-    },
-  },
-  config = function(_, opts)
-    require("telescope").setup(opts)
+    })
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("ui-select")
   end,

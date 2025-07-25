@@ -1,20 +1,9 @@
 return {
-  "gbprod/nord.nvim",
+  "catppuccin/nvim",
+  name = "catppuccin",
   lazy = false,
   priority = 1000,
-  opts = {
-    diff = { mode = "fg" },
-    errors = { mode = "fg" },
-    search = { theme = "vscode" },
-    styles = {
-      comments = { italic = true },
-      keywords = { italic = true },
-      functions = { italic = true, bold = true },
-      variables = {},
-    },
-  },
-  config = function(_, opts)
-    require("nord").setup(opts)
-    vim.cmd.colorscheme("nord")
+  config = function()
+    vim.cmd.colorscheme("catppuccin-macchiato")
   end,
 }

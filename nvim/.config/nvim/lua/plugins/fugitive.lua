@@ -3,7 +3,7 @@ return {
   config = function()
     vim.keymap.set("n", "<leader>gs", function()
       if vim.bo.filetype == "fugitive" then
-        vim.cmd("q")
+        vim.cmd("bd")
       else
         vim.cmd("Git")
       end

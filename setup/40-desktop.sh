@@ -38,9 +38,8 @@ install_desktop_utilities() {
 
 setup_theme() {
   log "Setting up GTK Theme..."
-  stow --verbose themes
-  gsettings set org.gnome.desktop.interface gtk-theme Nordic
-  gsettings set org.gnome.desktop.wm.preferences theme Nordic
+  gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+  gsettings set org.gnome.desktop.wm.preferences theme Adwaita-dark
 }
 
 setup_fonts() {

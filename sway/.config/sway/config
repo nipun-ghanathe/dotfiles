@@ -225,17 +225,16 @@ gaps outer 0
 ### Colors:
 
 # class                 border  bground text    indicator child_border
-client.focused          #5e81ac #5e81ac #eceff4 #81a1c1   #5e81ac
-client.focused_inactive #434c5e #434c5e #eceff4 #434c5e   #434c5e
-client.unfocused        #2e3440 #2e3440 #d8dee9 #2e3440   #2e3440
-client.urgent           #bf616a #bf616a #eceff4 #bf616a   #bf616a
-client.placeholder      #2e3440 #2e3440 #eceff4 #2e3440   #2e3440
-client.background       #eceff4
+client.focused          #181926 #181926 #ffffff #8aadf4   #8aadf4
+client.focused_inactive #181926 #363a4f #a5adcb #363a4f   #363a4f
+client.unfocused        #181926 #363a4f #a5adcb #363a4f   #363a4f
+client.urgent           #181926 #ed8796 #ffffff #ed8796   #ed8796
 
 
 ### Wallpaper:
 
 exec_always ~/.config/sway/scripts/random_wallpaper.sh
+
 
 ##################################################
 ### Other Configuration ###

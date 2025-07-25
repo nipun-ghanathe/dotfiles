@@ -6,20 +6,20 @@ height=100
 border-size=2
 border-radius=8
 
-default-timeout=5000
-
-background-color=#434c5e
-text-color=#eceff4
-progress-color=#5e81ac
-border-color=#5e81ac
-
 on-notify=exec pw-play /usr/share/sounds/freedesktop/stereo/complete.oga
 
+default-timeout=5000
+
+background-color=#1e2030
+text-color=#cad3f5
+progress-color=#363a4f
+border-color=#8aadf4
+
 [urgency=low]
-border-color=#88c0d0
+border-color=#a6da95
 
 [urgency=normal]
-border-color=#5e81ac
+border-color=#8aadf4
 
 [urgency=high]
-border-color=#bf616a
+border-color=#ed8796
