@@ -1,7 +1,28 @@
 return {
   "jpalardy/vim-slime",
-  -- Configure keymaps to launch [T]mux panes with [R]EPLs in ftplugin/*.lua
-  keys = { "<localleader>tr", "<localleader>thr" },
+  -- For this keymaps to work according to filetype
+  -- set the vim.b.slime_repl_command in ftplugin/*.lua
+  keys = function()
+    local function repl_cmd()
+      return vim.b.slime_repl_command or ""
+    end
+    return {
+      {
+        "<localleader>tr",
+        function()
+          vim.cmd("silent !tmux split-window -h -d " .. repl_cmd())
+        end,
+        desc = "Tmux Split REPL",
+      },
+      {
+        "<localleader>thr",
+        function()
+          vim.cmd("silent !tmux split-window -v -d " .. repl_cmd())
+        end,
+        desc = "Tmux Horizonal Split REPL",
+      },
+    }
+  end,
   init = function()
     vim.g.slime_target = "tmux"
     vim.g.slime_default_config = { socket_name = "default", target_pane = ":.2" }
