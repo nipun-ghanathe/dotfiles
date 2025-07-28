@@ -8,6 +8,7 @@ return {
     },
     "nvim-telescope/telescope-ui-select.nvim",
   },
+  event = "VeryLazy",
   cmd = "Telescope",
   keys = {
     {

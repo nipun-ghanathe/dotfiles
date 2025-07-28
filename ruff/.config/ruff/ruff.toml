@@ -12,7 +12,7 @@ select = [
     "DOC",      # Pydoclint – docstring linting and consistency
     "UP",       # Pyupgrade – upgrades syntax to newer Python versions
     "YTT",      # Flake8-2020 – checks for Python 2020 best practices
-    # "ANN",      # Flake8-annotations – enforces type annotation style
+    "ANN",      # Flake8-annotations – enforces type annotation style
     "ASYNC",    # Flake8-async – checks async/await usage
     "S",        # Flake8-bandit – security issues
     "BLE",      # Flake8-blind-except – flags bare excepts

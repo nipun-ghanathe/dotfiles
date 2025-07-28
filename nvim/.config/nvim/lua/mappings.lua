@@ -12,8 +12,8 @@ vim.keymap.set("n", "]q", "<cmd>cnext<cr>", { desc = "Quick-fix: Next" })
 vim.keymap.set("n", "[q", "<cmd>cprev<cr>", { desc = "Quick-fix: Previous" })
 
 -- Improving scrolling experience
--- vim.keymap.set('n', '<c-e>', '<c-e>zz')
--- vim.keymap.set('n', '<c-y>', '<c-y>zz')
+-- vim.keymap.set("n", "<c-e>", "<c-e>zz")
+-- vim.keymap.set("n", "<c-y>", "<c-y>zz")
 vim.keymap.set("n", "<c-d>", "<c-d>zz")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
 vim.keymap.set("n", "<c-f>", "<c-f>zz")

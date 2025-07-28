@@ -4,7 +4,7 @@ return {
   dependencies = "nvim-lua/plenary.nvim",
   keys = {
     "<leader>a",
-    "<c-e>",
+    "<c-h>",
     "<m-j>",
     "<m-k>",
     "<m-l>",
@@ -18,7 +18,7 @@ return {
       harpoon:list():add()
       print("Mark added")
     end, { desc = "Add to Harpoon" })
-    vim.keymap.set("n", "<c-e>", function()
+    vim.keymap.set("n", "<c-h>", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = "Open Harpoon Menu" })
 

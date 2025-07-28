@@ -34,6 +34,7 @@ vim.opt.listchars = {}
 
 -- Keeping the cursor in place
 vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 12
 
 -- Configuring search
 vim.opt.incsearch = true
