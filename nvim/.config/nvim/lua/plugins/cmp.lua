@@ -10,10 +10,12 @@ return {
   },
   event = "InsertEnter",
   config = function()
+    local cmp = require("cmp")
+
     -- load the extra snippets from friednly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
-
-    local cmp = require("cmp")
+    require("luasnip").filetype_extend("javascript", { "jsdoc" })
+    require("luasnip").filetype_extend("typescript", { "tsdoc" })
 
     cmp.setup({
       snippet = {
@@ -22,24 +24,26 @@ return {
         end,
       },
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", keyword_length = 2 },
         { name = "luasnip" },
         { name = "path" },
         { name = "buffer" },
       }),
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
       preselect = "item",
       completion = {
         completeopt = "menu,menuone,noinsert",
       },
       mapping = cmp.mapping.preset.insert({
         ["<c-y>"] = cmp.mapping.confirm({ select = true }), -- confirm completion item
-        ["<c-space>"] = cmp.mapping.complete({ select = true }), -- trigget completion menu
-        ["<c-u>"] = cmp.mapping.scroll_docs(-4), -- scroll up
-        ["<c-d>"] = cmp.mapping.scroll_docs(4), -- scroll down
+        ["<c-space>"] = cmp.mapping(function(fallback) -- toggle completion menu
+          if cmp.visible() then
+            cmp.abort()
+          else
+            cmp.complete()
+          end
+        end, { "i", "c" }),
+        ["<c-u>"] = cmp.mapping.scroll_docs(-4), -- scroll up docs
+        ["<c-d>"] = cmp.mapping.scroll_docs(4), -- scroll down docs
 
         -- jump to next snippet placeholder
         ["<c-f>"] = cmp.mapping(function(fallback)
@@ -61,6 +65,22 @@ return {
           end
         end, { "i", "s" }),
       }),
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      formatting = {
+        format = function(entry, vim_item)
+          -- Source
+          vim_item.menu = ({
+            nvim_lsp = "[lsp]",
+            luasnip = "[luasnip]",
+            buffer = "[buffer]",
+            path = "[path]",
+          })[entry.source.name]
+          return vim_item
+        end,
+      },
     })
   end,
 }
