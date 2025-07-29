@@ -4,7 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
   },
-  cmd = "Neogit",
+  cmd = { "Neogit", "NeogitCommit", "NeogitLogCurrent", "NeogitResetState" },
   keys = {
     {
       "<leader>ng",
@@ -34,6 +34,7 @@ return {
       pattern = "Neogit*",
       callback = function()
         vim.opt_local.cursorlineopt = "both"
+        vim.opt_local.colorcolumn = "0"
       end,
     })
   end,
