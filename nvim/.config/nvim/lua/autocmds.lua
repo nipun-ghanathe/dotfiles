@@ -9,10 +9,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- Exit using 'q' on some filetypes
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
-  pattern = { "help", "man", "git" },
   desc = "Quit some windows simply using 'q'",
+  pattern = { "help", "man", "git" },
   callback = function()
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = true })
   end,

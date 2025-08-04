@@ -48,6 +48,7 @@ local runners = {
   python = "uv run",
   sh = "bash",
   javascript = "node",
+  html = "xdg-open",
 }
 -- Run code in a vertical terminal
 vim.keymap.set("n", "<localleader>r", function()

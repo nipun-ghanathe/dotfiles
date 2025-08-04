@@ -51,9 +51,10 @@ return {
     require("telescope").setup({
       defaults = {
         file_ignore_patterns = {
-          "__pycache__",
-          "%.git",
-          "%.venv",
+          "^__pycache__/",
+          "^node_modules/",
+          "^%.git/",
+          "^%.venv/",
         },
         vimgrep_arguments = {
           "rg",

@@ -26,17 +26,17 @@ return {
             ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
           },
           selection_modes = {
-            ["@call.outer"] = "V",
+            ["@call.outer"] = "v",
             ["@function.outer"] = "V",
             ["@class.outer"] = "V",
             ["@conditional.outer"] = "V",
             ["@loop.outer"] = "V",
 
-            ["@call.inner"] = "V",
-            ["@function.inner"] = "V",
-            ["@class.inner"] = "V",
-            ["@conditional.inner"] = "V",
-            ["@loop.inner"] = "V",
+            ["@call.inner"] = "v",
+            ["@function.inner"] = "v",
+            ["@class.inner"] = "v",
+            ["@conditional.inner"] = "v",
+            ["@loop.inner"] = "v",
 
             ["@local.scope"] = "v",
           },
