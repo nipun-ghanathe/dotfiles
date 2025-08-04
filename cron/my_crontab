@@ -24,7 +24,3 @@
 
 # Sync local data to google drive
 0 11 */3 * * /home/nipun/dotfiles/rclone/sync-gdrive.sh
-
-# Generate Anki compatible TSV flashcards from words collected in Cambridge
-# Online Dictionary
-0 11 * * 0 cd /home/nipun/code/projects/vocab_flashcards && .venv/bin/python /home/nipun/code/projects/vocab_flashcards/main.py
