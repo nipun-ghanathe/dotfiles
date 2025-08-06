@@ -10,6 +10,7 @@ return {
   },
   config = function()
     require("nvim-tree").setup({
+      sort = { sorter = "extension" },
       view = {
         float = {
           enable = true,
