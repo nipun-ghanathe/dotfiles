@@ -67,6 +67,9 @@ setup_editor() {
 
   log "Installing language servers for HTML, CSS, JS..."
   npm install -g vscode-langservers-extracted
+  
+  log "Installing live-server for live-reloading of HTML files..."
+  npm install -g live-server
 
   log "Installing formatter for Markdown..."
   uv tool install --with mdformat-gfm mdformat 
