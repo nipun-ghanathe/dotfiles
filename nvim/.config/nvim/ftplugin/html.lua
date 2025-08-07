@@ -64,5 +64,5 @@ vim.keymap.set(
   "n",
   "<localleader>r",
   "<cmd>OpenWithLiveServer<cr>",
-  { desc = "Open HTML file in browser with Live Server" }
+  { buffer = true, desc = "Open HTML file in browser with Live Server" }
 )
