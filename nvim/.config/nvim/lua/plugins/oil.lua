@@ -29,11 +29,13 @@ return {
     require("oil").setup(opts)
 
     vim.keymap.set("n", "<leader>e", function()
-      require("oil").open_float(nil, {
+      require("oil").open(nil, {
         preview = {
-          horizontal = true,
+          vertical = true,
         },
-      })
+      }, function()
+        vim.cmd("vertical resize " .. vim.o.columns * 60 / 100)
+      end)
     end, { desc = "Open Oil" })
 
     vim.api.nvim_create_autocmd("FileType", {

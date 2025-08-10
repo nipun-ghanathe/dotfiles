@@ -44,9 +44,8 @@ vim.opt.list = true
 vim.opt.listchars = {}
 
 -- Keeping the cursor in place
--- I want to experiment how it goes by turning this off
--- vim.opt.scrolloff = 8
--- vim.opt.sidescrolloff = 12
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 12
 
 -- Configuring search
 vim.opt.incsearch = true
