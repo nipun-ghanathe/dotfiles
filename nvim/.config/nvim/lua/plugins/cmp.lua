@@ -25,6 +25,16 @@ return {
           },
         })
 
+        -- User command to edit snippets
+        vim.api.nvim_create_user_command("LuaSnipEdit", function()
+          require("luasnip.loaders").edit_snippet_files({
+            edit = function(file)
+              -- Open the snippets file in a vertical split
+              vim.cmd("vsp " .. file)
+            end,
+          })
+        end, {})
+
         -- snippets from rtp/<folder-with-package.json> (friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
         require("luasnip").filetype_extend("javascript", { "jsdoc" })

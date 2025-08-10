@@ -81,10 +81,6 @@ vim.opt.mouse = "a"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 500
 
--- Making splits more natural
--- vim.opt.splitbelow = true
-vim.opt.splitright = true
-
 -- Setting undodir for persistent undo
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("cache") .. "undodir"
