@@ -110,11 +110,12 @@ setup_scripts() {
 
 install_other_cli_tools() {
   log "Installing better alternatives to the coreutils..."
-  sudo apt install -y eza zoxide bat ripgrep fd-find htop
+  sudo apt install -y eza zoxide bat ripgrep fd-find fzf htop
   ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
 
-  log "Installing some other helpful CLI tools..."
-  sudo apt install -y ranger
+  log "Installing some other utilities..."
+  sudo apt install -y ffmpeg 7zip jq poppler-utils imagemagick
+  cargo install --locked yazi-fm yazi-cli
   npm install -g tldr
 }
 

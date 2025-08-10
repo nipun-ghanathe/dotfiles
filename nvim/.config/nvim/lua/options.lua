@@ -27,6 +27,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "typescriptreact",
     "css",
     "lua",
+    "bash",
+    "zsh",
     "ruby",
     "yaml",
   },
