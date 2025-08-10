@@ -12,3 +12,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs
 
 ### 📝 To-dos
 
+- [ ] Update Neovim config after release of v0.12 or later to:
+  - [ ] Use native package manager
+  - [ ] Use native completion
+  - [x] Use native LSP
