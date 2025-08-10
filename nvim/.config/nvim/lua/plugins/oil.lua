@@ -3,6 +3,7 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   lazy = false,
   ---@module 'oil'
+  ---@diagnostic disable-next-line: undefined-doc-name
   ---@type oil.SetupOpts
   opts = {
     keymaps = {

@@ -44,14 +44,18 @@ vim.opt.list = true
 vim.opt.listchars = {}
 
 -- Keeping the cursor in place
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 12
+-- I want to experiment how it goes by turning this off
+-- vim.opt.scrolloff = 8
+-- vim.opt.sidescrolloff = 12
 
 -- Configuring search
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
+
+-- Configuring completion menu
+vim.opt.completeopt = { "menu", "menuone", "noinsert" }
 
 -- Uncomment this for auto save
 -- vim.opt.autowrite = true
