@@ -29,6 +29,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "lua",
     "bash",
     "zsh",
+    "markdown",
     "ruby",
     "yaml",
   },

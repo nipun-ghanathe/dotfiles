@@ -14,5 +14,9 @@ bash <(curl -fsSL https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs
 
 - [ ] Update Neovim config after release of v0.12 or later to:
   - [ ] Use native package manager
-  - [ ] Use native completion
+  - [ ] Use native completion and snippet management
   - [x] Use native LSP
+- [ ] Changes in Neovim config
+  - [ ] Prevent duplicate snippets
+  - [ ] Read source code of venv-selector, understand what it does and remove
+    venv-selector
