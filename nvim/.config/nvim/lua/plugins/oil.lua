@@ -32,6 +32,7 @@ return {
       require("oil").open(nil, {
         preview = {
           vertical = true,
+          split = "belowright",
         },
       }, function()
         vim.cmd("vertical resize " .. vim.o.columns * 60 / 100)
