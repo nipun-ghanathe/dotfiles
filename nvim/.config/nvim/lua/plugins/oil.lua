@@ -24,31 +24,17 @@ return {
         return always_hidden[name] or false
       end,
     },
+    win_options = {
+      signcolumn = "yes",
+    },
   },
   config = function(_, opts)
     require("oil").setup(opts)
 
     vim.keymap.set("n", "<leader>e", function()
-      require("oil").open(nil, {
-        preview = {
-          vertical = true,
-          split = "belowright",
-        },
-      }, function()
-        vim.cmd("vertical resize " .. vim.o.columns * 60 / 100)
+      require("oil").open(nil, nil, function()
+        vim.opt_local.colorcolumn = ""
       end)
     end, { desc = "Open Oil" })
-
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "oil",
-      desc = "Settings for the Oil buffer.",
-      callback = function()
-        vim.opt_local.colorcolumn = ""
-
-        -- for safety (line numbers were causing problems)
-        vim.opt_local.number = true
-        vim.opt_local.relativenumber = true
-      end,
-    })
   end,
 }

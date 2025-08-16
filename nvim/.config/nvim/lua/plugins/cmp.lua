@@ -113,25 +113,29 @@ return {
           end
         end, { "i", "s" }),
 
-        -- cycle forward through choice nodes
-        ["<c-j>"] = cmp.mapping(function(fallback)
-          local luasnip = require("luasnip")
-          if luasnip.choice_active() then
-            luasnip.change_choice(1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-
-        -- cycle backward through choice nodes
-        ["<c-k>"] = cmp.mapping(function(fallback)
-          local luasnip = require("luasnip")
-          if luasnip.choice_active() then
-            luasnip.change_choice(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
+        -------------------------
+        -- Set some other shortcuts, I use C-j and C-k for navigating
+        -- cells in py:percent files
+        -------------------------
+        -- -- cycle forward through choice nodes
+        -- ["<c-j>"] = cmp.mapping(function(fallback)
+        --   local luasnip = require("luasnip")
+        --   if luasnip.choice_active() then
+        --     luasnip.change_choice(1)
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
+        --
+        -- -- cycle backward through choice nodes
+        -- ["<c-k>"] = cmp.mapping(function(fallback)
+        --   local luasnip = require("luasnip")
+        --   if luasnip.choice_active() then
+        --     luasnip.change_choice(-1)
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
       }),
     })
   end,

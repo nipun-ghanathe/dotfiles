@@ -15,8 +15,22 @@ end
 ----- Configure diagnostics -----
 ---------------------------------
 vim.diagnostic.config({
-  float = { border = "rounded" },
+  underline = true,
   virtual_text = false,
+  virtual_lines = false,
+  severity_sort = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "󰌵",
+    },
+  },
+  float = {
+    source = true,
+    border = "rounded",
+  },
 })
 
 ------------------------

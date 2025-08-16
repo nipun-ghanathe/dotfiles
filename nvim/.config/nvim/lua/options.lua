@@ -6,6 +6,9 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
+-- Block cursor in insert mode too
+vim.opt.guicursor:append("i-ci:block")
+
 -- Configuring indentation and tabs
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -27,6 +30,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "typescriptreact",
     "css",
     "lua",
+    "sh",
     "bash",
     "zsh",
     "markdown",
@@ -53,6 +57,10 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
+
+-- Better Splits
+-- vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- Configuring completion menu
 vim.opt.completeopt = { "menu", "menuone", "noinsert" }
@@ -101,15 +109,3 @@ vim.opt.foldmethod = "indent"
 --   fold = " ",
 --   foldsep = " ",
 -- }
-
--- Better diagnostic symbols
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "󰌵",
-    },
-  },
-})

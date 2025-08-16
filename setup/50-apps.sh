@@ -25,7 +25,7 @@ install_obsidian() {
   log "Installing Obsidian..."
   
   if ! command -v gh >/dev/null 2>&1; then
-    err "GitHub CLI is not installed. It is required for the automatic download of AppImageLauncher."
+    err "GitHub CLI is not installed. It is required for the automatic download of Obsidian."
   fi
 
   gh release download --repo "obsidianmd/obsidian-releases" --pattern 'obsidian*amd64.deb' --dir "$HOME/Downloads"

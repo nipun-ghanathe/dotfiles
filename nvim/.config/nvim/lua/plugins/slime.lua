@@ -13,6 +13,7 @@ return {
           vim.cmd("silent !tmux split-window -h -d " .. repl_cmd())
         end,
         desc = "Tmux Split REPL",
+        buffer = true,
       },
       {
         "<localleader>thr",
@@ -20,6 +21,7 @@ return {
           vim.cmd("silent !tmux split-window -v -d " .. repl_cmd())
         end,
         desc = "Tmux Horizonal Split REPL",
+        buffer = true,
       },
     }
   end,
