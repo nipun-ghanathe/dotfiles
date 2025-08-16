@@ -18,5 +18,3 @@ bash <(curl -fsSL https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs
   - [x] Use native LSP
 - [ ] Changes in Neovim config
   - [ ] Prevent duplicate snippets
-  - [ ] Read source code of venv-selector, understand what it does and remove
-    venv-selector
