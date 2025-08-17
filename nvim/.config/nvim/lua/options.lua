@@ -101,11 +101,31 @@ vim.g.netrw_banner = 0
 vim.opt.foldcolumn = "0"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.foldenable = false
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+}
 vim.opt.foldmethod = "indent"
--- vim.opt.fillchars = {
---   foldopen = "▾",
---   foldclose = "▸",
---   fold = " ",
---   foldsep = " ",
--- }
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  desc = "Change 'foldmethod' based on whether or not TSParse exists.",
+  callback = function()
+    if require("nvim-treesitter.parsers").has_parser() then
+      vim.opt_local.foldmethod = "expr"
+      vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    else
+      vim.opt_local.foldmethod = "indent"
+    end
+  end,
+})
+vim.opt.foldtext = [[v:lua.MyFoldText()]]
+function _G.MyFoldText()
+  local fs, fe = vim.v.foldstart, vim.v.foldend
+  local num_lines = fe - fs + 1
+  return vim.fn.getline(fs) .. "  "
+  -- return vim.fn.getline(fs) .. "  --- " .. num_lines .. " lines"
+end
+-- For configuring hi-groups for Folded use this `after` setting colorscheme
+-- vim.cmd([[hi Folded guibg=NONE guifg=NONE]])
