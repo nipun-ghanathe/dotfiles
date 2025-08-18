@@ -32,7 +32,7 @@ SAVEHIST=10000
 
 # fzf
 eval "$(fzf --zsh)"
-export FZF_DEFAULT_OPTS=$'--preview=\'bash -c "[[ -d {} ]] && eza --icons --color=always --group-directories-first --oneline {} || batcat --color=always {}"\''
+source "$HOME/.config/fzf/fzf-config.sh"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
