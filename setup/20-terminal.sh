@@ -75,14 +75,6 @@ setup_editor() {
   uv tool install --with mdformat-gfm mdformat 
 }
 
-install_tmux() {
-  log "Installing and setting up Tmux and tmuxp..."
-  sudo apt install -y tmux
-  stow --verbose tmux
-  uv tool install tmuxp
-  stow --verbose tmuxp
-}
-
 setup_shell() {
   log "Setting up bash and profile..."
   rm $HOME/.bashrc $HOME/.profile
@@ -124,7 +116,6 @@ setup_terminal() {
   install_git
   install_neovim
   setup_editor
-  install_tmux
   setup_shell
   install_kitty
   setup_scripts

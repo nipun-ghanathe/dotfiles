@@ -1,9 +1,6 @@
 # vim
 alias vi="nvim"
 
-# tmux
-alias tsm="tmux-session-manager"
-
 # git
 alias gs="git status"
 alias ga="git add"

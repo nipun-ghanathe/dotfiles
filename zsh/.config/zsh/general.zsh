@@ -57,6 +57,3 @@ export NVM_DIR="$HOME/.nvm"
 #   fi
 # fi
 # unset __conda_setup
-
-# Tmux on startup
-[[ -z "$TMUX" ]] && exec tmux new -A -s main
