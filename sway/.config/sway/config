@@ -150,13 +150,6 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 
-### Custom Dynamic Layouts:
-
-# Stacked, Vertical Split
-bindsym $mod+grave exec ~/.config/sway/scripts/stack-split-layout.sh
-bindsym $mod+Shift+grave exec ~/.config/sway/scripts/revert-stack-split-layout.sh
-
-
 ### Resizing containers:
 
 mode "resize" {
