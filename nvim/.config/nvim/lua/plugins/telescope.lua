@@ -26,7 +26,7 @@ return {
       desc = "Telescope: Find Grep",
     },
     {
-      "<leader>bl",
+      "<leader>fb",
       function()
         require("telescope.builtin").buffers()
       end,

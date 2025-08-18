@@ -57,7 +57,7 @@ vim.keymap.set("n", "<localleader>r", function()
   vim.cmd("vert term " .. cmd .. " " .. vim.fn.expand("%"))
 end, { desc = "Run code file in a vertical terminal" })
 -- Run code in a horizontal terminal
-vim.keymap.set("n", "<localleader>hr", function()
+vim.keymap.set("n", "<localleader>rh", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
   vim.cmd("belowright term " .. cmd .. " " .. vim.fn.expand("%"))

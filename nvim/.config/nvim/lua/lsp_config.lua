@@ -54,7 +54,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, { buffer = true, desc = "LSP: Signature Help" })
     vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = true, desc = "LSP: Rename Symbol" })
     vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { buffer = true, desc = "LSP: Code Actions" })
-    vim.keymap.set("n", "<leader>fl", vim.lsp.buf.format, { buffer = true, desc = "LSP: Format Buffer" })
+    -- let conform.nvim handle formatting
+    -- vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { buffer = true, desc = "LSP: Format Buffer" })
 
     vim.keymap.set("n", "]d", function()
       vim.diagnostic.jump({ count = 1, float = true })

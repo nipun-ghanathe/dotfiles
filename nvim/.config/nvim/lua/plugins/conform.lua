@@ -31,7 +31,7 @@ return {
     require("conform").setup(opts)
 
     -- Keymap to format using conform
-    vim.keymap.set("n", "<leader>fc", function()
+    vim.keymap.set("n", "<leader>ff", function()
       require("conform").format()
     end, { desc = "Format file using Conform" })
 
