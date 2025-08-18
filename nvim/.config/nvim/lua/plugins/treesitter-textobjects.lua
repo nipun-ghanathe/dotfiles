@@ -25,21 +25,6 @@ return {
 
             ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
           },
-          selection_modes = {
-            ["@call.outer"] = "v",
-            ["@function.outer"] = "V",
-            ["@class.outer"] = "V",
-            ["@conditional.outer"] = "V",
-            ["@loop.outer"] = "V",
-
-            ["@call.inner"] = "v",
-            ["@function.inner"] = "v",
-            ["@class.inner"] = "v",
-            ["@conditional.inner"] = "v",
-            ["@loop.inner"] = "v",
-
-            ["@local.scope"] = "v",
-          },
         },
         move = {
           enable = true,

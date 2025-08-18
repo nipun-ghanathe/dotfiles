@@ -6,6 +6,7 @@ return {
   ---@diagnostic disable-next-line: undefined-doc-name
   ---@type oil.SetupOpts
   opts = {
+    skip_confirm_for_simple_edits = true,
     keymaps = {
       ["q"] = { "actions.close", mode = "n" },
       ["h"] = { "actions.parent", mode = "n" },
@@ -26,15 +27,14 @@ return {
     },
     win_options = {
       signcolumn = "yes",
+      colorcolumn = "",
     },
   },
   config = function(_, opts)
     require("oil").setup(opts)
 
     vim.keymap.set("n", "<leader>e", function()
-      require("oil").open(nil, nil, function()
-        vim.opt_local.colorcolumn = ""
-      end)
+      require("oil").open(nil, nil, nil)
     end, { desc = "Open Oil" })
   end,
 }
