@@ -1,3 +1,7 @@
+if not vim.g.load_venv_activate then
+  return
+end
+
 PYTHON_LSP = "pyright"
 
 -- get the Python LSP
@@ -16,7 +20,7 @@ local venv_python = vim.fs.joinpath(venv_bin, "python")
 
 -- exit if the virtual env does not exist
 if not vim.fn.executable(venv_python) then
-  return
+  return 1
 end
 -- else do the required things to set venv up
 
