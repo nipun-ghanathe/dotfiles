@@ -4,3 +4,4 @@ launch zsh
 # tab 2
 new_tab
 launch nvim
+focus
