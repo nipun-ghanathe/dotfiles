@@ -20,7 +20,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # Load user configuration files
-source "$HOME/.config/zsh/paths.zsh"
 source "$HOME/.config/zsh/general.zsh"
 source "$HOME/.config/zsh/exports.zsh"
 source "$HOME/.config/zsh/aliases.zsh"
