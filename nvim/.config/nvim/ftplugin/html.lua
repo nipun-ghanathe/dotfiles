@@ -26,7 +26,9 @@ end
 local live_server_running = false
 
 local function launch_liveserver()
-  vim.fn.jobstart({ "live-server", "--no-browser" }, { detach = true })
+  vim.cmd("tabnew")
+  vim.cmd("term live-server --no-browser")
+  vim.cmd("tabprev")
   live_server_running = true
 end
 

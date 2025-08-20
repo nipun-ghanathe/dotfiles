@@ -12,7 +12,7 @@ set $up k
 set $right l
 
 # Terminal, browser, app launcher
-set $term kitty -e "$HOME/.config/kitty/sessions/choose_dir.sh"
+set $term zsh -c ". $HOME/.config/zsh/minimal.zsh; kitty -e $HOME/.config/kitty/sessions/choose_dir.sh"
 set $browser firefox
 set $menu fuzzel
 

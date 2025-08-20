@@ -8,18 +8,15 @@ export LESS="R"
 # export LESS="FRX"
 
 # paths
-[[ -d "$HOME/bin" ]] && PATH="$HOME/bin:$PATH"
-[[ -d "$HOME/.local/bin" ]] && PATH="$HOME/.local/bin:$PATH"
-[[ -d "$HOME/.cargo/bin" ]] && PATH="$HOME/.cargo/bin:$PATH"
-[[ -d "$HOME/.local/share/gem/ruby/3.3.0/bin" ]] && PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
+[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.local/share/gem/ruby/3.3.0/bin" ]] && export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # node.js
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# cargo
-. "$HOME/.cargo/env"
 
 # # conda
 # __conda_setup="$('/home/nipun/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

@@ -1,3 +1,9 @@
+# load the minimal config only, if ZSH_CONFIG="minimal"
+if [[ "$ZSH_CONFIG" == "minimal" ]]; then
+  . "$HOME/.config/zsh/minimal.zsh"
+  return
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -20,10 +26,11 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # Load user configuration files
-source "$HOME/.config/zsh/general.zsh"
-source "$HOME/.config/zsh/exports.zsh"
-source "$HOME/.config/zsh/aliases.zsh"
-source "$HOME/.config/zsh/functions.zsh"
+. "$HOME/.config/zsh/minimal.zsh"
+. "$HOME/.config/zsh/general.zsh"
+. "$HOME/.config/zsh/exports.zsh"
+. "$HOME/.config/zsh/aliases.zsh"
+. "$HOME/.config/zsh/functions.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
