@@ -5,6 +5,8 @@
 # APT Packages
 sudo apt update && sudo apt upgrade -y
 
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # Cargo Packages
 if command -v cargo-install-update &>/dev/null; then
   cargo install-update -a

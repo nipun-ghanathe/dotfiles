@@ -9,7 +9,7 @@ install_lang_c() {
 
 install_lang_rust() {
   log "Installing Rust..."
-  curl https://sh.rustup.rs -sSf | sh
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   sudo apt install -y pkg-config libssl-dev && cargo install cargo-update
 }
 

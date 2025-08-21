@@ -10,8 +10,8 @@ export LESS="R"
 # paths
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/.local/share/gem/ruby/3.3.0/bin" ]] && export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
+. "$HOME/.cargo/env"
 
 # node.js
 export NVM_DIR="$HOME/.nvm"
