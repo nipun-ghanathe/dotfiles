@@ -2,13 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Emacs like keymaps in insert mode
-vim.keymap.set("i", "<c-a>", "<esc>^i")
-vim.keymap.set("i", "<c-e>", "<esc>$a")
-vim.keymap.set("i", "<m-f>", "<esc>ea")
-vim.keymap.set("i", "<m-b>", "<esc>bi")
-vim.keymap.set("i", "<m-d>", "<esc>dwi")
-
 -- Managing clipboard
 vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })

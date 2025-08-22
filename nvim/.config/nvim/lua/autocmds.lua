@@ -28,11 +28,3 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.cmd("startinsert")
   end,
 })
-
--- Switch to the prev tab instead of next tab when TabClosed
-vim.api.nvim_create_autocmd("TabClosed", {
-  group = augroup,
-  desc = "Switch to first tab when tab is closed.",
-  pattern = "*",
-  command = "tabprev",
-})

@@ -99,6 +99,7 @@ vim.opt.undodir = vim.fn.stdpath("cache") .. "undodir"
 vim.g.netrw_banner = 0
 
 -- Configuring folds
+vim.opt.foldenable = false
 vim.opt.foldcolumn = "0"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99

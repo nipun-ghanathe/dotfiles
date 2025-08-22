@@ -11,7 +11,7 @@ return {
       ["q"] = { "actions.close", mode = "n" },
       ["h"] = { "actions.parent", mode = "n" },
       ["l"] = { "actions.select", mode = "n" },
-      ["g."] = { "actions.open_cwd", mode = "n" },
+      ["H"] = { "actions.open_cwd", mode = "n" },
       ["gh"] = { "actions.toggle_hidden", mode = "n" },
     },
     view_options = {

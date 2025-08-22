@@ -91,8 +91,6 @@ return {
             cmp.complete()
           end
         end, { "i", "c" }),
-        ["<c-u>"] = cmp.mapping.scroll_docs(-4), -- scroll up docs
-        ["<c-d>"] = cmp.mapping.scroll_docs(4), -- scroll down docs
 
         -- jump to next snippet placeholder
         ["<c-f>"] = cmp.mapping(function(fallback)

@@ -1,3 +1,5 @@
+-- Filetype specific settings for norg have been set it `ftplugin/norg.lua`
+
 return {
   "nvim-neorg/neorg",
   version = "*",
