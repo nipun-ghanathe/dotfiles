@@ -1,41 +1,14 @@
 return {
   "jpalardy/vim-slime",
-  -- For this keymaps to work according to filetype
-  -- set the vim.b.slime_repl_command in ftplugin/*.lua
-  keys = function()
-    local function repl_cmd()
-      return vim.b.slime_repl_command or ""
-    end
-    return {
-      {
-        "<localleader>tr",
-        function()
-          vim.cmd("silent !tmux split-window -h -d " .. repl_cmd())
-        end,
-        desc = "Tmux Split REPL",
-        buffer = true,
-      },
-      {
-        "<localleader>thr",
-        function()
-          vim.cmd("silent !tmux split-window -v -d " .. repl_cmd())
-        end,
-        desc = "Tmux Horizonal Split REPL",
-        buffer = true,
-      },
-    }
-  end,
+  keys = {
+    { "<localleader>st", ft = "python" },
+  },
   init = function()
-    vim.g.slime_target = "tmux"
-    vim.g.slime_default_config = { socket_name = "default", target_pane = ":.2" }
-    -- vim.g.slime_default_config = { socket_name = "default", target_pane = "{last}" }
-    vim.g.slime_dont_ask_default = 1
-
-    -- you can override this for different filetypes by setting
-    -- vim.b.slime_cell_delimiter in the respective ftplugin
-    vim.g.slime_cell_delimiter = [[^#\s*%%]]
+    vim.g.slime_target = "kitty"
     vim.g.slime_bracketed_paste = 1
     vim.g.slime_no_mappings = 1
+    -- vim.b.slime_cell_delimiter in respective ftplugin to override this
+    vim.g.slime_cell_delimiter = [[^#\s*%%]]
   end,
   config = function()
     -- Setting up functions
@@ -45,8 +18,14 @@ return {
       vim.fn["slime#send"](to_send)
       vim.g.slime_bracketed_paste = orig
     end
+    local function send_ctrl(char)
+      slime_send_raw(vim.api.nvim_replace_termcodes("<C-" .. char .. ">", true, false, true))
+    end
+    local function send_cr()
+      slime_send_raw(vim.api.nvim_replace_termcodes("<CR>", true, false, true))
+    end
     local function clear_then(action)
-      slime_send_raw(vim.api.nvim_replace_termcodes("<C-l>", true, false, true))
+      send_ctrl("l")
       action()
     end
     local function send_cell_and_next()
@@ -59,12 +38,18 @@ return {
       local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
       local text = table.concat(lines, "\n")
       vim.fn["slime#send"](text)
-      slime_send_raw(vim.api.nvim_replace_termcodes("<cr>", true, false, true))
-      slime_send_raw(vim.api.nvim_replace_termcodes("<cr>", true, false, true))
+      send_cr()
+      send_cr()
     end
-    local function send_ctrl(char)
-      slime_send_raw(vim.api.nvim_replace_termcodes("<C-" .. char .. ">", true, false, true))
-    end
+
+    -- launch terminal window keymaps
+    local slime_term_command_table = {
+      python = "uv run ipython3",
+    }
+    vim.keymap.set("n", "<localleader>st", function()
+      local slime_term_command = slime_term_command_table[vim.bo.filetype] or vim.bo.filetype
+      vim.cmd([[silent !kitty @ launch --cwd current --dont-take-focus ]] .. slime_term_command)
+    end, { buffer = true, desc = "Slime: Launch Terminal" })
 
     -- clear-then-send keymaps
     vim.keymap.set("n", "<leader>sn", function()
@@ -99,7 +84,7 @@ return {
       send_ctrl("c")
     end, { desc = "Slime: Send Interrupt (C-c)" })
     vim.keymap.set("n", "<leader>scr", function()
-      slime_send_raw(vim.api.nvim_replace_termcodes("<CR>", true, false, true))
+      send_cr()
     end, { desc = "Slime: Send Return (<CR>)" })
 
     -- direct-send keymaps (without clearing)
