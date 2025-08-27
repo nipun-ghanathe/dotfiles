@@ -1,0 +1,11 @@
+To import all csTimer data (including sessions and solves along with options):
+  - Click the `Export` button
+  - Use the `Import from server (Google)` option
+
+------------------------------------------------------------------------------
+
+To import only our csTimer options
+  - Click the `Export` button
+  - Click `Export/Import only Options`
+  - Paste the following code:
+    `N4IgDgNgrgzg+jAxgJwgUwHYxALhMAHRAEYBaAZkqJyIAYiBfEAGnGhgEktcRkBDDABMWIRDDAAXXBORQ0rWGi7Y8fEWIlguMgPbTZ80TE0A3HsQB05K+qjJkmCaQkALNAFs0PSLFKC+yADWIjAuOgDufMI4AGZ8EDCGoREAIgCWMTE8GCLhQgAqOjoQPFmsYC58iQBCaGhguHEJSRJ8EsRSeLQhYeHKjfGJrEjIAMppAF5eOMQALMOtrSV47jrkAAR8OgCsmzrEAEx7B7tb27R7xLTdCmmCaDBpAOY5KxLcrIjFOsg8UOrFUgxHQYTogADEmShZVEgIARnxEME8ODrmibrCIKQ4ToAtEIQdZoTCQCsXCoBIJCCeODiUTZqTSBA0hhkRDZuQABwAdn8jIgOieehRHJ5fM+gLAcJUEJiADY5cRtsQRGl3A4MHxPPo5MNegBBExPAbNcqVRIqebgZAsiQpNrTGRyBhAA`
