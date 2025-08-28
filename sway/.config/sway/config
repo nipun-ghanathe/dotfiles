@@ -237,6 +237,7 @@ exec_always ~/.config/sway/scripts/random_wallpaper.sh
 
 # Apps
 exec swaymsg "workspace 2; exec $browser"
+exec swaymsg "workspace 3; exec kitty --session sessions/neorg.session --directory ~/notes"
 exec swaymsg "workspace 1; exec $term"
 # Keyboard Tool
 exec_always --no-startup-id ~/.cargo/bin/kanata --cfg ~/.config/kanata/kanata.cfg
