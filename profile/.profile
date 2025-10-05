@@ -35,6 +35,4 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes cargo's bin if it exists
-if [ -d "$HOME/.cargo/bin" ] ; then
-  PATH="$HOME/.cargo/bin:$PATH"
-fi
+. "$HOME/.cargo/env"

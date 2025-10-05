@@ -8,8 +8,7 @@ setopt share_history      # share command history across terminals
 set -o emacs              # emacs like motions on the command line
 
 # Completions
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit && compinit  # line moved to minimal.zsh (for uv completions)
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # case-insensitive
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
@@ -27,6 +26,3 @@ source "$HOME/.config/fzf/fzf-config.sh"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-# uv
-eval "$(uv generate-shell-completion zsh)"

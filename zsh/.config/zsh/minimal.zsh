@@ -13,6 +13,12 @@ export LESS="R"
 [[ -d "$HOME/.local/share/gem/ruby/3.3.0/bin" ]] && export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 . "$HOME/.cargo/env"
 
+# completions
+autoload -Uz compinit && compinit
+
+# uv
+eval "$(uv generate-shell-completion zsh)"
+
 # node.js
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
