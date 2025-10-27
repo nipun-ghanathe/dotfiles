@@ -107,7 +107,7 @@ install_other_cli_tools() {
   ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
 
   log "Installing some other utilities..."
-  sudo apt install -y ffmpeg 7zip jq poppler-utils imagemagick
+  sudo apt install -y ffmpeg 7zip jq poppler-utils imagemagick ranger
   cargo install --locked yazi-fm yazi-cli
   npm install -g tldr
 }
