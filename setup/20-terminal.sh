@@ -28,7 +28,7 @@ install_neovim() {
   cd "$HOME/builds/neovim"
   git switch master
   git pull
-  git fetch --tags
+  git fetch --tags --force
   git checkout stable
   make clean
   rm -rfv build .deps
