@@ -26,7 +26,13 @@ vim.keymap.set("n", "*", "*zz")
 vim.keymap.set("n", "#", "#zz")
 
 -- Configuring neovim's terminal
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+vim.keymap.set("n", "<leader>tt", "<cmd>tab term<cr>", { desc = "Terminal" })
+vim.keymap.set("n", "<leader>th", "<cmd>botright term<cr>", { desc = "Horizontal Terminal" })
+vim.keymap.set("n", "<leader>tv", "<cmd>vert term<cr>", { desc = "Vertical Terminal" })
+for i = 1, 8 do
+  vim.keymap.set({ "n", "t" }, "<m-" .. i .. ">", "<cmd>" .. i .. "tabnext<cr>", { desc = "Go to tab " .. i })
+end
+vim.keymap.set({ "n", "t" }, "<m-9>", "<cmd>tablast<cr>", { desc = "Go to last tab" })
 
 -- Cmdline mappings
 vim.keymap.set("c", "<c-a>", "<home>")

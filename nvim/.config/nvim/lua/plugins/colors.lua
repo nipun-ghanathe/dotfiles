@@ -9,8 +9,7 @@ return {
       light = "latte",
       dark = "macchiato",
     },
-    -- don't use following for transparency
-    -- it disrupts other elements (like lualine)
+    -- for transparency (incluing lualine)
     -- transparent_background = true,
     auto_integrations = true,
   },
@@ -19,12 +18,12 @@ return {
 
     vim.cmd.colorscheme("catppuccin")
 
-    -- for transparency
-    -- vim.cmd([[
-    --   hi Normal guibg=NONE ctermbg=NONE
-    --   hi NormalNC guibg=NONE ctermbg=NONE
-    --   hi SignColumn guibg=NONE
-    --   hi EndOfBuffer guibg=NONE
-    -- ]])
+    -- for transparency (excluding lualine)
+    vim.cmd([[
+      hi Normal guibg=NONE ctermbg=NONE
+      hi NormalNC guibg=NONE ctermbg=NONE
+      hi SignColumn guibg=NONE
+      hi EndOfBuffer guibg=NONE
+    ]])
   end,
 }

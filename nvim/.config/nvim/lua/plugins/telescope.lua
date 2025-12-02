@@ -92,5 +92,12 @@ return {
     })
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("ui-select")
+
+    vim.keymap.set("n", "<leader>pp", function()
+      require("plugins.telescope.pick_project").directory_picker()
+    end, { desc = "Pick Project" })
+    vim.keymap.set("n", "<leader>ptp", function()
+      require("plugins.telescope.pick_project").directory_picker("tcd")
+    end, { desc = "Pick Tab Project" })
   end,
 }

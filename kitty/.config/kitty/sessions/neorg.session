@@ -1,2 +1,0 @@
-cd ~/notes
-launch nvim -c "Neorg journal today"

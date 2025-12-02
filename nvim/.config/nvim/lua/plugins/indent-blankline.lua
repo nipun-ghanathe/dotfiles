@@ -7,5 +7,8 @@ return {
   ---@type ibl.config
   opts = {
     scope = { enabled = false },
+    exclude = {
+      filetypes = { "dashboard" },
+    },
   },
 }

@@ -11,8 +11,9 @@ set $down j
 set $up k
 set $right l
 
-# Terminal, browser, app launcher
-set $term zsh -c ". $HOME/.config/zsh/minimal.zsh; kitty -e $HOME/.config/kitty/sessions/choose_dir.sh"
+# Terminal, editor, browser, app launcher
+set $term kitty
+set $editor $term -e zsh -c ". $HOME/.config/zsh/minimal.zsh; nvim"
 set $browser firefox
 set $menu fuzzel
 
@@ -48,8 +49,9 @@ input "1102:4639:DELL081C:00_044E:121F_Touchpad" {
 
 ### Basic Keybindings:
 
-# Launch terminal, broswer, app launcher
+# Launch terminal, editor, broswer, app launcher
 bindsym $mod+Return exec $term
+bindsym $mod+e exec $editor
 bindsym $mod+o exec $browser
 bindsym $mod+d exec $menu
 
@@ -237,7 +239,7 @@ exec_always ~/.config/sway/scripts/random_wallpaper.sh
 
 # Apps
 exec swaymsg "workspace 2; exec $browser"
-exec swaymsg "workspace 3; exec kitty --session sessions/neorg.session --directory ~/notes"
+exec swaymsg "workspace 3; exec obsidian"
 exec swaymsg "workspace 1; exec $term"
 # Keyboard Tool
 exec_always --no-startup-id ~/.cargo/bin/kanata --cfg ~/.config/kanata/kanata.cfg
