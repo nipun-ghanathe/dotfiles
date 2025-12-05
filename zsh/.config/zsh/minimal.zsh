@@ -1,5 +1,6 @@
 # exports
 export EDITOR=nvim
+export VISUAL=nvim
 export BROWSER=xdg-open
 export LANG=en_US.UTF-8
 export PAGER="less -R"
