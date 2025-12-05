@@ -12,6 +12,8 @@ bash <(curl -fsSL https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs
 
 ### 📝 To-dos
 
+- [ ] Try using `vim.fn.chansend` instead of `vim-slime` for interactive-programming.
+  Refer to this video on [Neovim terminal by TJDevries](https://youtu.be/ooTcnx066Do?t=440)
 - [ ] Update Neovim config after release of v0.12 or later to:
   - [ ] Use native package manager
   - [ ] Use native completion and snippet management
