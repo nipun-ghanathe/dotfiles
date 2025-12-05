@@ -33,6 +33,10 @@ for i = 1, 8 do
   vim.keymap.set({ "n", "t" }, "<m-" .. i .. ">", "<cmd>" .. i .. "tabnext<cr>", { desc = "Go to tab " .. i })
 end
 vim.keymap.set({ "n", "t" }, "<m-9>", "<cmd>tablast<cr>", { desc = "Go to last tab" })
+vim.keymap.set({ "t" }, "<m-h>", "<cmd>wincmd h<cr>")
+vim.keymap.set({ "t" }, "<m-j>", "<cmd>wincmd j<cr>")
+vim.keymap.set({ "t" }, "<m-k>", "<cmd>wincmd k<cr>")
+vim.keymap.set({ "t" }, "<m-l>", "<cmd>wincmd l<cr>")
 
 -- Cmdline mappings
 vim.keymap.set("c", "<c-a>", "<home>")
@@ -50,7 +54,7 @@ local runners = {
   html = "xdg-open",
 }
 -- Run code in a vertical terminal
-vim.keymap.set("n", "<localleader>r", function()
+vim.keymap.set("n", "<localleader>rr", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
   vim.cmd("vert term " .. cmd .. " " .. vim.fn.expand("%"))
