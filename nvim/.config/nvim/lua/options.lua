@@ -34,7 +34,6 @@ vim.api.nvim_create_autocmd("FileType", {
     "bash",
     "zsh",
     "markdown",
-    "norg",
     "ruby",
     "yaml",
   },
