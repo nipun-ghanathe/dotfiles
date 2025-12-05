@@ -2,6 +2,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- File Explorer (netrw)
+vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Explore - Open netrw" })
+
 -- Managing clipboard
 vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })
@@ -33,10 +36,10 @@ for i = 1, 8 do
   vim.keymap.set({ "n", "t" }, "<m-" .. i .. ">", "<cmd>" .. i .. "tabnext<cr>", { desc = "Go to tab " .. i })
 end
 vim.keymap.set({ "n", "t" }, "<m-9>", "<cmd>tablast<cr>", { desc = "Go to last tab" })
-vim.keymap.set({ "t" }, "<m-h>", "<cmd>wincmd h<cr>")
-vim.keymap.set({ "t" }, "<m-j>", "<cmd>wincmd j<cr>")
-vim.keymap.set({ "t" }, "<m-k>", "<cmd>wincmd k<cr>")
-vim.keymap.set({ "t" }, "<m-l>", "<cmd>wincmd l<cr>")
+vim.keymap.set({ "t" }, "<m-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+vim.keymap.set({ "t" }, "<m-j>", "<cmd>wincmd j<cr>", { desc = "Go to down window" })
+vim.keymap.set({ "t" }, "<m-k>", "<cmd>wincmd k<cr>", { desc = "Go to up window" })
+vim.keymap.set({ "t" }, "<m-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
 
 -- Cmdline mappings
 vim.keymap.set("c", "<c-a>", "<home>")

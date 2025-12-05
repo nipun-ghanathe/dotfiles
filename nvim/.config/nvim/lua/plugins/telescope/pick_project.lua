@@ -45,7 +45,7 @@ local function directory_picker(cd_cmd, opts)
       previewer = dir_previewer,
 
       attach_mappings = function(prompt_bufnr, map)
-        -- <cr> => :cd into directory and open oil in selected director,y
+        -- <cr> => :cd into directory and open find_files picker
         actions.select_default:replace(function()
           local entry = action_state.get_selected_entry()
           actions.close(prompt_bufnr)
@@ -53,7 +53,7 @@ local function directory_picker(cd_cmd, opts)
           local dir = entry.value
           vim.cmd(cd_cmd .. " " .. dir)
 
-          require("oil").open(entry.value)
+          require("telescope.builtin").find_files({ cwd = dir })
         end)
 
         -- <c-cr> => open new nested directory picker
@@ -64,15 +64,15 @@ local function directory_picker(cd_cmd, opts)
           directory_picker({ base = entry.value })
         end)
 
-        -- <c-f> => :cd into directory and open find_files picker
-        map("i", "<c-f>", function()
+        -- <c-e> => :cd into directory and explore
+        map("i", "<c-e>", function()
           local entry = action_state.get_selected_entry()
           actions.close(prompt_bufnr)
 
           local dir = entry.value
           vim.cmd(cd_cmd .. " " .. dir)
 
-          require("telescope.builtin").find_files({ cwd = dir })
+          vim.cmd("e .")
         end)
 
         return true
