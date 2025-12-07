@@ -37,17 +37,6 @@ return {
             action = "lua require('plugins.telescope.pick_project').directory_picker()",
             key = "p",
           },
-          {
-            icon = " ",
-            desc = "Config",
-            group = "Number",
-            vim.fn.resolve(vim.fn.stdpath("config")),
-            action = "cd "
-              .. vim.fn.resolve(vim.fn.stdpath("config"))
-              .. " | Telescope find_files cwd="
-              .. vim.fn.resolve(vim.fn.stdpath("config")),
-            key = "c",
-          },
           { desc = "󰊳 LazySync", group = "@property", action = "Lazy sync", key = "s" },
           {
             icon = "⎋ ",

@@ -1,3 +1,8 @@
+local MAIN_SEARCH_DIR = vim.fs.abspath("~/code")
+local EXTRA_ENTRIES = {
+  vim.fs.abspath("~/dotfiles/nvim/.config/nvim"),
+}
+
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local previewers = require("telescope.previewers")
@@ -29,17 +34,30 @@ local function run_fd(cmd)
 end
 
 -- Main picker
-local function directory_picker(cd_cmd, opts)
+local function directory_picker(cd_cmd, search_dir, opts)
   cd_cmd = cd_cmd or "cd" -- you can use `tcd` and `lcd`
   opts = opts or {}
 
-  local dirs = run_fd({ ".", vim.fn.expand("~/code"), "--type", "d", "--max-depth", "2" })
+  local dirs
+  if search_dir then
+    dirs = run_fd({ ".", vim.fs.abspath(search_dir), "--type", "d" })
+  else
+    local fd_dirs = run_fd({ ".", MAIN_SEARCH_DIR, "--type", "d", "--max-depth", "2", "--min-depth", "2" })
+    dirs = vim.iter({ fd_dirs, EXTRA_ENTRIES }):flatten():totable()
+  end
 
   pickers
     .new(opts, {
       prompt_title = "Pick Project",
       finder = finders.new_table({
         results = dirs,
+        entry_maker = function(entry)
+          return {
+            display = string.gsub(entry, (search_dir or vim.uv.os_homedir()) .. "/", ""),
+            ordinal = entry,
+            value = entry,
+          }
+        end,
       }),
       sorter = conf.generic_sorter(opts),
       previewer = dir_previewer,
@@ -56,14 +74,6 @@ local function directory_picker(cd_cmd, opts)
           require("telescope.builtin").find_files({ cwd = dir })
         end)
 
-        -- <c-cr> => open new nested directory picker
-        map("i", "<c-cr>", function()
-          local entry = action_state.get_selected_entry()
-          actions.close(prompt_bufnr)
-
-          directory_picker({ base = entry.value })
-        end)
-
         -- <c-e> => :cd into directory and explore
         map("i", "<c-e>", function()
           local entry = action_state.get_selected_entry()
@@ -73,6 +83,14 @@ local function directory_picker(cd_cmd, opts)
           vim.cmd(cd_cmd .. " " .. dir)
 
           vim.cmd("e .")
+        end)
+
+        -- <c-cr> => open new nested directory picker
+        map("i", "<c-cr>", function()
+          local entry = action_state.get_selected_entry()
+          actions.close(prompt_bufnr)
+
+          directory_picker(nil, entry.value)
         end)
 
         return true
