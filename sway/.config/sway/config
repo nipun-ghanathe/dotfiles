@@ -13,7 +13,7 @@ set $right l
 
 # Terminal, editor, browser, app launcher
 set $term kitty
-set $editor $term -e zsh -c ". $HOME/.config/zsh/minimal.zsh; nvim"
+set $editor $term -e zsh -c "ZSH_CONFIG=minimal source $HOME/.zshrc; nvim"
 set $browser firefox
 set $menu fuzzel
 
