@@ -22,9 +22,10 @@ vim.api.nvim_create_autocmd("FileType", {
 -- When entering a terminal enter in insert mode
 vim.api.nvim_create_autocmd("TermOpen", {
   group = augroup,
-  desc = "Start Insert when opening Terminal",
+  desc = "Terminal Buffer Settings",
   pattern = "*",
   callback = function()
     vim.cmd("startinsert")
+    vim.opt.scrolloff = 0
   end,
 })
