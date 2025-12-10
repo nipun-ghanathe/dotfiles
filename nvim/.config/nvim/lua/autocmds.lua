@@ -26,6 +26,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",
   callback = function()
     vim.cmd("startinsert")
-    vim.opt.scrolloff = 0
+    vim.opt_local.scrolloff = 0
   end,
 })
