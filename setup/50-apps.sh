@@ -50,4 +50,3 @@ install_apps() {
   install_obsidian
   # install_todoist
 }
-

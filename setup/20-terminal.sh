@@ -77,10 +77,12 @@ setup_editor() {
 
 setup_shell() {
   log "Setting up bash and profile..."
-  rm $HOME/.bashrc $HOME/.profile
+  [[ -f "$HOME/.bashrc" ]] && mv $HOME/.bashrc $HOME/.bashrc.bak
+  [[ -f "$HOME/.profile" ]] && mv $HOME/.profile $HOME/.profile.bak
   stow --verbose bash profile
 
   log "Installing and setting up zsh..."
+  [[ -f "$HOME/.zsh" ]] && mv $HOME/.zsh $HOME/.zsh.bak
   sudo apt install -y zsh
   stow --verbose zsh
   chsh -s "$(which zsh)"
@@ -108,7 +110,6 @@ install_other_cli_tools() {
 
   log "Installing some other utilities..."
   sudo apt install -y ffmpeg 7zip jq poppler-utils imagemagick ranger
-  cargo install --locked yazi-fm yazi-cli
   npm install -g tldr
 }
 
