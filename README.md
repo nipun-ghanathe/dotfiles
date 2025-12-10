@@ -12,6 +12,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs
 
 ### 📝 To-dos
 
+- [ ] Improve your setup bash scripts by taking inspiration from Omarchy and Omakub
 - [ ] Try using `vim.fn.chansend` instead of `vim-slime` for interactive-programming.
   Refer to this video on [Neovim terminal by TJDevries](https://youtu.be/ooTcnx066Do?t=440)
 - [ ] Make your zsh config more minimal. (aim for \<100 ms startup time)
