@@ -9,41 +9,41 @@ indicator-radius=70
 # colors
 
 ## general colors 
-color=1e2030
-ring-color=363a4f
-inside-color=24273a
-line-color=363a4f
-text-color=cad3f5
+color=#282c34
+ring-color=#393e48
+inside-color=#282c34
+line-color=#393e48
+text-color=#979eab
 text-caps-lock-color=""
 
 ## some other general colors
-key-hl-color=8aadf4
-bs-hl-color=91d7e3
+key-hl-color=#61afef
+bs-hl-color=#56b6c2
 separator-color=00000000
 
 ## verifying colors
-line-ver-color=8aadf4
-ring-ver-color=8aadf4
-inside-ver-color=24273a
-text-ver-color=8aadf4
+line-ver-color=#61afef
+ring-ver-color=#61afef
+inside-ver-color=#282c34
+text-ver-color=#61afef
 
 ## wrong colors
-line-wrong-color=ed8796
-ring-wrong-color=ed8796
-inside-wrong-color=24273a
-text-wrong-color=ed8796
+line-wrong-color=#e06c75
+ring-wrong-color=#e06c75
+inside-wrong-color=#282c34
+text-wrong-color=#e06c75
 
 ## clear colors
-line-clear-color=91d7e3
-ring-clear-color=91d7e3
-inside-clear-color=24273a
-text-clear-color=91d7e3
+line-clear-color=#56b6c2
+ring-clear-color=#56b6c2
+inside-clear-color=#282c34
+text-clear-color=#56b6c2
 
 ## caps-lock colors
-line-caps-lock-color=f5a97f
-ring-caps-lock-color=f5a97f
-inside-caps-lock-color=24273a
-text-caps-lock-color=f5a97f
+line-caps-lock-color=#e5c07b
+ring-caps-lock-color=#e5c07b
+inside-caps-lock-color=#282c34
+text-caps-lock-color=#e5c07b
 
 # font
 font="Inter"

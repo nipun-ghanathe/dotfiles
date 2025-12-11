@@ -1,29 +1,23 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  lazy = false,
-  priority = 1000,
-  opts = {
-    flavour = "macchiato",
-    background = {
-      light = "latte",
-      dark = "macchiato",
-    },
-    -- for transparency (incluing lualine)
-    -- transparent_background = true,
-    auto_integrations = true,
+  {
+    "navarasu/onedark.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("onedark").setup({
+        style = "dark",
+        transparent = false,
+        term_colors = true,
+      })
+      require("onedark").load()
+    end,
   },
-  config = function(_, opts)
-    require("catppuccin").setup(opts)
-
-    vim.cmd.colorscheme("catppuccin")
-
-    -- for transparency (excluding lualine)
-    vim.cmd([[
-      hi Normal guibg=NONE ctermbg=NONE
-      hi NormalNC guibg=NONE ctermbg=NONE
-      hi SignColumn guibg=NONE
-      hi EndOfBuffer guibg=NONE
-    ]])
-  end,
 }
+
+-- for transparency (excluding some elements like statusline, tabline, etc)
+-- vim.cmd([[
+--   hi Normal guibg=NONE ctermbg=NONE
+--   hi NormalNC guibg=NONE ctermbg=NONE
+--   hi SignColumn guibg=NONE
+--   hi EndOfBuffer guibg=NONE
+-- ]])

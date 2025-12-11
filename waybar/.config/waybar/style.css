@@ -6,30 +6,30 @@
 #workspaces button {
   padding: 0 4px;
   border-radius: 0px;
-  color: #a5adcb;
+  color: #bdc6d6;
 }
 
 #workspaces button.focused {
-  background: #363a4f;
-  color: #cad3f5;
+  background-color: #30343e;
+  color: #c2cbdc;
 }
 
 #workspaces button.urgent {
-  background: #ed8796;
-  color: #cad3f5;
+  background-color: #e06c75;
+  color: #c2cbdc;
 }
 
 #mode {
-  background: #8aadf4;
-  color: #1e2030;
+  background-color: #61afef;
+  color: #23262d;
   padding: 0 10px;
   margin-left: 8px;
 }
 
 window#waybar {
   border-radius: 0px;
-  background: #1e2030;
-  color: #cad3f5;
+  background-color: #23262d;
+  color: #c2cbdc;
 }
 
 #wireplumber,
@@ -37,7 +37,7 @@ window#waybar {
 #network,
 #battery,
 #clock {
-  background: #363a4f;
+  background-color: #30343e;
   padding: 0 10px;
   margin: 0 4px;
 }
@@ -48,14 +48,14 @@ window#waybar {
 #backlight:hover,
 #battery:hover,
 #clock:hover {
-  background: #494d64;
-  color: #cad3f5;
+  background-color: rgba(48, 52, 62, 0.9);
+  color: #c2cbdc;
 }
 
 #battery.warning {
-  color: #eed49f;
+  color: #e5c07b;
 }
 
 #battery.critical {
-  color: #ed8796;
+  color: #e06c75;
 }
