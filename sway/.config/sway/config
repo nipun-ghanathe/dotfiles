@@ -238,9 +238,8 @@ exec_always ~/.config/sway/scripts/random_wallpaper.sh
 ### Startup:
 
 # Apps
-exec swaymsg "workspace 2; exec $browser"
-exec swaymsg "workspace 3; exec obsidian"
-exec swaymsg "workspace 1; exec $editor"
+exec swaymsg 'workspace 2; exec $browser'
+exec swaymsg 'workspace 1; exec $editor'
 # Keyboard Tool
 exec_always --no-startup-id ~/.cargo/bin/kanata --cfg ~/.config/kanata/kanata.cfg
 # Notification Daemon
