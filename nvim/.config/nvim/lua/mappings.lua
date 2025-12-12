@@ -29,7 +29,7 @@ vim.keymap.set("n", "*", "*zz")
 vim.keymap.set("n", "#", "#zz")
 
 -- Configuring neovim's terminal
-vim.keymap.set("n", "<leader>tt", "<cmd>tab term<cr>", { desc = "Terminal" })
+vim.keymap.set("n", "<leader>tt", "<cmd>$tab term<cr>", { desc = "Terminal" })
 vim.keymap.set("n", "<leader>th", "<cmd>botright term<cr>", { desc = "Horizontal Terminal" })
 vim.keymap.set("n", "<leader>tv", "<cmd>vert term<cr>", { desc = "Vertical Terminal" })
 for i = 1, 8 do
