@@ -24,18 +24,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
   group = augroup,
   desc = "Code to run for TermOpen",
   callback = function()
-    vim.cmd("startinsert")
     vim.opt_local.scrolloff = 0
-  end,
-})
-
--- Code to run for entering terminal buffer
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = augroup,
-  desc = "Code to run for terminal buffer",
-  callback = function()
-    if vim.bo.buftype == "terminal" then
-      vim.cmd("startinsert")
-    end
   end,
 })
