@@ -5,10 +5,10 @@ return {
   keys = {
     "<leader>a",
     "<c-h>",
-    "<m-j>",
-    "<m-k>",
-    "<m-l>",
-    "<m-;>",
+    "<m-u>",
+    "<m-i>",
+    "<m-o>",
+    "<m-p>",
   },
   config = function()
     local harpoon = require("harpoon")
@@ -22,16 +22,16 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = "Open Harpoon Menu" })
 
-    vim.keymap.set("n", "<m-j>", function()
+    vim.keymap.set("n", "<m-u>", function()
       harpoon:list():select(1)
     end, { desc = "Switch to first file in harpoon" })
-    vim.keymap.set("n", "<m-k>", function()
+    vim.keymap.set("n", "<m-i>", function()
       harpoon:list():select(2)
     end, { desc = "Switch to second file in harpoon" })
-    vim.keymap.set("n", "<m-l>", function()
+    vim.keymap.set("n", "<m-o>", function()
       harpoon:list():select(3)
     end, { desc = "Switch to third file in harpoon" })
-    vim.keymap.set("n", "<m-;>", function()
+    vim.keymap.set("n", "<m-p>", function()
       harpoon:list():select(4)
     end, { desc = "Switch to fourth file in harpoon" })
   end,

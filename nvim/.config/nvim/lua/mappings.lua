@@ -42,10 +42,12 @@ for i = 1, 8 do
   vim.keymap.set({ "n", "i", "t" }, "<m-" .. i .. ">", "<cmd>" .. i .. "tabnext<cr>", { desc = "Go to tab " .. i })
 end
 vim.keymap.set({ "n", "i", "t" }, "<m-9>", "<cmd>tablast<cr>", { desc = "Go to last tab" })
-vim.keymap.set({ "t" }, "<m-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
-vim.keymap.set({ "t" }, "<m-j>", "<cmd>wincmd j<cr>", { desc = "Go to down window" })
-vim.keymap.set({ "t" }, "<m-k>", "<cmd>wincmd k<cr>", { desc = "Go to up window" })
-vim.keymap.set({ "t" }, "<m-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+
+-- Moving between windows
+vim.keymap.set({ "n", "t" }, "<m-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+vim.keymap.set({ "n", "t" }, "<m-j>", "<cmd>wincmd j<cr>", { desc = "Go to down window" })
+vim.keymap.set({ "n", "t" }, "<m-k>", "<cmd>wincmd k<cr>", { desc = "Go to up window" })
+vim.keymap.set({ "n", "t" }, "<m-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
 
 -- Cmdline mappings
 vim.keymap.set("c", "<c-a>", "<home>")
