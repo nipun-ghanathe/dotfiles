@@ -48,10 +48,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.list = true
 vim.opt.listchars = {}
 
--- Keeping the cursor in place
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 12
-
 -- Configuring search
 vim.opt.incsearch = true
 vim.opt.ignorecase = true

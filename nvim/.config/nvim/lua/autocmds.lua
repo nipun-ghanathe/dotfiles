@@ -18,12 +18,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = true })
   end,
 })
-
--- Code to run for TermOpen
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = augroup,
-  desc = "Code to run for TermOpen",
-  callback = function()
-    vim.opt_local.scrolloff = 0
-  end,
-})
