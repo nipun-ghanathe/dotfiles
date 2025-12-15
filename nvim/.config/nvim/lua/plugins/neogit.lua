@@ -20,7 +20,7 @@ return {
     disable_context_highlighting = true,
     remember_settings = false,
     use_per_project_settings = false,
-    kind = "tab",
+    kind = "split_above",
     signs = {
       hunk = { "", "" },
       item = { "", "" },
