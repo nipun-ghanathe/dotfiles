@@ -16,9 +16,9 @@ install_firefox() {
   sudo apt update && sudo apt install -y firefox
 }
 
-install_thunar() {
-  log "Installing Thunar File Manager..."
-  sudo apt install -y thunar
+install_pcmanfm() {
+  log "Installing PCMan File Manager..."
+  sudo apt install -y pcmanfm
 }
 
 install_obsidian() {
