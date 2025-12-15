@@ -20,7 +20,7 @@ install_git() {
 }
 
 install_neovim() {
-  log "Installing and setting up Neovim"
+  log "Installing and setting up Neovim..."
   if [[ ! -d "$HOME/builds/neovim/" ]]; then
     mkdir -p "$HOME/builds"
     git clone "https://github.com/neovim/neovim" "$HOME/builds/neovim"
@@ -37,6 +37,12 @@ install_neovim() {
   git switch -
   cd "$HOME/dotfiles" && stow --verbose nvim
   mkdir -p "$HOME/.cache/nvim/undodir"
+}
+
+install_neovide() {
+  log "Installing and setting up Neovide..."
+  cargo install --git https://github.com/neovide/neovide
+  stow --verbose neovide
 }
 
 setup_editor() {

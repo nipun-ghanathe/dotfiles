@@ -1,3 +1,5 @@
+require("neovide")
+
 require("mappings")
 require("autocmds")
 require("options")
