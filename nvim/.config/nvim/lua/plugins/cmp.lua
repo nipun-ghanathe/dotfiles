@@ -52,7 +52,6 @@ return {
     cmp.setup({
       sources = cmp.config.sources({
         { name = "nvim_lsp", keyword_length = 2 },
-        { name = "neorg" },
         { name = "luasnip" },
         { name = "path" },
         { name = "buffer" },
@@ -136,6 +135,15 @@ return {
         --   end
         -- end, { "i", "s" }),
       }),
+    })
+
+    -- Set-up vim-dadbod completion for SQL
+    cmp.setup.filetype({ "sql" }, {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "path" },
+        { name = "buffer" },
+      },
     })
   end,
 }

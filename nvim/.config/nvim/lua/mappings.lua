@@ -14,12 +14,6 @@ vim.keymap.set({ "n", "v" }, "gP", '"+P', { desc = "Paste before cursor from sys
 vim.keymap.set("n", "]q", "<cmd>cnext<cr>", { desc = "Quick-fix: Next" })
 vim.keymap.set("n", "[q", "<cmd>cprev<cr>", { desc = "Quick-fix: Previous" })
 
--- Improving search scrolling experience
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "Nzz")
-vim.keymap.set("n", "*", "*zz")
-vim.keymap.set("n", "#", "#zz")
-
 -- Configuring neovim's terminal
 vim.keymap.set("n", "<leader>tt", "<cmd>$tab term<cr>", { desc = "Terminal" })
 vim.keymap.set("n", "<leader>th", function()
