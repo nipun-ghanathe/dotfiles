@@ -41,6 +41,7 @@ current_nvim_version=$(nvim -v | awk 'NR==1 {print $2}')
 latest_nvim_version=$(git tag --list --contains HEAD | sed -n '2p')
 if [[ "$current_nvim_version" == "$latest_nvim_version" ]]; then
   echo "Neovim is up to date."
+  git switch -
 else
   make clean
   rm -rfv build .deps
