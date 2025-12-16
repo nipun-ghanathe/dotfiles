@@ -2,6 +2,7 @@ require("neovide")
 
 require("mappings")
 require("autocmds")
+require("usercmds")
 require("options")
 require("lazy_config")
 require("lsp_config")
