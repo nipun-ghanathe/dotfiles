@@ -11,7 +11,6 @@ vim.keymap.set("n", "gp", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set("n", "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
 
 -- Terminal configuration
-vim.keymap.set("t", "<c-[>", vim.cmd.stopinsert)
 vim.keymap.set("n", "<leader>tt", "<cmd>$tab term<cr>", { desc = "Terminal" })
 vim.keymap.set("n", "<leader>th", function()
   vim.cmd("botright term")
