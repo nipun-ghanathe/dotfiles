@@ -87,11 +87,6 @@ setup_shell() {
   [[ -f "$HOME/.profile" ]] && mv $HOME/.profile $HOME/.profile.bak
   stow --verbose bash profile
 
-  log "Installing and setting up zsh..."
-  [[ -f "$HOME/.zsh" ]] && mv $HOME/.zsh $HOME/.zsh.bak
-  sudo apt install -y zsh
-  stow --verbose zsh
-  chsh -s "$(which zsh)"
 }
 
 install_kitty() {
