@@ -25,6 +25,6 @@ fi
 
 
 # Launch Sway
-if [[ -z "$DISPLAY" ]] && [[ $(tty) = /dev/tty1 ]]; then
+if [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]]; then
   exec sway
 fi
