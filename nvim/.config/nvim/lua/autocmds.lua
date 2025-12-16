@@ -18,12 +18,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = true })
   end,
 })
-
--- Enter insert mode when opening Terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = augroup,
-  desc = "Enter insert mode when opening Terminal",
-  callback = function()
-    vim.cmd.startinsert()
-  end,
-})
