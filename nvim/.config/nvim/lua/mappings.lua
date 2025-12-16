@@ -5,16 +5,12 @@ vim.g.maplocalleader = "\\"
 -- File Explorer (netrw)
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Explore - Open netrw" })
 
--- Managing clipboard
+-- Managing system clipboard
 vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
-vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })
-vim.keymap.set({ "n", "v" }, "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
+vim.keymap.set("n", "gp", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n" }, "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
 
--- Quick-fix list
-vim.keymap.set("n", "]q", "<cmd>cnext<cr>", { desc = "Quick-fix: Next" })
-vim.keymap.set("n", "[q", "<cmd>cprev<cr>", { desc = "Quick-fix: Previous" })
-
--- Configuring neovim's terminal
+-- Terminal configuration
 vim.keymap.set("n", "<leader>tt", "<cmd>$tab term<cr>", { desc = "Terminal" })
 vim.keymap.set("n", "<leader>th", function()
   vim.cmd("botright term")
@@ -24,12 +20,14 @@ vim.keymap.set("n", "<leader>tv", function()
   vim.cmd("vert term")
   vim.cmd("vertical resize " .. math.floor(vim.o.columns * 0.4))
 end, { desc = "Vertical Terminal" })
-for i = 1, 8 do
-  vim.keymap.set({ "n", "i", "t" }, "<m-" .. i .. ">", "<cmd>" .. i .. "tabnext<cr>", { desc = "Go to tab " .. i })
-end
-vim.keymap.set({ "n", "i", "t" }, "<m-9>", "<cmd>tablast<cr>", { desc = "Go to last tab" })
 
--- Moving between windows
+-- Tab navigation
+for i = 1, 8 do
+  vim.keymap.set({ "n", "t" }, "<m-" .. i .. ">", "<cmd>" .. i .. "tabnext<cr>", { desc = "Go to tab " .. i })
+end
+vim.keymap.set({ "n", "t" }, "<m-9>", "<cmd>tablast<cr>", { desc = "Go to last tab" })
+
+-- Window navigation
 vim.keymap.set({ "n", "t" }, "<m-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
 vim.keymap.set({ "n", "t" }, "<m-j>", "<cmd>wincmd j<cr>", { desc = "Go to down window" })
 vim.keymap.set({ "n", "t" }, "<m-k>", "<cmd>wincmd k<cr>", { desc = "Go to up window" })
