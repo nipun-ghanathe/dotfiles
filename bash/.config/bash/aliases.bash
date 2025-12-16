@@ -6,8 +6,8 @@ alias python="python3"
 alias ipython="ipython3"
 
 # move, copy, remove
-alias cp="cp -i"
-alias mv="mv -i"
+alias cp="cp -iv"
+alias mv="mv -iv"
 
 # ls
 alias ls="eza --icons --hyperlink --group --group-directories-first"
