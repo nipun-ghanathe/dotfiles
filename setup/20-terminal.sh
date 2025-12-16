@@ -83,9 +83,15 @@ setup_editor() {
 
 setup_shell() {
   log "Setting up bash and profile..."
-  [[ -f "$HOME/.bashrc" ]] && mv $HOME/.bashrc $HOME/.bashrc.bak
-  [[ -f "$HOME/.bash_profile" ]] && mv $HOME/.profile $HOME/.bash_profile.bak
+  [[ -f "$HOME/.bashrc" ]] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
+  [[ -f "$HOME/.bash_profile" ]] && mv "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
   stow --verbose bash
+
+  log "Installing and setting up zsh..."
+  [[ -f "$HOME/.zshrc" ]] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+  sudo apt install -y zsh
+  stow --verbose zsh
+  chsh -s "$(which zsh)"
 }
 
 install_kitty() {
