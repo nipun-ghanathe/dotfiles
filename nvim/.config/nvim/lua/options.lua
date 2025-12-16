@@ -6,8 +6,9 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
--- Block cursor in insert mode too
-vim.opt.guicursor:append("i-ci:block")
+-- Block cursor in insert mode and command-line insert mode
+-- vim.opt.guicursor:append("i-ci:block")
+vim.opt.guicursor:append("ci:block")
 
 -- Configuring indentation and tabs
 vim.opt.autoindent = true
