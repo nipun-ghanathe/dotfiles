@@ -19,12 +19,10 @@ alias mv="mv -iv"
 alias rm="rm -v"
 
 # ls
-alias ls="eza --icons --hyperlink --group --group-directories-first"
+alias ls="ls --color=auto"
 alias l="ls -lah"
 alias la="ls -A"
 alias ll="ls -lh"
-alias lt="ls -T"
-alias tree="ls -T"
 
 # batcat
 alias bat="batcat --style plain --paging always"

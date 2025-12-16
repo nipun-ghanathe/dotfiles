@@ -110,7 +110,7 @@ setup_scripts() {
 
 install_other_cli_tools() {
   log "Installing better alternatives to the coreutils..."
-  sudo apt install -y eza zoxide bat ripgrep fd-find fzf htop
+  sudo apt install -y tree eza zoxide bat ripgrep fd-find fzf htop
   stow --verbose fzf
   ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
 
