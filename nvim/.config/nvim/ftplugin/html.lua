@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("VimLeave", {
 -- Set keymap for opening file with live server
 vim.keymap.set(
   "n",
-  "<localleader>r",
+  "<localleader>rl",
   "<cmd>OpenWithLiveServer<cr>",
   { buffer = true, desc = "Open HTML file in browser with Live Server" }
 )
