@@ -34,6 +34,9 @@ install_desktop_utilities() {
   log "Installing and setting up utilities for Notifications..."
   sudo apt install -y libnotify-bin mako-notifier
   stow --verbose mako
+
+  log "Installing GUI File Manager..."
+  sudo apt install -y pcmanfm
 }
 
 setup_theme() {

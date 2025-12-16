@@ -16,11 +16,6 @@ install_firefox() {
   sudo apt update && sudo apt install -y firefox
 }
 
-install_pcmanfm() {
-  log "Installing PCMan File Manager..."
-  sudo apt install -y pcmanfm
-}
-
 install_obsidian() {
   log "Installing Obsidian..."
   
@@ -46,7 +41,6 @@ install_obsidian() {
 
 install_apps() {
   install_firefox
-  install_thunar
   install_obsidian
   # install_todoist
 }
