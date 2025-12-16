@@ -6,15 +6,19 @@ alias python="python3"
 alias ipython="ipython3"
 
 # move, copy, remove
-alias cp="cp -iv"
-alias mv="mv -iv"
-alias rm="rm -v"
+alias cp="cp -i"
+alias mv="mv -i"
 
 # ls
-alias ls="ls --color=auto"
+alias ls="eza --icons --hyperlink --group --group-directories-first"
 alias l="ls -lah"
 alias la="ls -A"
 alias ll="ls -lh"
+alias lt="ls -T"
+alias tree="ls -T"
+
+# batcat
+alias cat="batcat --style plain --paging always"
 
 # grep
 alias grep="grep --color=auto"

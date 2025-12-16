@@ -84,9 +84,8 @@ setup_editor() {
 setup_shell() {
   log "Setting up bash and profile..."
   [[ -f "$HOME/.bashrc" ]] && mv $HOME/.bashrc $HOME/.bashrc.bak
-  [[ -f "$HOME/.profile" ]] && mv $HOME/.profile $HOME/.profile.bak
-  stow --verbose bash profile
-
+  [[ -f "$HOME/.bash_profile" ]] && mv $HOME/.profile $HOME/.bash_profile.bak
+  stow --verbose bash
 }
 
 install_kitty() {
