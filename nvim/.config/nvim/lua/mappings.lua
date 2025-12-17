@@ -7,8 +7,8 @@ vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Explore - Open netrw" 
 
 -- Managing system clipboard
 vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
-vim.keymap.set("n", "gp", '"+p', { desc = "Paste from system clipboard" })
-vim.keymap.set("n", "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
+vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "v" }, "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
 
 -- Terminal configuration
 vim.keymap.set("n", "<leader>tt", "<cmd>$tab term<cr>", { desc = "Terminal" })
