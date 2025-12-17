@@ -1,12 +1,3 @@
-# change cwd with yazi
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd < "$tmp"
-  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-  /usr/bin/rm -f -- "$tmp"
-}
-
 # change cwd with ranger
 function ranger-cd() {
   local tmp="$(mktemp -t "ranger-cwd.XXXXXX")" cwd
@@ -14,4 +5,19 @@ function ranger-cd() {
   IFS= read -r -d '' cwd < "$tmp"
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   /usr/bin/rm -f -- "$tmp"
+}
+
+# open files in the same nvim instance if opened from nvim :terminal
+function v() {
+  if [[ "$#" -gt 1 ]]; then
+    echo "v: error: only one argument is allowed" >&2
+    return 1
+  fi
+
+  if [[ -z "$NVIM" ]]; then
+    echo "v: made for running in neovim terminals only" >&2
+    return 1
+  fi
+
+  nvim --server "$NVIM" --remote-tab "$(realpath "$1")"
 }
