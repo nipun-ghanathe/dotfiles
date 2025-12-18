@@ -28,19 +28,7 @@ install_obsidian() {
   rm $HOME/Downloads/obsidian*amd64.deb
 }
 
-# install_todoist() {
-#   log "Installing Todoist..."
-#
-#   if ! command -v ail-cli >/dev/null 2>&1; then
-#     err "AppImageLauncher is not installed. 'ail-cli' command is not available. It is required for automatic installation of Todoist."
-#   fi
-#
-#   wget -O "$HOME/Downloads/Todoist.AppImage" "https://todoist.com/linux_app/appimage"
-#   ail-cli integrate "$HOME/Downloads/Todoist.AppImage"
-# }
-
 install_apps() {
   install_firefox
   install_obsidian
-  # install_todoist
 }
