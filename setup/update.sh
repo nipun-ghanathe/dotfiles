@@ -74,7 +74,7 @@ fi
 # Notice
 log "Automated updating completed."
 log "Currently you need to manually check for updates for the following:"
-cat <<'EOF' | column -t -s '  '
-AppImageLauncher  https://github.com/TheAssassin/AppImageLauncher/releases
-ZenBrowser  https://github.com/zen-browser/desktop/releases
+cat <<'EOF' | column -t -s '|'
+AppImageLauncher|https://github.com/TheAssassin/AppImageLauncher/releases
+ZenBrowser|Would perhaps get auto-updated
 EOF

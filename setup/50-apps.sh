@@ -4,18 +4,7 @@
 
 install_browser() {
   log "Installing Web Broser (Zen)..."
-
-  if ! command -v gh >/dev/null 2>&1; then
-    err "GitHub CLI is not installed. It is required for the automatic download of Obsidian."
-  fi
-
-  gh release download --repo zen-browser/desktop --pattern 'zen-x86_64.AppImage' --dir "$HOME/Downloads"
-
-  if ! command -v ail-cli >/dev/null 2>&1; then
-    err "ail-cli is not available. It is required for the automatic download of Zen. Install AppImageLauncher."
-  fi
-
-  ail-cli integrate "$HOME/Downloads/zen-x86_64.AppImage"
+  curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh
 }
 
 install_obsidian() {

@@ -14,7 +14,7 @@ set $right l
 # Terminal, editor, browser, app launcher
 set $term kitty
 set $editor $HOME/.cargo/bin/neovide
-set $browser firefox
+set $browser $HOME/.local/bin/zen
 set $menu fuzzel
 
 include /etc/sway/config-vars.d/*
@@ -49,7 +49,7 @@ input "1102:4639:DELL081C:00_044E:121F_Touchpad" {
 
 ### Basic Keybindings:
 
-# Launch terminal, editor, broswer, app launcher
+# Launch terminal, editor, browser, app launcher
 bindsym $mod+Return exec $term
 bindsym $mod+e exec $editor
 bindsym $mod+o exec $browser
