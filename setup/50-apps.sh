@@ -2,18 +2,20 @@
 #
 # 50-apps.sh : Install Apps
 
-install_firefox() {
-  log "Installing Firefox..."
-  sudo install -d -m 0755 /etc/apt/keyrings
-  wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
-  gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
-  echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
-  echo '
-  Package: *
-  Pin: origin packages.mozilla.org
-  Pin-Priority: 1000
-  ' | sudo tee /etc/apt/preferences.d/mozilla 
-  sudo apt update && sudo apt install -y firefox
+install_browser() {
+  log "Installing Web Broser (Zen)..."
+
+  if ! command -v gh >/dev/null 2>&1; then
+    err "GitHub CLI is not installed. It is required for the automatic download of Obsidian."
+  fi
+
+  gh release download --repo zen-browser/desktop --pattern 'zen-x86_64.AppImage' --dir "$HOME/Downloads"
+
+  if ! command -v ail-cli >/dev/null 2>&1; then
+    err "ail-cli is not available. It is required for the automatic download of Zen. Install AppImageLauncher."
+  fi
+
+  ail-cli integrate "$HOME/Downloads/zen-x86_64.AppImage"
 }
 
 install_obsidian() {
@@ -29,6 +31,6 @@ install_obsidian() {
 }
 
 install_apps() {
-  install_firefox
+  install_browser
   install_obsidian
 }
