@@ -1,4 +1,7 @@
-### Minimal Shell Configuration
+# source system profile file
+if [[ -f "/etc/profile" ]]; then
+  source "/etc/profile"
+fi
 
 # exports
 export EDITOR=nvim
@@ -23,8 +26,7 @@ if [[ -d "$NVM_DIR/versions/node" ]]; then
   export PATH="$NODE_DEFAULT/bin:$PATH"
 fi
 
-
 # Launch Sway
 if [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]]; then
-  exec sway
+  exec dbus-run-session sway
 fi
