@@ -31,7 +31,7 @@ install_appimagelauncher() {
     err "GitHub CLI is not installed. It is required for the automatic download of AppImageLauncher."
   fi
 
-  gh release download --repo "TheAssassin/AppImageLauncher" --pattern 'appimagelauncher*bionic_amd64.deb' --dir "$HOME/Downloads"
+  gh release download --repo "TheAssassin/AppImageLauncher" --pattern 'appimagelauncher*_amd64.deb' --dir "$HOME/Downloads"
   sudo dpkg -i $HOME/Downloads/appimagelauncher*bionic_amd64.deb
   rm $HOME/Downloads/appimagelauncher*bionic_amd64.deb
 }
