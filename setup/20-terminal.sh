@@ -23,8 +23,7 @@ setup_shell() {
 }
 
 install_git() {
-  log "Installing and setting up git..."
-  sudo apt install -y git
+  log "Setting up git..."
   stow --verbose git
 
   log "Installing GitHub CLI..."
