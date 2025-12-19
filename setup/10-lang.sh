@@ -37,12 +37,11 @@ install_lang_ruby() {
 }
 
 install_lang_nodejs() {
-  log "Installing Nodejs using nvm with npm and yarn..."
+  log "Installing Nodejs using nvm with npm..."
 
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   \. "$HOME/.nvm/nvm.sh"
   nvm install node
-  npm install -g yarn
 }
 
 install_languages() {
