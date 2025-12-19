@@ -39,12 +39,6 @@ install_desktop_utilities() {
   sudo apt install -y pcmanfm
 }
 
-setup_theme() {
-  log "Setting up GTK Theme..."
-  gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
-  gsettings set org.gnome.desktop.wm.preferences theme Adwaita-dark
-}
-
 setup_fonts() {
   log "Setting up Fonts..."
   stow --verbose fonts
@@ -54,7 +48,6 @@ setup_fonts() {
 setup_desktop() {
   install_wm
   install_desktop_utilities
-  setup_theme
   setup_fonts
 }
 

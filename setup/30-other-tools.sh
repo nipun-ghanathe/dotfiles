@@ -27,13 +27,13 @@ install_rclone() {
 install_appimagelauncher() {
   log "Installing AppImageLauncher..."
 
-  if ! command -v gh >/dev/null 2>&1; then
-    err "GitHub CLI is not installed. It is required for the automatic download of AppImageLauncher."
-  fi
-
-  gh release download --repo "TheAssassin/AppImageLauncher" --pattern 'appimagelauncher*_amd64.deb' --dir "$HOME/Downloads"
-  sudo dpkg -i $HOME/Downloads/appimagelauncher*bionic_amd64.deb
-  rm $HOME/Downloads/appimagelauncher*bionic_amd64.deb
+  url=$(curl -s https://api.github.com/repos/TheAssassin/AppImageLauncher/releases/latest \
+    | jq -r '.assets[]
+        | select(.name | test("appimagelauncher.*_amd64\\.deb"))
+        | .browser_download_url')
+  curl -L -o "$HOME/Downloads/$(basename "$url")" "$url"
+  sudo dpkg -i $HOME/Downloads/appimagelauncher*_amd64.deb
+  rm $HOME/Downloads/appimagelauncher*_amd64.deb
 }
 
 install_other_tools() {

@@ -2,6 +2,26 @@
 #
 # 20-terminal.sh : Setup terminal environment
 
+setup_shell() {
+  log "Setting up bash..."
+  [[ -f "$HOME/.bashrc" ]] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
+  [[ -f "$HOME/.bash_profile" ]] && mv "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
+  stow --verbose bash
+
+  # reload current shell environment using our rc file if current shell is bash
+  [[ "${SHELL##*/}" = "bash" ]] && source "$HOME/.bash_profile" && source "$HOME/.bashrc"
+
+  log "Installing and setting up zsh..."
+  [[ -f "$HOME/.zshrc" ]] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+  [[ -f "$HOME/.zprofile" ]] && mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
+  sudo apt install -y zsh
+  stow --verbose zsh
+  chsh -s "$(which zsh)"
+
+  # reload current shell environment using our rc file if current shell is zsh
+  [[ "${SHELL##*/}" = "zsh" ]] && source "$HOME/.zprofile" && source "$HOME/.zshrc"
+}
+
 install_git() {
   log "Installing and setting up git..."
   sudo apt install -y git
@@ -20,21 +40,12 @@ install_git() {
 }
 
 install_neovim() {
+  log "Installing and setting up Vim..."
+  sudo apt install -y vim
+  stow --verbose vimrc
+
   log "Installing and setting up Neovim..."
-  if [[ ! -d "$HOME/builds/neovim/" ]]; then
-    mkdir -p "$HOME/builds"
-    git clone "https://github.com/neovim/neovim" "$HOME/builds/neovim"
-  fi
-  cd "$HOME/builds/neovim"
-  git switch master
-  git pull
-  git fetch --tags --force
-  git checkout stable
-  make clean
-  rm -rfv build .deps
-  make CMAKE_BUILD_TYPE=RelWithDebInfo
-  sudo make install
-  git switch -
+  sudo apt install -y nvim
   cd "$HOME/dotfiles" && stow --verbose nvim
   mkdir -p "$HOME/.cache/nvim/undodir"
 }
@@ -58,7 +69,6 @@ setup_editor() {
 
   log "Installing lua-language-server..."
   mkdir -p "$HOME/builds"
-  rm -rfv "$HOME/builds/lua-language-server"
   git clone "https://github.com/LuaLS/lua-language-server" "$HOME/builds/lua-language-server"
   cd "$HOME/builds/lua-language-server" && ./make.sh
   cd "$HOME/dotfiles"
@@ -81,19 +91,6 @@ setup_editor() {
   uv tool install --with mdformat-gfm mdformat 
 }
 
-setup_shell() {
-  log "Setting up bash and profile..."
-  [[ -f "$HOME/.bashrc" ]] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
-  [[ -f "$HOME/.bash_profile" ]] && mv "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
-  stow --verbose bash
-
-  log "Installing and setting up zsh..."
-  [[ -f "$HOME/.zshrc" ]] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-  sudo apt install -y zsh
-  stow --verbose zsh
-  chsh -s "$(which zsh)"
-}
-
 install_kitty() {
   log "Installing and setting up Kitty..."
   sudo apt install -y kitty
@@ -109,14 +106,11 @@ setup_scripts() {
 }
 
 install_other_cli_tools() {
-  log "Installing better alternatives to the coreutils..."
-  sudo apt install -y tree eza zoxide bat ripgrep fd-find fzf htop
+  log "Installing some CLI tools..."
+  sudo apt install -y tree eza zoxide bat ripgrep fd-find fzf htop ranger
   stow --verbose fzf
   ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
-
-  log "Installing some other utilities..."
-  sudo apt install -y ffmpeg 7zip jq poppler-utils imagemagick ranger
-  npm install -g tldr
+  uv tool install tldr
 }
 
 setup_terminal() {

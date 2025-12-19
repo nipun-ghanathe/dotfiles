@@ -4,13 +4,13 @@
 
 install_lang_c() {
   log "Installing C/C++ build tools..."
-  sudo apt install -y build-essential cmake ninja-build gettext
+  sudo apt install -y build-essential cmake ninja-build
 }
 
 install_lang_rust() {
   log "Installing Rust..."
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-  sudo apt install -y pkg-config libssl-dev && cargo install cargo-update
+  sudo apt install -y pkg-config libssl-dev && $HOME/.cargo/bin/cargo install cargo-update
 }
 
 install_lang_python() {
@@ -20,7 +20,7 @@ install_lang_python() {
 
   curl -LsSf https://astral.sh/uv/install.sh | sh
 
-  uv tool install ipython
+  $HOME/.local/bin/uv tool install ipython
   mkdir -p $HOME/.ipython/profile_default/
   stow --verbose ipython
 
@@ -42,7 +42,7 @@ install_lang_nodejs() {
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   \. "$HOME/.nvm/nvm.sh"
   nvm install node
-  corepack enable yarn
+  npm install -g yarn
 }
 
 install_languages() {

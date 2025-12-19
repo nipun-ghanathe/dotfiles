@@ -8,11 +8,11 @@ LOGFILE="/tmp/dotfiles-setup.log"
 exec > >(tee -a "$LOGFILE") 2>&1
 
 log() {
-  echo -e "\e[1;34m[INFO]\e[0m $*"
+  printf "\n\e[1;34m[INFO]\e[0m%s\n\n" "$@"
 }
 
 err() {
-  echo -e "\e[1;31m[ERROR]\e[0m $*" >&2
+  printf "\n\e[1;31m[ERROR]\e[0m%s\n\n" "$@" >&2
   exit 1
 }
 
@@ -20,23 +20,20 @@ if [[ "$EUID" -eq 0 ]]; then
   err "Do not run this script as root. Log in as the target user who should receive setup."
 fi
 
-if ! groups "$USER" | grep -qw sudo; then
-  err "User '$USER' is not in the 'sudo' group.
-Please run: su -
-Then: usermod -aG sudo $USER
-Then reboot or log out/in.
-"
+if ! command -v sudo; then
+  err "sudo command not found. Install sudo."
 fi
 
-log "Adding unstable sources..."
-sudo mkdir -p /etc/apt/sources.list.d
-echo "deb http://deb.debian.org/debian sid main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/sid.list
+if ! groups "$USER" | grep -qw sudo; then
+  err "User not in sudo group. Add user to sudo group."
+fi
 
 log "Updating apt-cache and upgrading apps..."
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 log "Installing base tools (curl, wget, stow, git)"
-sudo apt install -y curl wget stow git
+sudo apt install -y curl wget jq stow git
 
 if [[ ! -d "$HOME/dotfiles" ]]; then
   log "Cloning the dotfiles repo..."
@@ -68,5 +65,5 @@ setup_misc
 log "✅ Setup complete!"
 log "You can find the log of the setup at $LOGFILE"
 log "❗Make sure you do the manual steps mentioned in the README's post-install section."
-log "THe README can be found at ~/dotfiles/README.md"
+log "The README can be found at ~/dotfiles/README.md"
 
