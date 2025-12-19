@@ -11,8 +11,6 @@ error() {
 }
 
 # APT Packages
-log "Modernizing APT sources..."
-sudo apt modernize-sources # modernize-sources if any
 log "Updating APT packages..."
 sudo apt update
 sudo apt full-upgrade -y
