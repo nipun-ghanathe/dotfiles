@@ -3,16 +3,7 @@ return {
   build = "cd app && npm install && rm -f package-lock.json && git restore .",
   ft = "markdown",
   init = function()
-    -- open preview in new window
-    vim.cmd([[
-      function OpenMarkdownPreview (url)
-        execute "silent ! firefox --new-window " . a:url
-      endfunction
-      let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-    ]])
-
-    -- set the default theme to dark
-    vim.g.mkdp_theme = "dark"
+    vim.g.mkdp_theme = "dark" -- set default theme to dark
   end,
   config = function()
     vim.keymap.set(
