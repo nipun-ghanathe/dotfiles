@@ -20,11 +20,8 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # Load user configuration files
-. "$HOME/.config/zsh/general.zsh"
-. "$HOME/.config/zsh/exports.zsh"
-. "$HOME/.config/zsh/aliases.zsh"
-. "$HOME/.config/zsh/functions.zsh"
-# . "$HOME/.config/zsh/prompt.zsh"
+source $HOME/.config/shell/*.shell
+source $HOME/.config/shell/*.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

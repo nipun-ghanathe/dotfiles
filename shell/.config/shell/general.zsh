@@ -5,7 +5,7 @@ setopt hist_ignore_dups   # ignore duplicate history entries
 setopt share_history      # share command history across terminals
 
 # Keybindings
-set -o emacs              # emacs like motions on the command line
+bindkey -e                # emacs like motions on the command line
 
 # Completions
 autoload -Uz compinit && compinit  # line moved to minimal.zsh (for uv completions)
@@ -47,3 +47,5 @@ eval "$(zoxide init --cmd cd zsh)"
 #   fi
 # fi
 # unset __conda_setup
+
+# vim:ft=zsh

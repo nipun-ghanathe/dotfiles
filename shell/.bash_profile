@@ -1,0 +1,12 @@
+# exports
+export EDITOR=nvim
+export VISUAL=nvim
+export BROWSER=xdg-open
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export PAGER="less -R"
+export LESS="R"
+# export PAGER="less -FRX"
+# export LESS="FRX"
+
+source "$HOME/.config/bash/paths.bash"

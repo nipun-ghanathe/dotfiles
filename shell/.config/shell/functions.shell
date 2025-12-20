@@ -21,3 +21,5 @@ function v() {
 
   nvim --server "$NVIM" --remote-tab "$(realpath "$1")"
 }
+
+# vim:ft=bash

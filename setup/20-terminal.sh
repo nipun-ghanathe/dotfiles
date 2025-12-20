@@ -3,23 +3,19 @@
 # 20-terminal.sh : Setup terminal environment
 
 setup_shell() {
-  log "Setting up bash..."
-  [[ -f "$HOME/.bashrc" ]] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
-  [[ -f "$HOME/.bash_profile" ]] && mv "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
-  stow --verbose bash
-
-  # reload current shell environment using our rc file if current shell is bash
-  [[ "${SHELL##*/}" = "bash" ]] && source "$HOME/.bash_profile" && source "$HOME/.bashrc"
-
-  log "Installing and setting up zsh..."
-  [[ -f "$HOME/.zshrc" ]] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-  [[ -f "$HOME/.zprofile" ]] && mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
+  log "Installing zsh and making it default shell..."
   sudo apt install -y zsh
-  stow --verbose zsh
   chsh -s "$(which zsh)"
 
-  # reload current shell environment using our rc file if current shell is zsh
-  [[ "${SHELL##*/}" = "zsh" ]] && source "$HOME/.zprofile" && source "$HOME/.zshrc"
+  log "Setting up bash and zsh..."
+  [[ -f "$HOME/.bashrc" ]] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
+  [[ -f "$HOME/.bash_profile" ]] && mv "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
+  [[ -f "$HOME/.zshrc" ]] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+  [[ -f "$HOME/.zprofile" ]] && mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
+  stow --verbose shell
+
+  # update PATH to contain newly installed things
+  source "$HOME/dotfiles/shell/.config/shell/paths.shell"
 }
 
 install_git() {
