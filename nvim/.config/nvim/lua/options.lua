@@ -77,6 +77,9 @@ vim.opt.colorcolumn = "80"
 -- Enabling sign column
 vim.opt.signcolumn = "yes"
 
+-- Always show tab line
+vim.opt.showtabline = 2
+
 -- Disabling word wrap
 vim.opt.wrap = false
 

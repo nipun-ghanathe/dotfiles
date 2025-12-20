@@ -13,7 +13,7 @@ set $right l
 
 # Terminal, editor, browser, app launcher
 set $term kitty
-set $editor $HOME/.cargo/bin/neovide
+set $editor $term -e nvim
 set $browser $HOME/.local/bin/zen
 set $menu fuzzel
 
