@@ -1,6 +1,10 @@
 # source config files
-source $HOME/.config/shell/*.shell
-source $HOME/.config/shell/*.bash
+for file in "$HOME/.config/shell/"*.shell; do
+  source "$file"
+done
+for file in "$HOME/.config/shell/"*.zsh; do
+  source "$file"
+done
 
 # enable programmable completion features
 if ! shopt -oq posix; then
