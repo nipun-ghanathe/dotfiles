@@ -60,6 +60,9 @@ sudo apt upgrade -y
 log "Installing base tools (curl, wget, stow, git)"
 sudo apt install -y curl wget jq stow git
 
+log "Updating PATH to include all required directories..."
+source "$HOME/dotfiles/shell/.config/shell/paths.shell"
+
 if [[ ! -d "$HOME/dotfiles" ]]; then
   log "Cloning the dotfiles repo..."
   git clone "https://github.com/nipun-ghanathe/dotfiles" "$HOME/dotfiles"
@@ -69,26 +72,16 @@ fi
 
 cd "$HOME/dotfiles"
 
-source ./setup/10-lang.sh
-install_languages
+source ./setup/10-desktop.sh && setup_desktop
+source ./setup/20-apps.sh && install_apps
+source ./setup/30-lang.sh && install_languages
+source ./setup/40-terminal.sh && setup_terminal
+source ./setup/50-other-tools.sh && install_other_tools
+source ./setup/60-misc.sh && setup_misc
 
-source ./setup/20-terminal.sh
-setup_terminal
-
-source ./setup/30-other-tools.sh
-install_other_tools
-
-source ./setup/40-desktop.sh
-setup_desktop
-
-source ./setup/50-apps.sh
-install_apps
-
-source ./setup/60-misc.sh
-setup_misc
-
-log "✅ Setup complete!"
-log "You can find the log of the setup at $LOGFILE"
-log "❗Make sure you do the manual steps mentioned in the README's post-install section."
-log "The README can be found at ~/dotfiles/README.md"
+printf "\n\e[1;34m[DONE]\e[0m%s\n"
+echo "✅ Setup complete!"
+echo "You can find the log of the setup at $LOGFILE"
+echo "❗Make sure you do the manual steps mentioned in the README's post-install section."
+echo "The README can be found at ~/dotfiles/README.md"
 

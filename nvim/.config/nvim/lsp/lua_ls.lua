@@ -1,6 +1,5 @@
 return {
-  -- cmd = { "lua-language-server" },
-  cmd = { vim.env.HOME .. "/builds/lua-language-server/bin/lua-language-server" },
+  cmd = { "lua-language-server" },
   filetypes = { "lua" },
   root_markers = {
     ".luarc.json",

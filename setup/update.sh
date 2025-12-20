@@ -20,13 +20,6 @@ sudo apt autoremove --purge -y
 # Rust
 log "Updating Rust..."
 rustup update
-# Cargo Packages
-log "Updating Cargo packages..."
-if command -v cargo-install-update &>/dev/null; then
-  cargo install-update -a
-else
-  error "cargo-update not found. Run: cargo install cargo-update"
-fi
 
 # uv tools
 log "Updating UV..."
@@ -48,4 +41,6 @@ log "Currently you need to manually check for updates for the following:"
 cat <<'EOF' | column -t -s '|'
 AppImageLauncher|https://github.com/TheAssassin/AppImageLauncher/releases
 ZenBrowser|Would perhaps get auto-updated
+Kanata|Was installed via Cargo
+Stylua|Was installed via Cargo
 EOF

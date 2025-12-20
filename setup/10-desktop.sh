@@ -23,7 +23,7 @@ install_desktop_utilities() {
   stow --verbose fuzzel
 
   log "Installing utilities for Audio and Brightness control..."
-  sudo apt install -y pavucontrol brightnessctl
+  sudo apt install -y pipewire pavucontrol brightnessctl
 
   log "Installing utilities for Clipboard Management..."
   sudo apt install -y wl-clipboard cliphist

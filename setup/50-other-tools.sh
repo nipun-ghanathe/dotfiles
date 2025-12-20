@@ -21,24 +21,12 @@ EOF
 install_rclone() {
   log "Installing rclone and creating a boilerplate config..."
   sudo -v ; curl https://rclone.org/install.sh | sudo bash
+  mkdir -p "$HOME/.config/rclone"
   cp "$HOME/dotfiles/rclone/rclone.conf" "$HOME/.config/rclone/rclone.conf"
-}
-
-install_appimagelauncher() {
-  log "Installing AppImageLauncher..."
-  url=$(curl -s https://api.github.com/repos/TheAssassin/AppImageLauncher/releases/latest \
-    | jq -r '.assets[]
-        | select(.name | test("appimagelauncher.*_amd64\\.deb"))
-        | .browser_download_url')
-  debfile="$HOME/Downloads/$(basename "$url")"
-  curl -L -o "$debfile" "$url"
-  sudo dpkg -i "$debfile"
-  rm "$debfile"
 }
 
 install_other_tools() {
   install_kanata
   install_rclone
-  install_appimagelauncher
 }
 

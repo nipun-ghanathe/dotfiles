@@ -2,22 +2,6 @@
 #
 # 20-terminal.sh : Setup terminal environment
 
-setup_shell() {
-  log "Installing zsh and making it default shell..."
-  sudo apt install -y zsh
-  chsh -s "$(which zsh)"
-
-  log "Setting up bash and zsh..."
-  [[ -f "$HOME/.bashrc" ]] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
-  [[ -f "$HOME/.bash_profile" ]] && mv "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
-  [[ -f "$HOME/.zshrc" ]] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-  [[ -f "$HOME/.zprofile" ]] && mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
-  stow --verbose shell
-
-  # update PATH to contain newly installed things
-  source "$HOME/dotfiles/shell/.config/shell/paths.shell"
-}
-
 install_git() {
   log "Setting up git..."
   stow --verbose git
@@ -41,14 +25,8 @@ install_neovim() {
 
   log "Installing and setting up Neovim..."
   sudo apt install -y neovim
-  cd "$HOME/dotfiles" && stow --verbose nvim
+  stow --verbose nvim
   mkdir -p "$HOME/.cache/nvim/undodir"
-}
-
-install_neovide() {
-  log "Installing and setting up Neovide..."
-  cargo install --git https://github.com/neovide/neovide
-  stow --verbose neovide
 }
 
 setup_editor() {
@@ -63,10 +41,15 @@ setup_editor() {
   uv tool install djlint
 
   log "Installing lua-language-server..."
-  mkdir -p "$HOME/builds"
-  git clone "https://github.com/LuaLS/lua-language-server" "$HOME/builds/lua-language-server"
-  cd "$HOME/builds/lua-language-server" && ./make.sh
-  cd "$HOME/dotfiles"
+  url=$(curl -s https://api.github.com/repos/LuaLS/lua-language-server/releases/latest \
+    | jq -r '.assets[]
+        | select(.name | test("lua-language-server-.*-linux-x64.tar.gz"))
+        | .browser_download_url')
+  mkdir -p "$HOME/.tarball-installations/luals"
+  download_path="$HOME/.tarball-installations/luals/$(basename "$url")"
+  curl -L -o "$download_path" "$url"
+  tar xzvf "$download_path" --directory "$HOME/.tarball-installations/luals"
+  ln -s "$HOME/.tarball-installations/luals/bin/lua-language-server" "$HOME/.local/bin/lua-language-server"
 
   log "Installing stylua..."
   cargo install stylua
@@ -81,9 +64,6 @@ setup_editor() {
   log "Installing language servers for HTML, CSS, JS..."
   npm install -g vscode-langservers-extracted
   
-  log "Installing live-server for live-reloading of HTML files..."
-  npm install -g live-server
-
   log "Installing formatter for Markdown..."
   uv tool install --with mdformat-gfm mdformat 
 }
@@ -96,6 +76,7 @@ install_kitty() {
 }
 
 setup_scripts() {
+  [[ -d "$HOME/scripts/.local/bin" ]] || return
   log "Setting up personal scripts..."
   find "$HOME/dotfiles/scripts/.local/bin" -type f -exec chmod +x {} +
   mkdir -p "$HOME/.local/bin"
@@ -114,7 +95,6 @@ setup_terminal() {
   install_git
   install_neovim
   setup_editor
-  setup_shell
   install_kitty
   setup_scripts
   install_other_cli_tools
