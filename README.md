@@ -8,6 +8,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs
 
 ### Post-install
 
+1. Authenticate GithubCLI with `gh auth login`.
 1. Configure [rclone](https://github.com/nipun-ghanathe/dotfiles/tree/main/rclone#configuration)
 
 ### 📝 To-dos

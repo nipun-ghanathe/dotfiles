@@ -13,13 +13,13 @@ error() {
 # APT Packages
 log "Updating APT packages..."
 sudo apt update
-sudo apt full-upgrade -y
+sudo apt upgrade -y
 log "Auto-removing APT packages..."
 sudo apt autoremove --purge -y
 
 # Rust
 log "Updating Rust..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+rustup update
 # Cargo Packages
 log "Updating Cargo packages..."
 if command -v cargo-install-update &>/dev/null; then
@@ -34,9 +34,9 @@ uv self update
 log "Updating tools installed with UV..."
 uv tool upgrade --all
 
-# Ruby Gems
-log "Updating gems..."
-sudo gem update
+# # Ruby Gems
+# log "Updating gems..."
+# sudo gem update
 
 # npm tools
 log "Updating npm packages..."

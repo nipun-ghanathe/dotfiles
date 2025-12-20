@@ -10,13 +10,13 @@ install_lang_c() {
 install_lang_rust() {
   log "Installing Rust..."
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-  sudo apt install -y pkg-config libssl-dev && $HOME/.cargo/bin/cargo install cargo-update
+  $HOME/.cargo/bin/cargo install cargo-update
 }
 
 install_lang_python() {
   log "Installing Python and tools..."
 
-  sudo apt install -y python3-full
+  sudo apt install -y python3 python3-pip python3-venv
 
   curl -LsSf https://astral.sh/uv/install.sh | sh
 
@@ -31,10 +31,10 @@ install_lang_python() {
   stow --verbose conda
 }
 
-install_lang_ruby() {
-  log "Installing Ruby..."
-  sudo apt install -y ruby-full
-}
+# install_lang_ruby() {
+#   log "Installing Ruby..."
+#   sudo apt install -y ruby-full
+# }
 
 install_lang_nodejs() {
   log "Installing Nodejs using nvm with npm..."
@@ -48,7 +48,7 @@ install_languages() {
   install_lang_c
   install_lang_rust
   install_lang_python
-  install_lang_ruby
+  # install_lang_ruby
   install_lang_nodejs
 }
 

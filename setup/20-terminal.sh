@@ -44,7 +44,7 @@ install_neovim() {
   stow --verbose vimrc
 
   log "Installing and setting up Neovim..."
-  sudo apt install -y nvim
+  sudo apt install -y neovim
   cd "$HOME/dotfiles" && stow --verbose nvim
   mkdir -p "$HOME/.cache/nvim/undodir"
 }
@@ -76,8 +76,10 @@ setup_editor() {
   cargo install stylua
   stow --verbose stylua
 
-  log "Installing typescript-language-server and prettier..."
+  log "Installing typescript-language-server..."
   npm install -g typescript typescript-language-server
+
+  log "Installing prettier..."
   npm install -g prettier
 
   log "Installing language servers for HTML, CSS, JS..."

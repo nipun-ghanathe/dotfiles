@@ -26,14 +26,14 @@ install_rclone() {
 
 install_appimagelauncher() {
   log "Installing AppImageLauncher..."
-
   url=$(curl -s https://api.github.com/repos/TheAssassin/AppImageLauncher/releases/latest \
     | jq -r '.assets[]
         | select(.name | test("appimagelauncher.*_amd64\\.deb"))
         | .browser_download_url')
-  curl -L -o "$HOME/Downloads/$(basename "$url")" "$url"
-  sudo dpkg -i $HOME/Downloads/appimagelauncher*_amd64.deb
-  rm $HOME/Downloads/appimagelauncher*_amd64.deb
+  debfile="$HOME/Downloads/$(basename "$url")"
+  curl -L -o "$debfile" "$url"
+  sudo dpkg -i "$debfile"
+  rm "$debfile"
 }
 
 install_other_tools() {

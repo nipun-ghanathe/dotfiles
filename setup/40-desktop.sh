@@ -42,7 +42,6 @@ install_desktop_utilities() {
 setup_fonts() {
   log "Setting up Fonts..."
   stow --verbose fonts
-  sudo apt install -y fonts-indic
 }
 
 setup_desktop() {

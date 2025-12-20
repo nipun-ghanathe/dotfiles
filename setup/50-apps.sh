@@ -9,14 +9,14 @@ install_browser() {
 
 install_obsidian() {
   log "Installing Obsidian..."
-
   url=$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest \
     | jq -r '.assets[]
         | select(.name | test("obsidian.*amd64\\.deb"))
         | .browser_download_url')
-  curl -L -o "$HOME/Downloads/$(basename "$url")" "$url"
-  sudo dpkg -i $HOME/Downloads/obsidian*amd64.deb
-  rm $HOME/Downloads/obsidian*amd64.deb
+  debfile="$HOME/Downloads/$(basename "$url")"
+  curl -L -o "$debfile" "$url"
+  sudo dpkg -i "$debfile"
+  rm "$debfile"
 }
 
 install_apps() {

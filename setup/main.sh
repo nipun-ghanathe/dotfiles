@@ -28,6 +28,31 @@ if ! groups "$USER" | grep -qw sudo; then
   err "User not in sudo group. Add user to sudo group."
 fi
 
+log "Adding DebianUnstable to APT sources..."
+# make sure the directories exist
+mkdir -p /etc/apt/sources.list.d
+mkdir -p /etc/apt/preferences.d
+# add unstable sources
+sudo tee /etc/apt/sources.list.d/sid.sources > /dev/null <<'EOF'
+Types: deb
+URIs: https://deb.debian.org/debian/
+Suites: sid
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+EOF
+# use pinning to prevent automatic installs from unstable
+sudo tee /etc/apt/preferences.d/99-preferences > /dev/null <<'EOF'
+Package: *
+Pin: release n=trixie
+Pin-Priority: 900
+
+Package: *
+Pin: release a=unstable
+Pin-Priority: 100
+EOF
+# modernize-sources if any
+sudo apt modernize-sources -y
+
 log "Updating apt-cache and upgrading apps..."
 sudo apt update
 sudo apt upgrade -y
