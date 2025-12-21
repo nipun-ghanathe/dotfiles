@@ -20,6 +20,6 @@ case "$choice" in
     Reboot) exec systemctl reboot ;;
     Lock) exec swaylock ;;
     Logout) exec swaymsg exit ;;
-    Supend) systemctl suspend ;;
+    Suspend) systemctl suspend ;;
     Hibernate) systemctl hibernate ;;
 esac
