@@ -19,7 +19,7 @@
   "custom/power": {
     "format": "󰣇",
     "tooltip": false,
-    "on-click": "$HOME/.config/hypr/scripts/system_dmenu.sh",
+    "on-click": "$HOME/.config/hypr/scripts/system-dmenu.sh",
   },
 
   "hyprland/workspaces": {
