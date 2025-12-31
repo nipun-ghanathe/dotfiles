@@ -1,0 +1,1 @@
+/home/nipun/.config/theme/neovim.lua

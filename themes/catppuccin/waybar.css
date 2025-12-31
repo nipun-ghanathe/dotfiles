@@ -1,0 +1,6 @@
+@define-color bg #11111b;
+@define-color fg rgb(205, 214, 244);
+@define-color overlay rgba(205, 214, 244, 0.08);
+@define-color blue #89b4fa;
+@define-color yellow #f9e2af;
+@define-color red #f38ba8;

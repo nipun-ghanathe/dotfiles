@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup directory to Google Drive
+
+[Service]
+Type=oneshot
+ExecStart=%h/dotfiles/extras/rclone/sync-gdrive-verbose.sh

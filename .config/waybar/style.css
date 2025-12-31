@@ -1,0 +1,81 @@
+@import "../theme/waybar.css";
+
+* {
+  all: unset;
+
+  font-family: "FiraCode Nerd Font Propo", "FiraCode Nerd Font";
+  font-size: 12px;
+}
+
+window#waybar {
+  /* border-radius: 5px; */
+  background-color: @bg;
+  color: @fg;
+}
+
+tooltip {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modules-left {
+  margin-left: 10px;
+}
+
+.modules-right {
+  margin-right: 4px;
+}
+
+#custom-power {
+  color: @blue;
+  margin-right: 5px;
+}
+
+#workspaces button {
+  padding: 0.8 6 0px;
+  margin: 0 1.5px;
+  border-bottom: 0.8px solid transparent;
+  color: @fg;
+  transition: background-color 0.2s;
+  transition: border 0.2s;
+}
+
+#workspaces button.active {
+  background-color: @overlay;
+  border-color: @blue;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+}
+
+#submap {
+  background-color: @blue;
+  color: @bg;
+  padding: 0 10px;
+  margin-left: 2px;
+}
+
+#wireplumber,
+#network,
+#battery,
+#clock {
+  padding: 0 10px;
+  margin-left: 1px;
+  border-radius: 12px;
+}
+
+#workspaces button:hover,
+#wireplumber:hover,
+#network:hover,
+#battery:hover,
+#clock:hover {
+  background-color: @overlay;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}

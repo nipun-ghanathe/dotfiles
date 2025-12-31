@@ -1,0 +1,8 @@
+fork = true
+
+[font]
+normal = ["FiraCode Nerd Font"]
+size = 11.0
+
+[font.features]
+"FiraCode Nerd Font" = ["-calt", "-liga"]

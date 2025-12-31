@@ -1,0 +1,11 @@
+* {
+    bg:            #1e1e2e;
+    bg-alt:        #11111b;
+    fg:            #bac2de;
+    red:           #f38ba8;
+    green:         #a6e3a1;
+    yellow:        #f9e2af;
+    blue:          #89b4fa;
+    selected-bg:   #313244;
+    selected-fg:   #cdd6f4;
+}

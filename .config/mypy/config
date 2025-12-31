@@ -1,0 +1,3 @@
+[mypy]
+cache_dir = $HOME/.cache/mypy/
+disable_error_code = import-not-found, import-untyped
