@@ -1,20 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# exports
-export EDITOR=nvim
-export VISUAL=nvim
-export BROWSER=xdg-open
-export PAGER="less -R"
-export LESS="R"
-# export PAGER="less -FRX"
-# export LESS="FRX"
-
-# paths
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
-[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
-
 # history options
 export HISTSIZE=10000
 export HISTFILESIZE=10000
