@@ -70,6 +70,28 @@ Install linters via Mason
 
 Install others like `djlint` when needed.
 
+# Post Install
+
+After doing the above installation and setup, you may still want to do these
+manual things:
+
+- Install Obsidian AppImage, move it to `~/apps`, make it executable, and move the `.desktop` and
+  `icon.png` file found after `./obsdian.AppImage --appimage-extract` to
+  `~/.local/share/applications` and `~/.local/share/icons` respectively.
+
+- Setup rclone by running
+
+```bash
+rclone config create gdrive drive
+```
+
+- Setup auto drive backup every 3 days
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable --now drive_backup.timer
+```
+
 # TODOs
 
 - [ ] Make a way to automate the setup - script / ISO
