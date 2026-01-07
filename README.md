@@ -3,7 +3,7 @@ Multiple themes are available.
 
 # Usage
 
-*(After installing all required packages - see next section for installation)*
+_(After installing all required packages - see next section for installation)_
 
 To get all the main config files:
 
@@ -59,7 +59,7 @@ Install LSPs via Mason
 Install formatters via Mason
 
 ```
-:MasonInstall ruff prettier stylua mdformat
+:MasonInstall ruff prettier stylua
 ```
 
 Install linters via Mason

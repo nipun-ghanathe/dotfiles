@@ -15,7 +15,7 @@ return {
       typescriptreact = { "prettier" },
       json = { "prettier" },
       jsonc = { "prettier" },
-      markdown = { "mdformat" },
+      markdown = { "prettier" },
     },
     default_format_opts = {
       lsp_format = "fallback",
