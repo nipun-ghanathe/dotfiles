@@ -16,7 +16,6 @@ return {
       "html",
     },
     user_default_options = {
-      names = false,
       css = true,
       -- -- Tailwind colors.  boolean|'normal'|'lsp'|'both'.  True sets to 'normal'
       -- tailwind = false, -- Enable tailwind colors
