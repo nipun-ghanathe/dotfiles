@@ -12,7 +12,7 @@ export LESS="R"
 # paths
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ -f "$HOME/.npm-global/bin" ]] && export PATH="$HOME/.npm-global/bin:$PATH"
+[[ -d "$HOME/.npm-global/bin" ]] && export PATH="$HOME/.npm-global/bin:$PATH"
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # [[ -f ~/.bashrc ]] && . ~/.bashrc
