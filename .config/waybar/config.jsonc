@@ -24,9 +24,6 @@
 
   "hyprland/workspaces": {
     "format": "{icon}",
-    "persistent-workspaces": {
-      "*": 5,
-    },
   },
 
   "clock": {
