@@ -1,5 +1,6 @@
 return {
   "jpalardy/vim-slime",
+  enabled = false,
   lazy = true,
   init = function()
     -- these two should be set before the plugin loads
