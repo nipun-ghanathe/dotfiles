@@ -6,6 +6,7 @@ brightnessctl
 cliphist
 efibootmgr
 fd
+foot
 fuse2
 fzf
 git
@@ -16,7 +17,6 @@ hypridle
 hyprland
 hyprlock
 intel-ucode
-kitty
 libpulse
 linux
 linux-firmware

@@ -45,7 +45,7 @@
     "tooltip-format-wifi": " {essid}",
     "tooltip-format-ethernet": " {ipaddr}",
     "format-disconnected": " ",
-    "on-click": "kitty -e nmtui",
+    "on-click": "foot -e nmtui",
     "interval": 10,
   },
 
