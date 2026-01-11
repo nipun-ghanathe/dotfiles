@@ -1,4 +1,4 @@
-@import "~/.config/theme/rofi.rasi"
+@import "colors.rasi"
 
 * {
     border-color:  @blue;

@@ -1,5 +1,6 @@
 This repo stores all my configuration files.\
-Multiple themes are available.
+The main color theme used is based on Graphite-gtk-theme which is based on
+[2014 Material Design Color Palette](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors). I have mainly used the 300 colors.
 
 # Usage
 
@@ -8,16 +9,9 @@ _(After installing all required packages - see next section for installation)_
 To get all the main config files:
 
 ```bash
-# Clone this repo
 git clone --depth=1 "https://github.com/nipun-ghanathe/dotfiles.git" "$HOME/dotfiles"
-
-# cd into the repo and stow
 cd "$HOME/dotfiles"
 stow .
-
-# create symlinks for theme
-ln -snf "$HOME/dotfiles/themes/catppuccin" "$HOME/.config/theme"
-ln -snf "$HOME/.config/theme/neovim.lua" "$HOME/dotfiles/.config/nvim/lua/plugins/colors.lua"
 ```
 
 To use any of the `extras` config files, cd into `dotfiles/extras` and use

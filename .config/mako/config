@@ -1,4 +1,4 @@
-include=~/.config/theme/mako.ini
+include=~/.config/mako/colors.ini
 
 margin=20
 padding=5

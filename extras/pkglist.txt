@@ -39,7 +39,6 @@ rofi
 slurp
 stow
 swappy
-swaybg
 tree-sitter-cli
 ttf-firacode-nerd
 unzip

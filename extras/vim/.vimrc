@@ -15,3 +15,6 @@ set incsearch
 set ignorecase
 set smartcase
 set nohlsearch
+
+" colorscheme
+colorscheme evening

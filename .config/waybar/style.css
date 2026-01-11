@@ -1,4 +1,4 @@
-@import "../theme/waybar.css";
+@import "colors.css";
 
 * {
   all: unset;
