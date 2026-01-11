@@ -94,4 +94,5 @@ systemctl --user enable --now drive_backup.timer
 
 # TODOs
 
+- [ ] Use a single theme for most things (waybar, mako, rofi, ...) and keep your theme switcher minimal (maybe just terminal and editor)
 - [ ] Make a way to automate the setup - script / ISO
