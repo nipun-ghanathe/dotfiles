@@ -23,7 +23,6 @@ vim.keymap.set("n", "<leader>tv", function()
   vim.cmd("botright vert term")
   vim.cmd("vertical resize " .. math.floor(vim.o.columns * 0.4))
 end, { desc = "Vertical Terminal" })
-vim.keymap.set("t", "<C-S-v>", '<c-\\><c-n>"+pi', { desc = "Paste clipboard text in terminal" })
 
 -- Tab navigation
 for i = 1, 8 do
