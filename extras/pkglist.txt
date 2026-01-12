@@ -7,7 +7,6 @@ cliphist
 efibootmgr
 fd
 foot
-fuse2
 fzf
 git
 github-cli
