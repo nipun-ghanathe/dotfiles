@@ -30,12 +30,6 @@ for i = 1, 8 do
 end
 vim.keymap.set({ "n", "t" }, "<m-9>", "<cmd>tablast<cr>", { desc = "Go to last tab" })
 
--- Window navigation
-vim.keymap.set({ "n", "t" }, "<m-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
-vim.keymap.set({ "n", "t" }, "<m-j>", "<cmd>wincmd j<cr>", { desc = "Go to down window" })
-vim.keymap.set({ "n", "t" }, "<m-k>", "<cmd>wincmd k<cr>", { desc = "Go to up window" })
-vim.keymap.set({ "n", "t" }, "<m-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
-
 -- Cmdline mappings
 vim.keymap.set("c", "<c-a>", "<home>")
 vim.keymap.set("c", "<c-e>", "<end>")
