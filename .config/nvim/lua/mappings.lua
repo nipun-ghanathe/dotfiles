@@ -25,6 +25,8 @@ vim.keymap.set("n", "<leader>tv", function()
 end, { desc = "Vertical Terminal" })
 
 -- Tab navigation
+vim.keymap.set({ "n", "t" }, "<c-tab>", "<cmd>tabnext<cr>", { desc = "Go to next tab" })
+vim.keymap.set({ "n", "t" }, "<c-s-tab>", "<cmd>tabprev<cr>", { desc = "Go to previous tab" })
 for i = 1, 8 do
   vim.keymap.set({ "n", "t" }, "<m-" .. i .. ">", "<cmd>" .. i .. "tabnext<cr>", { desc = "Go to tab " .. i })
 end
