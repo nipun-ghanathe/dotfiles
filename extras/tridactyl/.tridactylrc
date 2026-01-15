@@ -11,4 +11,4 @@ bind J tabnext
 bind K tabprev
 
 bind yp composite js document.location.pathname.replace(/^\/+/, "") | clipboard yank
-bindurl https://github.com yg composite js "git clone " + document.location.origin + document.location.pathname.replace(/^((\/[^/]+){2}).*$/, "$1") | clipboard yank
+bindurl https://github.com yg composite js "git clone " + document.location.origin + document.location.pathname.replace(/^((\/[^/]+){2}).*$/, "$1") + ".git" | clipboard yank
