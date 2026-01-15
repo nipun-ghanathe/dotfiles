@@ -31,7 +31,6 @@ return {
     require("neogit").setup(opts)
 
     vim.api.nvim_create_autocmd("FileType", {
-      group = vim.api.nvim_create_augroup("custom_ng_autocmds", { clear = true }),
       pattern = "Neogit*",
       callback = function()
         vim.opt_local.cursorlineopt = "both"

@@ -22,7 +22,6 @@ vim.opt.shiftwidth = 2
 
 -- Change tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("user_cmds_tabstop", { clear = true }),
   desc = "four space indenting",
   pattern = { "python", "c", "cpp", "java", "rust", "php" },
   callback = function()
