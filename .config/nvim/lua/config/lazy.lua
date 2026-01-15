@@ -18,13 +18,20 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { import = "plugins" },
+    { import = "plugins.core" },
+    { import = "plugins.extras" },
   },
-  install = {
-    colorscheme = { "habamax" },
-  },
+  lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
   checker = {
     enabled = true,
     notify = false,
+  },
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
+  install = {
+    missing = true,
+    colorscheme = { "default" },
   },
 })

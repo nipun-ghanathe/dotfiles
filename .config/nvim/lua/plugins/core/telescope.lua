@@ -66,13 +66,13 @@ return {
     end, { desc = "Telescope: Find Keymaps" })
 
     vim.keymap.set("n", "<leader>pp", function()
-      require("plugins.telescope.pick_project").directory_picker()
+      require("plugins.core.telescope.pick_project").directory_picker()
     end, { desc = "Pick Project" })
     vim.keymap.set("n", "<leader>ptp", function()
-      require("plugins.telescope.pick_project").directory_picker("tcd")
+      require("plugins.core.telescope.pick_project").directory_picker("tcd")
     end, { desc = "Pick Tab Project" })
     vim.keymap.set("n", "<leader>plp", function()
-      require("plugins.telescope.pick_project").directory_picker("lcd")
+      require("plugins.core.telescope.pick_project").directory_picker("lcd")
     end, { desc = "Pick Window Project" })
   end,
 }

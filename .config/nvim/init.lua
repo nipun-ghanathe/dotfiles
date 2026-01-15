@@ -1,6 +1,6 @@
-require("mappings")
-require("autocmds")
-require("usercmds")
-require("options")
-require("lazy_config")
-require("lsp_config")
+require("core.mappings")
+require("core.autocmds")
+require("core.options")
+
+require("config.lsp")
+require("config.lazy")
