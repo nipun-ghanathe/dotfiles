@@ -29,7 +29,7 @@ alias fgrep="fgrep --color=auto"
 v() {
   [[ -z "$NVIM" ]] && echo "v: made for running in neovim terminals only" >&2 && return 1
   [[ "$#" -ne 1 ]] && echo "v: error: only one argument is allowed" >&2 && return 1
-  nvim --server "$NVIM" --remote-tab "$(realpath "$1")"
+  nvim --server "$NVIM" --remote "$(realpath "$1")"
 }
 
 # shell integrations
