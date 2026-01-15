@@ -83,6 +83,11 @@ manual things:
 
 # Optional - Post Install
 
+- Set up Tridactyl _(If Firefox sync doesn't)_
+
+  ```
+  :source --url https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs/heads/main/extras/tridactyl/.tridactylrc
+  ```
 
 # TODOs
 
