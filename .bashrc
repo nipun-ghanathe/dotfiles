@@ -13,6 +13,7 @@ PS1=$long_prompt
 toggle_short_prompt() {
   [[ "$PS1" == "$long_prompt" ]] && PS1="$short_prompt" || PS1="$long_prompt"
 }
+alias tsp="toggle_short_prompt"
 
 # aliases
 alias vi="nvim"
