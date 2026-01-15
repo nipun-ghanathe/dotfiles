@@ -1,24 +1,24 @@
 -- Appearance
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.termguicolors = true
-vim.opt.colorcolumn = "80"
-vim.opt.signcolumn = "yes"
-vim.opt.wrap = false
-vim.opt.list = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.termguicolors = true
+vim.o.colorcolumn = "80"
+vim.o.signcolumn = "yes"
+vim.o.wrap = false
+vim.o.list = true
 vim.opt.listchars = {}
-vim.opt.winborder = "rounded"
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
+vim.o.winborder = "rounded"
+vim.o.cursorline = true
+vim.o.cursorlineopt = "number"
 vim.opt.guicursor:append("ci:block")
 
 -- Indentation and tabs
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
 
 -- Change tab length based on filetype
 vim.api.nvim_create_autocmd("FileType", {
@@ -32,14 +32,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Behaviour
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.confirm = true
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.hlsearch = false
+vim.o.confirm = true
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
-vim.opt.timeoutlen = 500 -- Decreasing mapped sequence wait time
-vim.opt.undofile = true -- Setting persistent undo
+vim.o.timeoutlen = 500 -- Decreasing mapped sequence wait time
+vim.o.undofile = true -- Setting persistent undo
 
 -- Netrw
 -- vim.g.netrw_liststyle = 3 -- tree list style
@@ -49,18 +49,18 @@ vim.g.netrw_localcopydircmd = "cp -r"
 vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" })
 
 -- Folds
-vim.opt.foldenable = false
-vim.opt.foldcolumn = "0"
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
+vim.o.foldenable = false
+vim.o.foldcolumn = "0"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 vim.opt.fillchars = {
   foldopen = "",
   foldclose = "",
   fold = " ",
   foldsep = " ",
 }
-vim.opt.foldmethod = "indent"
-vim.opt.foldtext = [[v:lua.MyFoldText()]]
+vim.o.foldmethod = "indent"
+vim.o.foldtext = [[v:lua.MyFoldText()]]
 function _G.MyFoldText()
   local fs, fe = vim.v.foldstart, vim.v.foldend
   local num_lines = fe - fs + 1
