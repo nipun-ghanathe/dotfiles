@@ -12,7 +12,7 @@ select = [
     "DOC",      # Pydoclint – docstring linting and consistency
     "UP",       # Pyupgrade – upgrades syntax to newer Python versions
     "YTT",      # Flake8-2020 – checks for Python 2020 best practices
-    "ANN",      # Flake8-annotations – enforces type annotation style
+    # "ANN",      # Flake8-annotations – enforces type annotation style
     "ASYNC",    # Flake8-async – checks async/await usage
     "S",        # Flake8-bandit – security issues
     "BLE",      # Flake8-blind-except – flags bare excepts
@@ -65,8 +65,6 @@ ignore = [
     "S311",     # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
     "FA102",    # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
     "COM812",   # Flake8-commas - Checks for the absence of trailing commas (Let the formatter handle this)
-    "ANN002",   # Flake8-annotations - Checks that function `*args` arguments have type annotations.
-    "ANN003",   # Flake8-annotations - Checks that function `**kwargs` arguments have type annotations.
     "RET504",   # Flake8-return - Checks for variable assignments that immediately precede a `return` of the assigned variable.
 ]
 
