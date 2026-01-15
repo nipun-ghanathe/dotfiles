@@ -19,7 +19,7 @@ local venv_bin = vim.fs.joinpath(venv_dir, "bin")
 local venv_python = vim.fs.joinpath(venv_bin, "python")
 
 -- exit if the virtual env does not exist
-if not vim.fn.executable(venv_python) then
+if vim.fn.executable(venv_python) == 0 then
   return 1
 end
 -- else do the required things to set venv up
