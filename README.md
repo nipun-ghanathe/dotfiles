@@ -71,6 +71,4 @@ manual things:
 
 # TODOs
 
-- [ ] Add themes for foot and add a theme switcher script to switch both
-      themes of foot and neovim at once
 - [ ] Make a way to automate the setup - script / ISO
