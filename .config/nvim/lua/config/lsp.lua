@@ -5,7 +5,7 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("pyright")
 vim.lsp.config("ruff", {
-  on_attach = function(client, bufnr)
+  on_attach = function()
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = "*.py",
       desc = "Code action on save: Organize imports",
@@ -21,6 +21,7 @@ vim.lsp.config("ruff", {
 })
 vim.lsp.enable("ruff")
 
+-- TODO: If Neovim gets snippet support remove these lines
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config("html", { capabilities = capabilities })
