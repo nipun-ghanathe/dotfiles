@@ -48,3 +48,12 @@ wl-clipboard
 xdg-desktop-portal-hyprland
 xdg-utils
 zram-generator
+
+lua-language-server
+prettier
+pyright
+ruff
+stylua
+typescript-language-server
+vscode-css-languageserver
+vscode-html-languageserver

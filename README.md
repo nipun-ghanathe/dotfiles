@@ -32,11 +32,11 @@ sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist-extras.txt"
 
 ## Neovim Setup
 
-You can run all the following commands without opening Neovim by using
+You can run the following commands without opening Neovim by using
 something like:
 
 ```bash
-nvim --headless -c "MasonInstall lsp1 lsp2..." -c qall
+nvim --headless -c "TSInstall parser1 parser2..." -c qall
 ```
 
 Install treesitter parsers
@@ -44,26 +44,6 @@ Install treesitter parsers
 ```
 :TSInstall python c cpp lua rust go bash html css javascript typescript vim vimdoc gitignore markdown json yaml toml
 ```
-
-Install LSPs via Mason
-
-```
-:MasonInstall pyright typescript-language-server html-lsp css-lsp lua-language-server
-```
-
-Install formatters via Mason
-
-```
-:MasonInstall ruff prettier stylua
-```
-
-Install linters via Mason
-
-```
-:MasonInstall ruff mypy
-```
-
-Install others like `djlint` when needed.
 
 # Post Install
 
