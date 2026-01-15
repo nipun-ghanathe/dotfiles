@@ -9,6 +9,8 @@
 [alias]
 	hist = log --oneline --graph --all --decorate=short
 	lg = log --oneline -n 30 --decorate=short
+[url "https://github.com/"]
+	insteadOf = gh:
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
