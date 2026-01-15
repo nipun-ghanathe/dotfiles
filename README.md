@@ -1,4 +1,5 @@
-This repo stores all my configuration files.\
+This repo stores all my configuration files.
+
 The main color theme used is based on Graphite-gtk-theme which is based on
 [2014 Material Design Color Palette](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors). I have mainly used the 300 colors.
 
@@ -69,24 +70,22 @@ Install others like `djlint` when needed.
 After doing the above installation and setup, you may still want to do these
 manual things:
 
-- Install Obsidian AppImage, move it to `~/apps`, make it executable, and move the `.desktop` and
-  `icon.png` file found after `./obsdian.AppImage --appimage-extract` to
-  `~/.local/share/applications` and `~/.local/share/icons` respectively.
+- Setup rclone and auto drive backup for every 3 days
 
-- Setup rclone by running
+  ```bash
+  rclone config create gdrive drive
+  ```
 
-```bash
-rclone config create gdrive drive
-```
+  ```bash
+  systemctl --user daemon-reload
+  systemctl --user enable --now drive_backup.timer
+  ```
 
-- Setup auto drive backup every 3 days
+# Optional - Post Install
 
-```bash
-systemctl --user daemon-reload
-systemctl --user enable --now drive_backup.timer
-```
 
 # TODOs
 
-- [ ] Use a single theme for most things (waybar, mako, rofi, ...) and keep your theme switcher minimal (maybe just terminal and editor)
+- [ ] Add themes for foot and add a theme switcher script to switch both
+      themes of foot and neovim at once
 - [ ] Make a way to automate the setup - script / ISO
