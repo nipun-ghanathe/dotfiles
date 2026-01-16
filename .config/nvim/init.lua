@@ -12,5 +12,6 @@ require("config.editing")
 require("config.filenav")
 require("config.git")
 require("config.format")
+-- require("config.cmp")
 
 require("config.colors")
