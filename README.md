@@ -30,21 +30,6 @@ sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist.txt"
 sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist-extras.txt"
 ```
 
-## Neovim Setup
-
-You can run the following commands without opening Neovim by using
-something like:
-
-```bash
-nvim --headless -c "TSInstall parser1 parser2..." -c qall
-```
-
-Install treesitter parsers
-
-```
-:TSInstall python c cpp lua rust go bash html css javascript typescript vim vimdoc gitignore markdown json yaml toml
-```
-
 # Post Install
 
 After doing the above installation and setup, you may still want to do these
