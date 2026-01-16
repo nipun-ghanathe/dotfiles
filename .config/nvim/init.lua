@@ -9,3 +9,4 @@ require("config.treesitter")
 
 require("config.editing")
 require("config.git")
+require("config.format")
