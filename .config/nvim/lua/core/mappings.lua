@@ -2,12 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- File Explorer (netrw)
-vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Explore - Open netrw" })
-vim.keymap.set("n", "<leader>.", function()
-  vim.cmd("Ex " .. vim.fn.getcwd())
-end, { desc = "Explore - Open netrw in cwd" })
-
 -- Managing system clipboard
 vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })

@@ -41,16 +41,9 @@ vim.o.exrc = true
 vim.o.confirm = true
 vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "noselect", "popup" }
 vim.o.timeoutlen = 500 -- Decreasing mapped sequence wait time
-vim.o.undofile = true -- Setting persistent undo
+vim.o.undofile = true  -- Setting persistent undo
 vim.o.autocomplete = true
 vim.opt.complete = { "o", ".", "w", "t" }
-
--- Netrw
--- vim.g.netrw_liststyle = 3 -- tree list style
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 30
-vim.g.netrw_localcopydircmd = "cp -r"
-vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" })
 
 -- Folds
 vim.o.foldenable = false
@@ -59,11 +52,11 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "indent"
 vim.o.foldtext = [[v:lua.MyFoldText()]]
+-- For configuring hi-groups for Folded use this `after` setting colorscheme
+-- vim.cmd([[hi Folded guibg=NONE guifg=NONE]])
 function _G.MyFoldText()
   local fs, fe = vim.v.foldstart, vim.v.foldend
   local num_lines = fe - fs + 1
   return vim.fn.getline(fs) .. "  "
   -- return vim.fn.getline(fs) .. "  --- " .. num_lines .. " lines"
 end
--- For configuring hi-groups for Folded use this `after` setting colorscheme
--- vim.cmd([[hi Folded guibg=NONE guifg=NONE]])
