@@ -7,7 +7,7 @@ vim.o.signcolumn = "yes"
 vim.o.wrap = false
 vim.o.list = true
 vim.opt.listchars = {}
-vim.o.winborder = "rounded"
+vim.o.winborder = "single"
 vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
 vim.opt.guicursor:append("ci:block")
