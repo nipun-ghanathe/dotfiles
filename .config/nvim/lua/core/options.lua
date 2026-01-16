@@ -41,7 +41,7 @@ vim.o.exrc = true
 vim.o.confirm = true
 vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "noselect", "popup" }
 vim.o.timeoutlen = 500 -- Decreasing mapped sequence wait time
-vim.o.undofile = true  -- Setting persistent undo
+vim.o.undofile = true -- Setting persistent undo
 vim.o.autocomplete = true
 vim.opt.complete = { "o", ".", "w", "t" }
 
