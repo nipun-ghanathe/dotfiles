@@ -27,6 +27,7 @@ vim.cmd.colorscheme(theme_name)
 
 -- Autocmd to write theme name to theme file whenever colorscheme is changed
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  group = "user_autocmds",
   desc = "write colorscheme name to stdpath(data)/theme.txt",
   callback = function()
     vim.fn.writefile({ vim.g.colors_name }, theme_file)

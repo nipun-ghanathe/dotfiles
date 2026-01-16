@@ -1,8 +1,8 @@
-local augroup = vim.api.nvim_create_augroup("user_autocmds", { clear = true })
+vim.api.nvim_create_augroup("user_autocmds", { clear = true })
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup,
+  group = "user_autocmds",
   desc = "Highlight on yank",
   callback = function()
     vim.hl.on_yank({ higroup = "Visual", timeout = 200 })
@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Exit using 'q' on some filetypes
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup,
+  group = "user_autocmds",
   desc = "Quit some windows simply using 'q'",
   pattern = { "help", "man", "git" },
   callback = function()

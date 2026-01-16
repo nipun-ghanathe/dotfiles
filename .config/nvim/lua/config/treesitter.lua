@@ -22,6 +22,7 @@ local lang_parsers = {
 
 -- Install/update parsers along with nvim-treesitter
 vim.api.nvim_create_autocmd("PackChanged", {
+  group = "pack_user_autocmds",
   desc = "Install/update Treesitter Parsers on PackChanged nvim-treesitter",
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
@@ -43,8 +44,12 @@ vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 })
 
+-- Create augroup to use with treesitter related autocmds
+vim.api.nvim_create_augroup("treesitter_user_autocmds", { clear = true })
+
 -- Enable treesitter features for installed parsers
 vim.api.nvim_create_autocmd("FileType", {
+  group = "treesitter_user_autocmds",
   desc = "Enabling Treesitter features",
   -- NOTE: lang_parsers gets mutated
   pattern = vim.list_extend(lang_parsers, { "sh", "jsonc" }),

@@ -4,10 +4,14 @@ vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 --- Setting up LSP Servers ---
 ------------------------------
 
+-- Create augroup to use with lsp related autocmds
+vim.api.nvim_create_augroup("lsp_user_autocmds", { clear = true })
+
 -- Configure LSPs
 vim.lsp.config("ruff", {
   on_attach = function()
     vim.api.nvim_create_autocmd("BufWritePre", {
+      group = "lsp_user_autocmds",
       pattern = "*.py",
       desc = "Code action on save: Organize imports",
       callback = function()
@@ -55,6 +59,7 @@ vim.diagnostic.config({
 -- ----------------
 --
 -- vim.api.nvim_create_autocmd("LspAttach", {
+--   group = "lsp_user_autocmds"
 --   callback = function(event)
 --     vim.keymap.set(...)
 --   end,

@@ -18,7 +18,9 @@ vim.g.slime_cell_delimiter = [[^#\s*%%]]
 local ft_cell_delimiters = {
   python = [[^#\s*%%]],
 }
+local augroup = vim.api.nvim_create_augroup("slime_user_autocmds", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
+  groups = augroup,
   desc = "Set slime cell delimiter",
   pattern = "*",
   callback = function(ev)

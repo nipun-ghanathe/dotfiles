@@ -1,6 +1,8 @@
-require("core.mappings")
 require("core.autocmds")
+require("core.mappings")
 require("core.options")
+
+require("config.pack")
 
 require("config.netrw")
 require("config.terminal")
