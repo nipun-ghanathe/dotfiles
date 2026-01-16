@@ -1,8 +1,8 @@
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 
---------------------------
---- Setting up LSP Servers
---------------------------
+------------------------------
+--- Setting up LSP Servers ---
+------------------------------
 
 -- Configure LSPs
 vim.lsp.config("ruff", {
@@ -36,9 +36,10 @@ vim.lsp.enable({
   "cssls",
 })
 
--------------------------
---- Configure diagnostics
--------------------------
+-----------------------------
+--- Configure diagnostics ---
+-----------------------------
+
 vim.diagnostic.config({
   underline = true,
   virtual_text = false,
@@ -52,6 +53,7 @@ vim.diagnostic.config({
 -- ----------------
 -- --- LSP mappings
 -- ----------------
+--
 -- vim.api.nvim_create_autocmd("LspAttach", {
 --   callback = function(event)
 --     vim.keymap.set(...)

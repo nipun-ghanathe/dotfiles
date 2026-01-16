@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup("user_autocmds", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup,
   desc = "Highlight on yank",
-  callback = function(event)
+  callback = function()
     vim.hl.on_yank({ higroup = "Visual", timeout = 200 })
   end,
 })
@@ -16,5 +16,12 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "help", "man", "git" },
   callback = function()
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = true })
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    vim.lsp.buf.format()
   end,
 })

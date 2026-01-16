@@ -1,3 +1,4 @@
+-- List parsers
 local lang_parsers = {
   "python",
   "c",
@@ -19,6 +20,7 @@ local lang_parsers = {
   "toml",
 }
 
+-- Install/update parsers along with nvim-treesitter
 vim.api.nvim_create_autocmd("PackChanged", {
   desc = "Install/update Treesitter Parsers on PackChanged nvim-treesitter",
   callback = function(ev)
@@ -35,11 +37,13 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
+-- Add plugin nvim-treesitter
 vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 })
 
+-- Enable treesitter features for installed parsers
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Enabling Treesitter features",
   -- NOTE: lang_parsers gets mutated
@@ -52,7 +56,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-------------------------------------
---- Treesitter-context configuration
-------------------------------------
+----------------------------------------
+--- Treesitter-context configuration ---
+----------------------------------------
+
 vim.api.nvim_set_hl(0, "TreeSitterContextLineNumber", { link = "CursorLineNr" })
