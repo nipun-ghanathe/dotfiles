@@ -5,3 +5,5 @@ require("core.options")
 require("config.terminal")
 require("config.lsp")
 require("config.treesitter")
+
+require("config.editing")
