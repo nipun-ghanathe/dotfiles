@@ -1,9 +1,10 @@
+vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
+
 --------------------------
 --- Setting up LSP Servers
 --------------------------
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("pyright")
+
+-- Configure LSPs
 vim.lsp.config("ruff", {
   on_attach = function()
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -19,15 +20,21 @@ vim.lsp.config("ruff", {
     })
   end,
 })
-vim.lsp.enable("ruff")
-
 -- TODO: If Neovim gets snippet support remove these lines
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config("html", { capabilities = capabilities })
-vim.lsp.enable("html")
 vim.lsp.config("cssls", { capabilities = capabilities })
-vim.lsp.enable("cssls")
+
+-- Enable LSPs
+vim.lsp.enable({
+  "lua_ls",
+  "ts_ls",
+  "pyright",
+  "ruff",
+  "html",
+  "cssls",
+})
 
 -------------------------
 --- Configure diagnostics
