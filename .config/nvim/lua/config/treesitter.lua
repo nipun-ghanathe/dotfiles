@@ -51,8 +51,7 @@ vim.api.nvim_create_augroup("treesitter_user_autocmds", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   group = "treesitter_user_autocmds",
   desc = "Enabling Treesitter features",
-  -- NOTE: lang_parsers gets mutated
-  pattern = vim.list_extend(lang_parsers, { "sh", "jsonc" }),
+  pattern = vim.list_extend(vim.deepcopy(lang_parsers), { "sh", "jsonc" }),
   callback = function()
     vim.treesitter.start()
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
