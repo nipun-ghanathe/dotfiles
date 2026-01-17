@@ -5,9 +5,14 @@ The main color theme used is based on Graphite-gtk-theme which is based on
 
 # Usage
 
-_(After installing all required packages - see next section for installation)_
+Install pacman packages
 
-To get all the main config files:
+```bash
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist-extras.txt"
+```
+
+Stow dotfiles
 
 ```bash
 git clone --depth=1 "https://github.com/nipun-ghanathe/dotfiles.git" "$HOME/dotfiles"
@@ -15,19 +20,20 @@ cd "$HOME/dotfiles"
 stow .
 ```
 
+_After stowing dotfiles_
+
+Install npm global packages
+
+```bash
+cat "$HOME/dotfiles/extras/npm-pkglist.txt" | xargs npm install -g
+```
+
+Done...
+
 To use any of the `extras` config files, cd into `dotfiles/extras` and use
 
 ```bash
 stow -t ~ <package>
-```
-
-# Installing Packages
-
-You can install all the required packages using
-
-```bash
-sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist.txt"
-sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist-extras.txt"
 ```
 
 # Post Install
