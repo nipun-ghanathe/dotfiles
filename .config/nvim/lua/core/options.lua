@@ -37,24 +37,10 @@ vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.hlsearch = false
+vim.o.foldenable = false
+vim.o.foldmethod = "indent"
 vim.opt.path:append("**")
 vim.o.exrc = true
 vim.o.confirm = true
 vim.o.timeoutlen = 500 -- Decreasing mapped sequence wait time
 vim.o.undofile = true -- Setting persistent undo
-
--- Folds
-vim.o.foldenable = false
-vim.o.foldcolumn = "0"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldmethod = "indent"
-vim.o.foldtext = [[v:lua.MyFoldText()]]
--- For configuring hi-groups for Folded use this `after` setting colorscheme
--- vim.cmd([[hi Folded guibg=NONE guifg=NONE]])
-function _G.MyFoldText()
-  local fs, fe = vim.v.foldstart, vim.v.foldend
-  local num_lines = fe - fs + 1
-  return vim.fn.getline(fs) .. "  "
-  -- return vim.fn.getline(fs) .. "  --- " .. num_lines .. " lines"
-end
