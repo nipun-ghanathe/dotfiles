@@ -8,7 +8,7 @@ require("config.terminal")
 require("config.pack")
 
 require("config.editing")
-require("config.filenav")
+require("config.fzf")
 require("config.git")
 require("config.format")
 -- require("config.nvim_cmp")
