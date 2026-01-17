@@ -56,4 +56,5 @@ manual things:
 
 # TODOs
 
+- [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO

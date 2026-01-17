@@ -33,11 +33,12 @@ vim.lsp.config("cssls", { capabilities = capabilities })
 -- Enable LSPs
 vim.lsp.enable({
   "lua_ls",
-  "ts_ls",
   "pyright",
   "ruff",
+  "emmet_language_server",
   "html",
   "cssls",
+  "ts_ls",
 })
 
 -----------------------------
@@ -54,13 +55,13 @@ vim.diagnostic.config({
   jump = { float = true },
 })
 
--- ----------------
--- --- LSP mappings
--- ----------------
+-- --------------------
+-- --- LSP mappings ---
+-- --------------------
 --
 -- vim.api.nvim_create_autocmd("LspAttach", {
---   group = "lsp_user_autocmds"
---   callback = function(event)
---     vim.keymap.set(...)
+--   group = "lsp_user_autocmds",
+--   desc = "Set LSP related keymaps",
+--   callback = function(ev)
 --   end,
 -- })
