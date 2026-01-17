@@ -34,8 +34,6 @@ Install npm global packages
 cat "$HOME/dotfiles/extras/npm-pkglist.txt" | xargs npm install -g
 ```
 
-Done...
-
 To use any of the `extras` config files, cd into `dotfiles/extras` and use
 
 ```bash
