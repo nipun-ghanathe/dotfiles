@@ -7,6 +7,4 @@ vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" })
 
 -- Mappings
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Explore - Open netrw" })
-vim.keymap.set("n", "<leader>.", function()
-  vim.cmd("Ex " .. vim.fn.getcwd())
-end, { desc = "Explore - Open netrw in cwd" })
+vim.keymap.set("n", "<leader>.", "<cmd>e .<cr>", { desc = "Explore - Open netrw in cwd" })
