@@ -16,4 +16,12 @@ vim.keymap.set("n", "<leader>fo", require("fzf-lua").nvim_options, { desc = "Fzf
 vim.keymap.set("n", "<leader>fh", require("fzf-lua").helptags, { desc = "Fzf: Helptags" })
 vim.keymap.set("n", "<leader>fm", require("fzf-lua").manpages, { desc = "Fzf: Manpages" })
 
--- TODO: Add keymaps for LSP related FzfLua pickers
+vim.keymap.set("n", "<leader>flds", require("fzf-lua").lsp_document_symbols,
+  { desc = "Fzf: LSP Document Symbols" })
+vim.keymap.set("n", "<leader>fldd", require("fzf-lua").lsp_document_diagnostics,
+  { desc = "Fzf: LSP Document Diagnostics" })
+vim.keymap.set("n", "<leader>flws", require("fzf-lua").lsp_workspace_symbols,
+  { desc = "Fzf: LSP Workspace Symbols" })
+vim.keymap.set("n", "<leader>flwd", require("fzf-lua").lsp_workspace_diagnostics,
+  { desc = "Fzf: LSP Workspace Diagnostics" })
+-- TODO: Add more keymaps for LSP related FzfLua pickers
