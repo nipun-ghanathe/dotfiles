@@ -5,6 +5,13 @@ The main color theme used is based on Graphite-gtk-theme which is based on
 
 # Usage
 
+Install git and clone this repository
+
+```bash
+sudo pacman -S --needed git
+git clone --depth=1 "https://github.com/nipun-ghanathe/dotfiles.git" "$HOME/dotfiles"
+```
+
 Install pacman packages
 
 ```bash
@@ -15,7 +22,6 @@ sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist-extras.txt"
 Stow dotfiles
 
 ```bash
-git clone --depth=1 "https://github.com/nipun-ghanathe/dotfiles.git" "$HOME/dotfiles"
 cd "$HOME/dotfiles"
 stow .
 ```
