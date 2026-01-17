@@ -1,27 +1,37 @@
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 
-require("fzf-lua").setup({ "default" })
+local fzf = require("fzf-lua")
 
-require("fzf-lua").register_ui_select()
+-- Configure fzf-lua
+fzf.setup({
+  keymap = {
+    fzf = {
+      true,
+      -- Use <c-q> to select all items and add them to quickfix list
+      ["ctrl-q"] = "select-all+accept",
+    },
+  },
+})
 
-vim.keymap.set("n", "<leader>pf", require("fzf-lua").git_files, { desc = "Fzf: Project Files" })
-vim.keymap.set("n", "<leader>ff", require("fzf-lua").files, { desc = "Fzf: Files" })
-vim.keymap.set("n", "<leader>fg", require("fzf-lua").live_grep, { desc = "Fzf: Live Grep" })
-vim.keymap.set("n", "<leader>fb", require("fzf-lua").buffers, { desc = "Fzf: Buffers" })
-vim.keymap.set("n", "<leader>fcs", require("fzf-lua").colorschemes, { desc = "Fzf: Colorschemes" })
-vim.keymap.set("n", "<leader>fch", require("fzf-lua").command_history, { desc = "Fzf: Command History" })
-vim.keymap.set("n", "<leader>ft", require("fzf-lua").tagstack, { desc = "Fzf: Tagstack" })
-vim.keymap.set("n", "<leader>fk", require("fzf-lua").keymaps, { desc = "Fzf: Keymaps" })
-vim.keymap.set("n", "<leader>fo", require("fzf-lua").nvim_options, { desc = "Fzf: Nvim Options" })
-vim.keymap.set("n", "<leader>fh", require("fzf-lua").helptags, { desc = "Fzf: Helptags" })
-vim.keymap.set("n", "<leader>fm", require("fzf-lua").manpages, { desc = "Fzf: Manpages" })
+-- Register fzf-lua as the UI interface for vim.ui.select
+fzf.register_ui_select()
 
-vim.keymap.set("n", "<leader>flds", require("fzf-lua").lsp_document_symbols,
-  { desc = "Fzf: LSP Document Symbols" })
-vim.keymap.set("n", "<leader>fldd", require("fzf-lua").lsp_document_diagnostics,
-  { desc = "Fzf: LSP Document Diagnostics" })
-vim.keymap.set("n", "<leader>flws", require("fzf-lua").lsp_workspace_symbols,
-  { desc = "Fzf: LSP Workspace Symbols" })
-vim.keymap.set("n", "<leader>flwd", require("fzf-lua").lsp_workspace_diagnostics,
-  { desc = "Fzf: LSP Workspace Diagnostics" })
+-- Set general keymaps
+vim.keymap.set("n", "<leader>pf", fzf.git_files, { desc = "Fzf: Project Files" })
+vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Fzf: Files" })
+vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Fzf: Live Grep" })
+vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Fzf: Buffers" })
+vim.keymap.set("n", "<leader>fcs", fzf.colorschemes, { desc = "Fzf: Colorschemes" })
+vim.keymap.set("n", "<leader>fch", fzf.command_history, { desc = "Fzf: Command History" })
+vim.keymap.set("n", "<leader>ft", fzf.tagstack, { desc = "Fzf: Tagstack" })
+vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "Fzf: Keymaps" })
+vim.keymap.set("n", "<leader>fo", fzf.nvim_options, { desc = "Fzf: Nvim Options" })
+vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Fzf: Helptags" })
+vim.keymap.set("n", "<leader>fm", fzf.manpages, { desc = "Fzf: Manpages" })
+
+-- Set keymaps for LSP
+vim.keymap.set("n", "<leader>flds", fzf.lsp_document_symbols, { desc = "Fzf: LSP Document Symbols" })
+vim.keymap.set("n", "<leader>fldd", fzf.lsp_document_diagnostics, { desc = "Fzf: LSP Document Diagnostics" })
+vim.keymap.set("n", "<leader>flws", fzf.lsp_workspace_symbols, { desc = "Fzf: LSP Workspace Symbols" })
+vim.keymap.set("n", "<leader>flwd", fzf.lsp_workspace_diagnostics, { desc = "Fzf: LSP Workspace Diagnostics" })
 -- TODO: Add more keymaps for LSP related FzfLua pickers
