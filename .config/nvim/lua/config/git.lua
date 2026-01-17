@@ -4,7 +4,7 @@
 
 vim.pack.add({ "https://github.com/tpope/vim-fugitive" })
 
-vim.keymap.set("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Fugitive summary window" })
+vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Fugitive summary window" })
 
 vim.api.nvim_create_autocmd("User", {
   group = "user_autocmds",
