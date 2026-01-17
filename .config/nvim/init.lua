@@ -1,5 +1,5 @@
 require("core.autocmds")
-require("core.mappings")
+require("core.keymaps")
 require("core.options")
 
 require("config.netrw")
