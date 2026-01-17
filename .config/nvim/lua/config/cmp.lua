@@ -1,5 +1,5 @@
 -- Configure autocompletion
-vim.o.autocomplete = false
+vim.o.autocomplete = true
 vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
 vim.opt.complete = { "o", ".", "w", "t" }
 
