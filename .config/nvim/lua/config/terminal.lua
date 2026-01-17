@@ -1,5 +1,5 @@
 local term_buf
-local toggle_terminal = function()
+local function toggle_terminal()
   if not vim.api.nvim_buf_is_valid(term_buf or -1) then
     vim.cmd.terminal()
     term_buf = vim.api.nvim_get_current_buf()

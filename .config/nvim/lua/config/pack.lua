@@ -3,7 +3,7 @@ vim.api.nvim_create_augroup("pack_user_autocmds", { clear = true })
 
 -- helper functions
 
-local get_pkg_names = function()
+local function get_pkg_names()
   local pkg_names = {}
   for _, pkg in ipairs(vim.pack.get()) do
     table.insert(pkg_names, pkg.spec.name)
