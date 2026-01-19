@@ -68,10 +68,10 @@ M.pick_dir = function(dir_list, opts)
   fzf.fzf_exec(dir_list, opts_merged)
 end
 
-M.pick_project = function()
+M.pick_project = function(search_dir, extra_entries)
   local dirs = vim.list_extend(
-    get_sub_dirs(MAIN_SEARCH_DIR, { mindepth = 2, maxdepth = 2 }),
-    EXTRA_ENTRIES
+    get_sub_dirs(search_dir, { mindepth = 2, maxdepth = 2 }),
+    extra_entries
   )
   vim.list.unique(dirs)
   table.sort(dirs)

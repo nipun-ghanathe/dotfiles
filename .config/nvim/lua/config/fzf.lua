@@ -30,7 +30,11 @@ vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Fzf: Helptags" })
 vim.keymap.set("n", "<leader>fm", fzf.manpages, { desc = "Fzf: Manpages" })
 
 -- Pick Project keymap
-vim.keymap.set("n", "<leader>pp", require("config.pick_project").pick_project, { desc = "My custom project picker" })
+vim.keymap.set("n", "<leader>pp", function()
+  require("config.pick_project").pick_project(vim.fn.expand("~/code"), {
+    vim.fn.expand("~/.config/nvim"),
+  })
+end, { desc = "My custom project picker" })
 
 -- Set keymaps for LSP
 vim.keymap.set("n", "<leader>flds", fzf.lsp_document_symbols, { desc = "Fzf: LSP Document Symbols" })
