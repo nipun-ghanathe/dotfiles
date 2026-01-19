@@ -1,19 +1,30 @@
-----------------
---- Fugitive ---
-----------------
+--------------
+--- Neogit ---
+--------------
 
-vim.pack.add({ "https://github.com/tpope/vim-fugitive" })
+vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim" })
+vim.pack.add({ "https://github.com/NeogitOrg/neogit" })
 
-vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Fugitive summary window" })
+require("neogit").setup({
+  disable_hint = true,
+  disable_context_highlighting = true,
+  remember_settings = false,
+  use_per_project_settings = false,
+  signs = {
+    hunk = { "", "" },
+    item = { "", "" },
+    section = { "▸", "▾" },
+  },
+})
 
-vim.api.nvim_create_autocmd("User", {
+vim.keymap.set("n", "<leader>gs", require("neogit").open, { desc = "Neogit status window" })
+
+vim.api.nvim_create_autocmd("FileType", {
   group = "user_autocmds",
-  desc = "configure fugitive summary window",
-  pattern = { "FugitiveIndex" },
+  pattern = "Neogit*",
   callback = function()
-    vim.api.nvim_win_set_cursor(0, { vim.fn.search("^$", "nW") + 1, 0 })
     vim.opt_local.cursorlineopt = "both"
-    vim.keymap.set("n", "q", "gq", { desc = "Close fugitive summary window", buffer = true, remap = true })
+    vim.opt_local.colorcolumn = "0"
   end,
 })
 
