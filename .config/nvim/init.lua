@@ -18,3 +18,4 @@ require("config.treesitter")
 require("config.cmp")
 
 require("config.colors")
+require("config.statusline")
