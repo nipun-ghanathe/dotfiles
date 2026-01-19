@@ -1,8 +1,3 @@
-local MAIN_SEARCH_DIR = vim.fs.abspath("~/code")
-local EXTRA_ENTRIES = {
-  vim.fs.abspath("~/dotfiles/.config/nvim"),
-}
-
 local fzf = require("fzf-lua")
 
 local M = {}
@@ -44,12 +39,12 @@ M.pick_dir = function(dir_list, opts)
     actions = {
       -- cd into directory and open files picker
       ["default"] = function(selected)
-        vim.uv.chdir(selected[1])
+        vim.cmd.cd(selected[1])
         fzf.files()
       end,
       -- cd into directory and :Explore
       ["ctrl-e"] = function(selected)
-        vim.uv.chdir(selected[1])
+        vim.cmd.cd(selected[1])
         vim.cmd.Ex()
       end,
       -- tcd into directory
