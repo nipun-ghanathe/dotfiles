@@ -34,3 +34,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+
+-- TODO: remove this block after problem gets fixed
+-- https://github.com/neovim/neovim/issues/37441
+local augroup = vim.api.nvim_create_augroup("cmp_user_autocmds", { clear = true })
+vim.api.nvim_create_autocmd("CompleteChanged", {
+  group = augroup,
+  desc = "change iskeyword",
+  callback = function()
+    vim.opt_local.iskeyword:append({ ".", ">", "+", "-", "{", "}" })
+  end,
+})
+vim.api.nvim_create_autocmd("CompleteDone", {
+  group = augroup,
+  desc = "change iskeyword back to default",
+  callback = function()
+    vim.cmd("setlocal iskeyword&")
+  end,
+})
