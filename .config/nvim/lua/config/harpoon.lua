@@ -5,11 +5,11 @@ vim.pack.add({
 local harpoon = require("harpoon")
 harpoon:setup()
 
-vim.keymap.set("n", "<leader>a", function()
+vim.keymap.set("n", "<leader>ha", function()
   harpoon:list():add()
   print("Mark added")
 end, { desc = "Add to Harpoon" })
-vim.keymap.set("n", "<c-h>", function()
+vim.keymap.set("n", "<leader>hh", function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { desc = "Open Harpoon Menu" })
 
