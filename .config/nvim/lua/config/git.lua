@@ -1,7 +1,3 @@
---------------
---- Neogit ---
---------------
-
 vim.pack.add({ "https://github.com/NeogitOrg/neogit" })
 
 require("neogit").setup({
@@ -26,9 +22,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.colorcolumn = "0"
   end,
 })
-
-----------------
---- Gitsigns ---
-----------------
-
-vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
