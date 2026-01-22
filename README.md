@@ -66,5 +66,9 @@ manual things:
 
 # TODOs
 
+- [ ] Remove lualine from Neovim
+  - [ ] Add git branch to default statusline in format `Git-<branch>` after filename
+        (Look at lualine's code to get an idea)
+  - [ ] Disable 'integrations' for all colorschemes
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
