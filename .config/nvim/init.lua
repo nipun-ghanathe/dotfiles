@@ -5,6 +5,8 @@ require("core.options")
 require("config.netrw")
 require("config.terminal")
 
+vim.cmd.packadd("nvim.undotree")
+
 require("config.pack")
 require("config.deps")
 
