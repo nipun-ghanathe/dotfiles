@@ -4,6 +4,7 @@ vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
 vim.opt.complete = { "o", ".", "w", "t" }
 
 -- Prevent <CR> from accepting completion
+-- TODO: Find a better way to do this
 -- vim.keymap.set("i", "<cr>", function()
 --   return vim.fn.pumvisible() ~= 0 and "<c-e><cr>" or "<cr>"
 -- end, { desc = "Insert newline; cancel completion menu if visible", expr = true })
