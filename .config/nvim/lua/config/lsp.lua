@@ -46,7 +46,7 @@ vim.lsp.enable({
 -----------------------------
 
 vim.diagnostic.config({
-  underline = true,
+  underline = false,
   virtual_text = false,
   virtual_lines = false,
   severity_sort = false,
