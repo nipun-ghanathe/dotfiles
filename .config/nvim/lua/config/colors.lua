@@ -12,10 +12,25 @@ vim.pack.add({
   { src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 })
 
+-- augroup for colorscheme related autocmds
+vim.api.nvim_create_augroup("colorscheme_user_autocmds", { clear = true })
+
+-- function to create autocmd configuring colorscheme before loading
+local function configure_cs(name, config, pattern)
+  pattern = pattern or name
+  vim.api.nvim_create_autocmd("ColorSchemePre", {
+    pattern = pattern .. "*",
+    group = "colorscheme_user_autocmds",
+    callback = function()
+      require(name).setup(config)
+    end,
+  })
+end
+
 -- Configure themes
-require("dracula").setup({ italic_comment = true })
-require("catppuccin").setup({ term_colors = true })
-require("rose-pine").setup({
+configure_cs("dracula", { italic_comment = true })
+configure_cs("catppuccin", { term_colors = true })
+configure_cs("rose-pine", {
   highlight_groups = {
     StatusLineTerm = { link = "StatusLine" },
     StatusLineTermNC = { link = "StatusLineNC" },
@@ -26,8 +41,8 @@ require("rose-pine").setup({
 vim.cmd.colorscheme(theme_name)
 
 -- Autocmd to write theme name to theme file whenever colorscheme is changed
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-  group = "user_autocmds",
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = "colorscheme_user_autocmds",
   desc = "write colorscheme name to stdpath(data)/theme.txt",
   callback = function()
     vim.fn.writefile({ vim.g.colors_name }, theme_file)
