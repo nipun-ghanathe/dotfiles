@@ -2,6 +2,16 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Navigating files using arglist
+vim.keymap.set("n", "<leader>a", function()
+  vim.cmd("$argadd")
+  vim.notify("Buffer added to arglist")
+end, { desc = "Add current buffer to arglist " })
+vim.keymap.set("n", "<m-j>", "<cmd>argument 1<cr>", { desc = "Go to first buffer in arglist" })
+vim.keymap.set("n", "<m-k>", "<cmd>argument 2<cr>", { desc = "Go to first buffer in arglist" })
+vim.keymap.set("n", "<m-l>", "<cmd>argument 3<cr>", { desc = "Go to first buffer in arglist" })
+vim.keymap.set("n", "<m-;>", "<cmd>argument 4<cr>", { desc = "Go to first buffer in arglist" })
+
 -- Managing system clipboard
 vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })

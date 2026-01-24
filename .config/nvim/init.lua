@@ -12,7 +12,6 @@ require("config.deps")
 
 require("config.editing")
 require("config.fzf")
-require("config.harpoon")
 require("config.git")
 require("config.format")
 -- require("config.nvim_cmp")
