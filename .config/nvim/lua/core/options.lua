@@ -10,7 +10,7 @@ vim.opt.listchars = {}
 vim.o.winborder = "single"
 vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
-vim.opt.guicursor:append("ci:block")
+vim.opt.guicursor:append("i-ci:block")
 
 -- Indentation and tabs
 vim.o.autoindent = true
