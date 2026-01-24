@@ -17,14 +17,6 @@ vim.keymap.set({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "gP", '"+P', { desc = "Paste before cursor from system clipboard" })
 
--- Cmdline mappings
-vim.keymap.set("c", "<c-a>", "<home>")
-vim.keymap.set("c", "<c-e>", "<end>")
-vim.keymap.set("c", "<c-f>", "<right>")
-vim.keymap.set("c", "<c-b>", "<left>")
-vim.keymap.set("c", "<m-f>", "<c-right>")
-vim.keymap.set("c", "<m-b>", "<c-left>")
-
 -- Running code
 local runners = {
   python = "uv run",
