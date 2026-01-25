@@ -54,5 +54,3 @@ prettier
 pyright
 ruff
 typescript-language-server
-vscode-css-languageserver
-vscode-html-languageserver
