@@ -40,6 +40,17 @@ To use any of the `extras` config files, cd into `dotfiles/extras` and use
 stow -t ~ <package>
 ```
 
+# Optional
+
+- Remap caps to esc and ctrl using keyd
+
+  ```bash
+  sudo pacman -S linux-headers keyd
+  sudo systemctl enable keyd --now
+  sudo cp "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
+  sudo keyd reload
+  ```
+
 # Post Install
 
 After doing the above installation and setup, you may still want to do these
