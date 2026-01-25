@@ -3,11 +3,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Navigating files using arglist
-vim.keymap.set("n", "<leader>a", function()
+vim.keymap.set("n", "<leader>aa", function()
   vim.cmd("$argadd")
   vim.notify("Buffer added to arglist")
 end, { desc = "Add current buffer to arglist " })
-vim.keymap.set("n", "<leader>ea", require("config.arglist").edit_arglist, { desc = "Edit Arglist" })
+vim.keymap.set("n", "<leader>ae", require("config.arglist").edit_arglist, { desc = "Edit Arglist" })
 vim.keymap.set("n", "<m-j>", "<cmd>argument 1<cr>", { desc = "Go to first buffer in arglist" })
 vim.keymap.set("n", "<m-k>", "<cmd>argument 2<cr>", { desc = "Go to first buffer in arglist" })
 vim.keymap.set("n", "<m-l>", "<cmd>argument 3<cr>", { desc = "Go to first buffer in arglist" })
