@@ -36,9 +36,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+local augroup = vim.api.nvim_create_augroup("cmp_user_autocmds", { clear = true })
+
+-- Disable autocompletion for certain filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  desc = "Disable autocompletion for certain filetypes",
+  pattern = { "git" },
+  callback = function(ev)
+    vim.bo[ev.buf].autocomplete = false
+  end,
+})
+
 -- TODO: remove this block after problem gets fixed
 -- https://github.com/neovim/neovim/issues/37441
-local augroup = vim.api.nvim_create_augroup("cmp_user_autocmds", { clear = true })
 vim.api.nvim_create_autocmd("CompleteChanged", {
   group = augroup,
   desc = "change iskeyword",
