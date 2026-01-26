@@ -10,6 +10,12 @@ export HISTCONTROL=ignoreboth # ignore duplicates and commands starting with spa
 long_prompt='\[\e[0;34m\]\w\[\e[0;32m\] \$ \[\e[0m\]'
 short_prompt='\[\e[0;32m\] \$ \[\e[0m\]'
 PS1=$long_prompt
+# mark prompt boundaries for terminal prompt detection/navigation
+prompt_marker() {
+    printf '\e]133;A\e\\'
+}
+PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }prompt_marker
+# function to toggle between short and long prompt
 toggle_short_prompt() {
   [[ "$PS1" == "$long_prompt" ]] && PS1="$short_prompt" || PS1="$long_prompt"
 }
