@@ -1,6 +1,6 @@
 local M = {}
 
-M.edit_arglist = function()
+function M.edit_arglist()
   local args = vim.fn.argv()
 
   local buf = vim.api.nvim_create_buf(false, true)
@@ -29,6 +29,7 @@ M.edit_arglist = function()
   vim.wo[win].cursorline = vim.go.cursorline
   vim.wo[win].cursorlineopt = vim.go.cursorlineopt
 
+  ---@cast args string[]
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, args)
   vim.bo[buf].modified = false
 
