@@ -5,21 +5,9 @@ vim.opt.complete = { "o", ".", "w", "t" }
 
 -- Prevent <CR> from accepting completion
 -- TODO: Find a better way to do this
--- vim.keymap.set("i", "<cr>", function()
---   return vim.fn.pumvisible() ~= 0 and "<c-e><cr>" or "<cr>"
--- end, { desc = "Insert newline; cancel completion menu if visible", expr = true })
 vim.keymap.set("i", "<cr>", function()
-  if vim.fn.pumvisible() ~= 0 then
-    vim.api.nvim_feedkeys(
-      vim.api.nvim_replace_termcodes("<c-e><cr>", true, false, true),
-      "n",
-      true
-    )
-  else
-    local keys = require("nvim-autopairs").autopairs_cr()
-    vim.api.nvim_feedkeys(keys, "n", true)
-  end
-end, { desc = "Insert newline; cancel completion menu if visible" })
+  return vim.fn.pumvisible() ~= 0 and "<c-e><cr>" or "<cr>"
+end, { desc = "Insert newline; cancel completion menu if visible", expr = true })
 
 -- Enable LSP Completion (snippets expansion, text edits, exeucte associated commands etc)
 -- TODO: If newer versions of nvim make this automatic, remove this block
