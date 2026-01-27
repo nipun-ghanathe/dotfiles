@@ -4,7 +4,6 @@ vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
 vim.opt.complete = { "o", ".", "w", "t" }
 
 -- Prevent <CR> from accepting completion
--- TODO: Find a better way to do this
 vim.keymap.set("i", "<cr>", function()
   return vim.fn.pumvisible() ~= 0 and "<c-e><cr>" or "<cr>"
 end, { desc = "Insert newline; cancel completion menu if visible", expr = true })
@@ -18,13 +17,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-      -- vim.lsp.completion.enable(true, client.id, ev.buf)
+      vim.lsp.completion.enable(true, client.id, ev.buf)
     end
   end,
 })
 
 local augroup = vim.api.nvim_create_augroup("cmp_user_autocmds", { clear = true })
+
+-- Change 'complete' to 'o' on LSP attach
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = augroup,
+  desc = "Change 'complete' to 'o' on LSP attach",
+  callback = function(ev)
+    vim.bo[ev.buf].complete = "o"
+  end,
+})
 
 -- Disable autocompletion for certain filetypes
 vim.api.nvim_create_autocmd("FileType", {
