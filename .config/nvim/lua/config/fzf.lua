@@ -24,10 +24,11 @@ vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Fzf: Buffers" })
 vim.keymap.set("n", "<leader>fcs", fzf.colorschemes, { desc = "Fzf: Colorschemes" })
 vim.keymap.set("n", "<leader>fch", fzf.command_history, { desc = "Fzf: Command History" })
 vim.keymap.set("n", "<leader>ft", fzf.tagstack, { desc = "Fzf: Tagstack" })
+vim.keymap.set("n", "<leader>fm", fzf.marks, { desc = "Fzf: Marks" })
 vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "Fzf: Keymaps" })
 vim.keymap.set("n", "<leader>fo", fzf.nvim_options, { desc = "Fzf: Nvim Options" })
 vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Fzf: Helptags" })
-vim.keymap.set("n", "<leader>fm", fzf.manpages, { desc = "Fzf: Manpages" })
+vim.keymap.set("n", "<leader>fM", fzf.manpages, { desc = "Fzf: Manpages" })
 
 -- Pick Project keymap
 vim.keymap.set("n", "<leader>pp", function()
