@@ -1,3 +1,6 @@
+-- theme switcher script to change themes of other apps alongside neovim
+local theme_switcher = vim.uv.os_homedir() .. "/dotfiles/.config/hypr/scripts/theme-switcher.sh"
+
 local theme_file = vim.fn.stdpath("data") .. "/theme.txt"
 local theme_name = vim.fn.filereadable(theme_file) == 1 and vim.fn.readfile(theme_file)[1] or "default"
 
@@ -29,7 +32,10 @@ end
 
 -- Configure themes
 configure_cs("dracula", { italic_comment = true })
-configure_cs("catppuccin", { term_colors = true })
+configure_cs("catppuccin", {
+  flavour = "macchiato",
+  term_colors = true,
+})
 configure_cs("rose-pine", {
   variant = "moon",
   highlight_groups = {
@@ -41,11 +47,11 @@ configure_cs("rose-pine", {
 -- Load theme
 vim.cmd.colorscheme(theme_name)
 
--- Autocmd to write theme name to theme file whenever colorscheme is changed
+-- Autocmd to execute theme_switcher
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = "colorscheme_user_autocmds",
-  desc = "write colorscheme name to stdpath(data)/theme.txt",
-  callback = function()
-    vim.fn.writefile({ vim.g.colors_name }, theme_file)
+  desc = "run theme-switcher",
+  callback = function(ev)
+    vim.system({ theme_switcher, ev.match })
   end,
 })
