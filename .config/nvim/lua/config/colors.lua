@@ -31,6 +31,7 @@ end
 configure_cs("dracula", { italic_comment = true })
 configure_cs("catppuccin", { term_colors = true })
 configure_cs("rose-pine", {
+  variant = "moon",
   highlight_groups = {
     StatusLineTerm = { link = "StatusLine" },
     StatusLineTermNC = { link = "StatusLineNC" },
