@@ -50,7 +50,7 @@ manual things:
   ```bash
   sudo pacman -S linux-headers keyd
   sudo systemctl enable keyd --now
-  sudo cp "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
+  sudo ln -s "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
   sudo keyd reload
   ```
 
