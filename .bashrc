@@ -27,13 +27,6 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
-#functions
-v() {
-  [[ -z "$NVIM" ]] && echo "v: made for running in neovim terminals only" >&2 && return 1
-  [[ "$#" -ne 1 ]] && echo "v: error: only one argument is allowed" >&2 && return 1
-  nvim --server "$NVIM" --remote "$(realpath "$1")"
-}
-
 # shell integrations
 eval "$(uv generate-shell-completion bash)"
 eval "$(fzf --bash)"
