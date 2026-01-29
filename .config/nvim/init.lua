@@ -8,11 +8,9 @@ require("config.terminal")
 vim.cmd.packadd("nvim.undotree")
 
 require("config.pack")
-require("config.deps")
 
 require("config.editing")
 require("config.fzf")
-require("config.git")
 require("config.format")
 -- require("config.nvim_cmp")
 

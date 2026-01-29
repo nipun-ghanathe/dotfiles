@@ -16,6 +16,7 @@ hypridle
 hyprland
 hyprlock
 intel-ucode
+lazygit
 libpulse
 linux
 linux-firmware
