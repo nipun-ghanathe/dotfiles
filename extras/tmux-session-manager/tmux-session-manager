@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# tmux-session-manager
+
+search_dirs=(
+"$HOME/code"
+"$HOME/projects"
+)
+
+extra_dirs=(
+"$HOME/dotfiles/.config/nvim"
+"$HOME/dotfiles"
+)
+
+mapfile -t fzf_output < <(
+  {
+    fd --type d --exact-depth 2 . "${search_dirs[@]}"
+    printf "%s\n" "${extra_dirs[@]}"
+  } | fzf --tmux 80% --reverse --expect=ctrl-o
+)
+
+pressed_key=${fzf_output[0]}
+selected=${fzf_output[1]}
+
+[[ -z "$selected" ]] && printf "No entry selected\n" >&2 && exit 1
+
+[[ "$pressed_key" == "ctrl-o" ]] && work_dir=$(fd --type d . "$selected" | fzf --tmux 80% --reverse) || work_dir="$selected"
+
+session_name=$(basename "$selected")
+session_name=${session_name//[^a-zA-Z0-9_-]/_}
+
+if ! tmux has-session -t "$session_name" 2>/dev/null; then
+  tmux new -d -s "$session_name" -c "$work_dir"
+  tmux neww -t "$session_name" -c "$work_dir" nvim
+fi
+[[ -n "$TMUX" ]] && tmux switch -t "$session_name" || tmux attach -t "$session_name"

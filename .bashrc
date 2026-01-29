@@ -22,6 +22,7 @@ toggle_short_prompt() {
 alias tsp="toggle_short_prompt"
 
 # aliases
+alias tsm="tmux-session-manager"
 alias vi="nvim"
 alias ls="ls --color=auto --group-directories-first"
 alias la="ls -A"

@@ -34,10 +34,16 @@ Install npm global packages
 cat "$HOME/dotfiles/extras/npm-pkglist.txt" | xargs npm install -g
 ```
 
-To use any of the `extras` config files, cd into `dotfiles/extras` and use
+Symlink other files
 
 ```bash
-stow -t ~ <package>
+ln -s "$HOME/dotfiles/extras/tmux-session-manager/tmux-session-manager" "$HOME/.local/bin/tmux-session-manager"
+```
+
+To use the `extras` config files, cd into `dotfiles/extras` and use
+
+```bash
+stow -t "$HOME" <package>
 ```
 
 # Optional
@@ -77,6 +83,7 @@ manual things:
 
 # TODOs
 
+- [ ] Introduce frecency to tmux-session-manager
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
 - [ ] Read documentation of each and every tool you use
