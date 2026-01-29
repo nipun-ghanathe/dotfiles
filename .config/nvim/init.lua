@@ -12,7 +12,6 @@ require("config.pack")
 require("config.editing")
 require("config.fzf")
 require("config.format")
--- require("config.nvim_cmp")
 
 require("config.lsp")
 require("config.treesitter")
