@@ -32,7 +32,6 @@ pipewire-jack
 pipewire-pulse
 qt5-wayland
 qt6-wayland
-rclone
 ripgrep
 rofi
 stow

@@ -15,8 +15,8 @@ git clone --depth=1 "https://github.com/nipun-ghanathe/dotfiles.git" "$HOME/dotf
 Install pacman packages
 
 ```bash
-sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist.txt"
-sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglist-extras.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pkglist.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pkglist-extras.txt"
 ```
 
 Stow dotfiles
@@ -31,7 +31,7 @@ _After stowing dotfiles_
 Install npm global packages
 
 ```bash
-cat "$HOME/dotfiles/extras/npm-pkglist.txt" | xargs npm install -g
+npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm-pkglist.txt")
 ```
 
 Symlink other files
