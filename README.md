@@ -79,3 +79,4 @@ manual things:
 
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
+- [ ] Read documentation of each and every tool you use
