@@ -36,6 +36,7 @@ rclone
 ripgrep
 rofi
 stow
+tmux
 tree-sitter-cli
 ttf-firacode-nerd
 unzip

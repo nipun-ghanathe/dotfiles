@@ -1,5 +1,8 @@
 # ~/.bash_profile
 
+# If this is tmux - load .bashrc and return
+[[ -n "$TMUX" ]] && source "$HOME/.bashrc" && return
+
 # exports
 export EDITOR=nvim
 export VISUAL=nvim
