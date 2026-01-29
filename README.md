@@ -40,13 +40,10 @@ Symlink other files
 ln -s "$HOME/dotfiles/extras/tmux-session-manager/tmux-session-manager" "$HOME/.local/bin/tmux-session-manager"
 ```
 
-To use the `extras` config files, cd into `dotfiles/extras` and use
+# Post Install
 
-```bash
-stow -t "$HOME" <package>
-```
-
-# Optional
+After doing the above installation and setup, you may still want to do these
+manual things:
 
 - Remap caps to esc and ctrl using keyd
 
@@ -57,28 +54,18 @@ stow -t "$HOME" <package>
   sudo keyd reload
   ```
 
-# Post Install
-
-After doing the above installation and setup, you may still want to do these
-manual things:
-
-- Setup rclone and auto drive backup for every 3 days
+- Setup rclone and copy files from remote to local
 
   ```bash
+  sudo pacman -S rclone
   rclone config create gdrive drive
+  rclone copy gdrive:backup "$HOME"
   ```
+
+  To sync to remote
 
   ```bash
-  systemctl --user daemon-reload
-  systemctl --user enable --now drive_backup.timer
-  ```
-
-# Optional - Post Install
-
-- Set up Tridactyl _(If Firefox sync doesn't)_
-
-  ```
-  :source --url https://raw.githubusercontent.com/nipun-ghanathe/dotfiles/refs/heads/main/extras/tridactyl/.tridactylrc
+  $HOME/dotfiles/extras/rclone/sync-gdrive.sh
   ```
 
 # TODOs
