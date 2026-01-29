@@ -10,7 +10,6 @@ foot
 fzf
 git
 github-cli
-grim
 gst-plugin-pipewire
 hypridle
 hyprland
@@ -36,9 +35,7 @@ qt6-wayland
 rclone
 ripgrep
 rofi
-slurp
 stow
-swappy
 tree-sitter-cli
 ttf-firacode-nerd
 unzip

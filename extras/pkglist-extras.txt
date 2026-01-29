@@ -1,3 +1,6 @@
 fuse2
+grim
 pcmanfm
+slurp
+swappy
 tldr
