@@ -34,25 +34,24 @@ Install npm global packages
 npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm-pkglist.txt")
 ```
 
-Symlink other files
+Create some symlinks
 
 ```bash
 ln -s "$HOME/dotfiles/extras/tmux-session-manager/tmux-session-manager" "$HOME/.local/bin/tmux-session-manager"
+sudo ln -s "$HOME/configs/keyd.conf" "/etc/keyd/default.conf"
+```
+
+Enable some systemd services
+
+```bash
+systemctl --user enable --now foot-server.socket
+sudo systemctl enable --now keyd
 ```
 
 # Post Install
 
 After doing the above installation and setup, you may still want to do these
 manual things:
-
-- Remap caps to esc and ctrl using keyd
-
-  ```bash
-  sudo pacman -S linux-headers keyd
-  sudo systemctl enable keyd --now
-  sudo ln -s "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
-  sudo keyd reload
-  ```
 
 - Setup rclone and copy files from remote to local
 
@@ -65,7 +64,7 @@ manual things:
   To sync to remote
 
   ```bash
-  $HOME/dotfiles/extras/rclone/sync-gdrive.sh
+  $HOME/.local/bin/sync-gdrive.sh
   ```
 
 # TODOs
