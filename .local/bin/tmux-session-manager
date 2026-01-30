@@ -8,7 +8,7 @@ search_dirs=(
 )
 
 extra_dirs=(
-"$HOME/dotfiles/.config/nvim"
+"$HOME/.config/nvim"
 "$HOME/dotfiles"
 )
 

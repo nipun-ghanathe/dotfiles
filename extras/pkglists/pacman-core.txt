@@ -15,10 +15,12 @@ hypridle
 hyprland
 hyprlock
 intel-ucode
+keyd
 lazygit
 libpulse
 linux
 linux-firmware
+linux-headers
 mako
 man-db
 neovim

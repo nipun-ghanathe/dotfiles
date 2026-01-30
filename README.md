@@ -15,8 +15,8 @@ git clone --depth=1 "https://github.com/nipun-ghanathe/dotfiles.git" "$HOME/dotf
 Install pacman packages
 
 ```bash
-sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pkglist.txt"
-sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pkglist-extras.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pacman-core.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pacman-extras.txt"
 ```
 
 Stow dotfiles
@@ -31,14 +31,13 @@ _After stowing dotfiles_
 Install npm global packages
 
 ```bash
-npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm-pkglist.txt")
+npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
 ```
 
-Create some symlinks
+Create some symlinks manually
 
 ```bash
-ln -s "$HOME/dotfiles/extras/tmux-session-manager/tmux-session-manager" "$HOME/.local/bin/tmux-session-manager"
-sudo ln -s "$HOME/configs/keyd.conf" "/etc/keyd/default.conf"
+sudo ln -s "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
 ```
 
 Enable some systemd services
@@ -48,7 +47,7 @@ systemctl --user enable --now foot-server.socket
 sudo systemctl enable --now keyd
 ```
 
-# Post Install
+# Optional - Post Install
 
 After doing the above installation and setup, you may still want to do these
 manual things:
