@@ -35,6 +35,7 @@ qt6-wayland
 ripgrep
 rofi
 stow
+tldr
 tmux
 tree-sitter-cli
 ttf-firacode-nerd
