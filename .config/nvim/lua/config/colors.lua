@@ -18,9 +18,8 @@ vim.api.nvim_create_augroup("colorscheme_user_autocmds", { clear = true })
 
 -- function to create autocmd configuring colorscheme before loading
 local function configure_cs(name, config, pattern)
-  pattern = pattern or name
   vim.api.nvim_create_autocmd("ColorSchemePre", {
-    pattern = pattern .. "*",
+    pattern = pattern or (name .. "*"),
     group = "colorscheme_user_autocmds",
     callback = function()
       require(name).setup(config)
