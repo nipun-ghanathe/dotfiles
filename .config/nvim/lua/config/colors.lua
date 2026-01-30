@@ -8,8 +8,6 @@ local theme_name = vim.fn.filereadable(theme_file) == 1 and vim.fn.readfile(them
 vim.pack.add({
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/navarasu/onedark.nvim",
-  "https://github.com/ellisonleao/gruvbox.nvim",
-  "https://github.com/shaunsingh/nord.nvim",
   "https://github.com/Mofiqul/dracula.nvim",
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   { src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
