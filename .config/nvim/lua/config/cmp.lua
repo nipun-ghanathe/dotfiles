@@ -1,12 +1,7 @@
 -- Configure autocompletion
 vim.o.autocomplete = true
-vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
+vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noselect", "popup" }
 vim.opt.complete = { "o", ".", "w", "t" }
-
--- Prevent <CR> from accepting completion
-vim.keymap.set("i", "<cr>", function()
-  return vim.fn.pumvisible() ~= 0 and "<c-e><cr>" or "<cr>"
-end, { desc = "Insert newline; cancel completion menu if visible", expr = true })
 
 -- Enable LSP Completion (snippets expansion, text edits, exeucte associated commands etc)
 -- TODO: If newer versions of nvim make this automatic, remove this block
