@@ -24,7 +24,9 @@ selected=${fzf_output[1]}
 
 [[ -z "$selected" ]] && printf "No entry selected\n" >&2 && exit 1
 
+selected="$HOME/$selected"
 [[ "$pressed_key" == "ctrl-o" ]] && work_dir=$(fd --type d . "$selected" | fzf --tmux 80% --reverse) || work_dir="$selected"
+work_dir="${work_dir%/}"
 
 session_name=$(basename "$selected")
 session_name=${session_name//[^a-zA-Z0-9_-]/_}
