@@ -1,7 +1,7 @@
 -- Configure autocompletion
 vim.o.autocomplete = true
 vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noselect", "popup" }
-vim.opt.complete = { "o", ".", "w", "t" }
+vim.opt.complete = { "o", ".", "w" }
 
 -- Enable LSP Completion (snippets expansion, text edits, exeucte associated commands etc)
 -- TODO: If newer versions of nvim make this automatic, remove this block
