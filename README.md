@@ -70,8 +70,6 @@ manual things:
 # TODOs
 
 - [ ] Learn to create systemd services and create a service with daily timer for auto drive backup
-- [ ] 'Try' sticking to a single theme and remove `theme-switcher`,
-      all .config/foot/themes/\*.ini, .config/nvim/lua/config/colors.lua
 - [ ] Introduce frecency to tmux-session-manager
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
