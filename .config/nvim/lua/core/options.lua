@@ -1,7 +1,6 @@
 -- Appearance
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.termguicolors = true
 vim.o.colorcolumn = "80"
 vim.o.signcolumn = "yes"
 vim.o.wrap = false
@@ -33,13 +32,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Behaviour
-vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.hlsearch = false
 vim.o.foldenable = false
 vim.o.foldmethod = "indent"
-vim.o.switchbuf = "usetab"
 vim.o.exrc = true
 vim.o.confirm = true
 vim.o.timeoutlen = 500 -- Decreasing mapped sequence wait time
