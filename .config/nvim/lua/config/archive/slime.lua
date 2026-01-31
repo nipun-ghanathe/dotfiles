@@ -54,11 +54,15 @@ local function send_ctrl(char)
   slime_send_raw(vim.api.nvim_replace_termcodes("<C-" .. char .. ">", true, false, true))
 end
 
+local function send_cr()
+  slime_send_raw(vim.api.nvim_replace_termcodes("<CR>", true, false, true))
+end
+
 local function send_file()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   local text = table.concat(lines, "\n")
   vim.fn["slime#send"](text)
-  slime_send_raw("\n")
+  send_cr()
 end
 
 local function jump_cell(direction)
@@ -93,4 +97,4 @@ vim.keymap.set("n", "<c-c><c-f>", send_file, { desc = "Slime: Send File" })
 vim.keymap.set("n", "<c-c><c-l>", function() send_ctrl("l") end, { desc = "Slime: Send Clear (C-l)" })
 vim.keymap.set("n", "<c-c><c-k><c-d>", function() send_ctrl("d") end, { desc = "Slime: Send Exit (C-d)" })
 vim.keymap.set("n", "<c-c><c-k><c-c>", function() send_ctrl("c") end, { desc = "Slime: Send Interrupt (C-c)" })
-vim.keymap.set("n", "<c-c><cr>", function() slime_send_raw("\n") end, { desc = "Slime: Send Return (<CR>)" })
+vim.keymap.set("n", "<c-c><c-m>", send_cr, { desc = "Slime: Send Return (<CR>)" })
