@@ -20,7 +20,7 @@ local ft_cell_delimiters = {
 }
 local augroup = vim.api.nvim_create_augroup("slime_user_autocmds", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  groups = augroup,
+  group = augroup,
   desc = "Set slime cell delimiter",
   pattern = "*",
   callback = function(ev)
