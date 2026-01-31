@@ -17,8 +17,8 @@ fzf.setup({
 fzf.register_ui_select()
 
 -- Set general keymaps
+vim.keymap.set("n", "<c-p>", fzf.files, { desc = "Fzf: Files" })
 vim.keymap.set("n", "<leader>pf", fzf.git_files, { desc = "Fzf: Project Files" })
-vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Fzf: Files" })
 vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Fzf: Live Grep" })
 vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Fzf: Buffers" })
 vim.keymap.set("n", "<leader>fcs", fzf.colorschemes, { desc = "Fzf: Colorschemes" })
