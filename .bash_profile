@@ -1,8 +1,5 @@
 # ~/.bash_profile
 
-# If this is tmux - load .bashrc and return
-[[ -n "$TMUX" ]] && source "$HOME/.bashrc" && return
-
 # exports
 export EDITOR=nvim
 export VISUAL=nvim
@@ -17,6 +14,9 @@ export LESS="R"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "$HOME/.npm-global/bin" ]] && export PATH="$HOME/.npm-global/bin:$PATH"
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+
+# source .bashrc
+[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
 # Launch Hyprland
 if [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]]; then
