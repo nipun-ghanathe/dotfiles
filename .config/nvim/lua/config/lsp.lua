@@ -122,7 +122,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "Set LSP related keymaps",
   callback = function(ev)
     -- Close completion menu if visible and view signature help
-    vim.keymap.set({ "i", "s" }, "<c-k>", function()
+    vim.keymap.set({ "i", "s" }, "<c-h>", function()
       vim.lsp.buf.signature_help()
       return vim.fn.pumvisible() ~= 0 and "<c-e>" or ""
     end, { buffer = ev.buf, expr = true, desc = "Signature Help" })
