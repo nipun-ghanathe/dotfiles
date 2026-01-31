@@ -1,7 +1,5 @@
 vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
-vim.g.autoformat_enabled = true
-
 require("conform").setup({
   formatters_by_ft = {
     -- python = { "black" },
@@ -18,17 +16,42 @@ require("conform").setup({
   default_format_opts = {
     lsp_format = "fallback",
   },
-  format_on_save = function()
-    if not vim.g.autoformat_enabled then
-      return
-    else
-      return {}
-    end
-  end,
 })
+
+local function format_file(bufnr)
+  local conform_opts = { bufnr = bufnr, lsp_format = "fallback", timeout_ms = 2000 }
+
+  vim.lsp.buf.code_action({
+    ---@diagnostic disable-next-line: missing-fields
+    context = { only = { "source.organizeImports" } },
+    apply = true,
+  })
+
+  require("conform").format(conform_opts)
+end
+
+-- keymap to format
+vim.keymap.set("n", "<leader>gw", format_file, { desc = "Conform: Format File" })
+
+-------------------------
+--- set up autoformat ---
+-------------------------
+
+vim.g.autoformat_enabled = true
 
 vim.api.nvim_create_user_command("FormatOnSaveToggle", function()
   vim.g.autoformat_enabled = not vim.g.autoformat_enabled
+  vim.notify("autoformat_enabled: " .. tostring(vim.g.autoformat_enabled), vim.log.levels.INFO)
 end, {})
 
-vim.keymap.set("n", "<leader>gw", require("conform").format, { desc = "Conform: Format File" })
+local augroup = vim.api.nvim_create_augroup("FormatConfig", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup,
+  desc = "Format before save",
+  callback = function(ev)
+    if vim.g.autoformat_enabled then
+      format_file(ev.buf)
+    end
+  end,
+})

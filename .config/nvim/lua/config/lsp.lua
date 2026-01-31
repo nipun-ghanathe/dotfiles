@@ -66,22 +66,6 @@ vim.lsp.config("lua_ls", {
     })
   end,
 })
-vim.lsp.config("ruff", {
-  on_attach = function()
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = "lsp_user_autocmds",
-      pattern = "*.py",
-      desc = "Code action on save: Organize imports",
-      callback = function()
-        vim.lsp.buf.code_action({
-          ---@diagnostic disable-next-line: missing-fields
-          context = { only = { "source.organizeImports" } },
-          apply = true,
-        })
-      end,
-    })
-  end,
-})
 -- TODO: If Neovim gets snippet support remove these lines
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
