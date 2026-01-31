@@ -69,7 +69,5 @@ manual things:
 # TODOs
 
 - [ ] Learn to create systemd services and create a service with daily timer for auto drive backup
-- [ ] Introduce frecency to tmux-session-manager
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
-- [ ] Read documentation of each and every tool you use
