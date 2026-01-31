@@ -18,14 +18,22 @@ require("conform").setup({
   },
 })
 
+local organize_imports_filetypes = {
+  "python",
+}
+
 local function format_file(bufnr)
+  bufnr = bufnr or 0
+
   local conform_opts = { bufnr = bufnr, lsp_format = "fallback", timeout_ms = 2000 }
 
-  vim.lsp.buf.code_action({
-    ---@diagnostic disable-next-line: missing-fields
-    context = { only = { "source.organizeImports" } },
-    apply = true,
-  })
+  if vim.tbl_contains(organize_imports_filetypes, vim.bo[bufnr].filetype) then
+    vim.lsp.buf.code_action({
+      ---@diagnostic disable-next-line: missing-fields
+      context = { only = { "source.organizeImports" } },
+      apply = true,
+    })
+  end
 
   require("conform").format(conform_opts)
 end
