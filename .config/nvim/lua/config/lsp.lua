@@ -97,9 +97,9 @@ vim.diagnostic.config({
   jump = { float = true },
 })
 
---------------------
---- LSP mappings ---
---------------------
+---------------------------------
+--- LSP mappings and usercmds ---
+---------------------------------
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = "lsp_user_autocmds",
@@ -110,5 +110,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.buf.signature_help()
       return vim.fn.pumvisible() ~= 0 and "<c-e>" or ""
     end, { buffer = ev.buf, expr = true, desc = "Signature Help" })
+
+    -- Toggle (enable/disable) diagnostics
+    -- bang then current buffer else global
+    vim.api.nvim_buf_create_user_command(ev.buf, "DiagnosticsToggle", function(opts)
+      vim.diagnostic.enable(not vim.diagnostic.is_enabled(), { bufnr = opts.bang and ev.buf or nil })
+      vim.notify("diagnotics enabled: " .. tostring(vim.diagnostic.is_enabled()))
+    end, { bang = true, desc = "Toggle diagnostics" })
   end,
 })
