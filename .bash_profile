@@ -18,7 +18,7 @@ export LESS="R"
 # source .bashrc
 [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
-# Launch Hyprland
+# Launch Sway
 if [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]]; then
-  start-hyprland
+  exec dbus-run-session sway
 fi

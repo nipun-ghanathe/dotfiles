@@ -1,0 +1,11 @@
+exec swaymsg 'workspace 2; exec $browser'
+exec swaymsg 'workspace 1; exec $term --fullscreen'
+
+exec swayidle -w \
+       timeout 600 'brightnessctl -s set 5%' resume 'brightnessctl -r' \
+       timeout 750 'swaylock --daemonize' \
+       timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+       before-sleep 'swaylock --daemonize'
+
+# Extras
+exec wl-paste --watch cliphist store

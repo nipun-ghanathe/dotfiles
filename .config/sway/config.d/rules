@@ -1,0 +1,14 @@
+# Inhibit idle
+for_window [app_id="$browser"] inhibit_idle fullscreen
+for_window [app_id="Chromium"] inhibit_idle fullscreen
+
+# Floating
+for_window [app_id="pavucontrol"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="About"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [title="Save File"] floating enable
