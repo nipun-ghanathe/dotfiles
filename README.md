@@ -43,7 +43,6 @@ sudo ln -s "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
 Enable some systemd services
 
 ```bash
-systemctl --user enable --now foot-server.socket
 sudo systemctl enable --now keyd
 ```
 
