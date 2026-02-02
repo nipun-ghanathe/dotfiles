@@ -28,7 +28,7 @@ bindsym $mod+t layout toggle split
 
 # Change split direction
 bindsym $mod+slash splith
-bindsym $mod+equal splitv
+bindsym $mod+apostrophe splitv
 
 # Move focus to parent/child container
 bindsym $mod+a focus parent
