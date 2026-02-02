@@ -25,17 +25,19 @@ local runners = {
   javascript = "node",
   html = "xdg-open",
 }
-vim.keymap.set("n", "<localleader>rr", function()
+vim.keymap.set("n", "<localleader>rs", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
   vim.cmd("botright vert term " .. cmd .. " " .. vim.fn.expand("%"))
+  vim.cmd.startinsert()
 end, { desc = "Run code file in a vertical terminal" })
 vim.keymap.set("n", "<localleader>rh", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
   vim.cmd("belowright term " .. cmd .. " " .. vim.fn.expand("%"))
+  vim.cmd.startinsert()
 end, { desc = "Run code file in a horizontal terminal" })
-vim.keymap.set("n", "<localleader>rs", function()
+vim.keymap.set("n", "<localleader>rr", function()
   vim.cmd("write")
   local cmd = runners[vim.bo.filetype] or vim.bo.filetype
   vim.cmd("silent !" .. cmd .. " " .. vim.fn.expand("%"))
