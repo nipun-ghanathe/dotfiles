@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Behaviour
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.hlsearch = false
 vim.o.foldenable = false
 vim.o.foldmethod = "indent"
 vim.o.exrc = true
