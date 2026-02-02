@@ -23,7 +23,7 @@ vim.o.shiftwidth = 2
 vim.api.nvim_create_autocmd("FileType", {
   group = "user_autocmds",
   desc = "four space indenting",
-  pattern = { "python", "c", "cpp", "java", "rust", "php" },
+  pattern = { "python", "c", "cpp", "java", "rust", "php", "bash", "sh" },
   callback = function()
     vim.bo.tabstop = 4
     vim.bo.softtabstop = 4
