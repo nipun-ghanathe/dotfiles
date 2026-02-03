@@ -45,11 +45,11 @@ vim.keymap.set("n", "<leader>gw", format_file, { desc = "Conform: Format File" }
 --- set up autoformat ---
 -------------------------
 
-vim.g.autoformat_enabled = true
+vim.g.formatonsave = true
 
 vim.api.nvim_create_user_command("FormatOnSaveToggle", function()
-  vim.g.autoformat_enabled = not vim.g.autoformat_enabled
-  vim.notify("autoformat_enabled: " .. tostring(vim.g.autoformat_enabled), vim.log.levels.INFO)
+  vim.g.formatonsave = not vim.g.formatonsave
+  vim.notify("autoformat_enabled: " .. tostring(vim.g.formatonsave), vim.log.levels.INFO)
 end, {})
 
 local augroup = vim.api.nvim_create_augroup("FormatConfig", { clear = true })
@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup,
   desc = "Format before save",
   callback = function(ev)
-    if vim.g.autoformat_enabled then
+    if vim.g.formatonsave then
       format_file(ev.buf)
     end
   end,
