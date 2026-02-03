@@ -68,5 +68,6 @@ manual things:
 # TODOs
 
 - [ ] Learn to create systemd services and create a service with daily timer for auto drive backup
+- [ ] Improve statusbar.sh (make it event-driven) or use a minimal statusbar like i3status-rust
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
