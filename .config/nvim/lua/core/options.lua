@@ -16,6 +16,5 @@ vim.o.hlsearch = false
 vim.o.foldenable = false
 vim.o.exrc = true
 vim.o.confirm = true
-vim.o.timeoutlen = 500 -- Decreasing mapped sequence wait time
 vim.o.swapfile = false -- Disable swapfile creation
 vim.o.undofile = true -- Setting persistent undo
