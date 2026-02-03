@@ -44,7 +44,6 @@ uv
 wireplumber
 wl-clipboard
 xdg-utils
-xorg-xwayland
 wmenu
 zram-generator
 
