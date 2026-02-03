@@ -14,7 +14,7 @@ return {
       --   },
       -- },
       -- lint = {
-      --   select = { "ALL" },
+      --   select = { "ALL" }, -- whenever you uncomment this: don't use ALL, select the RULES you want
       --   ignore = { "ANN", "D1", "S311", "FA102", "COM812", "RET504" },
       -- },
     },
