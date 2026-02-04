@@ -68,6 +68,10 @@ manual things:
 # TODOs
 
 - [ ] Learn to create systemd services and create a service with daily timer for auto drive backup
-- [ ] Improve statusbar.sh (make it event-driven) or use a minimal statusbar like i3status-rust
+- [ ] Rewrite `status.sh` using the swaybar protocol.
+  - Use Python, later switch to a more low level language.
+  - Here are a few projects for inspiration:
+    - py3status
+    - i3status-rust
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
