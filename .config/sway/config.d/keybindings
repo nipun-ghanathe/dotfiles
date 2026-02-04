@@ -106,7 +106,7 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 ### Extras
 
 # system-dmenu
-bindsym $mod+Backspace exec ~/.local/bin/system-dmenu.sh
+bindsym $mod+Backspace exec ~/.local/bin/system-dmenu
 
 ## Screenshots
 # take region/fullscreen screenshot and pipe to swappy
