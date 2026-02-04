@@ -1,7 +1,8 @@
 bar {
   position top
+  separator_symbol |
 
-  status_command $HOME/.config/sway/scripts/statusbar.sh
+  status_command $HOME/.config/sway/status.sh
 
   colors {
     statusline #ffffff
