@@ -11,6 +11,7 @@ foot
 fzf
 git
 github-cli
+i3status-rust
 intel-ucode
 keyd
 lazygit
