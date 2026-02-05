@@ -34,22 +34,14 @@ Install npm global packages
 npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
 ```
 
-Create some symlinks manually
+Setup keyd
 
 ```bash
 sudo ln -s "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
-```
-
-Enable some systemd services
-
-```bash
 sudo systemctl enable --now keyd
 ```
 
 # Optional - Post Install
-
-After doing the above installation and setup, you may still want to do these
-manual things:
 
 - Setup rclone and copy files from remote to local
 
@@ -65,9 +57,17 @@ manual things:
   $HOME/.local/bin/sync-gdrive.sh
   ```
 
+  Setup systemd timer
+
+  ```bash
+  mkdir -p "$HOME/.config/systemd/user"
+  cp "$HOME/dotfiles/extras/systemd/sync-gdrive/"* "$HOME/.config/systemd/user/"
+  systemctl --user daemon-reload
+  systemctl --user enable --now sync-gdrive.timer
+  ```
+
 # TODOs
 
-- [ ] Learn to create systemd services and create a service with daily timer for auto drive backup
 - [ ] Rewrite `status.sh` using the swaybar protocol.
   - Use Python, later switch to a more low level language.
   - Here are a few projects for inspiration:

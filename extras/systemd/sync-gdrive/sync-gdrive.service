@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync local data to Google Drive
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/sync-gdrive
+TimeoutStartSec=3h
