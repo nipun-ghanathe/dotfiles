@@ -16,5 +16,5 @@ vim.o.hlsearch = false
 vim.o.foldenable = false
 vim.o.exrc = true
 vim.o.confirm = true
-vim.o.swapfile = false -- Disable swapfile creation
-vim.o.undofile = true -- Setting persistent undo
+vim.o.swapfile = false
+vim.o.undofile = true
