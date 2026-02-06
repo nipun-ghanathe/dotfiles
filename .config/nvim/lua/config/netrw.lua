@@ -1,5 +1,4 @@
 -- Options
--- vim.g.netrw_liststyle = 3 -- tree list style
 vim.g.netrw_banner = 0
 vim.g.netrw_localcopydircmd = "cp -r"
 
@@ -14,7 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "netrw",
   callback = function()
     -- Options
-    vim.opt_local.cursorlineopt = "both"
+    vim.wo[0][0].cursorlineopt = "both"
     -- Mappings
     vim.keymap.set("n", "h", "-", { buffer = true, remap = true }) -- go up a directory
     vim.keymap.set("n", "l", "<cr>", { buffer = true, remap = true }) -- open directory/file under cursor
