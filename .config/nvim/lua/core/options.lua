@@ -15,6 +15,5 @@ vim.o.smartcase = true
 vim.o.hlsearch = false
 vim.o.foldenable = false
 vim.o.exrc = true
-vim.o.confirm = true
 vim.o.swapfile = false
 vim.o.undofile = true
