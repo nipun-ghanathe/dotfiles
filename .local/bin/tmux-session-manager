@@ -22,7 +22,7 @@ mapfile -t fzf_output < <(
 pressed_key=${fzf_output[0]}
 selected=${fzf_output[1]}
 
-[[ -z "$selected" ]] && printf "No entry selected\n" >&2 && exit 1
+[[ -z "$selected" ]] && printf "No entry selected\n" >&2 && exit
 
 selected="$HOME/$selected"
 [[ "$pressed_key" == "ctrl-o" ]] && work_dir=$(fd --type d . "$selected" | fzf --tmux 80% --reverse) || work_dir="$selected"
