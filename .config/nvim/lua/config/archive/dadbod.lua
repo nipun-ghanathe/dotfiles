@@ -12,12 +12,3 @@ vim.g.db_ui_execute_on_save = 0
 -- Customize keymaps
 vim.keymap.set("n", "<c-cr>", "<Plug>(DBUI_ExecuteQuery)")
 vim.keymap.set("n", "<c-s-cr>", "vip<Plug>(DBUI_ExecuteQuery)")
-
--- nvim-cmp integration
-require("cmp").setup.filetype({ "sql" }, {
-  sources = {
-    { name = "vim-dadbod-completion" },
-    { name = "path" },
-    { name = "buffer" },
-  },
-})
