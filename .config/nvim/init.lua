@@ -3,6 +3,7 @@ require("core.keymaps")
 require("core.options")
 
 require("config.netrw")
+require("config.code_runners")
 
 vim.cmd.packadd("nvim.undotree")
 
