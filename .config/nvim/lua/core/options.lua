@@ -7,7 +7,6 @@ vim.o.wrap = false
 vim.o.winborder = "single"
 vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
-vim.opt.guicursor:append("i-ci:block")
 
 -- Behaviour
 vim.o.ignorecase = true
