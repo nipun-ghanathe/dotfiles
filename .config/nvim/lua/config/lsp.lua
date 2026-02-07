@@ -9,6 +9,7 @@ vim.lsp.enable({
   "lua_ls",
   "pyright",
   "ruff",
+  "clangd",
   "emmet_language_server",
   "html",
   "cssls",

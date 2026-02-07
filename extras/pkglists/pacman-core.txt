@@ -45,10 +45,11 @@ unzip
 uv
 wireplumber
 wl-clipboard
-xdg-utils
 wmenu
+xdg-utils
 zram-generator
 
+clang
 lua-language-server
 prettier
 pyright
