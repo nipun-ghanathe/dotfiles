@@ -28,18 +28,27 @@ stow .
 
 _After stowing dotfiles_
 
-Install npm global packages
+- Install npm global packages
 
-```bash
-npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
-```
+  ```bash
+  npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
+  ```
 
-Setup keyd
+- Setup keyd
 
-```bash
-sudo ln -s "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
-sudo systemctl enable --now keyd
-```
+  ```bash
+  sudo ln -s "$HOME/dotfiles/extras/keyd/default.conf" "/etc/keyd/default.conf"
+  sudo systemctl enable --now keyd
+  ```
+
+- Install Browser (Brave)
+
+  ```bash
+  mkdir -p "$HOME/builds"
+  git clone "https://aur.archlinux.org/brave-bin.git" "$HOME/builds/brave-bin"
+  cd "$HOME/builds/brave-bin"
+  makepkg -si
+  ```
 
 # Optional - Post Install
 

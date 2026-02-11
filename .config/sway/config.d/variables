@@ -2,4 +2,4 @@ set $term foot
 set $menu wmenu-run -i
 set $dmenu wmenu -i
 set $file_browser pcmanfm
-set $browser zen
+set $browser brave
