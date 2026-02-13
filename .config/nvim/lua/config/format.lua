@@ -27,6 +27,8 @@ local function format_file(bufnr)
 
   local conform_opts = { bufnr = bufnr, lsp_format = "fallback", timeout_ms = 2000 }
 
+  require("conform").format(conform_opts)
+
   if vim.tbl_contains(organize_imports_filetypes, vim.bo[bufnr].filetype) then
     vim.lsp.buf.code_action({
       ---@diagnostic disable-next-line: missing-fields
@@ -34,8 +36,6 @@ local function format_file(bufnr)
       apply = true,
     })
   end
-
-  require("conform").format(conform_opts)
 end
 
 -- keymap to format
@@ -49,7 +49,7 @@ vim.g.formatonsave = true
 
 vim.api.nvim_create_user_command("FormatOnSaveToggle", function()
   vim.g.formatonsave = not vim.g.formatonsave
-  vim.notify("autoformat_enabled: " .. tostring(vim.g.formatonsave), vim.log.levels.INFO)
+  vim.notify("format on save: " .. tostring(vim.g.formatonsave), vim.log.levels.INFO)
 end, {})
 
 local augroup = vim.api.nvim_create_augroup("FormatConfig", { clear = true })
