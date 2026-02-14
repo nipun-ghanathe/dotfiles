@@ -77,10 +77,5 @@ _After stowing dotfiles_
 
 # TODOs
 
-- [ ] Rewrite `status.sh` using the swaybar protocol.
-  - Use Python, later switch to a more low level language.
-  - Here are a few projects for inspiration:
-    - py3status
-    - i3status-rust
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
