@@ -10,7 +10,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
     if not ev.data.active then
       vim.cmd.packadd(name)
     end
-    print(ev.data.path .. "/app")
     vim.system({ "npm", "install" }, { cwd = ev.data.path .. "/app" })
   end,
 })
