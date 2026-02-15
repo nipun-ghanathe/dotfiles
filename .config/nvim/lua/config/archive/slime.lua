@@ -1,5 +1,3 @@
-vim.pack.add({ "https://github.com/jpalardy/vim-slime" })
-
 ---------------------
 --- Configuration ---
 ---------------------
@@ -17,6 +15,16 @@ vim.g.slime_dont_ask_default = true
 -- vim.g.slime_suggest_default = true
 -- vim.g.slime_menu_config = false
 -- vim.g.slime_neovim_ignore_unlisted = false
+
+---------------
+--- Packadd ---
+---------------
+
+vim.pack.add({ "https://github.com/jpalardy/vim-slime" })
+
+--------------------------
+--- More Configuration ---
+--------------------------
 
 vim.g.slime_cell_delimiter = ""
 local ft_cell_delimiters = {
