@@ -44,10 +44,16 @@ _After stowing dotfiles_
 - Install Browser (Brave)
 
   ```bash
+  # Build brave-browser from AUR
   mkdir -p "$HOME/builds"
   git clone "https://aur.archlinux.org/brave-bin.git" "$HOME/builds/brave-bin"
   cd "$HOME/builds/brave-bin"
   makepkg -si
+
+  # Make it default
+  xdg-mime default brave-browser.desktop x-scheme-handler/http
+  xdg-mime default brave-browser.desktop x-scheme-handler/https
+  xdg-mime default brave-browser.desktop text/html
   ```
 
 # Optional - Post Install
