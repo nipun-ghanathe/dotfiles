@@ -15,7 +15,10 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 -- Configuration
-vim.g.mkdp_browser = "/usr/bin/brave"
+-- vim.g.mkdp_auto_start = 1
+vim.g.mkdp_auto_close = 0
+vim.g.mkdp_combine_preview = 1
+vim.g.mkdp_preview_options = { sync_scroll_type = "top" }
 
 -- Add plugin
 vim.pack.add({ "https://github.com/iamcco/markdown-preview.nvim" })
