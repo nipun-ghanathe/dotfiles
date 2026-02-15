@@ -4,3 +4,7 @@ require("nvim-surround").setup()
 
 -- treesitter-context
 vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter-context" })
+
+-- autopairs
+vim.pack.add({ "https://github.com/windwp/nvim-autopairs" })
+require("nvim-autopairs").setup()
