@@ -1,7 +1,8 @@
 This repo stores all my configuration files.
 
 The main color theme used is based on Graphite-gtk-theme which is based on
-[2014 Material Design Color Palette](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors). I have mainly used the 300 colors.
+[2014 Material Design Color Palette](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors).
+I have mainly used the 300 colors.
 
 # Usage
 
