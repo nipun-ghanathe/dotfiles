@@ -18,6 +18,6 @@ rclone sync /home/nipun/projects gdrive:backup/projects \
 	--exclude '**/.ipynb_checkpoints/**' \
 	--exclude '**/.pytest_cache/**'
 
-rclone sync /home/nipun/obsidian-vault gdrive:backup/obsidian-vault \
+rclone sync /home/nipun/vault gdrive:backup/vault \
 	--verbose \
 	--progress
