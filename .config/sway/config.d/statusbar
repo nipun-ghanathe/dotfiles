@@ -5,7 +5,12 @@ bar {
   status_command i3status-rs ~/.config/sway/i3status.toml
 
   colors {
-    statusline #ffffff
     background #212121
+    statusline #ffffff
+    separator  #616161
+    focused_workspace   #616161 #424242 #ffffff
+    active_workspace    #757575 #616161 #ffffff
+    inactive_workspace  #424242 #212121 #9e9e9e
+    urgent_workspace    #e57373 #ef5350 #ffebee
   }
 }
