@@ -6,6 +6,12 @@ I have mainly used the 300 colors.
 
 # Usage
 
+Update packages
+
+```bash
+sudo pacman -Syu
+```
+
 Install git and clone this repository
 
 ```bash
@@ -16,7 +22,9 @@ git clone --depth=1 "https://github.com/nipun-ghanathe/dotfiles.git" "$HOME/dotf
 Install pacman packages
 
 ```bash
-sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pacman-core.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pacman-base.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pacman-cli.txt"
+sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pacman-desktop.txt"
 sudo pacman -S --needed - < "$HOME/dotfiles/extras/pkglists/pacman-extras.txt"
 ```
 

@@ -1,0 +1,7 @@
+base
+intel-ucode
+linux
+linux-firmware
+linux-headers
+man-db
+networkmanager
