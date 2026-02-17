@@ -2,7 +2,7 @@ default_border pixel 1
 smart_borders 1
 
 # class                  border   background  text     indicator  child_border
-client.focused           #424242  #424242     #ffffff  #26a69a    #81d4fa
-client.focused_inactive  #424242  #616161     #ffffff  #000000ff  #000000ff
-client.unfocused         #424242  #616161     #ffffff  #000000ff  #000000ff
+client.focused           #424242  #424242     #ffffff  #26a69a    #7986cb
+client.focused_inactive  #424242  #616161     #bdbdbd  #000000ff  #000000ff
+client.unfocused         #424242  #616161     #bdbdbd  #000000ff  #000000ff
 client.urgent            #e57373  #e57373     #ffffff  #e57373    #e57373
