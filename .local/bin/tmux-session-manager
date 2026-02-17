@@ -32,7 +32,8 @@ session_name=$(basename "$selected")
 session_name=${session_name//[^a-zA-Z0-9_-]/_}
 
 if ! tmux has-session -t "$session_name" 2>/dev/null; then
-	tmux new -d -s "$session_name" -c "$work_dir"
-	tmux neww -t "$session_name" -c "$work_dir" nvim
+	tmux new -d -s "$session_name" -c "$work_dir" nvim
+	tmux neww -t "$session_name:" -c "$work_dir"
+	tmux selectw -t "${session_name}:{start}"
 fi
 [[ -n "$TMUX" ]] && tmux switch -t "$session_name" || tmux attach -t "$session_name"
