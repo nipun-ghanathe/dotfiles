@@ -1,9 +1,5 @@
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 
-------------------------------
---- Setting up LSP Servers ---
-------------------------------
-
 -- Enable LSPs
 vim.lsp.enable({
   "lua_ls",
@@ -16,10 +12,7 @@ vim.lsp.enable({
   "ts_ls",
 })
 
------------------------------
---- Configure diagnostics ---
------------------------------
-
+-- Configure diagnostics
 vim.diagnostic.config({
   underline = false,
   virtual_text = false,
@@ -30,13 +23,10 @@ vim.diagnostic.config({
   jump = { float = true },
 })
 
----------------------------------
---- LSP mappings and usercmds ---
----------------------------------
-
 -- Create augroup to use with lsp related autocmds
 vim.api.nvim_create_augroup("lsp_user_autocmds", { clear = true })
 
+-- LSP mappings and usercmds
 vim.api.nvim_create_autocmd("LspAttach", {
   group = "lsp_user_autocmds",
   desc = "Set LSP related keymaps and usercmds",
