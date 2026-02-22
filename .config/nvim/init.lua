@@ -17,4 +17,4 @@ require("config.lsp")
 require("config.treesitter")
 require("config.cmp")
 
-require("config.colors")
+vim.cmd.colorscheme("unokai")
