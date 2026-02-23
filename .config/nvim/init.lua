@@ -17,4 +17,6 @@ require("config.lsp")
 require("config.treesitter")
 require("config.cmp")
 
-vim.cmd.colorscheme("unokai")
+-- Colorscheme
+vim.pack.add({ "https://github.com/loctvl842/monokai-pro.nvim" })
+vim.cmd.colorscheme("monokai-pro")

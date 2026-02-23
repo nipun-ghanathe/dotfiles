@@ -4,7 +4,6 @@ vim.o.relativenumber = true
 vim.o.colorcolumn = "80"
 vim.o.signcolumn = "yes"
 vim.o.wrap = false
-vim.o.winborder = "single"
 vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
 
