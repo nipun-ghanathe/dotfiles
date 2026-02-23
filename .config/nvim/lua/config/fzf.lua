@@ -31,8 +31,8 @@ vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Fzf: Helptags" })
 vim.keymap.set("n", "<leader>fM", fzf.manpages, { desc = "Fzf: Manpages" })
 
 -- Set keymaps for LSP
-vim.keymap.set("n", "<leader>flds", fzf.lsp_document_symbols, { desc = "Fzf: LSP Document Symbols" })
-vim.keymap.set("n", "<leader>fldd", fzf.lsp_document_diagnostics, { desc = "Fzf: LSP Document Diagnostics" })
-vim.keymap.set("n", "<leader>flws", fzf.lsp_workspace_symbols, { desc = "Fzf: LSP Workspace Symbols" })
-vim.keymap.set("n", "<leader>flwd", fzf.lsp_workspace_diagnostics, { desc = "Fzf: LSP Workspace Diagnostics" })
+vim.keymap.set("n", "<leader>lds", fzf.lsp_document_symbols, { desc = "Fzf: LSP Document Symbols" })
+vim.keymap.set("n", "<leader>ldd", fzf.lsp_document_diagnostics, { desc = "Fzf: LSP Document Diagnostics" })
+vim.keymap.set("n", "<leader>lws", fzf.lsp_workspace_symbols, { desc = "Fzf: LSP Workspace Symbols" })
+vim.keymap.set("n", "<leader>lwd", fzf.lsp_workspace_diagnostics, { desc = "Fzf: LSP Workspace Diagnostics" })
 -- TODO: Add more keymaps for LSP related FzfLua pickers
