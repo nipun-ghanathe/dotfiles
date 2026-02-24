@@ -1,7 +1,18 @@
 -- Configure autocompletion
 vim.o.autocomplete = true
-vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noselect", "popup" }
+vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
 vim.o.pumheight = 8
+
+-- Disable Enter from accepting selected completion entry
+-- vim.keymap.set("i", "<cr>", function()
+--   return vim.fn.pumvisible() ~= 0 and "<c-e><cr>" or "<cr>"
+-- end, { expr = true })
+vim.keymap.set("i", "<cr>", function()
+  if vim.fn.pumvisible() ~= 0 then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-e>", true, false, true), "n", false)
+  end
+  vim.api.nvim_feedkeys(require("nvim-autopairs").autopairs_cr(), "n", true)
+end, { expr = true })
 
 -- Enable LSP Completion (snippets expansion, text edits, exeucte associated commands etc)
 -- TODO: If newer versions of nvim make this automatic, remove this block
