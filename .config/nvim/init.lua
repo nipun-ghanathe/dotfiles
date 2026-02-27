@@ -18,5 +18,6 @@ require("config.treesitter")
 require("config.cmp")
 
 -- Colorscheme
-vim.pack.add({ "https://github.com/loctvl842/monokai-pro.nvim" })
-vim.cmd.colorscheme("monokai-pro")
+vim.pack.add({ "https://github.com/ellisonleao/gruvbox.nvim" })
+require("gruvbox").setup({ italic = { strings = false } })
+vim.cmd.colorscheme("gruvbox")
