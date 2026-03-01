@@ -8,7 +8,7 @@ keyd
 libnotify
 libpulse
 mako
-noto-fonts
+noto-fonts-emoji
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -17,6 +17,7 @@ polkit
 sway
 swayidle
 swaylock
+ttf-dejavu
 ttf-firacode-nerd
 wireplumber
 wl-clipboard
