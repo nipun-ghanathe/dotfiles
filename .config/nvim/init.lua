@@ -17,7 +17,4 @@ require("config.lsp")
 require("config.treesitter")
 require("config.cmp")
 
--- Colorscheme
-vim.pack.add({ "https://github.com/ellisonleao/gruvbox.nvim" })
-require("gruvbox").setup({ italic = { strings = false } })
-vim.cmd.colorscheme("gruvbox")
+require("config.colors")

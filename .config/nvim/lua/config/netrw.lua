@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "netrw",
   callback = function()
     -- Options
-    vim.wo[0][0].cursorlineopt = "both"
+    vim.wo[0][0].cursorline = true
     -- Mappings
     vim.keymap.set("n", "h", "-", { buffer = true, remap = true }) -- go up a directory
     vim.keymap.set("n", "l", "<cr>", { buffer = true, remap = true }) -- open directory/file under cursor
