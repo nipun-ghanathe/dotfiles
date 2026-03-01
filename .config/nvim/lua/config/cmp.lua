@@ -1,5 +1,6 @@
 -- Configure autocompletion
 vim.o.autocomplete = true
+vim.o.autocompletedelay = 500
 vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
 vim.o.pumheight = 8
 
