@@ -3,20 +3,14 @@ local lang_parsers = {
   "python",
   "c",
   "cpp",
+  "java",
   "lua",
   "rust",
   "go",
-  "bash",
   "sql",
-  "html",
-  "htmldjango",
-  "css",
   "javascript",
   "typescript",
   "markdown",
-  "json",
-  "yaml",
-  "toml",
 }
 
 -- Install/update parsers along with nvim-treesitter
@@ -47,7 +41,7 @@ vim.api.nvim_create_augroup("treesitter_user_autocmds", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   group = "treesitter_user_autocmds",
   desc = "Enabling Treesitter features",
-  pattern = vim.list_extend(vim.deepcopy(lang_parsers), { "sh", "jsonc" }),
+  pattern = lang_parsers,
   callback = function()
     vim.treesitter.start()
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
