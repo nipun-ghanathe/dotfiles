@@ -51,11 +51,11 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- TODO: remove this block after problem gets fixed
 -- https://github.com/neovim/neovim/issues/37441
-vim.api.nvim_create_autocmd("CompleteChanged", {
+vim.api.nvim_create_autocmd("CompleteDonePre", {
   group = augroup,
   desc = "change iskeyword",
   callback = function()
-    vim.opt_local.iskeyword:append({ ".", ">", "+", "-", "{", "}" })
+    vim.opt_local.iskeyword:append({ ".", ">", "+", "-", "{", "}", "!" })
   end,
 })
 vim.api.nvim_create_autocmd("CompleteDone", {
