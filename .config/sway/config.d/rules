@@ -2,6 +2,9 @@
 for_window [app_id="$browser"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
 
+# Custom Window Rules
+for_window [title="Gpick"] floating enable, resize set 800 600, move position 100ppt 100ppt, move left 800, move up 600
+
 # Floating
 for_window [app_id="pavucontrol"] floating enable
 for_window [window_role="pop-up"] floating enable
