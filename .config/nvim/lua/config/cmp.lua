@@ -49,6 +49,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo[ev.buf].autocomplete = false
   end,
 })
-
--- TODO: Sort completions from emmet_language_server over everything else.
---       Maybe the opts.cmp field of vim.lsp.completion.enable() will help.
