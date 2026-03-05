@@ -50,22 +50,5 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- TODO: remove this block after problem gets fixed
--- https://github.com/neovim/neovim/issues/37441
-vim.api.nvim_create_autocmd("CompleteDonePre", {
-  group = augroup,
-  desc = "change iskeyword",
-  callback = function()
-    vim.opt_local.iskeyword:append({ ".", ">", "+", "-", "{", "}", "!" })
-  end,
-})
-vim.api.nvim_create_autocmd("CompleteDone", {
-  group = augroup,
-  desc = "change iskeyword back to default",
-  callback = function()
-    vim.cmd("setlocal iskeyword&")
-  end,
-})
-
 -- TODO: Sort completions from emmet_language_server over everything else.
 --       Maybe the opts.cmp field of vim.lsp.completion.enable() will help.
