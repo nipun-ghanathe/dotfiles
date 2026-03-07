@@ -1,0 +1,83 @@
+{
+  "Comment": {
+    "prefix": "com",
+    "body": "{# $1 #}$0",
+    "desc": "Insert a template comment"
+  },
+
+  "Extends": {
+    "prefix": "ext",
+    "body": "{% extends \"${1:base.html}\" %}$0",
+    "desc": "Extend a base template"
+  },
+
+  "Include": {
+    "prefix": "inc",
+    "body": "{% include \"${1:file.html}\" %}$0",
+    "desc": "Include another template file"
+  },
+
+  "Block": {
+    "prefix": "bl",
+    "body": ["{% block ${1:name} %}", "\t$2", "{% endblock %}", "$0"],
+    "desc": "Create a block section"
+  },
+
+  "Block Inline": {
+    "prefix": "ibl",
+    "body": "{% block ${1:name} %}$2{% endblock %}$0",
+    "desc": "Create an inline block"
+  },
+
+  "Variable": {
+    "prefix": "var",
+    "body": "{{ ${1:variable} }}$0",
+    "desc": "Insert a template variable"
+  },
+
+  "If": {
+    "prefix": "if",
+    "body": ["{% if ${1:condition} %}", "\t$2", "{% endif %}", "$0"],
+    "desc": "Insert an if statement"
+  },
+
+  "If Else": {
+    "prefix": "ifelse",
+    "body": [
+      "{% if ${1:condition} %}",
+      "\t$2",
+      "{% else %}",
+      "\t$3",
+      "{% endif %}",
+      "$0"
+    ],
+    "desc": "Insert an if else statement"
+  },
+
+  "If Elif Else": {
+    "prefix": "ifelif",
+    "body": [
+      "{% if ${1:condition} %}",
+      "\t$2",
+      "{% elif ${3:condition} %}",
+      "\t$4",
+      "{% else %}",
+      "\t$5",
+      "{% endif %}",
+      "$0"
+    ],
+    "desc": "Insert an if elif else statement"
+  },
+
+  "For Loop": {
+    "prefix": "for",
+    "body": ["{% for ${1:item} in ${2:list} %}", "\t$3", "{% endfor %}", "$0"],
+    "desc": "Insert a for loop"
+  },
+
+  "CSRF Token": {
+    "prefix": "csrf",
+    "body": "{% csrf_token %}$0",
+    "desc": "Insert CSRF token"
+  }
+}
