@@ -43,5 +43,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.diagnostic.enable(not vim.diagnostic.is_enabled(), { bufnr = opts.bang and ev.buf or nil })
       vim.notify("diagnotics enabled: " .. tostring(vim.diagnostic.is_enabled()))
     end, { bang = true, desc = "Toggle diagnostics" })
+
+    -- Toggle underline in diagnostic.config
+    vim.api.nvim_buf_create_user_command(ev.buf, "DiagnosticsUnderlineToggle", function()
+      vim.diagnostic.config({ underline = not vim.diagnostic.config().underline })
+      vim.notify("underline diagnostics: " .. tostring(vim.diagnostic.config().underline))
+    end, { desc = "Toggle underline for diagnostics" })
+
+    -- Toggle virtual_text in diagnostic.config
+    vim.api.nvim_buf_create_user_command(ev.buf, "DiagnosticsVirtualTextToggle", function()
+      vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
+      vim.notify("virtual_text for diagnostics: " .. tostring(vim.diagnostic.config().virtual_text))
+    end, { desc = "Toggle virtual text for diagnostics" })
   end,
 })
