@@ -2,7 +2,8 @@
 vim.o.autocomplete = true
 vim.o.autocompletedelay = 500
 vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
-vim.o.pumheight = 8
+vim.o.pumheight = 5
+vim.o.pummaxwidth = 40
 
 -- Disable Enter from accepting selected completion entry
 -- vim.keymap.set("i", "<cr>", function()
