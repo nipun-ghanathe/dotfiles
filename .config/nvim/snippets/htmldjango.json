@@ -7,13 +7,13 @@
 
   "Extends": {
     "prefix": "ext",
-    "body": "{% extends \"${1:base.html}\" %}$0",
+    "body": "{% extends '${1:base.html}' %}$0",
     "desc": "Extend a base template"
   },
 
   "Include": {
     "prefix": "inc",
-    "body": "{% include \"${1:file.html}\" %}$0",
+    "body": "{% include '${1:file.html}' %}$0",
     "desc": "Include another template file"
   },
 
