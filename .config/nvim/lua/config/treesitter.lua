@@ -10,8 +10,6 @@ local lang_parsers = {
   "sql",
   "javascript",
   "typescript",
-  "html",
-  "css",
   "markdown",
 }
 
