@@ -4,10 +4,8 @@
 export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=xdg-open
-export PAGER="less -R"
-export LESS="R"
-# export PAGER="less -FRX"
-# export LESS="FRX"
+export PAGER="less -FR"
+export LESS="FR"
 
 # paths
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
