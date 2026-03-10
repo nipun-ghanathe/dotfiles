@@ -9,7 +9,7 @@
 	excludesFile = /home/nipun/.gitignore_global
 [alias]
 	hist = log --oneline --graph --all --decorate=short
-	lg = log --oneline -n 30 --decorate=short
+	lg = log --oneline -n 10 --decorate=short
 [url "https://github.com/"]
 	insteadOf = gh:
 [credential "https://github.com"]
