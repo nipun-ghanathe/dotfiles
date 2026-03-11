@@ -8,7 +8,7 @@ export HISTCONTROL=ignoreboth # ignore duplicates and commands starting with spa
 
 # prompt
 source "/usr/share/git/git-prompt.sh"
-long_prompt='\[\e[0;34m\]\w\[\e[0;33m\]$(__git_ps1 " (%s) ")\[\e[0;32m\]\$\[\e[0m\] '
+long_prompt='\[\e[0;34m\]\w\[\e[0;33m\]$(__git_ps1 " (%s)")\[\e[0;32m\] \$ \[\e[0m\]'
 short_prompt='\[\e[0;32m\] \$ \[\e[0m\]'
 PS1=$long_prompt
 # function to toggle between short and long prompt
