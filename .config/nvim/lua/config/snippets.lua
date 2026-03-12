@@ -18,3 +18,6 @@ require("mini.snippets").setup({
 
 -- Start completion LSP server
 require("mini.snippets").start_lsp_server()
+
+-- Some other keymaps
+vim.keymap.set("n", "<c-c>", vim.snippet.stop, { desc = "Exit snippet" })
