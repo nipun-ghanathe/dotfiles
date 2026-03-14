@@ -35,6 +35,12 @@ cd "$HOME/dotfiles"
 stow .
 ```
 
+Clone templates
+
+```bash
+git clone --depth=1 "https://github.com/nipun-ghanathe/templates.git" "$HOME/templates"
+```
+
 _After stowing dotfiles_
 
 - Install npm global packages

@@ -10,6 +10,7 @@ search_dirs=(
 extra_dirs=(
 	"$HOME/.config/nvim"
 	"$HOME/dotfiles"
+	"$HOME/templates"
 )
 
 mapfile -t fzf_output < <(
