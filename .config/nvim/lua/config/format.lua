@@ -41,10 +41,19 @@ vim.keymap.set("n", "<leader>gw", format_file, { desc = "Conform: Format File" }
 
 vim.g.formatonsave = true
 
-vim.api.nvim_create_user_command("FormatOnSaveToggle", function()
-  vim.g.formatonsave = not vim.g.formatonsave
-  vim.notify("format on save: " .. tostring(vim.g.formatonsave), vim.log.levels.INFO)
-end, {})
+vim.api.nvim_create_user_command("FormatOnSaveToggle", function(opts)
+  local var = opts.bang and vim.b or vim.g
+
+  var.formatonsave = var.formatonsave ~= true
+  vim.notify(
+    string.format(
+      "format on save -> global: %s | buffer: %s",
+      vim.g.formatonsave,
+      vim.b.formatonsave == nil and "inherit" or vim.b.formatonsave
+    ),
+    vim.log.levels.INFO
+  )
+end, { bang = true })
 
 local augroup = vim.api.nvim_create_augroup("FormatConfig", { clear = true })
 
@@ -52,7 +61,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup,
   desc = "Format before save",
   callback = function(ev)
-    if vim.g.formatonsave then
+    if vim.b.formatonsave == true or (vim.b.formatonsave == nil and vim.g.formatonsave) then
       format_file(ev.buf)
     end
   end,
