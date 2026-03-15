@@ -6,9 +6,6 @@ require("conform").setup({
     typescript = { "prettier" },
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
-    json = { "prettier" },
-    jsonc = { "prettier" },
-    markdown = { "prettier" },
   },
   default_format_opts = {
     lsp_format = "fallback",
