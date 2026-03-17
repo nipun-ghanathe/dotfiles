@@ -1,29 +1,23 @@
 vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
+-- Set up formatters for filetypes
 require("conform").setup({
   formatters_by_ft = {
-    javascript = { "prettier" },
-    typescript = { "prettier" },
-    javascriptreact = { "prettier" },
-    typescriptreact = { "prettier" },
-  },
-  default_format_opts = {
-    lsp_format = "fallback",
-  },
+    javascript = "prettier",
+    typescript = "prettier",
+    javascriptreact = "prettier",
+    typescriptreact = "prettier",
+  }
 })
 
-local organize_imports_filetypes = {
-  "python",
-}
+local organize_imports_filetypes = { "python" }
 
 local function format_file(bufnr)
   bufnr = bufnr or 0
-
   local conform_opts = { bufnr = bufnr, lsp_format = "fallback", timeout_ms = 2000 }
-
   require("conform").format(conform_opts)
 
-  if vim.tbl_contains(organize_imports_filetypes, vim.bo[bufnr].filetype) then
+  if vim.list_contains(organize_imports_filetypes, vim.bo[bufnr].filetype) then
     vim.lsp.buf.code_action({
       ---@diagnostic disable-next-line: missing-fields
       context = { only = { "source.organizeImports" } },
@@ -39,11 +33,10 @@ vim.keymap.set("n", "<leader>gw", format_file, { desc = "Conform: Format File" }
 --- set up autoformat ---
 -------------------------
 
-vim.g.formatonsave = true
+vim.g.formatonsave = false
 
 vim.api.nvim_create_user_command("FormatOnSaveToggle", function(opts)
   local var = opts.bang and vim.b or vim.g
-
   var.formatonsave = var.formatonsave ~= true
   vim.notify(
     string.format(
