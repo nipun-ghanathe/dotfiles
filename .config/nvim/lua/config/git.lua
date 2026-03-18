@@ -1,9 +1,14 @@
 vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
 
-require("gitsigns").setup({
-  on_attach = function(bufnr)
-    local gitsigns = require("gitsigns")
+local gitsigns = require("gitsigns")
 
+vim.keymap.set("n", "<leader>gs", function()
+  (vim.b.gitsigns_status_dict and gitsigns.detach or gitsigns.attach)()
+end, { desc = "Gitsigns attach/detach current buffer" })
+
+gitsigns.setup({
+  auto_attach = false,
+  on_attach = function(bufnr)
     local function map(mode, l, r, opts)
       opts = opts or {}
       opts.buffer = bufnr
@@ -56,10 +61,6 @@ require("gitsigns").setup({
 
     map("n", "<leader>hQ", function() gitsigns.setqflist("all") end)
     map("n", "<leader>hq", gitsigns.setqflist)
-
-    -- Toggles
-    map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
-    map("n", "<leader>tw", gitsigns.toggle_word_diff)
 
     -- Text object
     map({ "o", "x" }, "ih", gitsigns.select_hunk)
