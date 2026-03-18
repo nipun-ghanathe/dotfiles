@@ -3,8 +3,8 @@
 # tmux-session-manager
 
 search_dirs=(
-	"$HOME/code"
-	"$HOME/projects"
+	"$HOME/code/*"
+	"$HOME/projects/*"
 )
 
 extra_dirs=(
@@ -15,7 +15,7 @@ extra_dirs=(
 
 mapfile -t fzf_output < <(
 	{
-		fd --type d --exact-depth 2 . "${search_dirs[@]}"
+		fd --type d --max-depth 1 . ${search_dirs[@]}
 		printf "%s\n" "${extra_dirs[@]}"
 	} | sed "s|$HOME/||" | fzf --tmux 60% --reverse --expect=ctrl-o
 )
