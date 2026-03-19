@@ -32,3 +32,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.shiftwidth = 2
   end,
 })
+
+-- Remove trailing spaces
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = "user_autocmds",
+  desc = "remove trailing spaces",
+  callback = function()
+    local view = vim.fn.winsaveview()
+    vim.cmd([[silent! keepjumps keeppatterns %s/\s\+$//e]])
+    vim.fn.winrestview(view)
+  end
+})
