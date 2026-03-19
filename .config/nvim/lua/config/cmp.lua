@@ -1,28 +1,28 @@
 -- Configure autocompletion
 vim.o.autocomplete = true
-vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noselect", "popup" }
+vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noselect', 'popup' }
 vim.o.pumheight = 5
 vim.o.pummaxwidth = 40
 
 -- augroup for completion related autocmds
-local augroup = vim.api.nvim_create_augroup("cmp_user_autocmds", { clear = true })
+local augroup = vim.api.nvim_create_augroup('cmp_user_autocmds', { clear = true })
 
 -- Disable autocompletion for certain filetypes
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd('FileType', {
   group = augroup,
-  desc = "Disable autocompletion for certain filetypes",
-  pattern = { "git" },
+  desc = 'Disable autocompletion for certain filetypes',
+  pattern = { 'git' },
   callback = function(ev)
     vim.bo[ev.buf].autocomplete = false
   end,
 })
 
 -- Change 'complete' to 'o' on LSP attach
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd('LspAttach', {
   group = augroup,
   desc = "Change 'complete' to 'o' on LSP attach",
   callback = function(ev)
-    vim.bo[ev.buf].complete = "o"
+    vim.bo[ev.buf].complete = 'o'
   end,
 })
 
@@ -31,11 +31,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- check `:h lsp-completion` to know
 
 -- LSP clients whose completions items should be sorted before others
-local priority_lsp_clients = { "emmet_language_server" }
+local priority_lsp_clients = { 'emmet_language_server' }
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = "lsp_user_autocmds",
-  desc = "enable lsp completion (expand snippets, text edits, exectue associated commands etc)",
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = 'lsp_user_autocmds',
+  desc = 'enable lsp completion (expand snippets, text edits, exectue associated commands etc)',
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if not client or not client:supports_method(vim.lsp.protocol.Methods.textDocument_completions) then

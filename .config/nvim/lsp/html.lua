@@ -3,9 +3,9 @@ return {
     html = {
       format = {
         wrapLineLength = 0,
-        wrapAttributes = "preserve",
-        maxPreserveNewLines = "1",
-        extraLiners = "",
+        wrapAttributes = 'preserve',
+        maxPreserveNewLines = '1',
+        extraLiners = '',
       },
     },
   },

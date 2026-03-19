@@ -1,24 +1,24 @@
-require("core.autocmds")
-require("core.keymaps")
-require("core.options")
+require('core.autocmds')
+require('core.keymaps')
+require('core.options')
 
-require("config.netrw")
-require("config.code_runners")
+require('config.netrw')
+require('config.code_runners')
 
-vim.cmd.packadd("nvim.undotree")
+vim.cmd.packadd('nvim.undotree')
 
-require("config.pack")
+require('config.pack')
 
-require("config.editing")
-require("config.fzf")
-require("config.git")
-require("config.format")
+require('config.editing')
+require('config.fzf')
+require('config.git')
+require('config.format')
 
-require("config.lsp")
-require("config.treesitter")
-require("config.cmp")
-require("config.snippets")
+require('config.lsp')
+require('config.treesitter')
+require('config.cmp')
+require('config.snippets')
 
-require("config.colors")
+require('config.colors')
 
-require("config.extras")
+require('config.extras')

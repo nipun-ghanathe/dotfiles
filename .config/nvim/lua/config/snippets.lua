@@ -1,6 +1,6 @@
-vim.pack.add({ "https://github.com/nvim-mini/mini.snippets" })
+vim.pack.add({ 'https://github.com/nvim-mini/mini.snippets' })
 
-require("mini.snippets").setup({
+require('mini.snippets').setup({
   -- Use Neovim's built-ins to insert snippet
   expand = {
     insert = function(snippet, _)
@@ -8,16 +8,16 @@ require("mini.snippets").setup({
     end,
   },
   -- Disable default mappings
-  mappings = { expand = "", jump_next = "", jump_prev = "", stop = "" },
+  mappings = { expand = '', jump_next = '', jump_prev = '', stop = '' },
   -- Define how to load snippets
   snippets = {
-    require("mini.snippets").gen_loader.from_file("~/.config/nvim/snippets/global.json"),
-    require("mini.snippets").gen_loader.from_lang(),
+    require('mini.snippets').gen_loader.from_file('~/.config/nvim/snippets/global.json'),
+    require('mini.snippets').gen_loader.from_lang(),
   },
 })
 
 -- Start completion LSP server
-require("mini.snippets").start_lsp_server()
+require('mini.snippets').start_lsp_server()
 
 -- Some other keymaps
-vim.keymap.set("n", "<c-c>", vim.snippet.stop, { desc = "Exit snippet" })
+vim.keymap.set('n', '<c-c>', vim.snippet.stop, { desc = 'Exit snippet' })

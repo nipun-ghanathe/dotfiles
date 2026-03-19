@@ -1,15 +1,15 @@
-vim.pack.add({ "https://github.com/ellisonleao/gruvbox.nvim" })
+vim.pack.add({ 'https://github.com/ellisonleao/gruvbox.nvim' })
 
-require("gruvbox").setup({
+require('gruvbox').setup({
   italic = { strings = false },
   overrides = {
-    SignColumn = { bg = "NONE" },
-    DiagnosticSignError = { link = "DiagnosticError" },
-    DiagnosticSignWarn = { link = "DiagnosticWarn" },
-    DiagnosticSignInfo = { link = "DiagnosticInfo" },
-    DiagnosticSignHint = { link = "DiagnosticHint" },
-    DiagnosticSignOk = { link = "DiagnosticOk" },
+    SignColumn = { bg = 'NONE' },
+    DiagnosticSignError = { link = 'DiagnosticError' },
+    DiagnosticSignWarn = { link = 'DiagnosticWarn' },
+    DiagnosticSignInfo = { link = 'DiagnosticInfo' },
+    DiagnosticSignHint = { link = 'DiagnosticHint' },
+    DiagnosticSignOk = { link = 'DiagnosticOk' },
   },
 })
 
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme('gruvbox')

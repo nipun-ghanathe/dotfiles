@@ -1,10 +1,10 @@
-vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
+vim.pack.add({ 'https://github.com/lewis6991/gitsigns.nvim' })
 
-local gitsigns = require("gitsigns")
+local gitsigns = require('gitsigns')
 
-vim.keymap.set("n", "<leader>gs", function()
+vim.keymap.set('n', '<leader>gs', function()
   (vim.b.gitsigns_status_dict and gitsigns.detach or gitsigns.attach)()
-end, { desc = "Gitsigns attach/detach current buffer" })
+end, { desc = 'Gitsigns attach/detach current buffer' })
 
 gitsigns.setup({
   auto_attach = false,
@@ -16,53 +16,53 @@ gitsigns.setup({
     end
 
     -- Navigation
-    map("n", "]c", function()
+    map('n', ']c', function()
       if vim.wo.diff then
-        vim.cmd.normal({ "]c", bang = true })
+        vim.cmd.normal({ ']c', bang = true })
       else
-        gitsigns.nav_hunk("next")
+        gitsigns.nav_hunk('next')
       end
     end)
 
-    map("n", "[c", function()
+    map('n', '[c', function()
       if vim.wo.diff then
-        vim.cmd.normal({ "[c", bang = true })
+        vim.cmd.normal({ '[c', bang = true })
       else
-        gitsigns.nav_hunk("prev")
+        gitsigns.nav_hunk('prev')
       end
     end)
 
     -- Actions
-    map("n", "<leader>hs", gitsigns.stage_hunk)
-    map("n", "<leader>hr", gitsigns.reset_hunk)
+    map('n', '<leader>hs', gitsigns.stage_hunk)
+    map('n', '<leader>hr', gitsigns.reset_hunk)
 
-    map("v", "<leader>hs", function()
-      gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+    map('v', '<leader>hs', function()
+      gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end)
 
-    map("v", "<leader>hr", function()
-      gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+    map('v', '<leader>hr', function()
+      gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end)
 
-    map("n", "<leader>hS", gitsigns.stage_buffer)
-    map("n", "<leader>hR", gitsigns.reset_buffer)
-    map("n", "<leader>hp", gitsigns.preview_hunk)
-    map("n", "<leader>hi", gitsigns.preview_hunk_inline)
+    map('n', '<leader>hS', gitsigns.stage_buffer)
+    map('n', '<leader>hR', gitsigns.reset_buffer)
+    map('n', '<leader>hp', gitsigns.preview_hunk)
+    map('n', '<leader>hi', gitsigns.preview_hunk_inline)
 
-    map("n", "<leader>hb", function()
+    map('n', '<leader>hb', function()
       gitsigns.blame_line({ full = true })
     end)
 
-    map("n", "<leader>hd", gitsigns.diffthis)
+    map('n', '<leader>hd', gitsigns.diffthis)
 
-    map("n", "<leader>hD", function()
-      gitsigns.diffthis("~")
+    map('n', '<leader>hD', function()
+      gitsigns.diffthis('~')
     end)
 
-    map("n", "<leader>hQ", function() gitsigns.setqflist("all") end)
-    map("n", "<leader>hq", gitsigns.setqflist)
+    map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
+    map('n', '<leader>hq', gitsigns.setqflist)
 
     -- Text object
-    map({ "o", "x" }, "ih", gitsigns.select_hunk)
+    map({ 'o', 'x' }, 'ih', gitsigns.select_hunk)
   end,
 })

@@ -1,7 +1,7 @@
 return {
   init_options = {
     settings = {
-      configurationPreference = "filesystemFirst",
+      configurationPreference = 'filesystemFirst',
       -- configuration = {
       --   lint = {
       --     pydocstyle = {
