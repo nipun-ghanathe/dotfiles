@@ -17,6 +17,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Change 'complete' to 'o' on LSP attach
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = augroup,
+  desc = "Change 'complete' to 'o' on LSP attach",
+  callback = function(ev)
+    vim.bo[ev.buf].complete = "o"
+  end,
+})
+
 -- Enable LSP Completion (snippets expansion, text edits, exeucte associated commands etc)
 -- TODO: If newer versions of nvim make this automatic, remove this block
 -- check `:h lsp-completion` to know
@@ -49,14 +58,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         return (item_a.sortText or item_a.label) < (item_b.sortText or item_b.label)
       end,
     })
-  end,
-})
-
--- Change 'complete' to 'o' on LSP attach
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = augroup,
-  desc = "Change 'complete' to 'o' on LSP attach",
-  callback = function(ev)
-    vim.bo[ev.buf].complete = "o"
   end,
 })
