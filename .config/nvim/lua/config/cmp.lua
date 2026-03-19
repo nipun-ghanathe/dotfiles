@@ -1,20 +1,8 @@
 -- Configure autocompletion
 vim.o.autocomplete = true
-vim.o.autocompletedelay = 500
-vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
+vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noselect", "popup" }
 vim.o.pumheight = 5
 vim.o.pummaxwidth = 40
-
--- Disable Enter from accepting selected completion entry
--- vim.keymap.set("i", "<cr>", function()
---   return vim.fn.pumvisible() ~= 0 and "<c-e><cr>" or "<cr>"
--- end, { expr = true })
-vim.keymap.set("i", "<cr>", function()
-  if vim.fn.pumvisible() ~= 0 then
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-e>", true, false, true), "n", false)
-  end
-  vim.api.nvim_feedkeys(require("nvim-autopairs").autopairs_cr(), "n", true)
-end, { expr = true })
 
 -- augroup for completion related autocmds
 local augroup = vim.api.nvim_create_augroup("cmp_user_autocmds", { clear = true })
