@@ -4,6 +4,7 @@ local runners = {
   python = 'uv run',
   sh = 'bash',
   javascript = 'node',
+  typescript = 'node',
   html = 'xdg-open',
 }
 
