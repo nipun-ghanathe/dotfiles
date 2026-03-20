@@ -7,7 +7,7 @@ github-cli
 lazygit
 neovim
 nodejs
-npm
+pnpm
 ripgrep
 stow
 tldr

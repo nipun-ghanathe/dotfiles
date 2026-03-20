@@ -46,7 +46,7 @@ _After stowing dotfiles_
 - Install npm global packages
 
   ```bash
-  npm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
+  pnpm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
   ```
 
 - Setup keyd
