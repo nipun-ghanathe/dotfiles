@@ -17,6 +17,16 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Remove 'fuzzy' from 'cot' for certain filetypes
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  desc = "Remove 'fuzzy' from 'cot' for certain filetypes",
+  pattern = { 'html', 'css' },
+  callback = function()
+    vim.opt_local.completeopt:remove({ 'fuzzy' })
+  end,
+})
+
 -- Change 'complete' to 'o' on LSP attach
 vim.api.nvim_create_autocmd('LspAttach', {
   group = augroup,
