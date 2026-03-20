@@ -1,5 +1,3 @@
-# ~/.bash_profile
-
 # exports
 export EDITOR=nvim
 export VISUAL=nvim
@@ -12,6 +10,7 @@ export LESS="FR"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "$HOME/.npm-global/bin" ]] && export PATH="$HOME/.npm-global/bin:$PATH"
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+export PNPM_HOME="/home/nipun/.local/share/pnpm" && export PATH="$PNPM_HOME:$PATH"
 
 # source .bashrc
 [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
