@@ -1,3 +1,5 @@
+dist/
+
 # Python
 __pycache__/
 *.py[co]
