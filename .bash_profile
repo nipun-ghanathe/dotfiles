@@ -6,11 +6,17 @@ export PAGER="less -FR"
 export LESS="FR"
 
 # paths
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
-[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ -d "$HOME/.npm-global/bin" ]] && export PATH="$HOME/.npm-global/bin:$PATH"
-[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
-export PNPM_HOME="/home/nipun/.local/share/pnpm" && export PATH="$PNPM_HOME:$PATH"
+add_to_path() {
+	case ":$PATH:" in
+		*":$1:") ;;
+		*) [[ -d "$1" ]] && PATH="$1:$PATH" ;;
+	esac
+}
+add_to_path "$HOME/bin"
+add_to_path "$HOME/.local/bin"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+add_to_path "$PNPM_HOME"
+export PATH
 
 # source .bashrc
 [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
