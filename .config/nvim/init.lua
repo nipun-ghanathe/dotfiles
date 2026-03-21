@@ -11,6 +11,8 @@ require('config.pack')
 
 require('config.editing')
 require('config.fzf')
+
+require('config.arglist')
 require('config.format')
 
 require('config.lsp')
