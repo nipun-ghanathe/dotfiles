@@ -10,6 +10,7 @@ vim.lsp.enable({
   'html',
   'cssls',
   'ts_ls',
+  'eslint',
 })
 
 -- Configure diagnostics
