@@ -8,6 +8,8 @@ local function get_extra_config_names(starts_with)
     if type == 'file' and string.sub(name, -4) == '.lua' then
       local base = string.sub(name, 1, -5)
 
+      if base == 'init' then goto continue end
+
       if not starts_with
           or starts_with == ''
           or string.sub(base, 1, #starts_with) == starts_with
@@ -15,6 +17,8 @@ local function get_extra_config_names(starts_with)
         table.insert(result, base)
       end
     end
+
+    ::continue::
   end
 
   return result
