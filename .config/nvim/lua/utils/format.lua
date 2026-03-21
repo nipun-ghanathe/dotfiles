@@ -2,7 +2,14 @@ local M = {}
 
 M.formatter_cmds = {
   prettier = function(fname)
-    return { 'prettier', '--stdin-filepath', fname }
+    return {
+      'prettier',
+      '--config-precedence=prefer-file',
+      '--no-semi',
+      '--single-quote',
+      '--stdin-filepath',
+      fname,
+    }
   end,
 }
 
