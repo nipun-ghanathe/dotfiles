@@ -1,3 +1,5 @@
+vim.g.formatonsave = false
+
 vim.g.format_config = {
   formatter_cmds = {
     prettier = function(fname)
@@ -25,5 +27,3 @@ vim.g.format_config = {
 vim.keymap.set('n', '<leader>gw', function()
   require('utils.format').format_file()
 end, { desc = 'Format File' })
-
-vim.g.formatonsave = false
