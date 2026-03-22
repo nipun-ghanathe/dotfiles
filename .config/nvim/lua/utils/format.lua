@@ -37,17 +37,22 @@ function M.run_formatter(cmd, bufnr)
     return false, 'Formatter not found: ' .. cmd[1]
   end
 
-  local obj = vim.system(cmd, {
-    stdin = vim.api.nvim_buf_get_lines(bufnr, 0, -1, true),
-    text = true,
-  }):wait(2000)
+  local input_lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, true)
+  local input_text = table.concat(input_lines, '\n')
+
+  local obj = vim.system(cmd, { stdin = input_text, text = true }):wait(2000)
 
   if not (obj and obj.code == 0) then
     return false, obj and obj.stderr or 'Formatter failed or timed out'
   end
 
+  local output_text = string.gsub(obj.stdout, '\n$', '')
+  if input_text == output_text then
+    return true
+  end
+
   local view = vim.fn.winsaveview()
-  vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, vim.split(obj.stdout, '\n', { trimempty = true }))
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, vim.split(output_text, '\n'))
   vim.fn.winrestview(view)
 
   return true
