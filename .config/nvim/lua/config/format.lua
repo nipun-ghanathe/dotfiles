@@ -1,4 +1,16 @@
 vim.g.format_config = {
+  formatter_cmds = {
+    prettier = function(fname)
+      return {
+        'prettier',
+        '--config-precedence=prefer-file',
+        '--no-semi',
+        '--single-quote',
+        '--stdin-filepath',
+        fname,
+      }
+    end,
+  },
   formatters_by_ft = {
     javascript = 'prettier',
     typescript = 'prettier',

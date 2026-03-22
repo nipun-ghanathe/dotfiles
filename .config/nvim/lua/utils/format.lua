@@ -1,19 +1,7 @@
 local M = {}
 
-M.formatter_cmds = {
-  prettier = function(fname)
-    return {
-      'prettier',
-      '--config-precedence=prefer-file',
-      '--no-semi',
-      '--single-quote',
-      '--stdin-filepath',
-      fname,
-    }
-  end,
-}
-
 M.default_config = {
+  formatter_cmds = {},
   formatters_by_ft = {},
   organize_imports_filetypes = {},
 }
@@ -35,7 +23,7 @@ function M.get_formatter_cmd(bufnr)
   local fname = vim.api.nvim_buf_get_name(bufnr)
 
   local key = M.config.formatters_by_ft[ft]
-  local formatter = key and M.formatter_cmds[key]
+  local formatter = key and M.config.formatter_cmds[key]
 
   if type(formatter) == 'function' then
     return formatter(fname)
