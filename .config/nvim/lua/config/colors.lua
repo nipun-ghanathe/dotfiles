@@ -1,17 +1,16 @@
-vim.pack.add({ 'https://github.com/rebelot/kanagawa.nvim' })
+vim.pack.add({ 'https://github.com/ellisonleao/gruvbox.nvim' })
 
-require('kanagawa').setup({
-  compile = true,
-  undercurl = false,
-  colors = {
-    theme = {
-      all = {
-        ui = {
-          bg_gutter = 'none',
-        },
-      },
-    },
+require('gruvbox').setup({
+  bold = false,
+  italic = { strings = false },
+  overrides = {
+    SignColumn = { bg = 'NONE' },
+    DiagnosticSignError = { link = 'DiagnosticError' },
+    DiagnosticSignWarn = { link = 'DiagnosticWarn' },
+    DiagnosticSignInfo = { link = 'DiagnosticInfo' },
+    DiagnosticSignHint = { link = 'DiagnosticHint' },
+    DiagnosticSignOk = { link = 'DiagnosticOk' },
   },
 })
 
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('gruvbox')
