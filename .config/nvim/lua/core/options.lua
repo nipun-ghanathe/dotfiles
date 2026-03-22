@@ -10,6 +10,7 @@ vim.o.guicursor = ''
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.hlsearch = false
+vim.o.scrolloff = 5
 vim.o.foldenable = false
 vim.o.exrc = true
 vim.o.swapfile = false
