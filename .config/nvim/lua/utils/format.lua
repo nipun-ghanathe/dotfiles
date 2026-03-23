@@ -1,21 +1,31 @@
 local M = {}
 
+---@class FormatConfig
+---@field formatter_cmds table<string, string[]|fun(fname: string): string[]>
+---@field formatters_by_ft table<string, string>
+---@field organize_imports_filetypes string[]
+
+---@type FormatConfig
 M.default_config = {
   formatter_cmds = {},
   formatters_by_ft = {},
   organize_imports_filetypes = {},
 }
 
+---@return FormatConfig
 local function compute_config()
   return vim.tbl_deep_extend('force', {}, M.default_config, vim.g.format_config or {})
 end
 
+---@type FormatConfig
 M.config = compute_config()
 
 function M.reload_config()
   M.config = compute_config()
 end
 
+---@param bufnr? integer
+---@return string[]|nil
 function M.get_formatter_cmd(bufnr)
   bufnr = bufnr or 0
 
@@ -32,7 +42,12 @@ function M.get_formatter_cmd(bufnr)
   return formatter
 end
 
+---@param cmd string[]
+---@param bufnr? integer
+---@return boolean ok, string? err
 function M.run_formatter(cmd, bufnr)
+  bufnr = bufnr or 0
+
   if vim.fn.executable(cmd[1]) == 0 then
     return false, 'Formatter not found: ' .. cmd[1]
   end
@@ -66,6 +81,7 @@ function M.organize_imports()
   })
 end
 
+---@param bufnr? integer
 function M.format_file(bufnr)
   bufnr = bufnr or 0
   local ft = vim.bo[bufnr].filetype
