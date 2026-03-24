@@ -43,10 +43,9 @@ function M.edit_arglist()
       if not vim.bo[buf].modified then return end
       vim.bo[buf].modified = false
 
-      local lines = vim.tbl_filter(
-        function(value) return value ~= '' end,
-        vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-      )
+      local lines = vim.tbl_filter(function(value)
+        return value ~= ''
+      end, vim.api.nvim_buf_get_lines(buf, 0, -1, false))
 
       vim.cmd('%argdelete')
       if #lines ~= 0 then

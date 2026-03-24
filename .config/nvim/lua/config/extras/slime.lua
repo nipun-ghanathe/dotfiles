@@ -77,8 +77,8 @@ local function jump_cell(direction)
   local pattern = vim.fn['slime#config#resolve']('cell_delimiter')
   if not pattern or pattern == '' then return end
   local search_flags = direction == 'prev' and 'bW'
-      or direction == 'next' and 'W'
-      or ''
+    or direction == 'next' and 'W'
+    or ''
   vim.fn.search(pattern, search_flags)
 end
 
@@ -93,8 +93,8 @@ vim.keymap.set('n', '<c-k>', function() jump_cell('prev') end, { desc = 'Go to p
 -- send lines to repl
 vim.keymap.set('n', '<c-c><c-c>', function()
   return vim.fn['slime#config#resolve']('cell_delimiter') ~= ''
-      and '<Plug>SlimeSendCell'
-      or '<Plug>SlimeParagraphSend'
+    and '<Plug>SlimeSendCell'
+    or '<Plug>SlimeParagraphSend'
 end, { expr = true, desc = 'Slime: Send Cell/Block' })
 vim.keymap.set('n', '<c-c><c-p>', '<Plug>SlimeParagraphSend', { desc = 'Slime: Send Paragraph' })
 vim.keymap.set('n', '<c-c><c-space>', '<Plug>SlimeLineSend', { desc = 'Slime: Send Line' })

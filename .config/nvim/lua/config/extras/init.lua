@@ -10,9 +10,10 @@ local function get_extra_config_names(starts_with)
 
       if base == 'init' then goto continue end
 
-      if not starts_with
-          or starts_with == ''
-          or string.sub(base, 1, #starts_with) == starts_with
+      if
+        not starts_with
+        or starts_with == ''
+        or string.sub(base, 1, #starts_with) == starts_with
       then
         table.insert(result, base)
       end
@@ -26,14 +27,10 @@ end
 
 -- usercmds
 
-vim.api.nvim_create_user_command(
-  'LoadExtra',
-  function(opts)
-    require('config.extras.' .. opts.args)
-  end,
-  {
-    desc = 'Load plugins from config.extras',
-    nargs = 1,
-    complete = get_extra_config_names,
-  }
-)
+vim.api.nvim_create_user_command('LoadExtra', function(opts)
+  require('config.extras.' .. opts.args)
+end, {
+  desc = 'Load plugins from config.extras',
+  nargs = 1,
+  complete = get_extra_config_names,
+})
