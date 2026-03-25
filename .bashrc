@@ -17,7 +17,7 @@ short_prompt='\[\e[0;32m\] \$ \[\e[0m\]'
 PS1=$long_prompt
 # function to toggle between short and long prompt
 toggle_short_prompt() {
-  [[ "$PS1" == "$long_prompt" ]] && PS1="$short_prompt" || PS1="$long_prompt"
+	[[ "$PS1" == "$long_prompt" ]] && PS1="$short_prompt" || PS1="$long_prompt"
 }
 alias tsp="toggle_short_prompt"
 
