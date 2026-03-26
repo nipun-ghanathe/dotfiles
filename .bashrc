@@ -13,7 +13,7 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=1
 long_prompt='\[\e[0;34m\]\w\[\e[0;33m\]$(__git_ps1 " (%s)")\[\e[0;32m\] \$ \[\e[0m\]'
-short_prompt='\[\e[0;32m\] \$ \[\e[0m\]'
+short_prompt='\[\e[0;32m\]\$ \[\e[0m\]'
 PS1=$long_prompt
 # function to toggle between short and long prompt
 toggle_short_prompt() {
