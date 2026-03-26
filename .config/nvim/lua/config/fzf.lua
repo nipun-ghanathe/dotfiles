@@ -11,6 +11,11 @@ fzf.setup({
       ['ctrl-q'] = 'select-all+accept',
     },
   },
+  files = {
+    find_opts = [[-type f \! -path '*/.git/*' \! -path '*/.jj/*']],
+    rg_opts = [[--color=never --files -g "!.git" -g "!.jj"]],
+    fd_opts = [[--color=never --type f --type l --no-require-git --exclude .git --exclude .jj]],
+  },
 })
 
 -- Register fzf-lua as the UI interface for vim.ui.select
