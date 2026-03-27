@@ -32,7 +32,7 @@ work_dir="${work_dir%/}"
 session_name=$(basename "$selected")
 session_name=${session_name//[^a-zA-Z0-9_-]/_}
 
-if ! tmux has-session -t "$session_name" 2>/dev/null; then
+if ! tmux has-session -t ="$session_name" 2>/dev/null; then
 	tmux new -d -s "$session_name" -c "$work_dir"
 	tmux neww -t "$session_name:" -c "$work_dir" nvim
 fi
