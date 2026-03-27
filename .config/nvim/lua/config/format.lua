@@ -10,8 +10,6 @@ require('conform').setup({
     python = { 'ruff_format', 'ruff_organize_imports' },
     javascript = { 'prettier' },
     typescript = { 'prettier' },
-    javascriptreact = { 'prettier' },
-    typescriptreact = { 'prettier' },
   },
   default_format_opts = { timeout_ms = 2000, lsp_format = 'fallback' },
   format_on_save = function(bufnr)

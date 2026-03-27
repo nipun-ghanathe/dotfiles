@@ -16,8 +16,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'javascript',
     'typescript',
-    'javascriptreact',
-    'typescriptreact',
     'sql',
     'html',
     'htmldjango',
