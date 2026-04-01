@@ -6,11 +6,11 @@ vim.o.pumheight = 5
 vim.o.pummaxwidth = 40
 
 -- augroup for completion related autocmds
-local augroup = vim.api.nvim_create_augroup('cmp_user_autocmds', { clear = true })
+local aug = vim.api.nvim_create_augroup('my.cmp', { clear = true })
 
 -- Remove 'fuzzy' from 'cot' for certain filetypes
 vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
+  group = aug,
   desc = "Remove 'fuzzy' from 'cot' for certain filetypes",
   pattern = { 'html', 'css' },
   callback = function()
@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Change 'complete' to 'o' on LSP attach
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = augroup,
+  group = aug,
   desc = "Change 'complete' to 'o' on LSP attach",
   callback = function(ev)
     vim.bo[ev.buf].complete = 'o'
@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- TODO: If newer versions of nvim make this automatic, remove this block
 -- check `:h lsp-completion` to know
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = 'lsp_user_autocmds',
+  group = 'my.lsp',
   desc = 'enable lsp completion (expand snippets, text edits, exectue associated commands etc)',
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)

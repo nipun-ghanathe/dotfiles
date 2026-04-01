@@ -7,8 +7,9 @@ vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>', { desc = 'Explore - Open netrw' 
 vim.keymap.set('n', '<leader>.', '<cmd>e .<cr>', { desc = 'Explore - Open netrw in cwd' })
 
 -- options and mappings inside netrw
+local aug = vim.api.nvim_create_augroup('my.netrw', { clear = true })
 vim.api.nvim_create_autocmd('FileType', {
-  group = 'user_autocmds',
+  group = aug,
   desc = 'options and mappings for netrw ft',
   pattern = 'netrw',
   callback = function()

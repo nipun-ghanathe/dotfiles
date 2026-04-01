@@ -15,7 +15,7 @@ local lang_parsers = {
 
 -- Install/update parsers along with nvim-treesitter
 vim.api.nvim_create_autocmd('PackChanged', {
-  group = 'pack_user_autocmds',
+  group = 'my.pack',
   desc = 'Install/update Treesitter Parsers on PackChanged nvim-treesitter',
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
@@ -35,11 +35,11 @@ vim.api.nvim_create_autocmd('PackChanged', {
 vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
 
 -- Create augroup to use with treesitter related autocmds
-vim.api.nvim_create_augroup('treesitter_user_autocmds', { clear = true })
+local aug = vim.api.nvim_create_augroup('my.treesitter', { clear = true })
 
 -- Enable treesitter features for installed parsers
 vim.api.nvim_create_autocmd('FileType', {
-  group = 'treesitter_user_autocmds',
+  group = aug,
   desc = 'Enabling Treesitter features',
   pattern = lang_parsers,
   callback = function()

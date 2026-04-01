@@ -1,8 +1,8 @@
-vim.api.nvim_create_augroup('user_autocmds', { clear = true })
+local aug = vim.api.nvim_create_augroup('my', { clear = true })
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
-  group = 'user_autocmds',
+  group = aug,
   desc = 'Highlight on yank',
   callback = function()
     vim.hl.on_yank({ higroup = 'Visual', timeout = 200 })
@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Change indentation to two spaces
 vim.api.nvim_create_autocmd('FileType', {
-  group = 'user_autocmds',
+  group = aug,
   desc = 'change indentation to two spaces',
   pattern = {
     'javascript',
@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Remove trailing spaces
 vim.api.nvim_create_autocmd('BufWritePre', {
-  group = 'user_autocmds',
+  group = aug,
   desc = 'remove trailing spaces',
   callback = function()
     local view = vim.fn.winsaveview()

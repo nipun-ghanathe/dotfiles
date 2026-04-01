@@ -4,6 +4,7 @@ require('core.options')
 
 require('config.netrw')
 require('config.code_runners')
+require('config.arglist')
 
 vim.cmd.packadd('nvim.undotree')
 
@@ -12,8 +13,6 @@ require('config.pack')
 require('config.editing')
 require('config.fzf')
 require('config.format')
-
-require('config.arglist')
 
 require('config.lsp')
 require('config.treesitter')

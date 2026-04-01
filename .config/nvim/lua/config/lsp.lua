@@ -24,12 +24,10 @@ vim.diagnostic.config({
   jump = { float = true },
 })
 
--- Create augroup to use with lsp related autocmds
-vim.api.nvim_create_augroup('lsp_user_autocmds', { clear = true })
-
 -- LSP mappings and usercmds
+local aug = vim.api.nvim_create_augroup('my.lsp', { clear = true })
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = 'lsp_user_autocmds',
+  group = 'my.lsp',
   desc = 'Set LSP related keymaps and usercmds',
   callback = function(ev)
     -- Close completion menu if visible and view signature help
