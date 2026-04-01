@@ -9,7 +9,7 @@ local runners = {
 }
 
 -- function to set mappings
-local function map(key, term_cmd, opts)
+local function map_run_command(key, term_cmd, opts)
   opts = opts or {}
   local defaults = {
     startinsert = true,
@@ -34,6 +34,6 @@ local function map(key, term_cmd, opts)
 end
 
 -- map <localleader>r{key} to run code using {term_cmd}
-map('s', 'bo vert term')
-map('h', 'bo hor term')
-map('r', 'silent !', { startinsert = false })
+map_run_command('s', 'bo vert term')
+map_run_command('h', 'bo hor term')
+map_run_command('r', 'silent !', { startinsert = false })
