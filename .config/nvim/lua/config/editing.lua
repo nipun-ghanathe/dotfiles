@@ -19,6 +19,6 @@ npairs.add_rules({
 
 vim.api.nvim_create_user_command('AutopairsToggle', function()
   npairs.toggle()
-  print('Autopairs enabled: ' .. tostring(not npairs.state.disabled))
+  vim.notify('Autopairs enabled: ' .. tostring(not npairs.state.disabled), vim.log.levels.INFO)
 end, { desc = 'Toggle Autopairs' })
 vim.keymap.set('n', '<leader>tp', '<cmd>AutopairsToggle<cr>', { desc = 'Toggle Autopairs' })
