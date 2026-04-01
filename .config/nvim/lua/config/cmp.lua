@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Enable LSP Completion (snippets expansion, text edits, exeucte associated commands etc)
+-- Enable LSP Completion (snippets expansion, text edits, execute associated commands etc)
 -- TODO: If newer versions of nvim make this automatic, remove this block
 -- check `:h lsp-completion` to know
 vim.api.nvim_create_autocmd('LspAttach', {
