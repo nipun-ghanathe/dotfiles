@@ -19,9 +19,7 @@ vim.diagnostic.config({
   virtual_text = false,
   virtual_lines = false,
   severity_sort = false,
-  signs = {
-    severity = { min = vim.diagnostic.severity.INFO },
-  },
+  signs = true,
   float = { source = true },
   jump = { float = true },
 })
