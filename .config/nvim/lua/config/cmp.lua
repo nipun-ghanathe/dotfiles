@@ -1,21 +1,12 @@
 -- Configure autocompletion
 vim.o.autocomplete = true
+vim.o.autocompletedelay = 1000
 vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noselect', 'popup' }
 vim.o.pumheight = 5
 vim.o.pummaxwidth = 40
 
 -- augroup for completion related autocmds
 local augroup = vim.api.nvim_create_augroup('cmp_user_autocmds', { clear = true })
-
--- Disable autocompletion for certain filetypes
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  desc = 'Disable autocompletion for certain filetypes',
-  pattern = { 'git' },
-  callback = function(ev)
-    vim.bo[ev.buf].autocomplete = false
-  end,
-})
 
 -- Remove 'fuzzy' from 'cot' for certain filetypes
 vim.api.nvim_create_autocmd('FileType', {
