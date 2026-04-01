@@ -48,11 +48,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.diagnostic.config({ underline = not vim.diagnostic.config().underline })
       vim.notify('underline diagnostics: ' .. tostring(vim.diagnostic.config().underline))
     end, { desc = 'Toggle underline for diagnostics' })
+    vim.keymap.set(
+      'n',
+      '<localleader>tdu',
+      '<cmd>DiagnosticsUnderlineToggle<cr>',
+      { desc = 'Toggle Diagnostics Underline' }
+    )
 
     -- Toggle virtual_text in diagnostic.config
     vim.api.nvim_buf_create_user_command(ev.buf, 'DiagnosticsVirtualTextToggle', function()
       vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
       vim.notify('virtual_text for diagnostics: ' .. tostring(vim.diagnostic.config().virtual_text))
     end, { desc = 'Toggle virtual text for diagnostics' })
+    vim.keymap.set(
+      'n',
+      '<localleader>tdv',
+      '<cmd>DiagnosticsVirtualTextToggle<cr>',
+      { desc = 'Toggle Diagnostics Virtual Text' }
+    )
   end,
 })
