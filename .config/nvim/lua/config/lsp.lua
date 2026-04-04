@@ -3,7 +3,7 @@ vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' })
 -- Enable LSPs
 vim.lsp.enable({
   'lua_ls',
-  'pyright',
+  'basedpyright',
   'ruff',
   'clangd',
   'emmet_language_server',

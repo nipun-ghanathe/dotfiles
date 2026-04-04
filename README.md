@@ -49,6 +49,14 @@ _After stowing dotfiles_
   pnpm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
   ```
 
+- Install uv global packages
+
+  ```bash
+  while IFS= read -r line; do
+    uv tool install "$line"
+  done < "$HOME/dotfiles/extras/pkglists/uv.txt"
+  ```
+
 - Setup keyd
 
   ```bash
