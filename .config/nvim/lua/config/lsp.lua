@@ -24,10 +24,29 @@ vim.diagnostic.config({
   jump = { float = true },
 })
 
--- LSP mappings and usercmds
+-- augroup for lsp related autocmds
 local aug = vim.api.nvim_create_augroup('my.lsp', { clear = true })
+
+-- Change complete to 'o' on lsp attach and
+-- Enable LSP Completion (snippets expansion, text edits, execute associated commands etc)
+-- TODO: If newer versions of nvim make this automatic, remove this block
+-- check `:h lsp-completion` to know
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = 'my.lsp',
+  group = aug,
+  desc = 'enable lsp completion (expand snippets, text edits, exectue associated commands etc)',
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if not client or not client:supports_method(vim.lsp.protocol.Methods.textDocument_completions) then
+      return
+    end
+    vim.bo[ev.buf].complete = 'o'
+    vim.lsp.completion.enable(true, client.id, ev.buf)
+  end,
+})
+
+-- LSP mappings and usercmds
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = aug,
   desc = 'Set LSP related keymaps and usercmds',
   callback = function(ev)
     -- Close completion menu if visible and view signature help

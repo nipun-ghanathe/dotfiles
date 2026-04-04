@@ -41,3 +41,13 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.fn.winrestview(view)
   end,
 })
+
+-- Remove 'fuzzy' from 'cot' for certain filetypes
+vim.api.nvim_create_autocmd('FileType', {
+  group = aug,
+  desc = "Remove 'fuzzy' from 'cot' for certain filetypes",
+  pattern = { 'html', 'css' },
+  callback = function()
+    vim.opt_local.completeopt:remove({ 'fuzzy' })
+  end,
+})

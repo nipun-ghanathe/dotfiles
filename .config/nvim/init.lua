@@ -16,7 +16,6 @@ require('config.format')
 
 require('config.lsp')
 require('config.treesitter')
-require('config.cmp')
 require('config.snippets')
 
 require('config.colors')
