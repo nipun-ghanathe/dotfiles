@@ -10,6 +10,10 @@ local lang_parsers = {
   'sql',
   'javascript',
   'typescript',
+  'javascriptreact',
+  'typescriptreact',
+  'jsx',
+  'tsx',
   'markdown',
 }
 
