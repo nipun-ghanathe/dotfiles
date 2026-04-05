@@ -1,2 +1,2 @@
-vim.pack.add({ 'https://github.com/loctvl842/monokai-pro.nvim' })
-vim.cmd.colorscheme('monokai-pro-classic')
+vim.pack.add({ 'https://github.com/rebelot/kanagawa.nvim' })
+vim.cmd.colorscheme('kanagawa')
