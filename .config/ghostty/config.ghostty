@@ -1,8 +1,0 @@
-theme = Monokai Classic
-
-font-family = CaskaydiaCove Nerd Font
-font-size = 15
-
-window-show-tab-bar = always
-shell-integration-features = no-cursor
-bell-features = no-title
