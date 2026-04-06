@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey 2
+#Requires AutoHotkey 2
 
 ih := InputHook('L1')
 CapsLock Up::ih.Stop
