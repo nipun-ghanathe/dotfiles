@@ -18,7 +18,7 @@ sway
 swayidle
 swaylock
 ttf-dejavu
-ttf-cascadia-code-nerd
+ttf-firacode-nerd
 wireplumber
 wl-clipboard
 wmenu

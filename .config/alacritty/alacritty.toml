@@ -2,8 +2,8 @@
 import = [ "kanagawa.toml" ]
 
 [font]
-normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
-size = 15
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+size = 14
 
 [mouse]
 hide_when_typing = true
