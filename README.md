@@ -32,6 +32,7 @@ Stow dotfiles
 
 ```bash
 cd "$HOME/dotfiles"
+mkdir "$HOME/.local"
 stow .
 ```
 
