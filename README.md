@@ -46,7 +46,7 @@ _After stowing dotfiles_
 - Install npm global packages
 
   ```bash
-  pnpm install -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
+  pnpm add -g $(cat "$HOME/dotfiles/extras/pkglists/npm.txt")
   ```
 
 - Install uv global packages
