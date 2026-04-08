@@ -1,5 +1,5 @@
 [general]
-import = [ "kanagawa.toml" ]
+import = [ "gruvbox.toml" ]
 
 [font]
 normal = { family = "FiraCode Nerd Font", style = "Regular" }
