@@ -1,2 +1,2 @@
-vim.pack.add({ 'https://github.com/rebelot/kanagawa.nvim' })
-vim.cmd.colorscheme('kanagawa')
+vim.pack.add({ 'https://github.com/ellisonleao/gruvbox.nvim' })
+vim.cmd.colorscheme('gruvbox')
