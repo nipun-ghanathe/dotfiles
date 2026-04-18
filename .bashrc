@@ -33,5 +33,9 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 # shell integrations
-eval "$(uv generate-shell-completion bash)"
-eval "$(fzf --bash)"
+if command -v uv >/dev/null; then
+	eval "$(uv generate-shell-completion bash)"
+fi
+if command -v fzf >/dev/null; then
+	eval "$(fzf --bash)"
+fi
