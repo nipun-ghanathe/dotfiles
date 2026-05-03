@@ -1,5 +1,6 @@
 set $term foot
-set $menu wmenu-run -i
 set $dmenu wmenu -i
+set $menu j4-dmenu-desktop -d '$dmenu' -t '$term'
+set $menu-run wmenu-run -i
 set $file_browser pcmanfm
 set $browser brave

@@ -4,6 +4,7 @@ brightnessctl
 cliphist
 foot
 i3status-rust
+j4-dmenu-desktop
 keyd
 libnotify
 libpulse
