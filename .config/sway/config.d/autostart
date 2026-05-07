@@ -1,4 +1,4 @@
-exec swaymsg 'workspace 1; exec $term --fullscreen'
+exec swaymsg 'workspace 1; exec $term --fullscreen=true'
 exec swaymsg 'workspace 2; exec $browser'
 
 exec swayidle -w \
