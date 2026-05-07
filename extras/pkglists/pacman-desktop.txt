@@ -2,7 +2,7 @@ bluez
 bluez-utils
 brightnessctl
 cliphist
-foot
+ghostty
 i3status-rust
 j4-dmenu-desktop
 keyd

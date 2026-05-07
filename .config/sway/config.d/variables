@@ -1,4 +1,4 @@
-set $term foot
+set $term ghostty
 set $dmenu wmenu -i
 set $menu j4-dmenu-desktop -d '$dmenu' -t '$term'
 set $menu-run wmenu-run -i
