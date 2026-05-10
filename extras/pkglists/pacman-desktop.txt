@@ -11,6 +11,7 @@ keyd
 libnotify
 libpulse
 mako
+noto-fonts
 noto-fonts-emoji
 pipewire
 pipewire-alsa
@@ -20,7 +21,6 @@ rofi
 sway
 swayidle
 swaylock
-ttf-dejavu
 ttf-firacode-nerd
 waybar
 wireplumber
