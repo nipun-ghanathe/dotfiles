@@ -4,6 +4,7 @@ vim.o.relativenumber = true
 vim.o.colorcolumn = '80'
 vim.o.signcolumn = 'no'
 vim.o.wrap = false
+vim.o.winborder = 'rounded'
 vim.o.pumheight = 5
 vim.o.pummaxwidth = 40
 
