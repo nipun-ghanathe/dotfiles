@@ -9,6 +9,8 @@ window-theme = ghostty
 window-show-tab-bar = always
 gtk-wide-tabs = false
 
+# update title when more options are given rather than a static title or shell-integration
+title = ghostty
 mouse-hide-while-typing = true
 focus-follows-mouse = true
 confirm-close-surface = false
