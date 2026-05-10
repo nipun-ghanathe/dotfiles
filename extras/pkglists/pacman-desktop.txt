@@ -3,7 +3,6 @@ bluez-utils
 brightnessctl
 cliphist
 ghostty
-i3status-rust
 keyd
 libnotify
 libpulse
@@ -20,6 +19,7 @@ swayidle
 swaylock
 ttf-dejavu
 ttf-firacode-nerd
+waybar
 wireplumber
 wl-clipboard
 xdg-desktop-portal
