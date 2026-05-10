@@ -3,6 +3,10 @@ bluez-utils
 brightnessctl
 cliphist
 ghostty
+hypridle
+hyprland
+hyprlock
+hyprpolkitagent
 keyd
 libnotify
 libpulse
@@ -12,7 +16,6 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-polkit
 rofi
 sway
 swayidle
@@ -23,5 +26,5 @@ waybar
 wireplumber
 wl-clipboard
 xdg-desktop-portal
-xdg-desktop-portal-wlr
+xdg-desktop-portal-hyprland
 xdg-utils
