@@ -4,7 +4,6 @@ brightnessctl
 cliphist
 ghostty
 i3status-rust
-j4-dmenu-desktop
 keyd
 libnotify
 libpulse
@@ -15,6 +14,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 polkit
+rofi
 sway
 swayidle
 swaylock
@@ -22,7 +22,6 @@ ttf-dejavu
 ttf-firacode-nerd
 wireplumber
 wl-clipboard
-wmenu
 xdg-desktop-portal
 xdg-desktop-portal-wlr
 xdg-utils

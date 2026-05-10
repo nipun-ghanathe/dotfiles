@@ -11,7 +11,6 @@ bindsym $mod+Shift+r reload
 # Launch apps
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
-bindsym $mod+Shift+d exec $menu-run
 bindsym $mod+e exec $file_browser
 bindsym $mod+o exec $browser
 
