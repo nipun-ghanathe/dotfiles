@@ -3,8 +3,6 @@ bash-completion
 fd
 fzf
 git
-github-cli
-lazygit
 neovim
 nodejs
 pnpm
