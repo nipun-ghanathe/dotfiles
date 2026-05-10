@@ -6,15 +6,15 @@ vim.g.slime_no_mappings = true
 
 vim.g.slime_bracketed_paste = true
 
-vim.g.slime_target = 'tmux'
-vim.g.slime_default_config = { socket_name = 'default', target_pane = ':.1' }
-vim.g.slime_dont_ask_default = true
+-- vim.g.slime_target = 'tmux'
+-- vim.g.slime_default_config = { socket_name = 'default', target_pane = ':.1' }
+-- vim.g.slime_dont_ask_default = true
 
--- vim.g.slime_target = "nvim"
--- vim.g.slime_input_pid = false
--- vim.g.slime_suggest_default = true
--- vim.g.slime_menu_config = false
--- vim.g.slime_neovim_ignore_unlisted = false
+vim.g.slime_target = 'neovim'
+vim.g.slime_input_pid = false
+vim.g.slime_suggest_default = true
+vim.g.slime_menu_config = false
+vim.g.slime_neovim_ignore_unlisted = false
 
 ---------------
 --- Packadd ---
