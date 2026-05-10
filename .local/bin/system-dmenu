@@ -1,7 +1,7 @@
 #!/bin/bash
 
 selected=$(
-	cat <<EOF | wmenu -i -l 6
+	cat <<EOF | rofi -dmenu
 Power off
 Reboot
 Lock
