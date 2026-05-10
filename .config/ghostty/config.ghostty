@@ -1,4 +1,6 @@
-theme = Ayu
+theme = Monokai Classic
+cursor-color = cell-foreground
+cursor-text = cell-background
 
 font-family = FiraCode Nerd Font
 font-size = 14
