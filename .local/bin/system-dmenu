@@ -15,7 +15,7 @@ case "$selected" in
 	"Power off") systemctl poweroff ;;
 	"Reboot") systemctl reboot ;;
 	"Lock") hyprlock ;;
-	"Log out") hyprctl dispatch exit ;;
+	"Log out") hyprctl dispatch 'hl.dsp.exit()' ;;
 	"Suspend") systemctl suspend ;;
 	"Hibernate") systemctl hibernate ;;
 esac
