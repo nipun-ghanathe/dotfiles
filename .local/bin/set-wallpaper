@@ -2,4 +2,4 @@
 
 pkill swaybg
 
-swaybg -i "$(shuf -n 1 <(find $HOME/dotfiles/extras/wallpapers))"
+swaybg -i "$(shuf -n 1 <(find $HOME/dotfiles/extras/wallpapers -type f))"
