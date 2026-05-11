@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill swaybg
+
+swaybg -i "$(shuf -n 1 <(find $HOME/dotfiles/extras/wallpapers))"
