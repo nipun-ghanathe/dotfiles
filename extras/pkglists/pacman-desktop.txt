@@ -18,9 +18,6 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 rofi
-sway
-swayidle
-swaylock
 ttf-firacode-nerd
 waybar
 wireplumber
