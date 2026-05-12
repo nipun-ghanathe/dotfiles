@@ -56,8 +56,8 @@ hl.bind(mod .. ' + SHIFT + MINUS', hl.dsp.window.move({ workspace = 'special:mag
 hl.bind(mod .. ' + MINUS', hl.dsp.workspace.toggle_special('magic'))
 
 -- Scroll through existing workspaces
-hl.bind(mod .. ' + mouse_down', hl.dsp.focus({ workspace = 'e+1' }))
-hl.bind(mod .. ' + mouse_up', hl.dsp.focus({ workspace = 'e-1' }))
+hl.bind(mod .. ' + mouse_up', hl.dsp.focus({ workspace = 'e+1' }))
+hl.bind(mod .. ' + mouse_down', hl.dsp.focus({ workspace = 'e-1' }))
 
 -- Move/resize windows with mod + LMB/RMB dragging
 hl.bind(mod .. ' + mouse:272', hl.dsp.window.drag(), { mouse = true })
