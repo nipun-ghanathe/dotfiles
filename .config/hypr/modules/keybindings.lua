@@ -53,7 +53,7 @@ end
 
 -- Special workspace (scratchpad)
 hl.bind(mod .. ' + SHIFT + MINUS', hl.dsp.window.move({ workspace = 'special:magic' }))
--- hl.bind(mod .. ' + MINUS', hl.dsp.workspace.toggle('magic'))
+hl.bind(mod .. ' + MINUS', hl.dsp.workspace.toggle_special('magic'))
 
 -- Scroll through existing workspaces
 hl.bind(mod .. ' + mouse_down', hl.dsp.focus({ workspace = 'e+1' }))
