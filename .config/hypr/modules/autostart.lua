@@ -3,6 +3,7 @@ local vars = require('modules.vars')
 hl.on('hyprland.start', function()
   -- Utilities
   hl.exec_cmd('waybar')
+  hl.exec_cmd('~/.local/bin/set-wallpaper')
   hl.exec_cmd('hypridle')
   hl.exec_cmd('systemctl --user start hyprpolkitagent')
 
