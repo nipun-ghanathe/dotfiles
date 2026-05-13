@@ -10,6 +10,6 @@ hl.on('hyprland.start', function()
   hl.exec_cmd('wl-paste --watch cliphist store')
 
   -- Apps
-  hl.exec_cmd(vars.terminal, { workspace = '1 silent', no_initial_focus = true })
+  hl.exec_cmd(vars.terminal, { workspace = '1 silent' })
   hl.exec_cmd(vars.browser, { workspace = '2 silent' })
 end)
