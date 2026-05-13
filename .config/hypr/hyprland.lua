@@ -1,7 +1,7 @@
+require('modules.env_vars')
 require('modules.output')
 require('modules.input')
 require('modules.vars')
-require('modules.env_vars')
 require('modules.autostart')
 require('modules.behavior')
 require('modules.appearance')
