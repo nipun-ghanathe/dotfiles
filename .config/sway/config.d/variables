@@ -1,5 +1,0 @@
-set $term ghostty
-set $dmenu rofi -dmenu
-set $menu rofi -show drun
-set $file_browser pcmanfm
-set $browser brave
