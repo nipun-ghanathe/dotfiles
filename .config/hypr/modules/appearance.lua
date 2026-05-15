@@ -49,11 +49,11 @@ hl.config({
     rounding_power = 2,
 
     shadow = {
-      enabled = true,
+      enabled = false,
     },
 
     blur = {
-      enabled = true,
+      enabled = false,
     },
   },
 
