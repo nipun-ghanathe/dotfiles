@@ -38,10 +38,10 @@ hl.bind(mod .. ' + TAB', function()
 end)
 
 -- Move window
-hl.bind(mod .. ' + SHIFT + ' .. left, hl.dsp.window.move({ direction = 'left' }))
-hl.bind(mod .. ' + SHIFT + ' .. down, hl.dsp.window.move({ direction = 'down' }))
-hl.bind(mod .. ' + SHIFT + ' .. up, hl.dsp.window.move({ direction = 'up' }))
-hl.bind(mod .. ' + SHIFT + ' .. right, hl.dsp.window.move({ direction = 'right' }))
+hl.bind(mod .. ' + SHIFT + ' .. left, hl.dsp.window.move({ group_aware = true, direction = 'left' }))
+hl.bind(mod .. ' + SHIFT + ' .. down, hl.dsp.window.move({ group_aware = true, direction = 'down' }))
+hl.bind(mod .. ' + SHIFT + ' .. up, hl.dsp.window.move({ group_aware = true, direction = 'up' }))
+hl.bind(mod .. ' + SHIFT + ' .. right, hl.dsp.window.move({ group_aware = true, direction = 'right' }))
 
 -- Switch workspaces
 -- Move active window to workspace
