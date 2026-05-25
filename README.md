@@ -108,5 +108,4 @@ _After stowing dotfiles_
 # TODOs
 
 - [ ] Add custom snippets to Neovim
-- [ ] If you use a colorscheme for more than a year replace graphite dark with that colorscheme
 - [ ] Make a way to automate the setup - script / ISO
