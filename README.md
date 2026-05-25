@@ -107,5 +107,6 @@ _After stowing dotfiles_
 
 # TODOs
 
+- [ ] Remove useless tmux things no longer in use
 - [ ] Add custom snippets to Neovim
 - [ ] Make a way to automate the setup - script / ISO
